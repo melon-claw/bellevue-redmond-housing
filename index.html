@@ -102,15 +102,15 @@ a.zlink:hover{ color:#2c5fd6; }
     <table class="school">
       <thead><tr><th>Elementary (district)</th><th>GreatSchools</th><th>Test (M / R)</th><th>Boundary &amp; commute</th></tr></thead>
       <tbody>
-        <tr><td>John J. Audubon — Redmond (LWSD)</td><td><span class="chip good">9 / 10</span></td><td>83% / 87%</td><td>Tight Idylwood/Ardmore-edge zone (often 0–1 listings); closest to Microsoft &amp; SR-520</td></tr>
-        <tr><td>Somerset — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>91% / 92%</td><td>Top-1% scores in WA; hilly Somerset, larger/pricier homes; I-90 &amp; Factoria, ~15 min to downtown Bellevue</td></tr>
+        <tr><td>John J. Audubon — Redmond (LWSD)</td><td><span class="chip good">9 / 10</span></td><td>81% / 82%</td><td>Tight Idylwood/Ardmore-edge zone (often 0–1 listings); closest to Microsoft &amp; SR-520</td></tr>
+        <tr><td>Somerset — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>92% / 92%</td><td>Top-1% scores in WA; hilly Somerset, larger/pricier homes; I-90 &amp; Factoria, ~15 min to downtown Bellevue</td></tr>
         <tr><td>Woodridge — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>81% / 82%</td><td>Central Bellevue near I-90/Richards Rd; shortest commute; small catchment</td></tr>
-        <tr><td>Newport Heights — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>76% / 81%</td><td>Newport Hills / Forest Park with trails; near I-405 &amp; I-90</td></tr>
+        <tr><td>Newport Heights — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>76% / 74%</td><td>Newport Hills / Forest Park with trails; near I-405 &amp; I-90</td></tr>
         <tr><td>Ardmore — Bellevue (BSD)</td><td><span class="chip low">4 / 10</span></td><td>—</td><td>Zone of reference home 16813 NE 33rd St — the contrast to avoid</td></tr>
       </tbody>
     </table>
     <p class="note"><strong>Takeaway:</strong> All four target catchments carry a 9/10 GreatSchools rating — a clear step up from the reference home's Ardmore zone (4/10). Somerset posts the strongest scores but the priciest, hilliest homes; Audubon's catchment is tiny (frequently 0–1 listings) and nearest Microsoft; Newport Heights and Woodridge give the most central Bellevue commutes. Use the <strong>school filter</strong> below to compare homes by catchment, and always confirm a specific address's exact assignment with the district boundary tool.</p>
-    <p class="note">Source: school ratings &amp; test scores are taken from each school's GreatSchools profile (greatschools.org), verified June 2026. These figures update yearly and are <strong>not</strong> changed by the automated weekly refresh — re-check the current profile before relying on them.</p>
+    <p class="note">Source: school ratings &amp; test scores are taken from each school's GreatSchools profile (greatschools.org), verified June 2026 — math &amp; reading (ELA) from the 2024-25 WA OSPI assessments. These figures update yearly and are <strong>not</strong> changed by the automated weekly refresh — re-check the current profile before relying on them.</p>
   </div>
 
   <h2>Filters</h2>
@@ -195,6 +195,10 @@ a.zlink:hover{ color:#2c5fd6; }
 const DATA = {
   updated: "2026-06-28",
   changelog: [
+    {date:"2026-06-28", items:[
+      "<span class=\"cl-new\">Data check</span> Verified all four schools' test scores directly against their GreatSchools profiles (2024-25 WA OSPI): Audubon 81/82, Somerset 92/92, Woodridge 81/82, Newport Hts 76/74 (math/reading).",
+      "Corrected three figures to the primary source: Audubon (was 83/87), Somerset math (was 91), Newport Heights reading (was 81)."
+    ]},
     {date:"2026-06-28", items:[
       "<span class=\"cl-new\">v5 — Issue fixes</span> Resolved three reported issues (#1, #2, #3).",
       "#1 Clearer calculator label — principal now reads \"equity you keep — not a true cost\".",
