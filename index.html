@@ -75,6 +75,10 @@ a.zlink:hover{ color:#2c5fd6; }
 .cl-entry ul{ margin:6px 0 0; padding-left:18px; }
 .cl-entry li{ font-size:13px; margin:2px 0; }
 .cl-new{ color:#1e8e4e; font-weight:700; } .cl-drop{ color:#c0392b; font-weight:700; } .cl-off{ color:#8a94a3; font-weight:700; }
+.cutbadge{ display:inline-block; background:#fff0e8; color:#d2451e; font-size:11px; font-weight:800; padding:1px 6px; border-radius:5px; margin-left:6px; white-space:nowrap; }
+.cutchip{ font-size:13px; font-weight:800; padding:6px 13px; border-radius:20px; border:1px solid #ffd2bd; background:#fff4ee; color:#d2451e; cursor:pointer; }
+.cutchip.active{ background:#d2451e; color:#fff; border-color:#d2451e; }
+.ck{ font-size:12px; font-weight:700; display:inline-flex; align-items:center; gap:6px; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -124,7 +128,11 @@ a.zlink:hover{ color:#2c5fd6; }
     <button class="preset" id="schAll">All</button>
     <button class="preset" id="schNone">None</button>
   </div>
-  <p class="note">Filters apply together (price AND school) to the map and the listings table below.</p>
+  <div class="filterbar" style="margin-top:10px">
+    <button class="cutchip" id="cutChip">🔻 Recent price cuts: <span id="cutCount">0</span></button>
+    <label class="ck"><input type="checkbox" id="cutsFirst"> Price cuts first</label>
+  </div>
+  <p class="note">Filters apply together (price AND school) to the map and the listings table below. Price cuts are flagged within the last 30 days.</p>
 
   <h2>Map view</h2>
   <div class="dotlegend" id="dotlegend"></div>
@@ -186,6 +194,10 @@ a.zlink:hover{ color:#2c5fd6; }
 const DATA = {
   updated: "2026-06-28",
   changelog: [
+    {date:"2026-06-28", items:[
+      "<span class=\"cl-new\">v4 — Price-cut spotlight</span> Listings with a recent price drop now show a red badge, an orange map pin, and can sort to the top.",
+      "Added a \"Recent price cuts\" filter chip; the window is 30 days (configurable via PRICE_CUT_WINDOW_DAYS)."
+    ]},
     {date:"2026-06-28", items:[
       "<span class=\"cl-new\">v3 — School expansion</span> Added Somerset, Woodridge &amp; Newport Heights catchments (all 9/10) alongside Audubon.",
       "Every listing now tagged by school zone, with a new <b>school filter</b> and map colors by catchment.",
@@ -283,7 +295,7 @@ const DATA = {
     {addr:"627 166th Ave NE", city:"Bellevue", zip:"98008", price:1550000, beds:4, baths:2, sqft:1710, sd:"BSD", school:"Bellevue 98008", note:""},
     {addr:"3328 168th Pl SE", city:"Bellevue", zip:"98008", price:1579000, beds:4, baths:3, sqft:2340, sd:"BSD", school:"Bellevue 98008", note:"Lake Sammamish"},
     {addr:"16701 SE 23rd Pl", city:"Bellevue", zip:"98008", price:1599000, beds:5, baths:3, sqft:2580, sd:"BSD", school:"Bellevue 98008", note:""},
-    {addr:"3027 167th Ave NE", city:"Bellevue", zip:"98008", price:1697000, beds:4, baths:3, sqft:3370, sd:"BSD", school:"Bellevue 98008", note:"$100k price drop"},
+    {addr:"3027 167th Ave NE", city:"Bellevue", zip:"98008", price:1697000, beds:4, baths:3, sqft:3370, sd:"BSD", school:"Bellevue 98008", note:"$100k price drop", cut:100000, cutDate:"2026-06-28"},
     {addr:"16438 SE 22nd St", city:"Bellevue", zip:"98008", price:1750000, beds:4, baths:2.5, sqft:2310, sd:"BSD", school:"Bellevue 98008", note:""},
     {addr:"1759 173rd Ave NE", city:"Bellevue", zip:"98008", price:1798000, beds:4, baths:3, sqft:2470, sd:"BSD", school:"Bellevue 98008", note:"Full remodel"},
     {addr:"17816 NE 12th St", city:"Bellevue", zip:"98008", price:1799990, beds:5, baths:3, sqft:3140, sd:"BSD", school:"Bellevue 98008", note:"Bretton Wood"},
@@ -300,6 +312,13 @@ const SCHOOL_META = [
   {key:"Bellevue 98008",  label:"Bellevue 98008", color:"#757575"}
 ];
 const SCOLOR = Object.fromEntries(SCHOOL_META.map(s=>[s.key,s.color]));
+// ----- price-cut emphasis (v4) -----
+const PRICE_CUT_WINDOW_DAYS = 30;   // a price cut counts as "recent" within this many days
+const CUT_COLOR = "#ff7a18";
+function fmtShort(n){ return n>=1000? "$"+Math.round(n/1000)+"K" : "$"+n; }
+function daysSince(d){ if(!d) return Infinity; return Math.floor((Date.now()-new Date(d+"T00:00:00").getTime())/86400000); }
+function isRecentCut(x){ return !!(x && x.cut>0 && x.cutDate && daysSince(x.cutDate) <= PRICE_CUT_WINDOW_DAYS); }
+function cutLabel(x){ const d=daysSince(x.cutDate); return "↓ "+fmtShort(x.cut)+" · "+(d<=0?"new":d+"d ago"); }
 // ---------------------------------------------
 
 const fmt = n => "$"+Math.round(n).toLocaleString();
@@ -351,6 +370,7 @@ document.getElementById("schNone").addEventListener("click",()=>{ activeSchools.
 // map legend
 document.getElementById("dotlegend").innerHTML =
   SCHOOL_META.map(s=>`<span><span class="dot" style="background:${s.color}"></span>${s.label}</span>`).join("")+
+  `<span><span class="dot" style="background:${CUT_COLOR}"></span>Recent price cut</span>`+
   `<span><span class="dot" style="background:#fff;border:2px solid #c01c54"></span>Reference home (toured)</span>`;
 
 // ---- chart ----
@@ -381,11 +401,12 @@ function schoolCell(k){ return gridjs.html(`<span class="schip"><span class="sw"
 let grid;
 function rowsFor(rows){ return rows.map(x=>[x.addr,x.city,x.price,x.beds,x.baths,x.sqft,x.school,L.indexOf(x)]); }
 function renderTable(rows){
+  if(cutsFirst){ rows=rows.slice().sort((a,b)=>{ const ra=isRecentCut(a), rb=isRecentCut(b); if(ra!==rb) return ra?-1:1; if(ra&&rb) return daysSince(a.cutDate)-daysSince(b.cutDate); return a.price-b.price; }); }
   const cfg={
     columns:[
       {name:"Address", formatter:(_,r)=>addrCell(L[r.cells[7].data])},
       "City",
-      {name:"Price", formatter:c=>fmt(c), sort:{compare:(a,b)=>a-b}},
+      {name:"Price", formatter:(c,row)=>{ const x=L[row.cells[7].data]; return gridjs.html(fmt(c)+(isRecentCut(x)?` <span class="cutbadge" title="Recent price cut">${cutLabel(x)}</span>`:``)); }, sort:{compare:(a,b)=>a-b}},
       "Beds","Baths",
       {name:"SqFt", formatter:c=>c.toLocaleString()},
       {name:"School", formatter:c=>schoolCell(c)},
@@ -427,7 +448,7 @@ function drawMarkers(rows){
   const bounds=[];
   rows.forEach(x=>{
     const c=coords[keyOf(x)]; if(!c) return;
-    const mk=window.L.circleMarker(c,{radius:8, color:x.toured?"#c01c54":"#fff", weight:x.toured?3:2, fillColor:(SCOLOR[x.school]||"#999"), fillOpacity:0.95}).addTo(markersLayer);
+    const mk=window.L.circleMarker(c,{radius:8, color:x.toured?"#c01c54":"#fff", weight:x.toured?3:2, fillColor:(isRecentCut(x)?CUT_COLOR:(SCOLOR[x.school]||"#999")), fillOpacity:0.95}).addTo(markersLayer);
     mk.bindPopup(`<b>${x.addr}</b><br>${fmt(x.price)} · ${x.beds}bd/${x.baths}ba · ${x.sqft.toLocaleString()} sqft<br><b>${x.school}</b><br>`+
       `<a href="${zillowURL(x)}" target="_blank">Zillow</a> · <a href="${redfinURL(x)}" target="_blank">Redfin</a> · <a href="${mapsURL(x)}" target="_blank">Maps</a>`);
     bounds.push(c);
@@ -448,12 +469,16 @@ function drawMarkers(rows){
 })();
 
 // ---- filter orchestration ----
+let cutsOnly=false, cutsFirst=false;
 function current(){
   const lo=+fmin.value, hi=+fmax.value;
-  return L.filter(x=> x.price>=lo && x.price<=hi && activeSchools.has(x.school));
+  return L.filter(x=> x.price>=lo && x.price<=hi && activeSchools.has(x.school) && (!cutsOnly || isRecentCut(x)));
 }
 function applyFilter(){
   if(+fmin.value > +fmax.value){ fmax.value = fmin.value; }
+  const lo=+fmin.value, hi=+fmax.value;
+  const cutN = L.filter(x=> x.price>=lo && x.price<=hi && activeSchools.has(x.school) && isRecentCut(x)).length;
+  document.getElementById("cutCount").textContent = cutN;
   const rows=current();
   renderStats(rows); renderChart(rows); renderTable(rows); drawMarkers(rows);
 }
@@ -462,6 +487,8 @@ fmax.addEventListener("change", applyFilter);
 document.querySelectorAll(".preset[data-min]").forEach(b=>b.addEventListener("click",()=>{
   fmin.value=Math.max(MINP,+b.dataset.min); fmax.value=Math.min(MAXP,+b.dataset.max); applyFilter();
 }));
+document.getElementById("cutChip").addEventListener("click",()=>{ cutsOnly=!cutsOnly; document.getElementById("cutChip").classList.toggle("active",cutsOnly); applyFilter(); });
+document.getElementById("cutsFirst").addEventListener("change",e=>{ cutsFirst=e.target.checked; applyFilter(); });
 syncSchoolBtns();
 applyFilter();
 
