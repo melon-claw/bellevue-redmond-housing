@@ -40,10 +40,12 @@ h2{ font-size:18px; margin:34px 0 12px; border-bottom:2px solid #e6e9ee; padding
 .chip.good{ background:#eafaf0; color:#1e7a44; }
 .chip.mid{ background:#fff5e6; color:#b9770e; }
 .chip.low{ background:#fdecea; color:#c0392b; }
+.schip{ display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:600; }
+.schip .sw{ width:9px; height:9px; border-radius:50%; display:inline-block; }
 .note{ font-size:12px; color:#6b7280; margin-top:8px; }
 .legend{ font-size:12px; color:#6b7280; margin:6px 0 0; }
 table.school{ width:100%; border-collapse:collapse; font-size:13px; }
-table.school th,table.school td{ text-align:left; padding:7px 8px; border-bottom:1px solid #eef1f4; }
+table.school th,table.school td{ text-align:left; padding:7px 8px; border-bottom:1px solid #eef1f4; vertical-align:top; }
 table.school th{ color:#6b7280; font-weight:600; }
 .tag-toured{ background:#fef3c7; color:#92600a; font-size:10px; font-weight:700; padding:1px 6px; border-radius:5px; }
 .ref{ font-size:12px; color:#8a94a3; margin-top:30px; border-top:1px solid #e6e9ee; padding-top:12px; }
@@ -57,14 +59,17 @@ a.zlink:hover{ color:#2c5fd6; }
 #map{ height:440px; border-radius:12px; border:1px solid #e6e9ee; }
 .leaflet-popup-content{ font-size:13px; }
 .maphint{ font-size:12px; color:#6b7280; margin:8px 0 0; }
-.dotlegend{ display:flex; gap:16px; font-size:12px; color:#5b6675; margin:8px 0; flex-wrap:wrap; }
+.dotlegend{ display:flex; gap:14px; font-size:12px; color:#5b6675; margin:8px 0; flex-wrap:wrap; }
 .dot{ display:inline-block; width:11px; height:11px; border-radius:50%; margin-right:5px; vertical-align:middle; }
-.filterbar{ background:#fff; border:1px solid #e6e9ee; border-radius:12px; padding:14px 16px; display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+.filterbar{ background:#fff; border:1px solid #e6e9ee; border-radius:12px; padding:14px 16px; display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
 .filterbar .fl{ font-size:13px; font-weight:700; }
 .filterbar select{ font-size:14px; padding:6px 10px; border:1px solid #cdd4dd; border-radius:8px; background:#fff; }
 .filterbar .preset{ font-size:12px; font-weight:700; padding:5px 11px; border-radius:20px; border:1px solid #cdd4dd; background:#fff; cursor:pointer; color:#2c5fd6; }
 .filterbar .preset:hover{ background:#eef3ff; }
 .filterbar .count{ font-size:13px; color:#5b6675; margin-left:auto; }
+.sbtn{ font-size:12px; font-weight:700; padding:5px 11px; border-radius:20px; border:1px solid #cdd4dd; background:#fff; cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
+.sbtn.off{ opacity:0.38; }
+.sbtn .sw{ width:10px; height:10px; border-radius:50%; display:inline-block; }
 .cl-entry{ background:#fff; border:1px solid #e6e9ee; border-radius:12px; padding:12px 16px; margin-top:10px; }
 .cl-entry .d{ font-size:12px; font-weight:700; color:#2c5fd6; }
 .cl-entry ul{ margin:6px 0 0; padding-left:18px; }
@@ -75,51 +80,56 @@ a.zlink:hover{ color:#2c5fd6; }
 <body>
 <div class="wrap">
   <h1>Bellevue &amp; Redmond · 4-Bed Single Family · Buy vs Rent</h1>
-  <p class="sub">Tracking 4BD houses up to $2M (now including sub-$1.5M) with a focus on strong elementary schools. Sources: Redfin + Zillow MLS, GreatSchools, Freddie Mac. Refreshed weekly.</p>
+  <p class="sub">Tracking 4BD houses up to $2M across four strong-school catchments — Audubon (Redmond) plus Somerset, Woodridge &amp; Newport Heights (Bellevue) — and the broader Redmond 98052 / Bellevue 98008 markets. Sources: Redfin + Zillow MLS, GreatSchools, Freddie Mac. Refreshed weekly.</p>
   <span class="updated" id="updated">Updated —</span>
 
   <h2>Market snapshot</h2>
   <div class="cards" id="snapshot"></div>
-  <p class="note">Median sale price is for all home types (King County MLS, May 2026). Both target ZIPs are down year-over-year — a softening market that favors buyers and renters who can wait.</p>
+  <p class="note">Median sale price is for all home types (King County MLS, May 2026). Both core ZIPs are down year-over-year — a softening market that favors buyers and renters who can wait.</p>
 
   <h2>What changed</h2>
   <p class="sub">Updated each weekly refresh: new listings, price changes, and homes that went off-market.</p>
   <div id="changelog"></div>
 
-  <h2>The school question</h2>
+  <h2>School comparison</h2>
   <div class="panel">
-    <p class="sub" style="margin-top:0">The priority is a top-rated elementary school. The reference home that fit other needs is zoned to a weak school, while a Redmond reference home is zoned to a strong one — that gap drives the buy decision.</p>
+    <p class="sub" style="margin-top:0">Four target elementary catchments, all Bellevue or Lake Washington district. Test scores are state proficiency (math / reading); ratings from GreatSchools.</p>
     <table class="school">
-      <thead><tr><th>Elementary (district)</th><th>GreatSchools</th><th>Relevance</th></tr></thead>
+      <thead><tr><th>Elementary (district)</th><th>GreatSchools</th><th>Test (M / R)</th><th>Boundary &amp; commute</th></tr></thead>
       <tbody>
-        <tr><td>John J. Audubon Elem. — Redmond (Lake Washington SD)</td><td><span class="chip good">9 / 10</span></td><td>Strong-school reference zone (2462 172nd Ave NE)</td></tr>
-        <tr><td>Hazelwood Elem. — Bellevue (Bellevue SD)</td><td><span class="chip good">10 / 10</span></td><td>Top-rated nearby</td></tr>
-        <tr><td>Ardmore Elem. — Bellevue (Bellevue SD)</td><td><span class="chip low">4 / 10</span></td><td>Zone of reference home 16813 NE 33rd St — the dealbreaker</td></tr>
+        <tr><td>John J. Audubon — Redmond (LWSD)</td><td><span class="chip good">9 / 10</span></td><td>83% / 87%</td><td>Tight Idylwood/Ardmore-edge zone (often 0–1 listings); closest to Microsoft &amp; SR-520</td></tr>
+        <tr><td>Somerset — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>91% / 92%</td><td>Top-1% scores in WA; hilly Somerset, larger/pricier homes; I-90 &amp; Factoria, ~15 min to downtown Bellevue</td></tr>
+        <tr><td>Woodridge — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>~85% / ~86%*</td><td>Central Bellevue near I-90/Richards Rd; shortest commute; small catchment</td></tr>
+        <tr><td>Newport Heights — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>76% / 81%</td><td>Newport Hills / Forest Park with trails; near I-405 &amp; I-90</td></tr>
+        <tr><td>Ardmore — Bellevue (BSD)</td><td><span class="chip low">4 / 10</span></td><td>—</td><td>Zone of reference home 16813 NE 33rd St — the contrast to avoid</td></tr>
       </tbody>
     </table>
-    <p class="note"><strong>Takeaway:</strong> Redmond 98052 (Lake Washington SD) is the more reliable bet for a strong elementary that matches your Audubon benchmark. In Bellevue 98008 (Bellevue SD), school quality swings block-to-block — confirm the exact assignment for any specific address before getting attached.</p>
+    <p class="note">*Woodridge math proficiency varies by source (≈62% GreatSchools profile vs ≈85% state scores).</p>
+    <p class="note"><strong>Takeaway:</strong> All four target catchments carry a 9/10 GreatSchools rating — a clear step up from the reference home's Ardmore zone (4/10). Somerset posts the strongest scores but the priciest, hilliest homes; Audubon's catchment is tiny (frequently 0–1 listings) and nearest Microsoft; Newport Heights and Woodridge give the most central Bellevue commutes. Use the <strong>school filter</strong> below to compare homes by catchment, and always confirm a specific address's exact assignment with the district boundary tool.</p>
   </div>
 
-  <h2>Budget filter</h2>
-  <div class="filterbar">
+  <h2>Filters</h2>
+  <div class="filterbar" style="margin-bottom:10px">
     <span class="fl">Price</span>
     <label>Min <select id="fmin"></select></label>
     <label>Max <select id="fmax"></select></label>
     <button class="preset" data-min="0" data-max="1500000">Under $1.5M</button>
     <button class="preset" data-min="1500000" data-max="2000000">$1.5M–$2M</button>
-    <button class="preset" data-min="0" data-max="2000000">All</button>
+    <button class="preset" data-min="0" data-max="2000000">All prices</button>
     <span class="count" id="fcount"></span>
   </div>
-  <p class="note">Applies to the map and the listings table below.</p>
+  <div class="filterbar">
+    <span class="fl">Schools</span>
+    <span id="schoolBtns" style="display:flex;gap:8px;flex-wrap:wrap"></span>
+    <button class="preset" id="schAll">All</button>
+    <button class="preset" id="schNone">None</button>
+  </div>
+  <p class="note">Filters apply together (price AND school) to the map and the listings table below.</p>
 
   <h2>Map view</h2>
-  <div class="dotlegend">
-    <span><span class="dot" style="background:#2e7d32"></span>Redmond 98052 (LWSD — strong schools)</span>
-    <span><span class="dot" style="background:#e8820c"></span>Bellevue 98008 (BSD — verify zone)</span>
-    <span><span class="dot" style="background:#c01c54"></span>Reference home</span>
-  </div>
+  <div class="dotlegend" id="dotlegend"></div>
   <div id="map"></div>
-  <p class="maphint">Pins are geocoded in your browser and cached, and respect the budget filter. Click a pin for price, beds, and direct Zillow / Redfin / Google Maps links. (Map requires internet — works on the published page.)</p>
+  <p class="maphint">Pins are geocoded in your browser and cached, colored by school catchment, and respect the filters. A red ring marks the toured reference homes. Click a pin for price, beds, and Zillow / Redfin / Google Maps links. (Map requires internet — works on the published page.)</p>
 
   <h2>Buy vs Rent calculator</h2>
   <div class="grid2">
@@ -158,28 +168,33 @@ a.zlink:hover{ color:#2c5fd6; }
   <div class="cards" id="refs"></div>
 
   <h2>Active listings — 4BD+</h2>
-  <p class="sub">Click an address for Zillow; use the <span class="minilink rf">R</span> <span class="minilink zw">Z</span> <span class="minilink mp">M</span> chips for Redfin, Zillow, and Google Maps. Sort any column. Filtered by the budget selector above.</p>
+  <p class="sub">Click an address for Zillow; use the <span class="minilink rf">R</span> <span class="minilink zw">Z</span> <span class="minilink mp">M</span> chips for Redfin, Zillow, and Google Maps. Sort any column. Filtered by the selectors above.</p>
   <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr))">
     <div class="card"><div class="lbl">Listings shown</div><div class="val" id="cnt_all"></div></div>
-    <div class="card"><div class="lbl">Redmond 98052</div><div class="val" id="cnt_red"></div></div>
-    <div class="card"><div class="lbl">Bellevue 98008</div><div class="val" id="cnt_bel"></div></div>
+    <div class="card"><div class="lbl">Bellevue (BSD)</div><div class="val" id="cnt_bel"></div></div>
+    <div class="card"><div class="lbl">Redmond (LWSD)</div><div class="val" id="cnt_red"></div></div>
     <div class="card"><div class="lbl">Median list price</div><div class="val" id="med_price"></div></div>
   </div>
   <div class="chartbox" style="margin:16px 0 8px"><canvas id="priceChart"></canvas></div>
   <div id="table"></div>
 
-  <p class="ref">Data pulled from Redfin / Zillow (NWMLS, MLS Grid); school ratings from GreatSchools; mortgage rate from Freddie Mac PMMS. Listing prices and availability change frequently — this page is refreshed weekly. Always verify a specific address's school assignment with the district boundary tool before deciding. Not financial advice.</p>
+  <p class="ref">Data pulled from Redfin / Zillow (NWMLS, MLS Grid); school ratings from GreatSchools; mortgage rate from Freddie Mac PMMS. School-zoned sets (Audubon, Somerset, Woodridge, Newport Heights) come from Redfin school-attendance pages; the Redmond 98052 / Bellevue 98008 sets are ZIP sweeps where the exact elementary varies — verify any specific address with the district boundary tool. Prices and availability change frequently; refreshed weekly. Not financial advice.</p>
 </div>
 
 <script>
 // ---------- DATA (refreshed weekly) ----------
 const DATA = {
-  updated: "2026-06-27",
+  updated: "2026-06-28",
   changelog: [
+    {date:"2026-06-28", items:[
+      "<span class=\"cl-new\">v3 — School expansion</span> Added Somerset, Woodridge &amp; Newport Heights catchments (all 9/10) alongside Audubon.",
+      "Every listing now tagged by school zone, with a new <b>school filter</b> and map colors by catchment.",
+      "Added 21 Bellevue 98006/98005 zoned homes (Somerset 12, Newport Heights 8, Woodridge 1).",
+      "Replaced the takeaway with a four-school comparison (rating, test scores, boundary, commute)."
+    ]},
     {date:"2026-06-27", items:[
-      "Initial tracker published — 4BD homes up to $2M in Redmond 98052 & Bellevue 98008.",
-      "Added sub-$1.5M listings and a budget-range filter (drives map + table).",
-      "Mapped school zones: Audubon 9/10 (Redmond) vs Ardmore 4/10 (Bellevue reference home).",
+      "Initial tracker published — 4BD homes up to $2M in Redmond 98052 &amp; Bellevue 98008.",
+      "Added sub-$1.5M listings and a budget-range filter.",
       "Added clickable Zillow / Redfin / Google Maps links and a listings map."
     ]}
   ],
@@ -195,60 +210,96 @@ const DATA = {
     {lbl:"Strong-school reference", val:"Audubon 9/10", delta:"2462 172nd Ave NE · LWSD", dir:"up"},
     {lbl:"Rent comps (avg)", val:"$4,772/mo", delta:"local 4BD", dir:"flat"}
   ],
+  // school: one of Audubon | Somerset | Woodridge | Newport Heights | Redmond 98052 | Bellevue 98008
   listings: [
-    // ---- Redmond 98052 — Lake Washington SD ----
-    {addr:"16611 NE 108th Pl", city:"Redmond", zip:"98052", price:1199950, beds:4, baths:2, sqft:1590, sd:"LWSD", note:"Education Hill; walk to Rockwell Elem"},
-    {addr:"18311 NE 105th Ct", city:"Redmond", zip:"98052", price:1350000, beds:4, baths:3, sqft:2246, sd:"LWSD", note:"Education Hill, renovated"},
-    {addr:"13307 NE 77th St", city:"Redmond", zip:"98052", price:1375000, beds:4, baths:3, sqft:1940, sd:"LWSD", note:""},
-    {addr:"7426 139th Pl NE", city:"Redmond", zip:"98052", price:1380000, beds:5, baths:2, sqft:2090, sd:"LWSD", note:"Grass Lawn"},
-    {addr:"7106 139th Pl NE", city:"Redmond", zip:"98052", price:1398000, beds:4, baths:2, sqft:1980, sd:"LWSD", note:"Grass Lawn rambler"},
-    {addr:"9060 177th Pl NE", city:"Redmond", zip:"98052", price:1425000, beds:4, baths:3.5, sqft:2930, sd:"LWSD", note:""},
-    {addr:"11558 179th Ct NE", city:"Redmond", zip:"98052", price:1439950, beds:4, baths:2.5, sqft:2300, sd:"LWSD", note:"Quiet cul-de-sac"},
-    {addr:"17518 NE 22nd Ct", city:"Redmond", zip:"98052", price:1450888, beds:4, baths:3, sqft:2240, sd:"LWSD", note:"Pitcairn, Microsoft area"},
-    {addr:"10816 183rd Ave NE", city:"Redmond", zip:"98052", price:1489000, beds:5, baths:3, sqft:2570, sd:"LWSD", note:""},
-    {addr:"14203 NE 63rd Ct", city:"Redmond", zip:"98052", price:1492000, beds:4, baths:2.5, sqft:2022, sd:"LWSD", note:""},
-    {addr:"17228 NE 85th Pl", city:"Redmond", zip:"98052", price:1500000, beds:4, baths:3, sqft:2262, sd:"LWSD", note:"Chef's kitchen"},
-    {addr:"10518 165th Pl NE", city:"Redmond", zip:"98052", price:1569999, beds:4, baths:3, sqft:2170, sd:"LWSD", note:""},
-    {addr:"2212 186th Ave NE", city:"Redmond", zip:"98052", price:1600000, beds:4, baths:2.5, sqft:2258, sd:"LWSD", note:""},
-    {addr:"10518 158th Ave NE", city:"Redmond", zip:"98052", price:1600000, beds:4, baths:3, sqft:2280, sd:"LWSD", note:"Mid-century remodel"},
-    {addr:"11108 180th Pl NE", city:"Redmond", zip:"98052", price:1625000, beds:4, baths:2.5, sqft:2280, sd:"LWSD", note:"Education Hill"},
-    {addr:"18316 NE 133rd St", city:"Redmond", zip:"98052", price:1625000, beds:4, baths:3, sqft:3440, sd:"LWSD", note:""},
-    {addr:"9106 172nd Ave NE", city:"Redmond", zip:"98052", price:1635000, beds:4, baths:2.5, sqft:2318, sd:"LWSD", note:""},
-    {addr:"8941 170th Ct NE", city:"Redmond", zip:"98052", price:1698000, beds:4, baths:3, sqft:2860, sd:"LWSD", note:""},
-    {addr:"13423 NE 119th Way", city:"Redmond", zip:"98052", price:1748000, beds:5, baths:3, sqft:2443, sd:"LWSD", note:""},
-    {addr:"14302 NE 61 St", city:"Redmond", zip:"98052", price:1749999, beds:4, baths:2.5, sqft:2360, sd:"LWSD", note:"Updated, open house"},
-    {addr:"16707 NE 124th St", city:"Redmond", zip:"98052", price:1790000, beds:4, baths:2.5, sqft:3310, sd:"LWSD", note:""},
-    {addr:"12903 176th Pl NE", city:"Redmond", zip:"98052", price:1888888, beds:4, baths:3.5, sqft:3110, sd:"LWSD", note:"Dual primary suites"},
-    {addr:"13214 180th Ave NE", city:"Redmond", zip:"98052", price:1900000, beds:4, baths:4.5, sqft:4420, sd:"LWSD", note:"Large home"},
-    {addr:"4518 164th Ct NE", city:"Redmond", zip:"98052", price:1925000, beds:4, baths:2.5, sqft:2757, sd:"LWSD", note:""},
-    {addr:"16990 NE 84th Ct", city:"Redmond", zip:"98052", price:1985000, beds:4, baths:4, sqft:3490, sd:"LWSD", note:""},
-    {addr:"9975 185th Ct NE", city:"Redmond", zip:"98052", price:1975000, beds:5, baths:3.5, sqft:3070, sd:"LWSD", note:""},
-    {addr:"16563 NE 119th Way", city:"Redmond", zip:"98052", price:1975000, beds:5, baths:3.5, sqft:4060, sd:"LWSD", note:""},
-    {addr:"3028 173rd Ct NE", city:"Redmond", zip:"98052", price:1980000, beds:4, baths:2.5, sqft:3340, sd:"LWSD", note:"Near the Audubon reference zone — verify"},
-    {addr:"16414 NE 135th St", city:"Redmond", zip:"98052", price:1988800, beds:4, baths:2.5, sqft:3680, sd:"LWSD", note:""},
-    {addr:"6220 145th St NE", city:"Redmond", zip:"98052", price:1999000, beds:4, baths:3.5, sqft:2730, sd:"LWSD", note:"Grass Lawn, 4-car garage"},
-    // ---- Bellevue 98008 — Bellevue SD (verify zone) ----
-    {addr:"24 158th Pl SE", city:"Bellevue", zip:"98008", price:1199888, beds:4, baths:2, sqft:2600, sd:"BSD", note:"Lake Hills"},
-    {addr:"16404 SE 12th St", city:"Bellevue", zip:"98008", price:1280000, beds:6, baths:2, sqft:1980, sd:"BSD", note:""},
-    {addr:"3524 170th Ave NE", city:"Bellevue", zip:"98008", price:1300000, beds:4, baths:3, sqft:2030, sd:"BSD", note:""},
-    {addr:"17326 NE 18th Pl", city:"Bellevue", zip:"98008", price:1350000, beds:4, baths:3, sqft:2100, sd:"BSD", note:"Tri-level, big lot"},
-    {addr:"16711 NE 6th Pl", city:"Bellevue", zip:"98008", price:1385000, beds:4, baths:2.5, sqft:2040, sd:"BSD", note:"Lake Hills"},
-    {addr:"2103 168th Ave NE", city:"Bellevue", zip:"98008", price:1390000, beds:4, baths:2.5, sqft:2110, sd:"BSD", note:"Updated"},
-    {addr:"16724 NE 22nd St", city:"Bellevue", zip:"98008", price:1480000, beds:5, baths:2, sqft:2200, sd:"BSD", note:"Close to schools"},
-    {addr:"16204 Main St", city:"Bellevue", zip:"98008", price:1498000, beds:4, baths:3, sqft:2840, sd:"BSD", note:""},
-    {addr:"3068 169th Ave NE", city:"Bellevue", zip:"98008", price:1498000, beds:5, baths:3.5, sqft:2520, sd:"BSD", note:"Reference home B — verify zone", toured:true, redfin:"https://www.redfin.com/WA/Bellevue/3068-169th-Ave-NE-98008/home/48762741"},
-    {addr:"16119 SE 31st St", city:"Bellevue", zip:"98008", price:1530000, beds:4, baths:2, sqft:1990, sd:"BSD", note:"Spirit Ridge"},
-    {addr:"16813 NE 33rd St", city:"Bellevue", zip:"98008", price:1548000, beds:4, baths:2.5, sqft:2390, sd:"BSD", note:"Reference home A — Ardmore 4/10", toured:true, redfin:"https://www.redfin.com/WA/Bellevue/16813-NE-33rd-St-98008/home/432244"},
-    {addr:"627 166th Ave NE", city:"Bellevue", zip:"98008", price:1550000, beds:4, baths:2, sqft:1710, sd:"BSD", note:""},
-    {addr:"3328 168th Pl SE", city:"Bellevue", zip:"98008", price:1579000, beds:4, baths:3, sqft:2340, sd:"BSD", note:"Lake Sammamish"},
-    {addr:"16701 SE 23rd Pl", city:"Bellevue", zip:"98008", price:1599000, beds:5, baths:3, sqft:2580, sd:"BSD", note:""},
-    {addr:"3027 167th Ave NE", city:"Bellevue", zip:"98008", price:1697000, beds:4, baths:3, sqft:3370, sd:"BSD", note:"$100k price drop"},
-    {addr:"16438 SE 22nd St", city:"Bellevue", zip:"98008", price:1750000, beds:4, baths:2.5, sqft:2310, sd:"BSD", note:""},
-    {addr:"1759 173rd Ave NE", city:"Bellevue", zip:"98008", price:1798000, beds:4, baths:3, sqft:2470, sd:"BSD", note:"Full remodel"},
-    {addr:"17816 NE 12th St", city:"Bellevue", zip:"98008", price:1799990, beds:5, baths:3, sqft:3140, sd:"BSD", note:"Bretton Wood"},
-    {addr:"2457 168th Pl NE", city:"Bellevue", zip:"98008", price:1998000, beds:5, baths:4, sqft:3390, sd:"BSD", note:""}
+    // ---- Audubon catchment (Redmond, LWSD) — Redfin school zone ----
+    {addr:"3028 173rd Ct NE", city:"Redmond", zip:"98052", price:1980000, beds:4, baths:2.5, sqft:3340, sd:"LWSD", school:"Audubon", note:"Audubon attendance zone (Redfin); near Microsoft & SR-520"},
+    // ---- Somerset catchment (Bellevue, BSD) — Redfin school zone ----
+    {addr:"13103 SE 47th St", city:"Bellevue", zip:"98006", price:1699000, beds:4, baths:3, sqft:2380, sd:"BSD", school:"Somerset", note:"Burnstead, quiet cul-de-sac"},
+    {addr:"5712 141st Pl SE", city:"Bellevue", zip:"98006", price:1799900, beds:4, baths:3, sqft:2960, sd:"BSD", school:"Somerset", note:"Studio ADU"},
+    {addr:"4548 144th Ave SE", city:"Bellevue", zip:"98006", price:1850000, beds:4, baths:3, sqft:2470, sd:"BSD", school:"Somerset", note:"Walk to Somerset Elem"},
+    {addr:"5221 Somerset Dr SE", city:"Bellevue", zip:"98006", price:1875000, beds:5, baths:3, sqft:3360, sd:"BSD", school:"Somerset", note:""},
+    {addr:"5617 134th Ave SE", city:"Bellevue", zip:"98006", price:1889000, beds:5, baths:3, sqft:3560, sd:"BSD", school:"Somerset", note:""},
+    {addr:"14812 SE 62nd Ct", city:"Bellevue", zip:"98006", price:1890000, beds:4, baths:3, sqft:2640, sd:"BSD", school:"Somerset", note:""},
+    {addr:"4478 142nd Ave SE", city:"Bellevue", zip:"98006", price:1898888, beds:5, baths:3.5, sqft:2907, sd:"BSD", school:"Somerset", note:""},
+    {addr:"6162 144th Pl SE", city:"Bellevue", zip:"98006", price:1899995, beds:4, baths:3.5, sqft:3310, sd:"BSD", school:"Somerset", note:""},
+    {addr:"5011 134th Pl SE", city:"Bellevue", zip:"98006", price:1980000, beds:4, baths:2.5, sqft:3420, sd:"BSD", school:"Somerset", note:""},
+    {addr:"14317 SE 49th St", city:"Bellevue", zip:"98006", price:1998000, beds:4, baths:2.5, sqft:2820, sd:"BSD", school:"Somerset", note:""},
+    {addr:"14023 SE 60th St", city:"Bellevue", zip:"98006", price:1999888, beds:5, baths:3, sqft:3050, sd:"BSD", school:"Somerset", note:"$200k+ upgrades"},
+    {addr:"5701 137th Pl SE", city:"Bellevue", zip:"98006", price:1999888, beds:4, baths:3.5, sqft:3517, sd:"BSD", school:"Somerset", note:"Corner lot, views"},
+    // ---- Woodridge catchment (Bellevue, BSD) — Redfin school zone ----
+    {addr:"2814 129th Ave SE", city:"Bellevue", zip:"98005", price:1395000, beds:4, baths:2.5, sqft:2640, sd:"BSD", school:"Woodridge", note:"0.33-acre lot; renovation potential"},
+    // ---- Newport Heights catchment (Bellevue, BSD) — Redfin school zone ----
+    {addr:"12215 SE 35th St", city:"Bellevue", zip:"98006", price:1249900, beds:4, baths:2, sqft:2060, sd:"BSD", school:"Newport Heights", note:""},
+    {addr:"6015 116th Ave SE", city:"Bellevue", zip:"98006", price:1250000, beds:5, baths:3, sqft:2588, sd:"BSD", school:"Newport Heights", note:""},
+    {addr:"6045 129th Ave SE", city:"Bellevue", zip:"98006", price:1398000, beds:4, baths:2.5, sqft:2500, sd:"BSD", school:"Newport Heights", note:"Newport Hills, backs to trails"},
+    {addr:"5221 120th Ave SE", city:"Bellevue", zip:"98006", price:1400000, beds:5, baths:3, sqft:2780, sd:"BSD", school:"Newport Heights", note:"Workshop"},
+    {addr:"4705 119th Ave SE", city:"Bellevue", zip:"98006", price:1649000, beds:4, baths:2.5, sqft:2300, sd:"BSD", school:"Newport Heights", note:""},
+    {addr:"13509 SE 59th St", city:"Bellevue", zip:"98006", price:1649000, beds:4, baths:2.5, sqft:2630, sd:"BSD", school:"Newport Heights", note:"Forest Park, remodeled"},
+    {addr:"13412 SE 59th St", city:"Bellevue", zip:"98006", price:1768800, beds:4, baths:3, sqft:3090, sd:"BSD", school:"Newport Heights", note:"Greenbelt"},
+    {addr:"4935 116th Pl SE", city:"Bellevue", zip:"98006", price:1990000, beds:5, baths:3.5, sqft:3200, sd:"BSD", school:"Newport Heights", note:"Lake Washington views"},
+    // ---- Redmond 98052 (LWSD, ZIP sweep — verify exact school) ----
+    {addr:"16611 NE 108th Pl", city:"Redmond", zip:"98052", price:1199950, beds:4, baths:2, sqft:1590, sd:"LWSD", school:"Redmond 98052", note:"Education Hill; walk to Rockwell Elem"},
+    {addr:"18311 NE 105th Ct", city:"Redmond", zip:"98052", price:1350000, beds:4, baths:3, sqft:2246, sd:"LWSD", school:"Redmond 98052", note:"Education Hill, renovated"},
+    {addr:"13307 NE 77th St", city:"Redmond", zip:"98052", price:1375000, beds:4, baths:3, sqft:1940, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"7426 139th Pl NE", city:"Redmond", zip:"98052", price:1380000, beds:5, baths:2, sqft:2090, sd:"LWSD", school:"Redmond 98052", note:"Grass Lawn"},
+    {addr:"7106 139th Pl NE", city:"Redmond", zip:"98052", price:1398000, beds:4, baths:2, sqft:1980, sd:"LWSD", school:"Redmond 98052", note:"Grass Lawn rambler"},
+    {addr:"9060 177th Pl NE", city:"Redmond", zip:"98052", price:1425000, beds:4, baths:3.5, sqft:2930, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"11558 179th Ct NE", city:"Redmond", zip:"98052", price:1439950, beds:4, baths:2.5, sqft:2300, sd:"LWSD", school:"Redmond 98052", note:"Quiet cul-de-sac"},
+    {addr:"17518 NE 22nd Ct", city:"Redmond", zip:"98052", price:1450888, beds:4, baths:3, sqft:2240, sd:"LWSD", school:"Redmond 98052", note:"Pitcairn, Microsoft area"},
+    {addr:"10816 183rd Ave NE", city:"Redmond", zip:"98052", price:1489000, beds:5, baths:3, sqft:2570, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"14203 NE 63rd Ct", city:"Redmond", zip:"98052", price:1492000, beds:4, baths:2.5, sqft:2022, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"17228 NE 85th Pl", city:"Redmond", zip:"98052", price:1500000, beds:4, baths:3, sqft:2262, sd:"LWSD", school:"Redmond 98052", note:"Chef's kitchen"},
+    {addr:"10518 165th Pl NE", city:"Redmond", zip:"98052", price:1569999, beds:4, baths:3, sqft:2170, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"2212 186th Ave NE", city:"Redmond", zip:"98052", price:1600000, beds:4, baths:2.5, sqft:2258, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"10518 158th Ave NE", city:"Redmond", zip:"98052", price:1600000, beds:4, baths:3, sqft:2280, sd:"LWSD", school:"Redmond 98052", note:"Mid-century remodel"},
+    {addr:"11108 180th Pl NE", city:"Redmond", zip:"98052", price:1625000, beds:4, baths:2.5, sqft:2280, sd:"LWSD", school:"Redmond 98052", note:"Education Hill"},
+    {addr:"18316 NE 133rd St", city:"Redmond", zip:"98052", price:1625000, beds:4, baths:3, sqft:3440, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"9106 172nd Ave NE", city:"Redmond", zip:"98052", price:1635000, beds:4, baths:2.5, sqft:2318, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"8941 170th Ct NE", city:"Redmond", zip:"98052", price:1698000, beds:4, baths:3, sqft:2860, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"13423 NE 119th Way", city:"Redmond", zip:"98052", price:1748000, beds:5, baths:3, sqft:2443, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"14302 NE 61 St", city:"Redmond", zip:"98052", price:1749999, beds:4, baths:2.5, sqft:2360, sd:"LWSD", school:"Redmond 98052", note:"Updated, open house"},
+    {addr:"16707 NE 124th St", city:"Redmond", zip:"98052", price:1790000, beds:4, baths:2.5, sqft:3310, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"12903 176th Pl NE", city:"Redmond", zip:"98052", price:1888888, beds:4, baths:3.5, sqft:3110, sd:"LWSD", school:"Redmond 98052", note:"Dual primary suites"},
+    {addr:"13214 180th Ave NE", city:"Redmond", zip:"98052", price:1900000, beds:4, baths:4.5, sqft:4420, sd:"LWSD", school:"Redmond 98052", note:"Large home"},
+    {addr:"4518 164th Ct NE", city:"Redmond", zip:"98052", price:1925000, beds:4, baths:2.5, sqft:2757, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"9975 185th Ct NE", city:"Redmond", zip:"98052", price:1975000, beds:5, baths:3.5, sqft:3070, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"16563 NE 119th Way", city:"Redmond", zip:"98052", price:1975000, beds:5, baths:3.5, sqft:4060, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"16990 NE 84th Ct", city:"Redmond", zip:"98052", price:1985000, beds:4, baths:4, sqft:3490, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"16414 NE 135th St", city:"Redmond", zip:"98052", price:1988800, beds:4, baths:2.5, sqft:3680, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"6220 145th St NE", city:"Redmond", zip:"98052", price:1999000, beds:4, baths:3.5, sqft:2730, sd:"LWSD", school:"Redmond 98052", note:"Grass Lawn, 4-car garage"},
+    // ---- Bellevue 98008 (BSD, ZIP sweep — verify exact school) ----
+    {addr:"24 158th Pl SE", city:"Bellevue", zip:"98008", price:1199888, beds:4, baths:2, sqft:2600, sd:"BSD", school:"Bellevue 98008", note:"Lake Hills"},
+    {addr:"16404 SE 12th St", city:"Bellevue", zip:"98008", price:1280000, beds:6, baths:2, sqft:1980, sd:"BSD", school:"Bellevue 98008", note:""},
+    {addr:"3524 170th Ave NE", city:"Bellevue", zip:"98008", price:1300000, beds:4, baths:3, sqft:2030, sd:"BSD", school:"Bellevue 98008", note:""},
+    {addr:"17326 NE 18th Pl", city:"Bellevue", zip:"98008", price:1350000, beds:4, baths:3, sqft:2100, sd:"BSD", school:"Bellevue 98008", note:"Tri-level, big lot"},
+    {addr:"16711 NE 6th Pl", city:"Bellevue", zip:"98008", price:1385000, beds:4, baths:2.5, sqft:2040, sd:"BSD", school:"Bellevue 98008", note:"Lake Hills"},
+    {addr:"2103 168th Ave NE", city:"Bellevue", zip:"98008", price:1390000, beds:4, baths:2.5, sqft:2110, sd:"BSD", school:"Bellevue 98008", note:"Updated"},
+    {addr:"16724 NE 22nd St", city:"Bellevue", zip:"98008", price:1480000, beds:5, baths:2, sqft:2200, sd:"BSD", school:"Bellevue 98008", note:"Close to schools"},
+    {addr:"16204 Main St", city:"Bellevue", zip:"98008", price:1498000, beds:4, baths:3, sqft:2840, sd:"BSD", school:"Bellevue 98008", note:""},
+    {addr:"3068 169th Ave NE", city:"Bellevue", zip:"98008", price:1498000, beds:5, baths:3.5, sqft:2520, sd:"BSD", school:"Bellevue 98008", note:"Reference home B — verify zone", toured:true, redfin:"https://www.redfin.com/WA/Bellevue/3068-169th-Ave-NE-98008/home/48762741"},
+    {addr:"16119 SE 31st St", city:"Bellevue", zip:"98008", price:1530000, beds:4, baths:2, sqft:1990, sd:"BSD", school:"Bellevue 98008", note:"Spirit Ridge"},
+    {addr:"16813 NE 33rd St", city:"Bellevue", zip:"98008", price:1548000, beds:4, baths:2.5, sqft:2390, sd:"BSD", school:"Bellevue 98008", note:"Reference home A — Ardmore 4/10", toured:true, redfin:"https://www.redfin.com/WA/Bellevue/16813-NE-33rd-St-98008/home/432244"},
+    {addr:"627 166th Ave NE", city:"Bellevue", zip:"98008", price:1550000, beds:4, baths:2, sqft:1710, sd:"BSD", school:"Bellevue 98008", note:""},
+    {addr:"3328 168th Pl SE", city:"Bellevue", zip:"98008", price:1579000, beds:4, baths:3, sqft:2340, sd:"BSD", school:"Bellevue 98008", note:"Lake Sammamish"},
+    {addr:"16701 SE 23rd Pl", city:"Bellevue", zip:"98008", price:1599000, beds:5, baths:3, sqft:2580, sd:"BSD", school:"Bellevue 98008", note:""},
+    {addr:"3027 167th Ave NE", city:"Bellevue", zip:"98008", price:1697000, beds:4, baths:3, sqft:3370, sd:"BSD", school:"Bellevue 98008", note:"$100k price drop"},
+    {addr:"16438 SE 22nd St", city:"Bellevue", zip:"98008", price:1750000, beds:4, baths:2.5, sqft:2310, sd:"BSD", school:"Bellevue 98008", note:""},
+    {addr:"1759 173rd Ave NE", city:"Bellevue", zip:"98008", price:1798000, beds:4, baths:3, sqft:2470, sd:"BSD", school:"Bellevue 98008", note:"Full remodel"},
+    {addr:"17816 NE 12th St", city:"Bellevue", zip:"98008", price:1799990, beds:5, baths:3, sqft:3140, sd:"BSD", school:"Bellevue 98008", note:"Bretton Wood"},
+    {addr:"2457 168th Pl NE", city:"Bellevue", zip:"98008", price:1998000, beds:5, baths:4, sqft:3390, sd:"BSD", school:"Bellevue 98008", note:""}
   ]
 };
+// school display order, colors
+const SCHOOL_META = [
+  {key:"Audubon",         label:"Audubon",        color:"#1f77b4"},
+  {key:"Somerset",        label:"Somerset",       color:"#2e7d32"},
+  {key:"Woodridge",       label:"Woodridge",      color:"#9c27b0"},
+  {key:"Newport Heights", label:"Newport Hts",    color:"#e8820c"},
+  {key:"Redmond 98052",   label:"Redmond 98052",  color:"#00897b"},
+  {key:"Bellevue 98008",  label:"Bellevue 98008", color:"#757575"}
+];
+const SCOLOR = Object.fromEntries(SCHOOL_META.map(s=>[s.key,s.color]));
 // ---------------------------------------------
 
 const fmt = n => "$"+Math.round(n).toLocaleString();
@@ -268,8 +319,8 @@ function cards(el, arr){
 cards("snapshot", DATA.market);
 cards("refs", DATA.refs);
 function renderChangelog(){
-  const el=document.getElementById("changelog");
-  el.innerHTML=(DATA.changelog||[]).slice(0,8).map(e=>`<div class="cl-entry"><div class="d">${e.date}</div><ul>${e.items.map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("");
+  document.getElementById("changelog").innerHTML=(DATA.changelog||[]).slice(0,8)
+    .map(e=>`<div class="cl-entry"><div class="d">${e.date}</div><ul>${e.items.map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("");
 }
 renderChangelog();
 
@@ -280,11 +331,27 @@ const MAXP = Math.ceil(Math.max(...allPrices)/100000)*100000;
 
 // budget selectors
 const fmin=document.getElementById("fmin"), fmax=document.getElementById("fmax");
-for(let p=MINP; p<=MAXP; p+=100000){
-  fmin.add(new Option(fmtK(p), p));
-  fmax.add(new Option(fmtK(p), p));
-}
+for(let p=MINP; p<=MAXP; p+=100000){ fmin.add(new Option(fmtK(p), p)); fmax.add(new Option(fmtK(p), p)); }
 fmin.value = MINP; fmax.value = MAXP;
+
+// school filter state + buttons
+const activeSchools = new Set(SCHOOL_META.map(s=>s.key));
+const schoolBtns = document.getElementById("schoolBtns");
+SCHOOL_META.forEach(s=>{
+  const b=document.createElement("button");
+  b.className="sbtn"; b.dataset.key=s.key;
+  b.innerHTML=`<span class="sw" style="background:${s.color}"></span>${s.label}`;
+  b.addEventListener("click",()=>{ if(activeSchools.has(s.key)) activeSchools.delete(s.key); else activeSchools.add(s.key); syncSchoolBtns(); applyFilter(); });
+  schoolBtns.appendChild(b);
+});
+function syncSchoolBtns(){ schoolBtns.querySelectorAll(".sbtn").forEach(b=> b.classList.toggle("off", !activeSchools.has(b.dataset.key))); }
+document.getElementById("schAll").addEventListener("click",()=>{ SCHOOL_META.forEach(s=>activeSchools.add(s.key)); syncSchoolBtns(); applyFilter(); });
+document.getElementById("schNone").addEventListener("click",()=>{ activeSchools.clear(); syncSchoolBtns(); applyFilter(); });
+
+// map legend
+document.getElementById("dotlegend").innerHTML =
+  SCHOOL_META.map(s=>`<span><span class="dot" style="background:${s.color}"></span>${s.label}</span>`).join("")+
+  `<span><span class="dot" style="background:#fff;border:2px solid #c01c54"></span>Reference home (toured)</span>`;
 
 // ---- chart ----
 let chart;
@@ -310,8 +377,9 @@ function addrCell(x){
     `<a class="minilink mp" href="${mapsURL(x)}" target="_blank" rel="noopener" title="Google Maps">M</a>`
   );
 }
+function schoolCell(k){ return gridjs.html(`<span class="schip"><span class="sw" style="background:${SCOLOR[k]||'#999'}"></span>${k}</span>`); }
 let grid;
-function rowsFor(rows){ return rows.map(x=>[x.addr,x.city,x.price,x.beds,x.baths,x.sqft,x.sd,L.indexOf(x)]); }
+function rowsFor(rows){ return rows.map(x=>[x.addr,x.city,x.price,x.beds,x.baths,x.sqft,x.school,L.indexOf(x)]); }
 function renderTable(rows){
   const cfg={
     columns:[
@@ -320,7 +388,7 @@ function renderTable(rows){
       {name:"Price", formatter:c=>fmt(c), sort:{compare:(a,b)=>a-b}},
       "Beds","Baths",
       {name:"SqFt", formatter:c=>c.toLocaleString()},
-      {name:"District", formatter:c=>gridjs.html(c==="LWSD"?`<span class="chip good">LWSD</span>`:`<span class="chip mid">BSD verify</span>`)},
+      {name:"School", formatter:c=>schoolCell(c)},
       {name:"i", hidden:true}
     ],
     data:rowsFor(rows),
@@ -336,8 +404,8 @@ function renderStats(rows){
   const ps=rows.map(x=>x.price).sort((a,b)=>a-b);
   const med = ps.length? (ps.length%2 ? ps[(ps.length-1)/2] : (ps[ps.length/2-1]+ps[ps.length/2])/2) : 0;
   document.getElementById("cnt_all").textContent = rows.length;
-  document.getElementById("cnt_red").textContent = rows.filter(x=>x.zip==="98052").length;
-  document.getElementById("cnt_bel").textContent = rows.filter(x=>x.zip==="98008").length;
+  document.getElementById("cnt_bel").textContent = rows.filter(x=>x.sd==="BSD").length;
+  document.getElementById("cnt_red").textContent = rows.filter(x=>x.sd==="LWSD").length;
   document.getElementById("med_price").textContent = ps.length? fmtK(med) : "—";
   document.getElementById("fcount").textContent = rows.length+" of "+L.length+" listings";
 }
@@ -346,9 +414,8 @@ function renderStats(rows){
 let map, markersLayer, mapReady=false;
 const coords = JSON.parse(localStorage.getItem("geocache")||"{}");
 function keyOf(x){ return `${x.addr}, ${x.city} WA ${x.zip}`; }
-function colorOf(x){ return x.toured? "#c01c54" : (x.zip==="98052"? "#2e7d32":"#e8820c"); }
 try{
-  map = window.L.map('map').setView([47.64,-122.13], 12);
+  map = window.L.map('map').setView([47.60,-122.13], 11);
   window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19, attribution:'© OpenStreetMap'}).addTo(map);
   markersLayer = window.L.layerGroup().addTo(map);
   mapReady=true;
@@ -360,14 +427,13 @@ function drawMarkers(rows){
   const bounds=[];
   rows.forEach(x=>{
     const c=coords[keyOf(x)]; if(!c) return;
-    const mk=window.L.circleMarker(c,{radius:8,color:"#fff",weight:2,fillColor:colorOf(x),fillOpacity:0.95}).addTo(markersLayer);
-    mk.bindPopup(`<b>${x.addr}</b><br>${fmt(x.price)} · ${x.beds}bd/${x.baths}ba · ${x.sqft.toLocaleString()} sqft<br>`+
+    const mk=window.L.circleMarker(c,{radius:8, color:x.toured?"#c01c54":"#fff", weight:x.toured?3:2, fillColor:(SCOLOR[x.school]||"#999"), fillOpacity:0.95}).addTo(markersLayer);
+    mk.bindPopup(`<b>${x.addr}</b><br>${fmt(x.price)} · ${x.beds}bd/${x.baths}ba · ${x.sqft.toLocaleString()} sqft<br><b>${x.school}</b><br>`+
       `<a href="${zillowURL(x)}" target="_blank">Zillow</a> · <a href="${redfinURL(x)}" target="_blank">Redfin</a> · <a href="${mapsURL(x)}" target="_blank">Maps</a>`);
     bounds.push(c);
   });
   if(bounds.length>1) map.fitBounds(bounds,{padding:[40,40]});
 }
-// geocode all listings once (cached), redraw current filter as they resolve
 (function geocodeAll(){
   let i=0;
   function next(){
@@ -384,7 +450,7 @@ function drawMarkers(rows){
 // ---- filter orchestration ----
 function current(){
   const lo=+fmin.value, hi=+fmax.value;
-  return L.filter(x=>x.price>=lo && x.price<=hi);
+  return L.filter(x=> x.price>=lo && x.price<=hi && activeSchools.has(x.school));
 }
 function applyFilter(){
   if(+fmin.value > +fmax.value){ fmax.value = fmin.value; }
@@ -393,11 +459,10 @@ function applyFilter(){
 }
 fmin.addEventListener("change", applyFilter);
 fmax.addEventListener("change", applyFilter);
-document.querySelectorAll(".preset").forEach(b=>b.addEventListener("click",()=>{
-  fmin.value=Math.max(MINP,+b.dataset.min);
-  fmax.value=Math.min(MAXP,+b.dataset.max);
-  applyFilter();
+document.querySelectorAll(".preset[data-min]").forEach(b=>b.addEventListener("click",()=>{
+  fmin.value=Math.max(MINP,+b.dataset.min); fmax.value=Math.min(MAXP,+b.dataset.max); applyFilter();
 }));
+syncSchoolBtns();
 applyFilter();
 
 // ---- buy vs rent calculator ----
