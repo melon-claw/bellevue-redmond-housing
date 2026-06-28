@@ -79,6 +79,7 @@ a.zlink:hover{ color:#2c5fd6; }
 .cutchip{ font-size:13px; font-weight:800; padding:6px 13px; border-radius:20px; border:1px solid #ffd2bd; background:#fff4ee; color:#d2451e; cursor:pointer; }
 .cutchip.active{ background:#d2451e; color:#fff; border-color:#d2451e; }
 .ck{ font-size:12px; font-weight:700; display:inline-flex; align-items:center; gap:6px; cursor:pointer; }
+.cuttri{ width:0; height:0; border-left:8px solid transparent; border-right:8px solid transparent; border-top:13px solid #d2451e; filter:drop-shadow(0 0 1.5px #fff); }
 </style>
 </head>
 <body>
@@ -97,18 +98,17 @@ a.zlink:hover{ color:#2c5fd6; }
 
   <h2>School comparison</h2>
   <div class="panel">
-    <p class="sub" style="margin-top:0">Four target elementary catchments, all Bellevue or Lake Washington district. Test scores are state proficiency (math / reading); ratings from GreatSchools.</p>
+    <p class="sub" style="margin-top:0">Four target elementary catchments, all Bellevue or Lake Washington district. Test scores are recent math / reading proficiency from each school's GreatSchools profile (figures vary slightly by year and source — verify the current profile); ratings from GreatSchools.</p>
     <table class="school">
       <thead><tr><th>Elementary (district)</th><th>GreatSchools</th><th>Test (M / R)</th><th>Boundary &amp; commute</th></tr></thead>
       <tbody>
         <tr><td>John J. Audubon — Redmond (LWSD)</td><td><span class="chip good">9 / 10</span></td><td>83% / 87%</td><td>Tight Idylwood/Ardmore-edge zone (often 0–1 listings); closest to Microsoft &amp; SR-520</td></tr>
         <tr><td>Somerset — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>91% / 92%</td><td>Top-1% scores in WA; hilly Somerset, larger/pricier homes; I-90 &amp; Factoria, ~15 min to downtown Bellevue</td></tr>
-        <tr><td>Woodridge — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>~85% / ~86%*</td><td>Central Bellevue near I-90/Richards Rd; shortest commute; small catchment</td></tr>
+        <tr><td>Woodridge — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>81% / 82%</td><td>Central Bellevue near I-90/Richards Rd; shortest commute; small catchment</td></tr>
         <tr><td>Newport Heights — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>76% / 81%</td><td>Newport Hills / Forest Park with trails; near I-405 &amp; I-90</td></tr>
         <tr><td>Ardmore — Bellevue (BSD)</td><td><span class="chip low">4 / 10</span></td><td>—</td><td>Zone of reference home 16813 NE 33rd St — the contrast to avoid</td></tr>
       </tbody>
     </table>
-    <p class="note">*Woodridge math proficiency varies by source (≈62% GreatSchools profile vs ≈85% state scores).</p>
     <p class="note"><strong>Takeaway:</strong> All four target catchments carry a 9/10 GreatSchools rating — a clear step up from the reference home's Ardmore zone (4/10). Somerset posts the strongest scores but the priciest, hilliest homes; Audubon's catchment is tiny (frequently 0–1 listings) and nearest Microsoft; Newport Heights and Woodridge give the most central Bellevue commutes. Use the <strong>school filter</strong> below to compare homes by catchment, and always confirm a specific address's exact assignment with the district boundary tool.</p>
   </div>
 
@@ -162,7 +162,7 @@ a.zlink:hover{ color:#2c5fd6; }
       <div class="result-row"><span>Property tax</span><span id="r_tax"></span></div>
       <div class="result-row"><span>Insurance + maintenance</span><span id="r_ins"></span></div>
       <div class="result-row big"><span>Total to own (cash out)</span><span id="r_own"></span></div>
-      <div class="result-row"><span>…of which builds equity</span><span id="r_eq"></span></div>
+      <div class="result-row"><span>Of that, principal (equity you keep — not a true cost)</span><span id="r_eq"></span></div>
       <div class="result-row"><span>Comparable rent</span><span id="r_rent"></span></div>
       <h3 style="margin:16px 0 6px;font-size:15px;">Over your time horizon</h3>
       <div class="result-row big"><span>Net cost to BUY</span><span id="r_buycost"></span></div>
@@ -194,6 +194,12 @@ a.zlink:hover{ color:#2c5fd6; }
 const DATA = {
   updated: "2026-06-28",
   changelog: [
+    {date:"2026-06-28", items:[
+      "<span class=\"cl-new\">v5 — Issue fixes</span> Resolved three reported issues (#1, #2, #3).",
+      "#1 Clearer calculator label — principal now reads \"equity you keep — not a true cost\".",
+      "#2 Price-cut homes use a red ▼ triangle on the map (was orange, which clashed with Newport Hts).",
+      "#3 Corrected Woodridge test scores to the GreatSchools profile (81% math / 82% reading) and removed the misleading footnote."
+    ]},
     {date:"2026-06-28", items:[
       "<span class=\"cl-off\">Off-market</span> 17326 NE 18th Pl, Bellevue 98008 ($1,350,000) — no longer listed.",
       "Manual refresh: no new listings or price changes; the −$100K cut on 3027 167th Ave NE remains active.",
@@ -318,7 +324,7 @@ const SCHOOL_META = [
 const SCOLOR = Object.fromEntries(SCHOOL_META.map(s=>[s.key,s.color]));
 // ----- price-cut emphasis (v4) -----
 const PRICE_CUT_WINDOW_DAYS = 30;   // a price cut counts as "recent" within this many days
-const CUT_COLOR = "#ff7a18";
+const CUT_COLOR = "#d2451e";
 function fmtShort(n){ return n>=1000? "$"+Math.round(n/1000)+"K" : "$"+n; }
 function daysSince(d){ if(!d) return Infinity; return Math.floor((Date.now()-new Date(d+"T00:00:00").getTime())/86400000); }
 function isRecentCut(x){ return !!(x && x.cut>0 && x.cutDate && daysSince(x.cutDate) <= PRICE_CUT_WINDOW_DAYS); }
@@ -374,7 +380,7 @@ document.getElementById("schNone").addEventListener("click",()=>{ activeSchools.
 // map legend
 document.getElementById("dotlegend").innerHTML =
   SCHOOL_META.map(s=>`<span><span class="dot" style="background:${s.color}"></span>${s.label}</span>`).join("")+
-  `<span><span class="dot" style="background:${CUT_COLOR}"></span>Recent price cut</span>`+
+  `<span><span style="color:${CUT_COLOR};font-size:14px;line-height:1;vertical-align:middle">▼</span> Recent price cut</span>`+
   `<span><span class="dot" style="background:#fff;border:2px solid #c01c54"></span>Reference home (toured)</span>`;
 
 // ---- chart ----
@@ -452,7 +458,12 @@ function drawMarkers(rows){
   const bounds=[];
   rows.forEach(x=>{
     const c=coords[keyOf(x)]; if(!c) return;
-    const mk=window.L.circleMarker(c,{radius:8, color:x.toured?"#c01c54":"#fff", weight:x.toured?3:2, fillColor:(isRecentCut(x)?CUT_COLOR:(SCOLOR[x.school]||"#999")), fillOpacity:0.95}).addTo(markersLayer);
+    let mk;
+    if(isRecentCut(x)){
+      mk=window.L.marker(c,{icon:window.L.divIcon({className:'cutdiv',html:'<div class="cuttri"></div>',iconSize:[16,14],iconAnchor:[8,7]})}).addTo(markersLayer);
+    } else {
+      mk=window.L.circleMarker(c,{radius:8, color:x.toured?"#c01c54":"#fff", weight:x.toured?3:2, fillColor:(SCOLOR[x.school]||"#999"), fillOpacity:0.95}).addTo(markersLayer);
+    }
     mk.bindPopup(`<b>${x.addr}</b><br>${fmt(x.price)} · ${x.beds}bd/${x.baths}ba · ${x.sqft.toLocaleString()} sqft<br><b>${x.school}</b><br>`+
       `<a href="${zillowURL(x)}" target="_blank">Zillow</a> · <a href="${redfinURL(x)}" target="_blank">Redfin</a> · <a href="${mapsURL(x)}" target="_blank">Maps</a>`);
     bounds.push(c);
