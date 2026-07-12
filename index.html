@@ -193,8 +193,12 @@ a.zlink:hover{ color:#2c5fd6; }
 <script>
 // ---------- DATA (refreshed weekly) ----------
 const DATA = {
-  updated: "2026-07-07",
+  updated: "2026-07-11",
   changelog: [
+    {date:"2026-07-11", items:[
+      "Partial refresh: the listing data source was unavailable this run, so all 69 listings are carried over unchanged from 07-07 (existing price-cut flags kept).",
+      "30-yr fixed rose to 6.49% (from 6.43%, Freddie Mac Jul 9). Tracking 69 active listings across four school catchments + two ZIP sweeps."
+    ]},
     {date:"2026-07-07", items:[
       "<span class=\"cl-drop\">Price drop</span> 6 cuts this week: 3028 173rd Ct NE (Audubon) $1,980,000 -&gt; $1,880,000; 18316 NE 133rd St (Redmond 98052) $1,625,000 -&gt; $1,539,900; 16611 NE 108th Pl (Redmond 98052) $1,199,950 -&gt; $1,130,000; 4705 119th Ave SE (Newport Heights) $1,649,000 -&gt; $1,595,000; 17518 NE 22nd Ct (Redmond 98052) $1,450,888 -&gt; $1,400,000; 627 166th Ave NE (Bellevue 98008) $1,550,000 -&gt; $1,499,950.",
       "<span class=\"cl-off\">Off-market</span> 1 gone — Redmond 98052: 7605 146th Ave NE ($1,498,000, had a $100K cut in early July).",
@@ -230,16 +234,11 @@ const DATA = {
       "<span class=\"cl-off\">Off-market</span> 17326 NE 18th Pl, Bellevue 98008 ($1,350,000) — no longer listed.",
       "Manual refresh: no new listings or price changes; the −$100K cut on 3027 167th Ave NE remains active.",
       "Tracking 69 active listings across the four school catchments + two ZIP sweeps."
-    ]},
-    {date:"2026-06-28", items:[
-      "<span class=\"cl-new\">v4 — Price-cut spotlight</span> Listings with a recent price drop now show a red badge, an orange map pin, and can sort to the top.",
-      "Added a \"Recent price cuts\" filter chip; the window is 30 days (configurable via PRICE_CUT_WINDOW_DAYS)."
-    ]}
-  ],
+    ]}  ],
   market: [
     {lbl:"Redmond 98052 median", val:"$1,302,113", delta:"-3.9% YoY", dir:"down"},
     {lbl:"Bellevue 98008 median", val:"$1,469,064", delta:"-5.2% YoY", dir:"down"},
-    {lbl:"30-yr fixed rate", val:"6.43%", delta:"Freddie Mac Jul 2026", dir:"down"},
+    {lbl:"30-yr fixed rate", val:"6.49%", delta:"Freddie Mac Jul 9, 2026", dir:"up"},
     {lbl:"Avg 4BD rent", val:"$4,772/mo", delta:"local comps", dir:"flat"}
   ],
   refs: [
