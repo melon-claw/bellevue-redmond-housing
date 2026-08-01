@@ -193,8 +193,14 @@ a.zlink:hover{ color:#2c5fd6; }
 <script>
 // ---------- DATA (refreshed weekly) ----------
 const DATA = {
-  updated: "2026-07-28",
+  updated: "2026-08-01",
   changelog: [
+    {date:"2026-08-01", items:[
+      "<span class=\"cl-new\">New</span> 8 new listings — Redmond 98052: 9210 166th Pl NE ($1,350,000), 10632 157th Ave NE ($1,425,000), 17023 NE 120th St ($1,759,950) &amp; 8210 171st Ave NE ($1,990,000); Bellevue 98008: 924 179th Ct NE ($1,300,000), 16119 SE 31st St ($1,450,000, relisted), 1007 174th Ave NE ($1,530,000) &amp; 16410 SE 31st St ($1,750,000).",
+      "<span class=\"cl-drop\">Price drop</span> 5 cuts this week — <b>reference home B cut again</b>: 3068 169th Ave NE $1,400,000 -&gt; $1,299,000 (−$101,000). Also 5221 Somerset Dr SE (Somerset) $1,875,000 -&gt; $1,799,000 (−$76,000); 17228 NE 85th Pl (Redmond 98052) $1,500,000 -&gt; $1,450,000 (−$50,000); 13412 SE 59th St (Newport Hts) $1,700,000 -&gt; $1,658,000 (−$42,000); 13702 173rd Pl NE (Redmond 98052) $1,398,000 -&gt; $1,374,500 (−$23,500).",
+      "<span class=\"cl-off\">Off-market</span> 6 gone — Redmond 98052: 7426 139th Pl NE ($1,380,000), 18316 NE 133rd St ($1,462,900), 16990 NE 84th Ct ($1,985,000) &amp; 10618 176th Ct NE ($1,988,888); Newport Heights: 6045 129th Ave SE ($1,398,000); Bellevue 98008: 15611 SE 24th St ($1,390,000).",
+      "Busy week: 8 new, 5 cuts (−$292,500), 6 off-market. 30-yr fixed rose to 6.66% (Freddie Mac Jul 30). Tracking 71 active listings across four school catchments + two ZIP sweeps."
+    ]},
     {date:"2026-07-28", items:[
       "<span class=\"cl-new\">New</span> 1 new listing — Newport Heights: 4333 123rd Ave SE ($1,280,000, Newport Mockingbird Hill, 10,696 sqft flat lot with renovate/expand potential).",
       "<span class=\"cl-drop\">Price drop</span> 2 cuts this week — Redmond 98052: 18316 NE 133rd St $1,539,900 -&gt; $1,462,900 (−$77,000) &amp; 9106 172nd Ave NE $1,550,000 -&gt; $1,480,000 (−$70,000).",
@@ -235,21 +241,16 @@ const DATA = {
       "Partial refresh: the listing data source was unavailable this run, so all 69 listings are carried over unchanged from 07-07 (existing price-cut flags kept).",
       "30-yr fixed rose to 6.49% (from 6.43%, Freddie Mac Jul 9). Tracking 69 active listings across four school catchments + two ZIP sweeps."
     ]},
-    {date:"2026-07-07", items:[
-      "<span class=\"cl-drop\">Price drop</span> 6 cuts this week: 3028 173rd Ct NE (Audubon) $1,980,000 -&gt; $1,880,000; 18316 NE 133rd St (Redmond 98052) $1,625,000 -&gt; $1,539,900; 16611 NE 108th Pl (Redmond 98052) $1,199,950 -&gt; $1,130,000; 4705 119th Ave SE (Newport Heights) $1,649,000 -&gt; $1,595,000; 17518 NE 22nd Ct (Redmond 98052) $1,450,888 -&gt; $1,400,000; 627 166th Ave NE (Bellevue 98008) $1,550,000 -&gt; $1,499,950.",
-      "<span class=\"cl-off\">Off-market</span> 1 gone — Redmond 98052: 7605 146th Ave NE ($1,498,000, had a $100K cut in early July).",
-      "No new listings this week; the four remaining 07-04 cuts stay active. 30-yr fixed held at 6.43%. Tracking 69 active listings across four school catchments + two ZIP sweeps."
-    ]}
   ],
   market: [
     {lbl:"Redmond 98052 median", val:"$1,302,113", delta:"-3.9% YoY", dir:"down"},
     {lbl:"Bellevue 98008 median", val:"$1,469,064", delta:"-5.2% YoY", dir:"down"},
-    {lbl:"30-yr fixed rate", val:"6.58%", delta:"Freddie Mac Jul 23, 2026", dir:"up"},
+    {lbl:"30-yr fixed rate", val:"6.66%", delta:"Freddie Mac Jul 30, 2026", dir:"up"},
     {lbl:"Avg 4BD rent", val:"$4,772/mo", delta:"local comps", dir:"flat"}
   ],
   refs: [
     {lbl:"Reference home A", val:"$1,470,000", delta:"16813 NE 33rd St · 4/3 · Ardmore 4/10 · ↓$78K Jul 12", dir:"down"},
-    {lbl:"Reference home B", val:"$1,400,000", delta:"3068 169th Ave NE · 5/3.5 · BSD verify · ↓$98K Jul 12", dir:"down"},
+    {lbl:"Reference home B", val:"$1,299,000", delta:"3068 169th Ave NE · 5/3.5 · BSD verify · ↓$101K Aug 1", dir:"down"},
     {lbl:"Strong-school reference", val:"Audubon 9/10", delta:"2462 172nd Ave NE · LWSD", dir:"up"},
     {lbl:"Rent comps (avg)", val:"$4,772/mo", delta:"local 4BD", dir:"flat"}
   ],
@@ -259,8 +260,8 @@ const DATA = {
     {addr:"3028 173rd Ct NE", city:"Redmond", zip:"98052", price:1880000, beds:4, baths:2.5, sqft:3340, sd:"LWSD", school:"Audubon", note:"Audubon attendance zone (Redfin); near Microsoft & SR-520", cut:100000, cutDate:"2026-07-07"},
     // ---- Somerset catchment (Bellevue, BSD) — Redfin school zone ----
     {addr:"14130 SE 49th Pl", city:"Bellevue", zip:"98006", price:1750000, beds:5, baths:3, sqft:3080, sd:"BSD", school:"Somerset", note:"Main-level primary suite"},
+    {addr:"5221 Somerset Dr SE", city:"Bellevue", zip:"98006", price:1799000, beds:5, baths:3, sqft:3360, sd:"BSD", school:"Somerset", note:"Courtyard entry; 4 beds on main", cut:76000, cutDate:"2026-08-01"},
     {addr:"14317 SE 49th St", city:"Bellevue", zip:"98006", price:1850000, beds:4, baths:2.5, sqft:2820, sd:"BSD", school:"Somerset", note:"Largest recent cut in Somerset", cut:148000, cutDate:"2026-07-12"},
-    {addr:"5221 Somerset Dr SE", city:"Bellevue", zip:"98006", price:1875000, beds:5, baths:3, sqft:3360, sd:"BSD", school:"Somerset", note:"Courtyard entry; 4 beds on main"},
     {addr:"4478 142nd Ave SE", city:"Bellevue", zip:"98006", price:1898888, beds:5, baths:3.5, sqft:2907, sd:"BSD", school:"Somerset", note:"Walls of windows, main-floor primary"},
     {addr:"14023 SE 60th St", city:"Bellevue", zip:"98006", price:1969000, beds:5, baths:3, sqft:3050, sd:"BSD", school:"Somerset", note:"$200k+ upgrades", cut:30888, cutDate:"2026-07-12"},
     {addr:"5011 134th Pl SE", city:"Bellevue", zip:"98006", price:1980000, beds:4, baths:2.5, sqft:3420, sd:"BSD", school:"Somerset", note:""},
@@ -269,29 +270,28 @@ const DATA = {
     // ---- Newport Heights catchment (Bellevue, BSD) — Redfin school zone ----
     {addr:"4333 123rd Ave SE", city:"Bellevue", zip:"98006", price:1280000, beds:4, baths:2.5, sqft:2573, sd:"BSD", school:"Newport Heights", note:"New listing; Newport Mockingbird Hill, 10,696 sqft flat lot, renovate/expand potential"},
     {addr:"5761 110th Ave SE", city:"Bellevue", zip:"98006", price:1375000, beds:4, baths:3, sqft:2860, sd:"BSD", school:"Newport Heights", note:"Kimberlee Park, Lake Washington views"},
-    {addr:"6045 129th Ave SE", city:"Bellevue", zip:"98006", price:1398000, beds:4, baths:2.5, sqft:2500, sd:"BSD", school:"Newport Heights", note:"Newport Hills, backs to trails"},
     {addr:"12218 SE 47th Pl", city:"Bellevue", zip:"98006", price:1399000, beds:4, baths:3, sqft:2070, sd:"BSD", school:"Newport Heights", note:"Newport Hills cul-de-sac, brand-new roof"},
     {addr:"5221 120th Ave SE", city:"Bellevue", zip:"98006", price:1400000, beds:5, baths:3, sqft:2780, sd:"BSD", school:"Newport Heights", note:"Workshop"},
     {addr:"12510 SE 48th Pl", city:"Bellevue", zip:"98006", price:1499950, beds:4, baths:3, sqft:2070, sd:"BSD", school:"Newport Heights", note:"Newport Hills cul-de-sac, remodeled kitchen", cut:98050, cutDate:"2026-07-25"},
     {addr:"4705 119th Ave SE", city:"Bellevue", zip:"98006", price:1570000, beds:4, baths:2.5, sqft:2300, sd:"BSD", school:"Newport Heights", note:"", cut:25000, cutDate:"2026-07-21"},
     {addr:"6149 115th Pl SE", city:"Bellevue", zip:"98006", price:1590000, beds:4, baths:3, sqft:2620, sd:"BSD", school:"Newport Heights", note:"brand-new kitchen, new A/C"},
-    {addr:"13412 SE 59th St", city:"Bellevue", zip:"98006", price:1700000, beds:4, baths:3, sqft:3090, sd:"BSD", school:"Newport Heights", note:"Greenbelt", cut:68800, cutDate:"2026-07-12"},
+    {addr:"13412 SE 59th St", city:"Bellevue", zip:"98006", price:1658000, beds:4, baths:3, sqft:3090, sd:"BSD", school:"Newport Heights", note:"Greenbelt", cut:42000, cutDate:"2026-08-01"},
     {addr:"4935 116th Pl SE", city:"Bellevue", zip:"98006", price:1850000, beds:5, baths:3.5, sqft:3200, sd:"BSD", school:"Newport Heights", note:"Lake Washington views", cut:140000, cutDate:"2026-07-25"},
     {addr:"13400 SE 56th Pl", city:"Bellevue", zip:"98006", price:1988000, beds:5, baths:3.5, sqft:2690, sd:"BSD", school:"Newport Heights", note:"Forest Park, 14,000+ sqft lot"},
     // ---- Redmond 98052 (LWSD, ZIP sweep — verify exact school) ----
+    {addr:"9210 166th Pl NE", city:"Redmond", zip:"98052", price:1350000, beds:4, baths:3, sqft:1900, sd:"LWSD", school:"Redmond 98052", note:"Large corner lot, quiet dead-end street"},
     {addr:"17518 NE 22nd Ct", city:"Redmond", zip:"98052", price:1370888, beds:4, baths:3, sqft:2340, sd:"LWSD", school:"Redmond 98052", note:"Pitcairn, Microsoft area", cut:29112, cutDate:"2026-07-25"},
+    {addr:"13702 173rd Pl NE", city:"Redmond", zip:"98052", price:1374500, beds:4, baths:3, sqft:2460, sd:"LWSD", school:"Redmond 98052", note:"English Hill, remodeled", cut:23500, cutDate:"2026-08-01"},
     {addr:"13307 NE 77th St", city:"Redmond", zip:"98052", price:1375000, beds:4, baths:3, sqft:1940, sd:"LWSD", school:"Redmond 98052", note:""},
-    {addr:"7426 139th Pl NE", city:"Redmond", zip:"98052", price:1380000, beds:5, baths:2, sqft:2090, sd:"LWSD", school:"Redmond 98052", note:"Grass Lawn"},
-    {addr:"13702 173rd Pl NE", city:"Redmond", zip:"98052", price:1398000, beds:4, baths:3, sqft:2460, sd:"LWSD", school:"Redmond 98052", note:"English Hill, remodeled"},
     {addr:"11558 179th Ct NE", city:"Redmond", zip:"98052", price:1399950, beds:4, baths:2.5, sqft:2300, sd:"LWSD", school:"Redmond 98052", note:"Quiet cul-de-sac", cut:40000, cutDate:"2026-07-21"},
     {addr:"9060 177th Pl NE", city:"Redmond", zip:"98052", price:1425000, beds:4, baths:3.5, sqft:2930, sd:"LWSD", school:"Redmond 98052", note:""},
+    {addr:"10632 157th Ave NE", city:"Redmond", zip:"98052", price:1425000, beds:4, baths:2.5, sqft:2340, sd:"LWSD", school:"Redmond 98052", note:"Education Hill, renovated, hickory hardwoods"},
     {addr:"16235 NE 51st St", city:"Redmond", zip:"98052", price:1445000, beds:4, baths:2, sqft:2520, sd:"LWSD", school:"Redmond 98052", note:""},
-    {addr:"18316 NE 133rd St", city:"Redmond", zip:"98052", price:1462900, beds:4, baths:3, sqft:3440, sd:"LWSD", school:"Redmond 98052", note:"Low-maintenance yard, saltwater spa, generator", cut:77000, cutDate:"2026-07-28"},
+    {addr:"17228 NE 85th Pl", city:"Redmond", zip:"98052", price:1450000, beds:4, baths:3, sqft:2262, sd:"LWSD", school:"Redmond 98052", note:"Chef's kitchen", cut:50000, cutDate:"2026-08-01"},
     {addr:"10816 183rd Ave NE", city:"Redmond", zip:"98052", price:1475000, beds:5, baths:3, sqft:2570, sd:"LWSD", school:"Redmond 98052", note:"Relisted; price trimmed", cut:9000, cutDate:"2026-07-18"},
     {addr:"9106 172nd Ave NE", city:"Redmond", zip:"98052", price:1480000, beds:4, baths:2.5, sqft:2318, sd:"LWSD", school:"Redmond 98052", note:"2009-built, backs to Nike Park", cut:70000, cutDate:"2026-07-28"},
     {addr:"14203 NE 63rd Ct", city:"Redmond", zip:"98052", price:1492000, beds:4, baths:2.5, sqft:2022, sd:"LWSD", school:"Redmond 98052", note:""},
     {addr:"11108 180th Pl NE", city:"Redmond", zip:"98052", price:1499950, beds:4, baths:2.5, sqft:2280, sd:"LWSD", school:"Redmond 98052", note:"Education Hill", cut:125050, cutDate:"2026-07-18"},
-    {addr:"17228 NE 85th Pl", city:"Redmond", zip:"98052", price:1500000, beds:4, baths:3, sqft:2262, sd:"LWSD", school:"Redmond 98052", note:"Chef's kitchen"},
     {addr:"10518 165th Pl NE", city:"Redmond", zip:"98052", price:1549999, beds:4, baths:3, sqft:2170, sd:"LWSD", school:"Redmond 98052", note:"", cut:20000, cutDate:"2026-07-12"},
     {addr:"5733 155th Ave NE", city:"Redmond", zip:"98052", price:1550000, beds:5, baths:4, sqft:2540, sd:"LWSD", school:"Redmond 98052", note:""},
     {addr:"18009 NE 103rd Ct", city:"Redmond", zip:"98052", price:1550000, beds:4, baths:2.5, sqft:2110, sd:"LWSD", school:"Redmond 98052", note:""},
@@ -303,6 +303,7 @@ const DATA = {
     {addr:"8941 170th Ct NE", city:"Redmond", zip:"98052", price:1698000, beds:4, baths:3, sqft:2860, sd:"LWSD", school:"Redmond 98052", note:""},
     {addr:"2209 W Lake Sammamish Pkwy NE", city:"Redmond", zip:"98052", price:1700000, beds:5, baths:3, sqft:3012, sd:"LWSD", school:"Redmond 98052", note:"Off W Lake Sammamish Pkwy, updated 2016"},
     {addr:"18010 NE 109 Ct", city:"Redmond", zip:"98052", price:1700000, beds:4, baths:2.5, sqft:2250, sd:"LWSD", school:"Redmond 98052", note:"Education Hill, built 1993"},
+    {addr:"17023 NE 120th St", city:"Redmond", zip:"98052", price:1759950, beds:4, baths:2.5, sqft:2536, sd:"LWSD", school:"Redmond 98052", note:"Woodlands West, CamWest-built"},
     {addr:"16707 NE 124th St", city:"Redmond", zip:"98052", price:1790000, beds:4, baths:2.5, sqft:3310, sd:"LWSD", school:"Redmond 98052", note:""},
     {addr:"7337 151st Ave NE", city:"Redmond", zip:"98052", price:1825000, beds:6, baths:5.5, sqft:3770, sd:"LWSD", school:"Redmond 98052", note:""},
     {addr:"12903 176th Pl NE", city:"Redmond", zip:"98052", price:1838888, beds:4, baths:3.5, sqft:3110, sd:"LWSD", school:"Redmond 98052", note:"Dual primary suites", cut:50000, cutDate:"2026-07-18"},
@@ -311,25 +312,27 @@ const DATA = {
     {addr:"14326 174th Ave NE", city:"Redmond", zip:"98052", price:1949500, beds:4, baths:2.5, sqft:3080, sd:"LWSD", school:"Redmond 98052", note:"Sheffield, updated Buchan home"},
     {addr:"11572 174th Ct NE", city:"Redmond", zip:"98052", price:1950000, beds:4, baths:3, sqft:3030, sd:"LWSD", school:"Redmond 98052", note:"Education Hill, backs to greenbelt"},
     {addr:"16563 NE 119th Way", city:"Redmond", zip:"98052", price:1975000, beds:5, baths:3.5, sqft:3290, sd:"LWSD", school:"Redmond 98052", note:""},
-    {addr:"16990 NE 84th Ct", city:"Redmond", zip:"98052", price:1985000, beds:4, baths:4, sqft:3490, sd:"LWSD", school:"Redmond 98052", note:""},
-    {addr:"10618 176th Ct NE", city:"Redmond", zip:"98052", price:1988888, beds:5, baths:2.5, sqft:2900, sd:"LWSD", school:"Redmond 98052", note:"Abbey Road, renovated"},
+    {addr:"8210 171st Ave NE", city:"Redmond", zip:"98052", price:1990000, beds:5, baths:3, sqft:3030, sd:"LWSD", school:"Redmond 98052", note:""},
     // ---- Bellevue 98008 (BSD, ZIP sweep — verify exact school) ----
     {addr:"24 158th Pl SE", city:"Bellevue", zip:"98008", price:1199888, beds:4, baths:2, sqft:2600, sd:"BSD", school:"Bellevue 98008", note:"Lake Hills"},
     {addr:"15805 SE 12th Pl", city:"Bellevue", zip:"98008", price:1200000, beds:5, baths:2, sqft:1900, sd:"BSD", school:"Bellevue 98008", note:"Lake Hills double lot, renovate/expand potential"},
     {addr:"16404 SE 12th St", city:"Bellevue", zip:"98008", price:1249900, beds:6, baths:2, sqft:1980, sd:"BSD", school:"Bellevue 98008", note:"Permit-approved Lake Hills teardown/rebuild lot"},
-    {addr:"15611 SE 24th St", city:"Bellevue", zip:"98008", price:1390000, beds:4, baths:3, sqft:2150, sd:"BSD", school:"Bellevue 98008", note:"Phantom Lake rambler, 2026 updates"},
-    {addr:"3068 169th Ave NE", city:"Bellevue", zip:"98008", price:1400000, beds:5, baths:3.5, sqft:2520, sd:"BSD", school:"Bellevue 98008", note:"Reference home B — verify zone", toured:true, redfin:"https://www.redfin.com/WA/Bellevue/3068-169th-Ave-NE-98008/home/48762741", cut:98000, cutDate:"2026-07-12"},
+    {addr:"3068 169th Ave NE", city:"Bellevue", zip:"98008", price:1299000, beds:5, baths:3.5, sqft:2520, sd:"BSD", school:"Bellevue 98008", note:"Reference home B — verify zone", toured:true, redfin:"https://www.redfin.com/WA/Bellevue/3068-169th-Ave-NE-98008/home/48762741", cut:101000, cutDate:"2026-08-01"},
+    {addr:"924 179th Ct NE", city:"Bellevue", zip:"98008", price:1300000, beds:4, baths:2, sqft:1810, sd:"BSD", school:"Bellevue 98008", note:"Brettonwood rambler, 1/3 acre, single level"},
+    {addr:"16119 SE 31st St", city:"Bellevue", zip:"98008", price:1450000, beds:4, baths:2, sqft:1990, sd:"BSD", school:"Bellevue 98008", note:"Spirit Ridge; relisted after Jul 28 off-market"},
     {addr:"16813 NE 33rd St", city:"Bellevue", zip:"98008", price:1470000, beds:4, baths:3, sqft:2390, sd:"BSD", school:"Bellevue 98008", note:"Reference home A — Ardmore 4/10", toured:true, redfin:"https://www.redfin.com/WA/Bellevue/16813-NE-33rd-St-98008/home/432244", cut:78000, cutDate:"2026-07-12"},
     {addr:"16204 Main St", city:"Bellevue", zip:"98008", price:1498000, beds:4, baths:3, sqft:2840, sd:"BSD", school:"Bellevue 98008", note:""},
     {addr:"16639 SE 26th Pl", city:"Bellevue", zip:"98008", price:1498000, beds:4, baths:3, sqft:2350, sd:"BSD", school:"Bellevue 98008", note:"Spiritridge, Lake Sammamish view, cul-de-sac"},
     {addr:"627 166th Ave NE", city:"Bellevue", zip:"98008", price:1499950, beds:4, baths:2, sqft:1710, sd:"BSD", school:"Bellevue 98008", note:"", cut:50050, cutDate:"2026-07-07"},
+    {addr:"1007 174th Ave NE", city:"Bellevue", zip:"98008", price:1530000, beds:4, baths:3, sqft:2460, sd:"BSD", school:"Bellevue 98008", note:"Refreshed; main-level bedroom"},
     {addr:"3027 167th Ave NE", city:"Bellevue", zip:"98008", price:1549995, beds:4, baths:3, sqft:3370, sd:"BSD", school:"Bellevue 98008", note:"Repriced to sell; new roof", cut:50000, cutDate:"2026-07-25"},
     {addr:"1120 156th Ave SE", city:"Bellevue", zip:"98007", price:1560000, beds:4, baths:3, sqft:3551, sd:"BSD", school:"Bellevue 98008", note:"Lake Hills area (98007)"},
     {addr:"3020 169th Ave NE", city:"Bellevue", zip:"98008", price:1600000, beds:5, baths:3, sqft:2850, sd:"BSD", school:"Bellevue 98008", note:"Renovated — new roof, refinished hardwoods"},
     {addr:"16436 SE 8th St", city:"Bellevue", zip:"98008", price:1649000, beds:4, baths:3, sqft:1730, sd:"BSD", school:"Bellevue 98008", note:"Fully renovated, EV outlet, tankless"},
     {addr:"16719 SE 4th Pl", city:"Bellevue", zip:"98008", price:1649950, beds:4, baths:3, sqft:2140, sd:"BSD", school:"Bellevue 98008", note:"Lake Hills modern transformation"},
     {addr:"16438 SE 22nd St", city:"Bellevue", zip:"98008", price:1700000, beds:4, baths:2.5, sqft:2310, sd:"BSD", school:"Bellevue 98008", note:""},
-    {addr:"17816 NE 12th St", city:"Bellevue", zip:"98008", price:1749990, beds:5, baths:3, sqft:3140, sd:"BSD", school:"Bellevue 98008", note:"Bretton Wood", cut:50000, cutDate:"2026-07-12"}
+    {addr:"17816 NE 12th St", city:"Bellevue", zip:"98008", price:1749990, beds:5, baths:3, sqft:3140, sd:"BSD", school:"Bellevue 98008", note:"Bretton Wood", cut:50000, cutDate:"2026-07-12"},
+    {addr:"16410 SE 31st St", city:"Bellevue", zip:"98008", price:1750000, beds:4, baths:2.5, sqft:2808, sd:"BSD", school:"Bellevue 98008", note:"West Lake Sammamish, backyard studio, EV outlet"}
   ]
 };
 // school display order, colors
