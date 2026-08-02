@@ -75,6 +75,13 @@ a.zlink:hover{ color:#2c5fd6; }
 .cl-entry ul{ margin:6px 0 0; padding-left:18px; }
 .cl-entry li{ font-size:13px; margin:2px 0; }
 .cl-new{ color:#1e8e4e; font-weight:700; } .cl-drop{ color:#c0392b; font-weight:700; } .cl-off{ color:#8a94a3; font-weight:700; }
+.clpager{ display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-top:12px; }
+.clpager button{ font-size:12px; font-weight:700; min-width:30px; padding:5px 9px; border-radius:8px; border:1px solid #cdd4dd; background:#fff; color:#2c3542; cursor:pointer; }
+.clpager button:hover:not(:disabled){ background:#eef3ff; border-color:#a9bdf0; }
+.clpager button.active{ background:#2c5fd6; border-color:#2c5fd6; color:#fff; cursor:default; }
+.clpager button:disabled{ opacity:0.35; cursor:default; }
+.clpager .ell{ font-size:12px; color:#8a94a3; padding:0 2px; }
+.clpager .clcount{ font-size:12px; color:#5b6675; margin-left:auto; }
 .cutbadge{ display:inline-block; background:#fff0e8; color:#d2451e; font-size:11px; font-weight:800; padding:1px 6px; border-radius:5px; margin-left:6px; white-space:nowrap; }
 .cutchip{ font-size:13px; font-weight:800; padding:6px 13px; border-radius:20px; border:1px solid #ffd2bd; background:#fff4ee; color:#d2451e; cursor:pointer; }
 .cutchip.active{ background:#d2451e; color:#fff; border-color:#d2451e; }
@@ -241,6 +248,35 @@ const DATA = {
       "Partial refresh: the listing data source was unavailable this run, so all 69 listings are carried over unchanged from 07-07 (existing price-cut flags kept).",
       "30-yr fixed rose to 6.49% (from 6.43%, Freddie Mac Jul 9). Tracking 69 active listings across four school catchments + two ZIP sweeps."
     ]},
+    {date:"2026-07-07", items:[
+      "<span class=\"cl-drop\">Price drop</span> 6 cuts this week: 3028 173rd Ct NE (Audubon) $1,980,000 -&gt; $1,880,000; 18316 NE 133rd St (Redmond 98052) $1,625,000 -&gt; $1,539,900; 16611 NE 108th Pl (Redmond 98052) $1,199,950 -&gt; $1,130,000; 4705 119th Ave SE (Newport Heights) $1,649,000 -&gt; $1,595,000; 17518 NE 22nd Ct (Redmond 98052) $1,450,888 -&gt; $1,400,000; 627 166th Ave NE (Bellevue 98008) $1,550,000 -&gt; $1,499,950.",
+      "<span class=\"cl-off\">Off-market</span> 1 gone — Redmond 98052: 7605 146th Ave NE ($1,498,000, had a $100K cut in early July).",
+      "No new listings this week; the four remaining 07-04 cuts stay active. 30-yr fixed held at 6.43%. Tracking 69 active listings across four school catchments + two ZIP sweeps."
+    ]},
+    {date:"2026-07-06", items:[
+      "<span class=\"cl-off\">Off-market</span> 1 gone — Redmond 98052: 7106 139th Pl NE ($1,398,000, Grass Lawn rambler).",
+      "No new listings or price changes this week; the five active price cuts from 07-04 remain active. 30-yr fixed held at 6.43%. Tracking 70 active listings across four school catchments + two ZIP sweeps."
+    ]},
+    {date:"2026-07-04", items:[
+      "<span class=\"cl-new\">New</span> 2 new listings — 14130 SE 49th Pl, Bellevue 98006 (Somerset, $1.75M) and 10618 176th Ct NE, Redmond 98052 ($1.989M).",
+      "<span class=\"cl-drop\">Price drop</span> 5 cuts this week: 3027 167th Ave NE (Bellevue 98008) $1,697,000 -&gt; $1,599,995; 7605 146th Ave NE (Redmond 98052) $1,598,888 -&gt; $1,498,000; 14812 SE 62nd Ct (Somerset) $1,890,000 -&gt; $1,790,000; 9975 185th Ct NE (Redmond 98052) $1,975,000 -&gt; $1,900,000; 4548 144th Ave SE (Somerset) $1,850,000 -&gt; $1,795,000.",
+      "<span class=\"cl-off\">Off-market</span> 4 gone — Redmond 98052: 10816 183rd Ave NE ($1,489,000) &amp; 16414 NE 135th St ($1,988,800); Bellevue 98008: 16404 SE 12th St ($1,280,000) &amp; 2457 168th Pl NE ($1,998,000).",
+      "30-yr fixed eased to 6.43% (from 6.49%). Tracking 71 active listings across four school catchments + two ZIP sweeps."
+    ]},
+    {date:"2026-06-30", items:[
+      "<span class=\"cl-new\">New</span> 8 new listings — 6 in Redmond 98052 (incl. 7337 151st Ave NE $1.825M, 4517 166th Pl NE $1.525M, 7605 146th Ave NE $1.599M), 1 Newport Heights (4713 125th Ave SE $1.75M) and 1 Bellevue 98008 (1120 156th Ave SE $1.56M).",
+      "<span class=\"cl-off\">Off-market</span> 4 gone — Somerset 13103 SE 47th St ($1,699,000) &amp; 5701 137th Pl SE ($1,999,888); Bellevue 98008 16711 NE 6th Pl ($1,385,000) &amp; 16724 NE 22nd St ($1,480,000).",
+      "No price changes this week; the −$100K cut on 3027 167th Ave NE stays active. 30-yr fixed eased to 6.49%. Tracking 73 active listings across four school catchments + two ZIP sweeps."
+    ]},
+    {date:"2026-06-28", items:[
+      "<span class=\"cl-new\">Data check</span> Verified all four schools' test scores directly against their GreatSchools profiles (2024-25 WA OSPI): Audubon 81/82, Somerset 92/92, Woodridge 81/82, Newport Hts 76/74 (math/reading).",
+      "Corrected three figures to the primary source: Audubon (was 83/87), Somerset math (was 91), Newport Heights reading (was 81)."
+    ]},
+    {date:"2026-06-27", items:[
+      "Initial tracker published — 4BD homes up to $2M in Redmond 98052 &amp; Bellevue 98008.",
+      "Added sub-$1.5M listings and a budget-range filter.",
+      "Added clickable Zillow / Redfin / Google Maps links and a listings map."
+    ]},
   ],
   market: [
     {lbl:"Redmond 98052 median", val:"$1,302,113", delta:"-3.9% YoY", dir:"down"},
@@ -369,9 +405,58 @@ function cards(el, arr){
 }
 cards("snapshot", DATA.market);
 cards("refs", DATA.refs);
+// ---- Changelog: full archive, paginated (newest first) ----
+const CL_PER_PAGE = 5;
+let clPage = 1;
+
+function clPageNumbers(cur, total){
+  // windowed: first, last, current +/- 1, with ellipses
+  const s = new Set([1, total, cur, cur-1, cur+1]);
+  const pages = [...s].filter(n=>n>=1 && n<=total).sort((a,b)=>a-b);
+  const out = [];
+  pages.forEach((n,i)=>{ if(i && n - pages[i-1] > 1) out.push("..."); out.push(n); });
+  return out;
+}
+
 function renderChangelog(){
-  document.getElementById("changelog").innerHTML=(DATA.changelog||[]).slice(0,8)
-    .map(e=>`<div class="cl-entry"><div class="d">${e.date}</div><ul>${e.items.map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("");
+  const all = DATA.changelog || [];
+  const total = Math.max(1, Math.ceil(all.length / CL_PER_PAGE));
+  if(clPage > total) clPage = total;
+  if(clPage < 1) clPage = 1;
+  const start = (clPage - 1) * CL_PER_PAGE;
+  const slice = all.slice(start, start + CL_PER_PAGE);
+
+  const entries = slice.map(e=>
+    `<div class="cl-entry"><div class="d">${e.date}</div><ul>${e.items.map(i=>`<li>${i}</li>`).join("")}</ul></div>`
+  ).join("");
+
+  let pager = "";
+  if(all.length > CL_PER_PAGE){
+    const btns = clPageNumbers(clPage, total).map(n =>
+      n === "..." ? `<span class="ell">…</span>`
+        : `<button type="button" class="clpg${n===clPage?" active":""}" data-pg="${n}"${n===clPage?" disabled":""}>${n}</button>`
+    ).join("");
+    const oldest = all[all.length-1] ? all[all.length-1].date : "";
+    pager = `<div class="clpager">
+      <button type="button" class="clpg" data-pg="${clPage-1}"${clPage===1?" disabled":""}>‹ Newer</button>
+      ${btns}
+      <button type="button" class="clpg" data-pg="${clPage+1}"${clPage===total?" disabled":""}>Older ›</button>
+      <span class="clcount">${all.length} updates since ${oldest}</span>
+    </div>`;
+  }
+
+  const host = document.getElementById("changelog");
+  host.innerHTML = entries + pager;
+  host.querySelectorAll("button.clpg").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      const n = parseInt(b.dataset.pg, 10);
+      if(!isNaN(n) && n !== clPage){
+        clPage = n;
+        renderChangelog();
+        document.getElementById("changelog").scrollIntoView({block:"nearest"});
+      }
+    });
+  });
 }
 renderChangelog();
 
