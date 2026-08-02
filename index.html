@@ -82,6 +82,13 @@ a.zlink:hover{ color:#2c5fd6; }
 .clpager button:disabled{ opacity:0.35; cursor:default; }
 .clpager .ell{ font-size:12px; color:#8a94a3; padding:0 2px; }
 .clpager .clcount{ font-size:12px; color:#5b6675; margin-left:auto; }
+.sumhead{ font-size:15px; font-weight:800; color:#1c2733; margin:0 0 11px; line-height:1.5; }
+.sumpt{ font-size:13.5px; color:#33404f; margin:0 0 9px; line-height:1.62; }
+.sumpt:last-of-type{ margin-bottom:2px; }
+.sumpt strong{ color:#1c2733; }
+.sumlean{ display:inline-block; font-size:11px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; padding:2px 8px; border-radius:5px; margin-right:7px; vertical-align:2px; }
+.sumlean.rent{ background:#eafaf0; color:#1e7a44; border:1px solid #b7e7c8; }
+.sumlean.buy{ background:#eef3ff; color:#2c5fd6; border:1px solid #bdd0f7; }
 .cutbadge{ display:inline-block; background:#fff0e8; color:#d2451e; font-size:11px; font-weight:800; padding:1px 6px; border-radius:5px; margin-left:6px; white-space:nowrap; }
 .cutchip{ font-size:13px; font-weight:800; padding:6px 13px; border-radius:20px; border:1px solid #ffd2bd; background:#fff4ee; color:#d2451e; cursor:pointer; }
 .cutchip.active{ background:#d2451e; color:#fff; border-color:#d2451e; }
@@ -113,11 +120,12 @@ a.zlink:hover{ color:#2c5fd6; }
         <tr><td>Somerset — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>92% / 92%</td><td>Top-1% scores in WA; hilly Somerset, larger/pricier homes; I-90 &amp; Factoria, ~15 min to downtown Bellevue</td></tr>
         <tr><td>Woodridge — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>81% / 82%</td><td>Central Bellevue near I-90/Richards Rd; shortest commute; small catchment</td></tr>
         <tr><td>Newport Heights — Bellevue (BSD)</td><td><span class="chip good">9 / 10</span></td><td>76% / 74%</td><td>Newport Hills / Forest Park with trails; near I-405 &amp; I-90</td></tr>
-        <tr><td>Ardmore — Bellevue (BSD)</td><td><span class="chip low">4 / 10</span></td><td>—</td><td>Zone of reference home 16813 NE 33rd St — the contrast to avoid</td></tr>
+        <tr><td>Lake Hills — Bellevue (BSD)</td><td><span class="chip low">5 / 10</span></td><td>40% / 38%</td><td>Zone of reference home C, 2130 140th Pl SE (98007) — bigger house/lot, weaker school</td></tr>
+        <tr><td>Ardmore — Bellevue (BSD)</td><td><span class="chip low">4 / 10</span></td><td>—</td><td>Zone of reference home A, 16813 NE 33rd St — the contrast to avoid</td></tr>
       </tbody>
     </table>
     <p class="note"><strong>Takeaway:</strong> All four target catchments carry a 9/10 GreatSchools rating — a clear step up from the reference home's Ardmore zone (4/10). Somerset posts the strongest scores but the priciest, hilliest homes; Audubon's catchment is tiny (frequently 0–1 listings) and nearest Microsoft; Newport Heights and Woodridge give the most central Bellevue commutes. Use the <strong>school filter</strong> below to compare homes by catchment, and always confirm a specific address's exact assignment with the district boundary tool.</p>
-    <p class="note">Source: school ratings &amp; test scores are taken from each school's GreatSchools profile (greatschools.org), verified June 2026 — math &amp; reading (ELA) from the 2024-25 WA OSPI assessments. These figures update yearly and are <strong>not</strong> changed by the automated weekly refresh — re-check the current profile before relying on them.</p>
+    <p class="note">Source: school ratings &amp; test scores are taken from each school's GreatSchools profile (greatschools.org), verified June 2026 — math &amp; reading (ELA) from the 2024-25 WA OSPI assessments; Lake Hills verified Aug 2026 (English 38%, math 40%, vs WA state averages of 53% and 43%). These figures update yearly and are <strong>not</strong> changed by the automated refresh — re-check the current profile before relying on them.</p>
   </div>
 
   <h2>Filters</h2>
@@ -146,6 +154,10 @@ a.zlink:hover{ color:#2c5fd6; }
   <div class="dotlegend" id="dotlegend"></div>
   <div id="map"></div>
   <p class="maphint">Pins are geocoded in your browser and cached, colored by school catchment, and respect the filters. A red ring marks the toured reference homes. Click a pin for price, beds, and Zillow / Redfin / Google Maps links. (Map requires internet — works on the published page.)</p>
+
+  <h2>The read</h2>
+  <p class="sub">Written fresh on every refresh from that run's listing, price-cut, rate and median data.</p>
+  <div class="panel" id="summary"></div>
 
   <h2>Buy vs Rent calculator</h2>
   <div class="grid2">
@@ -287,9 +299,34 @@ const DATA = {
   refs: [
     {lbl:"Reference home A", val:"$1,470,000", delta:"16813 NE 33rd St · 4/3 · Ardmore 4/10 · ↓$78K Jul 12", dir:"down"},
     {lbl:"Reference home B", val:"$1,299,000", delta:"3068 169th Ave NE · 5/3.5 · BSD verify · ↓$101K Aug 1", dir:"down"},
+    {lbl:"Reference home C", val:"$1,548,900", delta:"2130 140th Pl SE (98007) · 5/4 · 3,120 sqft · Lake Hills 5/10", dir:"flat"},
     {lbl:"Strong-school reference", val:"Audubon 9/10", delta:"2462 172nd Ave NE · LWSD", dir:"up"},
     {lbl:"Rent comps (avg)", val:"$4,772/mo", delta:"local 4BD", dir:"flat"}
   ],
+  // Reference home C is OUTSIDE both ZIP sweeps (98007) and all four school
+  // catchments, so it never appears in DATA.listings. Its price must be re-checked
+  // directly from its Zillow page on each refresh — see refC below.
+  refC: {
+    addr:"2130 140th Pl SE", city:"Bellevue", zip:"98007",
+    price:1548900, beds:5, baths:4, sqft:3120,
+    lot:"~0.9 acre", school:"Lake Hills", gs:"5 / 10", zoning:"SR4 (DADU / subdivision potential — buyer to verify)",
+    zillow:"https://www.zillow.com/homedetails/2130-140th-Pl-SE-Bellevue-WA-98007/49105457_zpid/",
+    note:"Remodeled mid-century; daylight basement w/ private entrance, 2BD + full bath; 800+ sqft detached garage with studio above"
+  },
+  // Regenerated from scratch on EVERY refresh — see STEP 3f of the scheduled task.
+  // Every number here must be traceable to that run's DATA (listings, market, changelog)
+  // or to the calculator model; no figures from memory.
+  summary: {
+    lean: "rent",
+    headline: "70 active listings, but only 18 of them sit in a 9/10 catchment — and at 6.66% the math still favours renting until roughly year 15.",
+    points: [
+      "<strong>Inventory is wide but shallow where it counts.</strong> Of 70 active 4BD homes under $2M, just 18 are zoned to one of the four target elementaries: Newport Heights 10, Somerset 6, Audubon 1, Woodridge 1. The other 52 come from the broad Redmond 98052 and Bellevue 98008 sweeps, where the elementary assignment still has to be confirmed address by address. Newport Heights is the only strong-school catchment offering real choice under $1.5M — five of its ten listings qualify, starting at $1,280,000. Somerset's six all open at $1,750,000 or above, and Audubon remains a one-home market.",
+      "<strong>Sellers are still the ones moving.</strong> The Aug 1 refresh logged 8 new listings against 5 price cuts totalling $292,500 and 7 homes leaving the market. Both core ZIP medians are negative year-over-year — Redmond 98052 at $1,302,113 (−3.9%) and Bellevue 98008 at $1,469,064 (−5.2%) — so the softness is showing up in the comparables, not just in individual negotiations. 28 of the 70 listings are now under $1.5M.",
+      "<strong>Financing is the headwind.</strong> The 30-yr fixed rose to 6.66% (Freddie Mac, Jul 30) from 6.58% the week before. On a $1.5M purchase at 20% down that is roughly $10,174/mo to own — mortgage, tax, insurance and maintenance — against $4,772/mo for a comparable 4BD rental. Over a 7-year horizon at 3% appreciation, renting comes out about $179,000 cheaper, and buying does not pull ahead until around year 15.",
+      "<strong>A cheaper entry moves the breakeven a lot.</strong> Run the same model on the least expensive strong-school listing ($1,280,000, Newport Heights) and the gap over 7 years narrows to about $89,000 with breakeven near year 11. That is the lever that matters most here — not the rate, but the entry price. Reference home C ($1,548,900) goes the other way: more house and nearly an acre, but a Lake Hills 5/10 zone and a breakeven back out near year 15.",
+      "<strong>What this implies.</strong> At current rates a purchase only makes financial sense on a long stay, and the school premium — not the cost comparison — is what justifies paying up. The strongest setups on the board are the sub-$1.4M Newport Heights homes, where a 9/10 catchment and the shortest breakeven overlap."
+    ]
+  },
   // school: one of Audubon | Somerset | Woodridge | Newport Heights | Redmond 98052 | Bellevue 98008
   listings: [
     // ---- Audubon catchment (Redmond, LWSD) — Redfin school zone ----
@@ -405,6 +442,18 @@ function cards(el, arr){
 }
 cards("snapshot", DATA.market);
 cards("refs", DATA.refs);
+
+function renderSummary(){
+  const s = DATA.summary, host = document.getElementById("summary");
+  if(!s || !host) return;
+  const tag = s.lean === "buy" ? `<span class="sumlean buy">Leans buy</span>`
+            : s.lean === "rent" ? `<span class="sumlean rent">Leans rent</span>` : "";
+  host.innerHTML =
+    `<p class="sumhead">${tag}${s.headline}</p>` +
+    (s.points||[]).map(p=>`<p class="sumpt">${p}</p>`).join("") +
+    `<p class="note">Written from the data captured on the ${DATA.updated} refresh. Cost comparisons use the calculator's assumptions below — 20% down, 3%/yr appreciation, 4%/yr rent growth, 4.5% return on cash invested instead of a down payment — at the live 30-yr rate. Move the sliders to test your own case.</p>`;
+}
+renderSummary();
 // ---- Changelog: full archive, paginated (newest first) ----
 const CL_PER_PAGE = 5;
 let clPage = 1;
