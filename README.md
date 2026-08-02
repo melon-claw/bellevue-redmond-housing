@@ -19,7 +19,8 @@ It answers three questions at a glance:
 ## What's on the page
 
 - **Market snapshot** — median sale price + YoY for each core ZIP, current 30-yr mortgage rate, average local 4BD rent.
-- **"What changed"** — a changelog of new listings, price drops, and homes that went off-market, refreshed every run.
+- **"What changed"** — a paginated, append-only changelog of new listings, price drops, and homes that went off-market. Every entry back to the first run is kept; each one also carries **that run's read**, expandable inline.
+- **"The read"** — a short written interpretation of the current data (inventory, momentum, financing, entry price, implication), rewritten from scratch every refresh and grounded in that run's numbers. Past reads are never overwritten — they are archived alongside the changelog entry that produced them, so you can page back and see what the data looked like *and* what it was taken to mean.
 - **School comparison** — the four target elementaries side by side (rating, math/reading scores, boundary, commute).
 - **Filters** — a budget range (min/max + presets) and a school-catchment toggle group that drive the map and table together.
 - **Map** — every listing geocoded and color-coded by school catchment; a **red ▼ triangle** marks a recent price cut and a **red ring** marks a toured reference home.
@@ -74,18 +75,42 @@ Each refresh diffs the new scrape against the previous snapshot. A price decreas
 A scheduled task runs **Tuesday &amp; Saturday at 9 PM PT** and:
 
 1. Re-scrapes the six Redfin sources (four school pages + two ZIP sweeps).
-2. Looks up the current Freddie Mac 30-yr rate.
-3. Diffs against the prior snapshot (new / price-changed / off-market) and updates the price-cut flags.
-4. Rewrites **only** the page's `DATA` object (listings, market snapshot, changelog) and prepends a changelog entry.
-5. Commits and pushes to GitHub; Pages rebuilds within ~a minute.
+2. Re-checks **reference home C** by hand, since it sits outside every scrape and would otherwise go stale silently.
+3. Looks up the current Freddie Mac 30-yr rate.
+4. Diffs against the prior snapshot (new / price-changed / off-market) and updates the price-cut flags.
+5. Overwrites `data.json` with the new snapshot.
+6. **Appends** one entry to `archive.json` containing that run's changes and a freshly written read. Existing entries are never edited or pruned.
+7. Validates both files parse and the counts agree, then commits and pushes; Pages rebuilds within ~a minute.
 
-The automation is **strictly limited to the `DATA` object**. The school comparison table, ratings, test scores, layout, filters, map logic, and calculator are off-limits to it — school stats can only be changed by a deliberate, primary-source-verified manual edit.
+The automation touches **only the two JSON files**. `index.html` — and with it the school comparison table, ratings, test scores, layout, filters, map logic and calculator — is outside its reach entirely. School stats can only be changed by a deliberate, primary-source-verified manual edit.
+
+### Writing the read
+
+The read is the easiest place for an automated run to introduce a false claim, so it is regenerated from scratch each time under explicit grounding rules: every figure must trace to that run's own data or to a re-run of the page's calculator model at the **live** rate, nothing carries over from the previous read, and the buy-vs-rent lean must match what the model actually returns rather than what the previous run concluded.
 
 ## Tech
 
-- A single, self-contained **`index.html`** — no build step, no backend.
+- **`index.html`** — presentation only. Markup, styles, rendering, filters, map and calculator. Contains **no data**.
 - Libraries via CDN: **Leaflet** (map), **Grid.js** (table), **Chart.js** (price histogram).
+- No build step and no backend — the page fetches its two data files at load time.
 - Hosted on **GitHub Pages**.
+
+## Repository layout
+
+The data layer is deliberately kept out of the presentation layer, split by **lifecycle** rather than by topic:
+
+| File | Lifecycle | Contents |
+|---|---|---|
+| `index.html` | changes rarely, by hand | Presentation + the static school-comparison table. **The refresh task never opens this file.** |
+| `data.json` | fully replaced every run | `updated`, `market`, `refs`, `refC`, `listings` — the current snapshot only |
+| `archive.json` | append-only, never rewritten | `entries: [{ date, changes[], read? }]` — one entry per refresh, kept forever |
+
+Two reasons for the split:
+
+1. **The guardrail becomes structural.** School ratings and test scores have been corrupted before by automated "fixes" pulled from search snippets. Now they live in a file the refresh task has no reason to open, so the rule is enforced by the layout instead of by instructions.
+2. **The archive grows without bloating first paint.** At two refreshes a week the changelog and reads accumulate roughly 350 KB/year. Keeping them in a separate file means the snapshot the page needs immediately stays small and bounded.
+
+`archive.json` pairs each date's changes with the read written from them, so history is one list, not two that can drift apart.
 
 ## Caveats
 
