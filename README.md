@@ -67,6 +67,24 @@ The calculator compares the **net cost of owning** to the **net cost of renting*
 
 It reports the Year-1 monthly outlay, how much of that builds equity (i.e. is not a true cost), the net cost to buy vs rent over the horizon, and the **breakeven year** at which buying overtakes renting.
 
+#### Two asymmetries worth knowing before you read the breakeven
+
+The model is deliberately simple, and simple in two directions that both flatter buying. Neither is a bug, but the breakeven year should be read with both in mind.
+
+**1. The renter only invests the down payment, not the monthly difference.** The model credits the renter with 4.5%/yr on the down payment they didn't spend, but ignores the fact that renting is also *cheaper every month* — roughly $10,174 to own vs $4,772 to rent at $1.5M and 6.66%. A renter investing that monthly gap at the same 4.5% pushes the $1.5M breakeven from **~year 15 to ~year 25**. The published figure is therefore the buyer-favourable end of a range, not a midpoint.
+
+**2. Breakeven is dominated by the appreciation slider, which is an assumption rather than an observation.** At $1.5M and 20% down:
+
+| Appreciation | Breakeven |
+|---|---|
+| 3%/yr (default) | ~year 15 |
+| 1%/yr | ~year 28 |
+| 0%/yr | never within 30 years |
+
+The default 3% is a long-run convention. Both tracked ZIP medians are currently **negative** year-over-year (Redmond 98052 −3.9%, Bellevue 98008 −5.2%), so the near-term data does not support 3% — move the slider before drawing conclusions.
+
+Neither adjustment changes the qualitative conclusion at present rates: buying is justified by school access and stability over a long horizon, not by cost.
+
 ### Price-cut detection
 Each refresh diffs the new scrape against the previous snapshot. A price decrease sets a `cut` amount and `cutDate`; the home is flagged for **30 days** (configurable via `PRICE_CUT_WINDOW_DAYS`) with a red badge, a red ▼ map marker, and an optional "price cuts first" sort.
 

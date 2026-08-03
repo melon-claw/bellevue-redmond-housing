@@ -5,8 +5,8 @@
    "changes": [
     "<span class=\"cl-new\">New</span> 8 new listings — Redmond 98052: 9210 166th Pl NE ($1,350,000), 10632 157th Ave NE ($1,425,000), 17023 NE 120th St ($1,759,950) &amp; 8210 171st Ave NE ($1,990,000); Bellevue 98008: 924 179th Ct NE ($1,300,000), 16119 SE 31st St ($1,450,000, relisted), 1007 174th Ave NE ($1,530,000) &amp; 16410 SE 31st St ($1,750,000).",
     "<span class=\"cl-drop\">Price drop</span> 5 cuts this week — <b>reference home B cut again</b>: 3068 169th Ave NE $1,400,000 -&gt; $1,299,000 (−$101,000). Also 5221 Somerset Dr SE (Somerset) $1,875,000 -&gt; $1,799,000 (−$76,000); 17228 NE 85th Pl (Redmond 98052) $1,500,000 -&gt; $1,450,000 (−$50,000); 13412 SE 59th St (Newport Hts) $1,700,000 -&gt; $1,658,000 (−$42,000); 13702 173rd Pl NE (Redmond 98052) $1,398,000 -&gt; $1,374,500 (−$23,500).",
-    "<span class=\"cl-off\">Off-market</span> 7 gone — Redmond 98052: 7426 139th Pl NE ($1,380,000), 18316 NE 133rd St ($1,462,900), 16990 NE 84th Ct ($1,985,000) &amp; 10618 176th Ct NE ($1,988,888); Newport Heights: 6045 129th Ave SE ($1,398,000); Bellevue 98008: 15611 SE 24th St ($1,390,000) &amp; 16404 SE 12th St ($1,249,900, permit-approved Lake Hills teardown lot).",
-    "Busy week: 8 new, 5 cuts (−$292,500), 7 off-market. 30-yr fixed rose to 6.66% (Freddie Mac Jul 30). Tracking 70 active listings across four school catchments + two ZIP sweeps."
+    "<span class=\"cl-off\">Off-market</span> 6 gone — Redmond 98052: 7426 139th Pl NE ($1,380,000), 18316 NE 133rd St ($1,462,900), 16990 NE 84th Ct ($1,985,000) &amp; 10618 176th Ct NE ($1,988,888); Newport Heights: 6045 129th Ave SE ($1,398,000); Bellevue 98008: 15611 SE 24th St ($1,390,000).",
+    "Busy week: 8 new, 5 cuts (−$292,500), 6 off-market. 30-yr fixed rose to 6.66% (Freddie Mac Jul 30). Tracking 71 active listings across four school catchments + two ZIP sweeps."
    ],
    "read": {
     "lean": "rent",
@@ -18,6 +18,19 @@
      "<strong>A cheaper entry moves the breakeven far more than the rate does.</strong> Run the same model on the least expensive strong-school listing ($1,280,000, Newport Heights) and the monthly cost to own falls to about $8,704, the 7-year gap narrows to roughly $89,000, and breakeven arrives near year 11 — four years sooner. Reference home C ($1,548,900, unchanged this refresh) goes the other way: more house and nearly an acre, but about $10,501/mo, a Lake Hills 5/10 zone, and a wider 7-year gap of roughly $200,000 for the same year-15 breakeven.",
      "<strong>What this implies.</strong> At 6.66% a purchase only clears the rent comparison on a long stay, so the school catchment — not the cost math — is what would justify buying now. Only 6 of the 71 listings are both under $1.5M and inside a 9/10 zone, and five of those are Newport Heights. That narrow band, from $1,280,000 up, is where the shortest breakeven and the strongest school overlap."
     ]
+   },
+   "metrics": {
+    "active": 71,
+    "strong": 18,
+    "under15": 29,
+    "rate": 6.66,
+    "medianRedmond": 1302113,
+    "medianBellevue": 1469064,
+    "rent": 4772,
+    "cutsTotal": 292500,
+    "new": 8,
+    "pending": 0,
+    "delisted": 6
    }
   },
   {
