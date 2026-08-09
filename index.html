@@ -544,6 +544,18 @@ function seedRate(){
   const r=m && parseFloat(String(m.val).replace("%",""));
   if(r && r>=+rate_.min && r<=+rate_.max) rate_.value=r;
 }
+// Same idea for the rent side: start the rent slider at the published 4BD rent
+// comp from DATA.market instead of the hardcoded markup default, so the on-page
+// breakeven agrees with the figures quoted in "The read". The slider moves in $25
+// steps, so snap to the nearest one, and clamp a comp that falls outside the
+// slider's range to the nearer end rather than silently ignoring it.
+function seedRent(){
+  const m=(DATA.market||[]).find(x=>/4BD rent/i.test(x.lbl));
+  const v=m && parseFloat(String(m.val).replace(/[^0-9.]/g,""));
+  if(!v || !isFinite(v)) return;
+  const step=+rent_.step||1, lo=+rent_.min, hi=+rent_.max;
+  rent_.value=Math.min(hi, Math.max(lo, Math.round(v/step)*step));
+}
 
 // ---- boot: fetch the data layer, then render everything ----
 async function loadJSON(name){
@@ -570,6 +582,7 @@ async function boot(){
   renderChangelog();
   initListings();
   seedRate();
+  seedRent();
   applyFilter();
   calc();
   geocodeAll();
