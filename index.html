@@ -234,6 +234,7 @@ a.zlink:hover{ color:#2c5fd6; }
   </div>
   <div class="chartbox" style="margin:16px 0 8px"><canvas id="priceChart"></canvas></div>
   <div id="table"></div>
+  <p class="legend"><b>Days on market</b> is the MLS <i>cumulative</i> figure: unlike the "days on Redfin / Zillow" counters, it carries across relists, so a home taken down and re-listed still shows its full history. <span style="color:#3a7d44;font-weight:700">green</span> under 45 days, <span style="color:#b26a00;font-weight:700">amber</span> 45–89, <span style="color:#d2451e;font-weight:700">red</span> 90+. A trailing <b>?</b> means the reading is more than 45 days old and is being carried forward. Sort by this column to surface the longest-sitting listings.</p>
 
   <p class="ref">Data pulled from Redfin / Zillow (NWMLS, MLS Grid); school ratings from GreatSchools; mortgage rate from Freddie Mac PMMS. School-zoned sets (Audubon, Somerset, Woodridge, Newport Heights) come from Redfin school-attendance pages; the Redmond 98052 / Bellevue 98008 sets are ZIP sweeps where the exact elementary varies — verify any specific address with the district boundary tool. Prices and availability change frequently; refreshed weekly. Not financial advice.</p>
 </div>
@@ -436,6 +437,20 @@ function addrCell(x){
   );
 }
 function schoolCell(k){ return gridjs.html(`<span class="schip"><span class="sw" style="background:${SCOLOR[k]||'#999'}"></span>${k}</span>`); }
+// Grid.js renders headers as plain text, so the explanation is attached afterwards. Runs after
+// every render because updateConfig().forceRender() rebuilds the header row from scratch.
+const HEADER_HELP={
+  "Days on market":"Cumulative Days On Market, from the MLS listing record.\n\nThis counts across relists — a home taken off the market and re-listed still shows its full history, so it is usually higher than the \"days on Redfin\" or \"days on Zillow\" figure.\n\nGreen under 45 days · amber 45-89 · red 90+.\nA trailing \"?\" means the reading is over 45 days old and is being carried forward.",
+  "Price":"Current list price. A ↓ badge marks a cut made in the last 30 days.",
+  "School":"Assigned elementary for the four target catchments; the two ZIP entries are area buckets where the exact school varies — verify before relying on it."
+};
+function annotateHeaders(){
+  document.querySelectorAll("#table th").forEach(th=>{
+    const c=th.querySelector(".gridjs-th-content")||th;
+    const help=HEADER_HELP[c.textContent.trim()];
+    if(help){ th.setAttribute("title",help); th.style.cursor="help"; c.style.borderBottom="1px dotted #9aa4b2"; }
+  });
+}
 let grid;
 function rowsFor(rows){ return rows.map(x=>[x.addr,x.city,x.price,x.beds,x.baths,x.sqft,(cdomNow(x)??-1),x.school,L.indexOf(x)]); }
 function renderTable(rows){
@@ -444,15 +459,16 @@ function renderTable(rows){
     columns:[
       // Widths are explicit and sum to 100%. Left to itself Grid.js hands most of the row to
       // Address/Price and squeezes the four numeric headers down to "B..." / "Ba..." / "S..." / "D...".
-      {name:"Address", width:"23%", formatter:(_,r)=>addrCell(L[r.cells[8].data])},
+      {name:"Address", width:"22%", formatter:(_,r)=>addrCell(L[r.cells[8].data])},
       {name:"City", width:"9%"},
-      {name:"Price", width:"19%", formatter:(c,row)=>{ const x=L[row.cells[8].data]; return gridjs.html(fmt(c)+(isRecentCut(x)?` <span class="cutbadge" title="Recent price cut">${cutLabel(x)}</span>`:``)); }, sort:{compare:(a,b)=>a-b}},
+      {name:"Price", width:"18%", formatter:(c,row)=>{ const x=L[row.cells[8].data]; return gridjs.html(fmt(c)+(isRecentCut(x)?` <span class="cutbadge" title="Recent price cut">${cutLabel(x)}</span>`:``)); }, sort:{compare:(a,b)=>a-b}},
       {name:"Beds", width:"7%"},
-      {name:"Baths", width:"8%"},
+      {name:"Baths", width:"7%"},
       {name:"SqFt", width:"9%", formatter:c=>c.toLocaleString()},
       // Sorts on the raw aged number; homes with no CDOM carry -1 so they sink to the
       // bottom ascending instead of masquerading as freshly listed.
-      {name:"Days", width:"8%", formatter:(_,row)=>cdomCell(L[row.cells[8].data]), sort:{compare:(a,b)=>a-b}},
+      // "Days" alone read as ambiguous — it is cumulative days on market, not days on Redfin.
+      {name:"Days on market", width:"11%", formatter:(_,row)=>cdomCell(L[row.cells[8].data]), sort:{compare:(a,b)=>a-b}},
       {name:"School", width:"17%", formatter:c=>schoolCell(c)},
       {name:"i", hidden:true}
     ],
@@ -462,6 +478,7 @@ function renderTable(rows){
   };
   if(grid){ grid.updateConfig(cfg).forceRender(); }
   else { grid=new gridjs.Grid(cfg); grid.render(document.getElementById("table")); }
+  annotateHeaders();
 }
 
 // ---- stats ----
