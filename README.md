@@ -20,19 +20,43 @@ It answers three questions at a glance:
 
 - **Market snapshot** — median sale price + YoY for each core ZIP, current 30-yr mortgage rate, average local 4BD rent.
 - **"What changed"** — a paginated, append-only changelog of new listings, price drops, and homes that went off-market. Every entry back to the first run is kept; each one also carries **that run's read**, expandable inline.
-- **"The read"** — a short written interpretation of the current data (inventory, momentum, financing, entry price, implication), rewritten from scratch every refresh and grounded in that run's numbers. Past reads are never overwritten — they are archived alongside the changelog entry that produced them, so you can page back and see what the data looked like *and* what it was taken to mean.
+- **"The read"** — a short written interpretation of the current data (inventory, momentum, time on market, financing, entry price, implication), rewritten from scratch every refresh and grounded in that run's numbers. Past reads are never overwritten — they are archived alongside the changelog entry that produced them, so you can page back and see what the data looked like *and* what it was taken to mean.
 - **School comparison** — the four target elementaries side by side (rating, math/reading scores, boundary, commute).
 - **Filters** — a budget range (min/max + presets) and a school-catchment toggle group that drive the map and table together.
 - **Map** — every listing geocoded and color-coded by school catchment; a **red ▼ triangle** marks a recent price cut and a **red ring** marks a toured reference home.
 - **Buy-vs-rent calculator** — interactive sliders for price, down payment, rate, rent, appreciation, and horizon; shows monthly cost, equity build-up, net cost to buy vs rent, and the breakeven year.
-- **Listings table** — sortable/searchable, with one-click Zillow / Redfin / Google Maps links and price-cut badges.
+- **Listings table** — sortable/searchable, with one-click Zillow / Redfin / Google Maps links, price-cut badges, and a **Days** column carrying true cumulative days on market (see below).
+
+### Days on market (added 2026-08-08)
+
+The **Days** column is the MLS **Cumulative Days On Market (CDOM)**, read from each listing's Redfin MLS detail block — *not* the "days on Redfin" / "days on Zillow" counters shown on the listing cards.
+
+The difference matters. CDOM **carries across relists**, so a home taken off the market and re-listed to reset its public counter still shows its full history. Reference home A read **108 days** cumulative while its on-market date was only 30 days old.
+
+- Sortable — click **Days** to surface the longest-sitting listings, which are where a price cut is most likely to be entertained.
+- Colour-coded: green under 45 days, amber 45–89, red 90+.
+- Stored per listing as `cdom` plus `cdomDate` (the date the value was read) and **aged forward at render time**, so a carried-forward value stays correct between refreshes without being rewritten. Anything not re-verified within 45 days renders with a trailing `?`.
+- Refetched only for **new and repriced** listings each run, with a full re-verification sweep on the first run of each calendar month.
+
+**Availability limit:** CDOM is only published while a home is **Active or Pending**. Once a sale closes, Redfin reverts the MLS block to the prior sold record and the field disappears; a fully withdrawn listing has no MLS block at all. The one-time backfill therefore reached **97 of the 123 addresses ever tracked** — the 26 gaps are all closed or withdrawn homes and are expected to stay empty.
+
+### Why the pending count is not a demand gauge
+
+With CDOM available, the conventional "N homes went pending, so buyers are absorbing inventory" reading turns out to be misleading, and an earlier read on this page made exactly that mistake:
+
+- **Stock vs flow.** Pending is a *stock* draining on a 30–45 day escrow clock, not a weekly flow. Counting new contracts against departures compares quantities moving on different timescales.
+- **Right-censoring.** Median time-to-contract computed from homes that *found* buyers (44 days) is biased low, because listings still sitting — median 51 days and climbing, out to 313 — have not yet contributed their (larger) numbers.
+- **The cleanest cut** is the 90-day cohort: of 21 tracked homes past three months on market, **17 are still active and 4 reached contract**.
+- **What it does *not* show:** carried-over pendings sitting 14–27 days are an ordinary escrow, not evidence of deals collapsing.
 
 ## Data sources
 
 | Data | Source |
 |------|--------|
 | For-sale listings | **Redfin** (NWMLS / MLS Grid) — ZIP sweeps (98052, 98008) and per-school attendance pages |
+| Days on market | **Redfin** MLS detail block — `Cumulative Days On Market` (carries across relists) |
 | Listing cross-reference | **Zillow** (per-address links) |
+| 4BD rent comps | **Zillow Rentals** — active 4BD single-family listings in 98008 / 98052 / 98006 |
 | School ratings &amp; test scores | **GreatSchools** profiles (Washington OSPI assessment data) |
 | Mortgage rate | **Freddie Mac** PMMS (30-yr fixed) |
 | Map geocoding | **OpenStreetMap** Nominatim (client-side, cached in the browser) |
