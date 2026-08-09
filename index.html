@@ -244,6 +244,28 @@ function fmtShort(n){ return n>=1000? "$"+Math.round(n/1000)+"K" : "$"+n; }
 function daysSince(d){ if(!d) return Infinity; return Math.floor((Date.now()-new Date(d+"T00:00:00").getTime())/86400000); }
 function isRecentCut(x){ return !!(x && x.cut>0 && x.cutDate && daysSince(x.cutDate) <= PRICE_CUT_WINDOW_DAYS); }
 function cutLabel(x){ const d=daysSince(x.cutDate); return "↓ "+fmtShort(x.cut)+" · "+(d<=0?"new":d+"d ago"); }
+
+// ----- cumulative days on market (v5) -----
+// x.cdom is the MLS "Cumulative Days On Market" as it read on x.cdomDate. It is the
+// true time on market: unlike "days on Redfin"/"days on Zillow" it carries across
+// relists, so a home relisted to reset its counter still shows the full history.
+// We only re-fetch it for new and repriced homes, so for everything else we age the
+// stored value forward at render time rather than storing a stale number.
+const STALE_CDOM_DAYS = 45;   // beyond this the carried-forward value is worth re-verifying
+function cdomNow(x){
+  if(!x || x.cdom==null) return null;
+  const aged = x.cdom + Math.max(0, daysSince(x.cdomDate));
+  return isFinite(aged) ? aged : null;
+}
+function cdomCell(x){
+  const v=cdomNow(x);
+  if(v==null) return gridjs.html('<span style="color:#9aa0a6">—</span>');
+  const stale = daysSince(x.cdomDate) > STALE_CDOM_DAYS;
+  const heat = v>=90 ? "#d2451e" : v>=45 ? "#b26a00" : "#3a7d44";
+  return gridjs.html('<span style="color:'+heat+';font-weight:600" title="Cumulative Days On Market'+
+    (x.cdomDate? ' — read from MLS on '+x.cdomDate+(stale?', carried forward since':', aged forward since'):'')+
+    '">'+v+'</span>'+(stale?'<span style="color:#9aa0a6" title="Not re-verified recently"> ?</span>':''));
+}
 // ---------------------------------------------
 
 const fmt = n => "$"+Math.round(n).toLocaleString();
@@ -396,16 +418,19 @@ function addrCell(x){
 }
 function schoolCell(k){ return gridjs.html(`<span class="schip"><span class="sw" style="background:${SCOLOR[k]||'#999'}"></span>${k}</span>`); }
 let grid;
-function rowsFor(rows){ return rows.map(x=>[x.addr,x.city,x.price,x.beds,x.baths,x.sqft,x.school,L.indexOf(x)]); }
+function rowsFor(rows){ return rows.map(x=>[x.addr,x.city,x.price,x.beds,x.baths,x.sqft,(cdomNow(x)??-1),x.school,L.indexOf(x)]); }
 function renderTable(rows){
   if(cutsFirst){ rows=rows.slice().sort((a,b)=>{ const ra=isRecentCut(a), rb=isRecentCut(b); if(ra!==rb) return ra?-1:1; if(ra&&rb) return daysSince(a.cutDate)-daysSince(b.cutDate); return a.price-b.price; }); }
   const cfg={
     columns:[
-      {name:"Address", formatter:(_,r)=>addrCell(L[r.cells[7].data])},
+      {name:"Address", formatter:(_,r)=>addrCell(L[r.cells[8].data])},
       "City",
-      {name:"Price", formatter:(c,row)=>{ const x=L[row.cells[7].data]; return gridjs.html(fmt(c)+(isRecentCut(x)?` <span class="cutbadge" title="Recent price cut">${cutLabel(x)}</span>`:``)); }, sort:{compare:(a,b)=>a-b}},
+      {name:"Price", formatter:(c,row)=>{ const x=L[row.cells[8].data]; return gridjs.html(fmt(c)+(isRecentCut(x)?` <span class="cutbadge" title="Recent price cut">${cutLabel(x)}</span>`:``)); }, sort:{compare:(a,b)=>a-b}},
       "Beds","Baths",
       {name:"SqFt", formatter:c=>c.toLocaleString()},
+      // Sorts on the raw aged number; homes with no CDOM carry -1 so they sink to the
+      // bottom ascending instead of masquerading as freshly listed.
+      {name:"Days", formatter:(_,row)=>cdomCell(L[row.cells[8].data]), sort:{compare:(a,b)=>a-b}},
       {name:"School", formatter:c=>schoolCell(c)},
       {name:"i", hidden:true}
     ],
@@ -451,7 +476,8 @@ function drawMarkers(rows){
     } else {
       mk=window.L.circleMarker(c,{radius:8, color:x.toured?"#c01c54":"#fff", weight:x.toured?3:2, fillColor:(SCOLOR[x.school]||"#999"), fillOpacity:0.95}).addTo(markersLayer);
     }
-    mk.bindPopup(`<b>${x.addr}</b><br>${fmt(x.price)} · ${x.beds}bd/${x.baths}ba · ${x.sqft.toLocaleString()} sqft<br><b>${x.school}</b><br>`+
+    mk.bindPopup(`<b>${x.addr}</b><br>${fmt(x.price)} · ${x.beds}bd/${x.baths}ba · ${x.sqft.toLocaleString()} sqft<br><b>${x.school}</b>`+
+      (cdomNow(x)!=null?` · ${cdomNow(x)} days on market`:``)+`<br>`+
       `<a href="${zillowURL(x)}" target="_blank">Zillow</a> · <a href="${redfinURL(x)}" target="_blank">Redfin</a> · <a href="${mapsURL(x)}" target="_blank">Maps</a>`);
     bounds.push(c);
   });

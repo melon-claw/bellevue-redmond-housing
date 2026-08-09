@@ -86,7 +86,9 @@
    "school": "Audubon",
    "note": "Audubon attendance zone (Redfin); near Microsoft & SR-520",
    "cut": 100000,
-   "cutDate": "2026-07-07"
+   "cutDate": "2026-07-07",
+   "cdom": 73,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "5204 137th Pl SE",
@@ -98,7 +100,9 @@
    "sqft": 2470,
    "sd": "BSD",
    "school": "Somerset",
-   "note": "New listing; Westwood Highlands, shy 1/3-acre lot, main-level bedroom"
+   "note": "New listing; Westwood Highlands, shy 1/3-acre lot, main-level bedroom",
+   "cdom": 2,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "14130 SE 49th Pl",
@@ -110,7 +114,9 @@
    "sqft": 3080,
    "sd": "BSD",
    "school": "Somerset",
-   "note": "Main-level primary suite"
+   "note": "Main-level primary suite",
+   "cdom": 38,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "5221 Somerset Dr SE",
@@ -124,7 +130,9 @@
    "school": "Somerset",
    "note": "Courtyard entry; 4 beds on main",
    "cut": 76000,
-   "cutDate": "2026-08-01"
+   "cutDate": "2026-08-01",
+   "cdom": 81,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "4478 142nd Ave SE",
@@ -138,7 +146,9 @@
    "school": "Somerset",
    "note": "Walls of windows, main-floor primary",
    "cut": 98888,
-   "cutDate": "2026-08-08"
+   "cutDate": "2026-08-08",
+   "cdom": 150,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "14317 SE 49th St",
@@ -152,7 +162,9 @@
    "school": "Somerset",
    "note": "Largest recent cut in Somerset",
    "cut": 148000,
-   "cutDate": "2026-07-12"
+   "cutDate": "2026-07-12",
+   "cdom": 100,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "14023 SE 60th St",
@@ -166,7 +178,9 @@
    "school": "Somerset",
    "note": "$200k+ upgrades",
    "cut": 30888,
-   "cutDate": "2026-07-12"
+   "cutDate": "2026-07-12",
+   "cdom": 52,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "5011 134th Pl SE",
@@ -178,7 +192,9 @@
    "sqft": 3420,
    "sd": "BSD",
    "school": "Somerset",
-   "note": ""
+   "note": "",
+   "cdom": 86,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "4259 133rd Ave SE",
@@ -190,7 +206,9 @@
    "sqft": 3530,
    "sd": "BSD",
    "school": "Somerset",
-   "note": "New listing; Lower Somerset, east-facing, two primary suites"
+   "note": "New listing; Lower Somerset, east-facing, two primary suites",
+   "cdom": 5,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "4333 123rd Ave SE",
@@ -202,7 +220,9 @@
    "sqft": 2573,
    "sd": "BSD",
    "school": "Newport Heights",
-   "note": "Newport Mockingbird Hill, 10,696 sqft flat lot, renovate/expand potential"
+   "note": "Newport Mockingbird Hill, 10,696 sqft flat lot, renovate/expand potential",
+   "cdom": 13,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "5761 110th Ave SE",
@@ -214,7 +234,9 @@
    "sqft": 2860,
    "sd": "BSD",
    "school": "Newport Heights",
-   "note": "Kimberlee Park, Lake Washington views"
+   "note": "Kimberlee Park, Lake Washington views",
+   "cdom": 16,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "12218 SE 47th Pl",
@@ -226,7 +248,9 @@
    "sqft": 2070,
    "sd": "BSD",
    "school": "Newport Heights",
-   "note": "Newport Hills cul-de-sac, brand-new roof"
+   "note": "Newport Hills cul-de-sac, brand-new roof",
+   "cdom": 16,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "12510 SE 48th Pl",
@@ -240,7 +264,9 @@
    "school": "Newport Heights",
    "note": "Newport Hills cul-de-sac, remodeled kitchen",
    "cut": 100000,
-   "cutDate": "2026-08-08"
+   "cutDate": "2026-08-08",
+   "cdom": 24,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "5221 120th Ave SE",
@@ -252,7 +278,9 @@
    "sqft": 2780,
    "sd": "BSD",
    "school": "Newport Heights",
-   "note": "Workshop"
+   "note": "Workshop",
+   "cdom": 52,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "4705 119th Ave SE",
@@ -266,7 +294,9 @@
    "school": "Newport Heights",
    "note": "",
    "cut": 25000,
-   "cutDate": "2026-07-21"
+   "cutDate": "2026-07-21",
+   "cdom": 93,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "6149 115th Pl SE",
@@ -278,7 +308,9 @@
    "sqft": 2620,
    "sd": "BSD",
    "school": "Newport Heights",
-   "note": "brand-new kitchen, new A/C"
+   "note": "brand-new kitchen, new A/C",
+   "cdom": 23,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "13412 SE 59th St",
@@ -292,7 +324,9 @@
    "school": "Newport Heights",
    "note": "Greenbelt",
    "cut": 42000,
-   "cutDate": "2026-08-01"
+   "cutDate": "2026-08-01",
+   "cdom": 61,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "4935 116th Pl SE",
@@ -306,7 +340,9 @@
    "school": "Newport Heights",
    "note": "Lake Washington views",
    "cut": 140000,
-   "cutDate": "2026-07-25"
+   "cutDate": "2026-07-25",
+   "cdom": 52,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "13400 SE 56th Pl",
@@ -318,7 +354,9 @@
    "sqft": 2690,
    "sd": "BSD",
    "school": "Newport Heights",
-   "note": "Forest Park, 14,000+ sqft lot"
+   "note": "Forest Park, 14,000+ sqft lot",
+   "cdom": 71,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "4012 122nd Ave SE",
@@ -330,7 +368,9 @@
    "sqft": 2870,
    "sd": "BSD",
    "school": "Newport Heights",
-   "note": "New listing; fully permitted 1BD ADU, 7,686 sqft lot"
+   "note": "New listing; fully permitted 1BD ADU, 7,686 sqft lot",
+   "cdom": 2,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "11139 156th Ave NE",
@@ -342,7 +382,9 @@
    "sqft": 2140,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "New listing; Education Hill, quiet street, renovation potential"
+   "note": "New listing; Education Hill, quiet street, renovation potential",
+   "cdom": 3,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "13708 175th Ct NE",
@@ -354,7 +396,9 @@
    "sqft": 2020,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "New listing; English Hill / Amberley cul-de-sac"
+   "note": "New listing; English Hill / Amberley cul-de-sac",
+   "cdom": 4,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "9210 166th Pl NE",
@@ -366,7 +410,9 @@
    "sqft": 1900,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "Large corner lot, quiet dead-end street"
+   "note": "Large corner lot, quiet dead-end street",
+   "cdom": 10,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "17518 NE 22nd Ct",
@@ -380,7 +426,9 @@
    "school": "Redmond 98052",
    "note": "Pitcairn, Microsoft area",
    "cut": 29112,
-   "cutDate": "2026-07-25"
+   "cutDate": "2026-07-25",
+   "cdom": 73,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "13702 173rd Pl NE",
@@ -394,7 +442,9 @@
    "school": "Redmond 98052",
    "note": "English Hill, remodeled",
    "cut": 23500,
-   "cutDate": "2026-08-01"
+   "cutDate": "2026-08-01",
+   "cdom": 24,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "13307 NE 77th St",
@@ -406,7 +456,9 @@
    "sqft": 1940,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": ""
+   "note": "",
+   "cdom": 151,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "9060 177th Pl NE",
@@ -418,7 +470,9 @@
    "sqft": 2930,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": ""
+   "note": "",
+   "cdom": 110,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "10632 157th Ave NE",
@@ -430,7 +484,9 @@
    "sqft": 2340,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "Education Hill, renovated, hickory hardwoods"
+   "note": "Education Hill, renovated, hickory hardwoods",
+   "cdom": 11,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "17228 NE 85th Pl",
@@ -444,7 +500,9 @@
    "school": "Redmond 98052",
    "note": "Chef's kitchen",
    "cut": 50000,
-   "cutDate": "2026-08-01"
+   "cutDate": "2026-08-01",
+   "cdom": 52,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "10816 183rd Ave NE",
@@ -458,7 +516,9 @@
    "school": "Redmond 98052",
    "note": "Relisted; price trimmed again",
    "cut": 25000,
-   "cutDate": "2026-08-08"
+   "cutDate": "2026-08-08",
+   "cdom": 103,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "9106 172nd Ave NE",
@@ -472,7 +532,9 @@
    "school": "Redmond 98052",
    "note": "2009-built, backs to Nike Park",
    "cut": 70000,
-   "cutDate": "2026-07-28"
+   "cutDate": "2026-07-28",
+   "cdom": 87,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "11108 180th Pl NE",
@@ -486,7 +548,9 @@
    "school": "Redmond 98052",
    "note": "Education Hill",
    "cut": 125050,
-   "cutDate": "2026-07-18"
+   "cutDate": "2026-07-18",
+   "cdom": 87,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "17615 NE 130th Ct W",
@@ -498,7 +562,9 @@
    "sqft": 2530,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "New listing; English Hills cul-de-sac, remodeled kitchen"
+   "note": "New listing; English Hills cul-de-sac, remodeled kitchen",
+   "cdom": 5,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "10518 165th Pl NE",
@@ -512,7 +578,9 @@
    "school": "Redmond 98052",
    "note": "",
    "cut": 20000,
-   "cutDate": "2026-07-12"
+   "cutDate": "2026-07-12",
+   "cdom": 121,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "5733 155th Ave NE",
@@ -524,7 +592,9 @@
    "sqft": 2540,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": ""
+   "note": "",
+   "cdom": 235,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "8290 NE 165 Ave",
@@ -536,7 +606,9 @@
    "sqft": 1050,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "Land/development value"
+   "note": "Land/development value",
+   "cdom": 73,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "9550 172nd Ave NE",
@@ -548,7 +620,9 @@
    "sqft": 2430,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "Education Hill, remodeled kitchen"
+   "note": "Education Hill, remodeled kitchen",
+   "cdom": 17,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "2212 186th Ave NE",
@@ -562,7 +636,9 @@
    "school": "Redmond 98052",
    "note": "",
    "cut": 20000,
-   "cutDate": "2026-07-21"
+   "cutDate": "2026-07-21",
+   "cdom": 109,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "6203 144th Ave NE",
@@ -574,7 +650,9 @@
    "sqft": 1780,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "$100k 2026 upgrades, one-level living"
+   "note": "$100k 2026 upgrades, one-level living",
+   "cdom": 18,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "18010 NE 109 Ct",
@@ -588,7 +666,9 @@
    "school": "Redmond 98052",
    "note": "Education Hill, built 1993",
    "cut": 100000,
-   "cutDate": "2026-08-08"
+   "cutDate": "2026-08-08",
+   "cdom": 32,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "2209 W Lake Sammamish Pkwy NE",
@@ -602,7 +682,9 @@
    "school": "Redmond 98052",
    "note": "Off W Lake Sammamish Pkwy, updated 2016",
    "cut": 75000,
-   "cutDate": "2026-08-08"
+   "cutDate": "2026-08-08",
+   "cdom": 23,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "8941 170th Ct NE",
@@ -616,7 +698,9 @@
    "school": "Redmond 98052",
    "note": "",
    "cut": 40000,
-   "cutDate": "2026-08-08"
+   "cutDate": "2026-08-08",
+   "cdom": 78,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "14302 NE 61 St",
@@ -630,7 +714,9 @@
    "school": "Redmond 98052",
    "note": "Updated, open house",
    "cut": 61111,
-   "cutDate": "2026-07-25"
+   "cutDate": "2026-07-25",
+   "cdom": 44,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "17023 NE 120th St",
@@ -642,7 +728,9 @@
    "sqft": 2536,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "Woodlands West, CamWest-built"
+   "note": "Woodlands West, CamWest-built",
+   "cdom": 11,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "16707 NE 124th St",
@@ -654,7 +742,9 @@
    "sqft": 3310,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": ""
+   "note": "",
+   "cdom": 313,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "7337 151st Ave NE",
@@ -666,7 +756,9 @@
    "sqft": 3770,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": ""
+   "note": "",
+   "cdom": 164,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "12903 176th Pl NE",
@@ -680,7 +772,9 @@
    "school": "Redmond 98052",
    "note": "Dual primary suites",
    "cut": 50000,
-   "cutDate": "2026-07-18"
+   "cutDate": "2026-07-18",
+   "cdom": 46,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "11727 165th Pl NE",
@@ -692,7 +786,9 @@
    "sqft": 4038,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "Northstar / Education Hill"
+   "note": "Northstar / Education Hill",
+   "cdom": 142,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "6220 145th Ave NE",
@@ -706,7 +802,9 @@
    "school": "Redmond 98052",
    "note": "Grass Lawn, 4-car garage",
    "cut": 50000,
-   "cutDate": "2026-07-18"
+   "cutDate": "2026-07-18",
+   "cdom": 51,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "14326 174th Ave NE",
@@ -718,7 +816,9 @@
    "sqft": 3080,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "Sheffield, updated Buchan home"
+   "note": "Sheffield, updated Buchan home",
+   "cdom": 24,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "11572 174th Ct NE",
@@ -730,7 +830,9 @@
    "sqft": 3030,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "Education Hill, backs to greenbelt"
+   "note": "Education Hill, backs to greenbelt",
+   "cdom": 87,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "16563 NE 119th Way",
@@ -742,7 +844,9 @@
    "sqft": 3290,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": ""
+   "note": "",
+   "cdom": 51,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "8210 171st Ave NE",
@@ -754,7 +858,9 @@
    "sqft": 3030,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": ""
+   "note": "",
+   "cdom": 45,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "24 158th Pl SE",
@@ -768,7 +874,23 @@
    "school": "Bellevue 98008",
    "note": "Lake Hills",
    "cut": 100000,
-   "cutDate": "2026-08-08"
+   "cutDate": "2026-08-08",
+   "cdom": 122,
+   "cdomDate": "2026-08-08"
+  },
+  {
+   "addr": "15619 NE 1st Pl",
+   "city": "Bellevue",
+   "zip": "98008",
+   "price": 1149000,
+   "beds": 5,
+   "baths": 2,
+   "sqft": 1260,
+   "sd": "BSD",
+   "school": "Bellevue 98008",
+   "note": "New listing; Lake Hills, fully fenced yard",
+   "cdom": 1,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "15805 SE 12th Pl",
@@ -780,7 +902,9 @@
    "sqft": 1900,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "Lake Hills double lot, renovate/expand potential"
+   "note": "Lake Hills double lot, renovate/expand potential",
+   "cdom": 23,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "16404 SE 12th St",
@@ -792,7 +916,9 @@
    "sqft": 1980,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "Permit-approved Lake Hills teardown/rebuild lot"
+   "note": "Permit-approved Lake Hills teardown/rebuild lot",
+   "cdom": 91,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "3068 169th Ave NE",
@@ -808,7 +934,9 @@
    "toured": true,
    "redfin": "https://www.redfin.com/WA/Bellevue/3068-169th-Ave-NE-98008/home/48762741",
    "cut": 101000,
-   "cutDate": "2026-08-01"
+   "cutDate": "2026-08-01",
+   "cdom": 86,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "16570 SE 19th St",
@@ -820,7 +948,9 @@
    "sqft": 2020,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "New listing; Phantom Lake split-level, multi-gen layout"
+   "note": "New listing; Phantom Lake split-level, multi-gen layout",
+   "cdom": 1,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "16204 Main St",
@@ -834,7 +964,9 @@
    "school": "Bellevue 98008",
    "note": "Relisted lower; daylight basement, new deck",
    "cut": 79000,
-   "cutDate": "2026-08-08"
+   "cutDate": "2026-08-08",
+   "cdom": 103,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "16119 SE 31st St",
@@ -846,7 +978,9 @@
    "sqft": 1990,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "Spirit Ridge; relisted after Jul 28 off-market"
+   "note": "Spirit Ridge; relisted after Jul 28 off-market",
+   "cdom": 44,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "627 166th Ave NE",
@@ -860,7 +994,9 @@
    "school": "Bellevue 98008",
    "note": "",
    "cut": 50050,
-   "cutDate": "2026-07-07"
+   "cutDate": "2026-07-07",
+   "cdom": 86,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "3027 167th Ave NE",
@@ -874,7 +1010,9 @@
    "school": "Bellevue 98008",
    "note": "Repriced to sell; new roof",
    "cut": 50005,
-   "cutDate": "2026-08-08"
+   "cutDate": "2026-08-08",
+   "cdom": 73,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "1007 174th Ave NE",
@@ -886,7 +1024,9 @@
    "sqft": 2460,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "Refreshed; main-level bedroom"
+   "note": "Refreshed; main-level bedroom",
+   "cdom": 10,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "1120 156th Ave SE",
@@ -898,7 +1038,9 @@
    "sqft": 3551,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "Lake Hills area (98007)"
+   "note": "Lake Hills area (98007)",
+   "cdom": 115,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "16436 SE 8th St",
@@ -912,7 +1054,9 @@
    "school": "Bellevue 98008",
    "note": "Fully renovated, EV outlet, tankless",
    "cut": 60000,
-   "cutDate": "2026-08-08"
+   "cutDate": "2026-08-08",
+   "cdom": 16,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "3020 169th Ave NE",
@@ -924,7 +1068,9 @@
    "sqft": 2850,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "Renovated — new roof, refinished hardwoods"
+   "note": "Renovated — new roof, refinished hardwoods",
+   "cdom": 24,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "16719 SE 4th Pl",
@@ -936,7 +1082,9 @@
    "sqft": 2140,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "Lake Hills modern transformation"
+   "note": "Lake Hills modern transformation",
+   "cdom": 23,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "17816 NE 12th St",
@@ -950,7 +1098,9 @@
    "school": "Bellevue 98008",
    "note": "Bretton Wood",
    "cut": 87490,
-   "cutDate": "2026-08-08"
+   "cutDate": "2026-08-08",
+   "cdom": 66,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "16438 SE 22nd St",
@@ -962,7 +1112,9 @@
    "sqft": 2310,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": ""
+   "note": "",
+   "cdom": 94,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "16410 SE 31st St",
@@ -974,7 +1126,9 @@
    "sqft": 2808,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "West Lake Sammamish, backyard studio, EV outlet"
+   "note": "West Lake Sammamish, backyard studio, EV outlet",
+   "cdom": 9,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "17102 NE 37th Pl",
@@ -986,7 +1140,9 @@
    "sqft": 3140,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "New listing; Burnstead rambler, main-floor primary suite"
+   "note": "New listing; Burnstead rambler, main-floor primary suite",
+   "cdom": 3,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "242 W Lake Sammamish Pkwy SE",
@@ -998,7 +1154,9 @@
    "sqft": 2100,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "New listing"
+   "note": "New listing",
+   "cdom": 3,
+   "cdomDate": "2026-08-08"
   },
   {
    "addr": "4200 W Lake Sammamish Pkwy SE",
@@ -1010,7 +1168,9 @@
    "sqft": 3718,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "note": "New listing; 1.52 acres, two tax parcels, SR-4 zoning"
+   "note": "New listing; 1.52 acres, two tax parcels, SR-4 zoning",
+   "cdom": 45,
+   "cdomDate": "2026-08-08"
   }
  ]
 }

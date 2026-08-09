@@ -1,0 +1,744 @@
+{
+ "updated": "2026-08-08",
+ "note": "Cumulative Days On Market as read from the Redfin MLS detail block. CDOM survives relists, unlike days-on-site counters. It is only published while a home is Active or Pending; once it closes, Redfin reverts the MLS block to the prior sold record and the field is gone, so departed homes show null.",
+ "homes": {
+  "3028 173rd Ct NE": {
+   "cdom": 73,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Audubon"
+  },
+  "5204 137th Pl SE": {
+   "cdom": 2,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Somerset"
+  },
+  "14130 SE 49th Pl": {
+   "cdom": 38,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Somerset"
+  },
+  "5221 Somerset Dr SE": {
+   "cdom": 81,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Somerset"
+  },
+  "4478 142nd Ave SE": {
+   "cdom": 150,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Somerset"
+  },
+  "14317 SE 49th St": {
+   "cdom": 100,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Somerset"
+  },
+  "14023 SE 60th St": {
+   "cdom": 52,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Somerset"
+  },
+  "5011 134th Pl SE": {
+   "cdom": 86,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Somerset"
+  },
+  "4259 133rd Ave SE": {
+   "cdom": 5,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Somerset"
+  },
+  "4333 123rd Ave SE": {
+   "cdom": 13,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "5761 110th Ave SE": {
+   "cdom": 16,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "12218 SE 47th Pl": {
+   "cdom": 16,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "12510 SE 48th Pl": {
+   "cdom": 24,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "5221 120th Ave SE": {
+   "cdom": 52,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "4705 119th Ave SE": {
+   "cdom": 93,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "6149 115th Pl SE": {
+   "cdom": 23,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "13412 SE 59th St": {
+   "cdom": 61,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "4935 116th Pl SE": {
+   "cdom": 52,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "13400 SE 56th Pl": {
+   "cdom": 71,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "4012 122nd Ave SE": {
+   "cdom": 2,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "11139 156th Ave NE": {
+   "cdom": 3,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "13708 175th Ct NE": {
+   "cdom": 4,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "9210 166th Pl NE": {
+   "cdom": 10,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "17518 NE 22nd Ct": {
+   "cdom": 73,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "13702 173rd Pl NE": {
+   "cdom": 24,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "13307 NE 77th St": {
+   "cdom": 151,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "9060 177th Pl NE": {
+   "cdom": 110,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "10632 157th Ave NE": {
+   "cdom": 11,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "17228 NE 85th Pl": {
+   "cdom": 52,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "10816 183rd Ave NE": {
+   "cdom": 103,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "9106 172nd Ave NE": {
+   "cdom": 87,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "11108 180th Pl NE": {
+   "cdom": 87,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "17615 NE 130th Ct W": {
+   "cdom": 5,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "10518 165th Pl NE": {
+   "cdom": 121,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "5733 155th Ave NE": {
+   "cdom": 235,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "8290 NE 165 Ave": {
+   "cdom": 73,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "9550 172nd Ave NE": {
+   "cdom": 17,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "2212 186th Ave NE": {
+   "cdom": 109,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "6203 144th Ave NE": {
+   "cdom": 18,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "18010 NE 109 Ct": {
+   "cdom": 32,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "2209 W Lake Sammamish Pkwy NE": {
+   "cdom": 23,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "8941 170th Ct NE": {
+   "cdom": 78,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "14302 NE 61 St": {
+   "cdom": 44,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "17023 NE 120th St": {
+   "cdom": 11,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "16707 NE 124th St": {
+   "cdom": 313,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "7337 151st Ave NE": {
+   "cdom": 164,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "12903 176th Pl NE": {
+   "cdom": 46,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "11727 165th Pl NE": {
+   "cdom": 142,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "6220 145th Ave NE": {
+   "cdom": 51,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "14326 174th Ave NE": {
+   "cdom": 24,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "11572 174th Ct NE": {
+   "cdom": 87,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "16563 NE 119th Way": {
+   "cdom": 51,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "8210 171st Ave NE": {
+   "cdom": 45,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "24 158th Pl SE": {
+   "cdom": 122,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "15619 NE 1st Pl": {
+   "cdom": 1,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "15805 SE 12th Pl": {
+   "cdom": 23,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "16404 SE 12th St": {
+   "cdom": 91,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "3068 169th Ave NE": {
+   "cdom": 86,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "16570 SE 19th St": {
+   "cdom": 1,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "16204 Main St": {
+   "cdom": 103,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "16119 SE 31st St": {
+   "cdom": 44,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "627 166th Ave NE": {
+   "cdom": 86,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "3027 167th Ave NE": {
+   "cdom": 73,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "1007 174th Ave NE": {
+   "cdom": 10,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "1120 156th Ave SE": {
+   "cdom": 115,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "16436 SE 8th St": {
+   "cdom": 16,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "3020 169th Ave NE": {
+   "cdom": 24,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "16719 SE 4th Pl": {
+   "cdom": 23,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "17816 NE 12th St": {
+   "cdom": 66,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "16438 SE 22nd St": {
+   "cdom": 94,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "16410 SE 31st St": {
+   "cdom": 9,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "17102 NE 37th Pl": {
+   "cdom": 3,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "242 W Lake Sammamish Pkwy SE": {
+   "cdom": 3,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "4200 W Lake Sammamish Pkwy SE": {
+   "cdom": 45,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "11558 179th Ct NE": {
+   "cdom": 48,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "16235 NE 51st St": {
+   "cdom": 41,
+   "asOf": "2026-08-08",
+   "status": "Pending Feasibility",
+   "group": "departed"
+  },
+  "16639 SE 26th Pl": {
+   "cdom": 16,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "16813 NE 33rd St": {
+   "cdom": 108,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "18009 NE 103rd Ct": {
+   "cdom": 35,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "924 179th Ct NE": {
+   "cdom": 11,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "2814 129th Ave SE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "14203 NE 63rd Ct": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Delisted",
+   "group": "departed"
+  },
+  "10518 158th Ave NE": {
+   "cdom": 30,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "10618 176th Ct NE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Unresolved",
+   "group": "departed"
+  },
+  "10821 181st Ave NE": {
+   "cdom": 17,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "12215 SE 35th St": {
+   "cdom": 92,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "departed"
+  },
+  "12865 SE 47th Pl": {
+   "cdom": 6,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "13103 SE 47th St": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "13214 180th Ave NE": {
+   "cdom": 123,
+   "asOf": "2026-08-08",
+   "status": "Pending - Backup Offer Requested",
+   "group": "departed"
+  },
+  "13423 NE 119th Way": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "13509 SE 59th St": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "14812 SE 62nd Ct": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "15611 SE 24th St": {
+   "cdom": 18,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "15812 NE 106th St": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "16414 NE 135th St": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "16611 NE 108th Pl": {
+   "cdom": 89,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "16701 SE 23rd Pl": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "16711 NE 6th Pl": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "16724 NE 22nd St": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "16990 NE 84th Ct": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Unresolved",
+   "group": "departed"
+  },
+  "1759 173rd Ave NE": {
+   "cdom": 68,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "18311 NE 105th Ct": {
+   "cdom": 44,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "18316 NE 133rd St": {
+   "cdom": 106,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "2103 168th Ave NE": {
+   "cdom": 79,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "2457 168th Pl NE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "3328 168th Pl SE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Unresolved",
+   "group": "departed"
+  },
+  "3524 170th Ave NE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Unresolved",
+   "group": "departed"
+  },
+  "4517 166th Pl NE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "4518 164th Ct NE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "4548 144th Ave SE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "4713 125th Ave SE": {
+   "cdom": 39,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "512 167th Ave NE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Unresolved",
+   "group": "departed"
+  },
+  "5617 134th Ave SE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Unresolved",
+   "group": "departed"
+  },
+  "5701 137th Pl SE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "5712 141st Pl SE": {
+   "cdom": 55,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "6015 116th Ave SE": {
+   "cdom": 144,
+   "asOf": "2026-08-08",
+   "status": "Active",
+   "group": "departed"
+  },
+  "6045 129th Ave SE": {
+   "cdom": 60,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "6162 144th Pl SE": {
+   "cdom": 93,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "7106 139th Pl NE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "7426 139th Pl NE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "7523 141st Ave NE": {
+   "cdom": 17,
+   "asOf": "2026-08-08",
+   "status": "Pending",
+   "group": "departed"
+  },
+  "7605 146th Ave NE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  },
+  "9975 185th Ct NE": {
+   "cdom": null,
+   "asOf": "2026-08-08",
+   "status": "Sold",
+   "group": "departed"
+  }
+ }
+}
