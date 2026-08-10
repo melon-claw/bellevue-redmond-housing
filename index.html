@@ -189,9 +189,18 @@ a.zlink:hover{ color:#2c5fd6; }
     <button class="preset" id="schNone">None</button>
   </div>
   <div class="filterbar" style="margin-top:10px">
+    <span class="fl">City</span>
+    <span id="cityBtns" style="display:flex;gap:8px;flex-wrap:wrap"></span>
+    <button class="preset" id="cityAll">All</button>
+  </div>
+  <div class="filterbar" style="margin-top:10px">
     <span class="fl">Beds</span>
     <span id="bedBtns" style="display:flex;gap:8px;flex-wrap:wrap"></span>
-    <span class="fl" style="margin-left:6px">Size</span>
+    <span class="fl" style="margin-left:6px">Baths</span>
+    <span id="bathBtns" style="display:flex;gap:8px;flex-wrap:wrap"></span>
+  </div>
+  <div class="filterbar" style="margin-top:10px">
+    <span class="fl">Size</span>
     <label>Min <select id="fsmin"></select></label>
     <label>Max <select id="fsmax"></select></label>
     <button class="preset" id="sizeAll">Any size</button>
@@ -201,7 +210,7 @@ a.zlink:hover{ color:#2c5fd6; }
     <label class="ck"><input type="checkbox" id="cutsFirst"> Price cuts first</label>
     <button class="preset" id="resetAll" style="margin-left:auto">Reset all filters</button>
   </div>
-  <p class="note">Filters apply together — price AND school AND beds AND size — to the map and the listings table below. Price cuts are flagged within the last 30 days.</p>
+  <p class="note">Filters apply together — price AND school AND city AND beds AND baths AND size — to the map and the listings table below. Price cuts are flagged within the last 30 days.</p>
 
   <h2>Map view</h2>
   <div class="dotlegend" id="dotlegend"></div>
@@ -478,13 +487,39 @@ function renderChangelog(){
   });
 }
 const fmin=document.getElementById("fmin"), fmax=document.getElementById("fmax");
-// ----- beds + size filters (v7, issue #6) -----
-// Bed counts are read from the data rather than hard-coded, so a 7-bed listing appearing next
-// week gets its own button without a code change. Size steps at 250 sqft.
+// ----- city + beds + baths + size filters (v7, issue #6) -----
+// Every categorical set is read from the data rather than hard-coded, so a 7-bed listing or a
+// third city appearing next week gets its own button without a code change. Size steps at 250 sqft.
 const fsmin=document.getElementById("fsmin"), fsmax=document.getElementById("fsmax");
 const SQ_STEP = 250;
 let MINS = 0, MAXS = 0;
 const activeBeds = new Set();
+const activeBaths = new Set();
+const activeCities = new Set();
+
+// Categorical toggle rows all behave identically: build a button per distinct value, clicking
+// flips that value in the active set. valueOf maps the button's data-v string back to the typed
+// value used in the data (numbers for beds/baths, strings for city) so Set lookups match.
+function buildToggles(hostId, values, label, active, parse){
+  active.clear(); values.forEach(v=>active.add(v));
+  const host = document.getElementById(hostId);
+  host.innerHTML = "";
+  values.forEach(v=>{
+    const b=document.createElement("button");
+    b.className="sbtn"; b.dataset.v=String(v); b.textContent=label(v);
+    b.addEventListener("click",()=>{
+      active.has(v)?active.delete(v):active.add(v);
+      syncToggles(hostId, active, parse); applyFilter();
+    });
+    host.appendChild(b);
+  });
+  syncToggles(hostId, active, parse);
+}
+function syncToggles(hostId, active, parse){
+  document.querySelectorAll("#"+hostId+" .sbtn").forEach(b=>
+    b.classList.toggle("off", !active.has(parse(b.dataset.v))));
+}
+const asNum = s=>Number(s), asStr = s=>s;
 function initListings(){
   L = DATA.listings;
   const allPrices = L.map(x=>x.price);
@@ -501,27 +536,26 @@ function initListings(){
   for(let s=MINS; s<=MAXS; s+=SQ_STEP){ const t=s.toLocaleString()+" sf"; fsmin.add(new Option(t,s)); fsmax.add(new Option(t,s)); }
   fsmin.value = MINS; fsmax.value = MAXS;
 
-  const beds = [...new Set(L.map(x=>x.beds))].sort((a,b)=>a-b);
-  activeBeds.clear(); beds.forEach(b=>activeBeds.add(b));
-  const host = document.getElementById("bedBtns");
-  host.innerHTML = "";
-  beds.forEach(n=>{
-    const b=document.createElement("button");
-    b.className="sbtn"; b.dataset.beds=String(n); b.textContent=`${n} bd`;
-    b.addEventListener("click",()=>{ activeBeds.has(n)?activeBeds.delete(n):activeBeds.add(n); syncBedBtns(); applyFilter(); });
-    host.appendChild(b);
-  });
-  syncBedBtns();
+  buildToggles("bedBtns",  bedValues(),  n=>`${n} bd`, activeBeds,   asNum);
+  buildToggles("bathBtns", bathValues(), n=>`${n} ba`, activeBaths,  asNum);
+  buildToggles("cityBtns", cityValues(), c=>c,         activeCities, asStr);
 }
-function syncBedBtns(){
-  document.querySelectorAll("#bedBtns .sbtn").forEach(b=>
-    b.classList.toggle("off", !activeBeds.has(Number(b.dataset.beds))));
-}
+// Distinct values present in the data, in display order. Beds/baths numeric ascending (baths
+// carry halves, so 2.5 sorts between 2 and 3); cities alphabetical. Listings missing a value
+// contribute no button and are never excluded by that filter — same rule sqft already follows.
+const bedValues  = ()=>[...new Set(L.map(x=>x.beds ).filter(n=>typeof n==="number"))].sort((a,b)=>a-b);
+const bathValues = ()=>[...new Set(L.map(x=>x.baths).filter(n=>typeof n==="number"))].sort((a,b)=>a-b);
+const cityValues = ()=>[...new Set(L.map(x=>x.city ).filter(c=>typeof c==="string" && c))].sort();
 document.getElementById("sizeAll").addEventListener("click",()=>{ fsmin.value=MINS; fsmax.value=MAXS; applyFilter(); });
+document.getElementById("cityAll").addEventListener("click",()=>{
+  cityValues().forEach(c=>activeCities.add(c)); syncToggles("cityBtns", activeCities, asStr); applyFilter();
+});
 document.getElementById("resetAll").addEventListener("click",()=>{
   fmin.value=MINP; fmax.value=MAXP; fsmin.value=MINS; fsmax.value=MAXS;
   CATCH_META.forEach(s=>activeSchools.add(s.key)); syncSchoolBtns();
-  [...new Set(L.map(x=>x.beds))].forEach(n=>activeBeds.add(n)); syncBedBtns();
+  bedValues().forEach(n=>activeBeds.add(n));    syncToggles("bedBtns",  activeBeds,   asNum);
+  bathValues().forEach(n=>activeBaths.add(n));  syncToggles("bathBtns", activeBaths,  asNum);
+  cityValues().forEach(c=>activeCities.add(c)); syncToggles("cityBtns", activeCities, asStr);
   cutsOnly=false; const cc=document.getElementById("cutChip"); if(cc) cc.classList.remove("active");
   applyFilter();
 });
@@ -714,8 +748,10 @@ let cutsOnly=false, cutsFirst=false;
 function passes(x, lo, hi, slo, shi){
   return x.price>=lo && x.price<=hi
       && activeSchools.has(bucketOf(x))
-      && activeBeds.has(x.beds)
-      && (typeof x.sqft !== "number" || (x.sqft>=slo && x.sqft<=shi));
+      && (typeof x.beds  !== "number" || activeBeds.has(x.beds))
+      && (typeof x.baths !== "number" || activeBaths.has(x.baths))
+      && (typeof x.city  !== "string" || !x.city || activeCities.has(x.city))
+      && (typeof x.sqft  !== "number" || (x.sqft>=slo && x.sqft<=shi));
 }
 function bandsNow(){
   return { lo:+fmin.value, hi:+fmax.value, slo:+fsmin.value, shi:+fsmax.value };
