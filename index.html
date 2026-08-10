@@ -54,6 +54,7 @@ a.zlink{ color:#1d2530; font-weight:600; text-decoration:none; border-bottom:1px
 a.zlink:hover{ color:#2c5fd6; }
 .minilink{ font-size:11px; font-weight:700; text-decoration:none; padding:1px 5px; border-radius:5px; margin-left:4px; }
 .minilink.rf{ background:#fde8ef; color:#c01c54; }
+.minilink.rt{ background:#fdeee6; color:#c2560f; }
 .minilink.zw{ background:#e6f0ff; color:#1277e1; }
 .minilink.mp{ background:#eaf3ea; color:#2e7d32; }
 #map{ height:440px; border-radius:12px; border:1px solid #e6e9ee; }
@@ -70,6 +71,14 @@ a.zlink:hover{ color:#2c5fd6; }
 .sbtn{ font-size:12px; font-weight:700; padding:5px 11px; border-radius:20px; border:1px solid #cdd4dd; background:#fff; cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
 .sbtn.off{ opacity:0.38; }
 .sbtn .sw{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+/* The collapsed "What changed" summary is styled to read as the section heading it replaces,
+   so closing it does not leave a visual hole between Market snapshot and School comparison. */
+#changed > summary{ font-size:18px; font-weight:700; margin:34px 0 12px; border-bottom:2px solid #e6e9ee; padding-bottom:6px; cursor:pointer; list-style:none; display:flex; align-items:baseline; gap:10px; }
+#changed > summary::-webkit-details-marker{ display:none; }
+#changed > summary::before{ content:"\25B8"; font-size:13px; color:#8a94a3; transition:transform .15s; }
+#changed[open] > summary::before{ transform:rotate(90deg); }
+#changed > summary:hover .clsum-t{ color:#2c5fd6; }
+.clsum-d{ font-size:12px; font-weight:600; color:#5b6675; margin-left:auto; text-align:right; }
 .cl-entry{ background:#fff; border:1px solid #e6e9ee; border-radius:12px; padding:12px 16px; margin-top:10px; }
 .cl-entry .d{ font-size:12px; font-weight:700; color:#2c5fd6; }
 .cl-entry ul{ margin:6px 0 0; padding-left:18px; }
@@ -103,7 +112,7 @@ a.zlink:hover{ color:#2c5fd6; }
 .cutchip{ font-size:13px; font-weight:800; padding:6px 13px; border-radius:20px; border:1px solid #ffd2bd; background:#fff4ee; color:#d2451e; cursor:pointer; }
 .cutchip.active{ background:#d2451e; color:#fff; border-color:#d2451e; }
 .ck{ font-size:12px; font-weight:700; display:inline-flex; align-items:center; gap:6px; cursor:pointer; }
-.cuttri{ width:0; height:0; border-left:8px solid transparent; border-right:8px solid transparent; border-top:13px solid #d2451e; filter:drop-shadow(0 0 1.5px #fff); }
+.cutdiv{ filter:drop-shadow(0 0 1.5px #fff); }
 
 /* Grid.js defaults clip every header to one ellipsised line, which turned Beds/Baths/SqFt/Days
    into "B..." / "Ba..." / "S..." / "D...". Let headers wrap and keep the sort arrow beside the
@@ -118,8 +127,9 @@ a.zlink:hover{ color:#2c5fd6; }
 #table .gridjs-th:nth-child(4) , #table .gridjs-th:nth-child(5),
 #table .gridjs-th:nth-child(6), #table .gridjs-th:nth-child(7){ text-align:center; }
 /* the price cut badge sits on its own line so it stops inflating the Price column */
-#table .cutbadge{ margin-left:0; margin-top:3px; }
-#table .gridjs-td .cutbadge{ display:block; width:fit-content; }
+.declbadge{ display:inline-block; background:#f1f3f7; color:#5b6675; font-size:11px; font-weight:700; padding:1px 6px; border-radius:5px; margin-left:6px; white-space:nowrap; }
+#table .cutbadge, #table .declbadge{ margin-left:0; margin-top:3px; }
+#table .gridjs-td .cutbadge, #table .gridjs-td .declbadge{ display:block; width:fit-content; }
 @media (max-width:820px){
   #table .gridjs-th, #table .gridjs-td{ padding:8px 5px; font-size:12px; }
 }
@@ -135,9 +145,14 @@ a.zlink:hover{ color:#2c5fd6; }
   <div class="cards" id="snapshot"></div>
   <p class="note">Median sale price is for all home types (King County MLS, May 2026). Both core ZIPs are down year-over-year — a softening market that favors buyers and renters who can wait.</p>
 
-  <h2 id="changed">What changed</h2>
-  <p class="sub">One entry per refresh: new listings, price changes, homes that went off-market \u2014 and that run's read, kept as a permanent record.</p>
-  <div id="changelog"></div>
+  <!-- Collapsed by default (issue #7): a first-time visitor was meeting five full changelog
+       entries before reaching a single listing. The summary line keeps the signal a returning
+       visitor actually wants — when it last moved and how much — in one row. -->
+  <details id="changed">
+    <summary><span class="clsum-t">What changed</span> <span class="clsum-d" id="changedMeta">—</span></summary>
+    <p class="sub">One entry per refresh: new listings, price changes, homes that went off-market — and that run's read, kept as a permanent record.</p>
+    <div id="changelog"></div>
+  </details>
 
   <h2>School comparison</h2>
   <div class="panel">
@@ -153,7 +168,7 @@ a.zlink:hover{ color:#2c5fd6; }
         <tr><td>Ardmore — Bellevue (BSD)</td><td><span class="chip low">4 / 10</span></td><td>—</td><td>Zone of reference home A, 16813 NE 33rd St — the contrast to avoid</td></tr>
       </tbody>
     </table>
-    <p class="note"><strong>Takeaway:</strong> All four target catchments carry a 9/10 GreatSchools rating — a clear step up from the reference home's Ardmore zone (4/10). Somerset posts the strongest scores but the priciest, hilliest homes; Audubon's catchment is tiny (frequently 0–1 listings) and nearest Microsoft; Newport Heights and Woodridge give the most central Bellevue commutes. Use the <strong>school filter</strong> below to compare homes by catchment, and always confirm a specific address's exact assignment with the district boundary tool.</p>
+    <p class="note"><strong>Takeaway:</strong> All four target catchments carry a 9/10 GreatSchools rating — a clear step up from the reference home's Ardmore zone (4/10). Somerset posts the strongest scores but the priciest, hilliest homes; Audubon's catchment is tiny (frequently 0–1 listings) and nearest Microsoft; Newport Heights and Woodridge give the most central Bellevue commutes. Use the <strong>school filter</strong> below to compare homes by catchment, and always confirm a specific address's exact assignment with the district boundary tool. The map and table also surface catchments outside this table — <em>Other catchment</em> covers Bellevue elementaries whose ratings have <strong>not</strong> been hand-verified here, so treat those as unrated rather than as equivalent to the four targets. Only Ardmore and Lake Hills are labelled <em>Weak school</em>, because those are the two low ratings that were checked against the primary source.</p>
     <p class="note">Source: school ratings &amp; test scores are taken from each school's GreatSchools profile (greatschools.org), verified June 2026 — math &amp; reading (ELA) from the 2024-25 WA OSPI assessments; Lake Hills verified Aug 2026 (English 38%, math 40%, vs WA state averages of 53% and 43%). These figures update yearly and are <strong>not</strong> changed by the automated refresh — re-check the current profile before relying on them.</p>
   </div>
 
@@ -174,18 +189,27 @@ a.zlink:hover{ color:#2c5fd6; }
     <button class="preset" id="schNone">None</button>
   </div>
   <div class="filterbar" style="margin-top:10px">
+    <span class="fl">Beds</span>
+    <span id="bedBtns" style="display:flex;gap:8px;flex-wrap:wrap"></span>
+    <span class="fl" style="margin-left:6px">Size</span>
+    <label>Min <select id="fsmin"></select></label>
+    <label>Max <select id="fsmax"></select></label>
+    <button class="preset" id="sizeAll">Any size</button>
+  </div>
+  <div class="filterbar" style="margin-top:10px">
     <button class="cutchip" id="cutChip">🔻 Recent price cuts: <span id="cutCount">0</span></button>
     <label class="ck"><input type="checkbox" id="cutsFirst"> Price cuts first</label>
+    <button class="preset" id="resetAll" style="margin-left:auto">Reset all filters</button>
   </div>
-  <p class="note">Filters apply together (price AND school) to the map and the listings table below. Price cuts are flagged within the last 30 days.</p>
+  <p class="note">Filters apply together — price AND school AND beds AND size — to the map and the listings table below. Price cuts are flagged within the last 30 days.</p>
 
   <h2>Map view</h2>
   <div class="dotlegend" id="dotlegend"></div>
   <div id="map"></div>
-  <p class="maphint">Pins are geocoded in your browser and cached, colored by school catchment, and respect the filters. A red ring marks the toured reference homes. Click a pin for price, beds, and Zillow / Redfin / Google Maps links. (Map requires internet — works on the published page.)</p>
+  <p class="maphint">Pins are placed from coordinates resolved during the refresh (falling back to in-browser geocoding for any listing missing them), colored by school catchment, and respect the filters. A red ring marks the toured reference homes. Click a pin for price, beds, and realtor.com / Zillow / Google Maps links. (Map requires internet — works on the published page.)</p>
 
   <h2>The read</h2>
-  <p class="sub">Written fresh on every refresh from that run's listing, price-cut, rate and median data. Every past read is kept \u2014 expand any entry under <a href="#changed" style="color:#2c5fd6">What changed</a>.</p>
+  <p class="sub">Written fresh on every refresh from that run's listing, price-cut, rate and median data. Every past read is kept — expand any entry under <a href="#changed" style="color:#2c5fd6">What changed</a>.</p>
   <div class="panel" id="summary"></div>
 
   <h2>Buy vs Rent calculator</h2>
@@ -225,7 +249,8 @@ a.zlink:hover{ color:#2c5fd6; }
   <div class="cards" id="refs"></div>
 
   <h2>Active listings — 4BD+</h2>
-  <p class="sub">Click an address for Zillow; use the <span class="minilink rf">R</span> <span class="minilink zw">Z</span> <span class="minilink mp">M</span> chips for Redfin, Zillow, and Google Maps. Sort any column. Filtered by the selectors above.</p>
+  <p class="sub">Click an address for Zillow; use the <span class="minilink rt">R</span> <span class="minilink zw">Z</span> <span class="minilink mp">M</span> chips for realtor.com, Zillow, and Google Maps — plus <span class="minilink rf">F</span> for Redfin where a direct link is on file. Sort any column. Filtered by the selectors above.</p>
+  <p class="note" style="margin-top:-4px">Prefer the <span class="minilink rt">R</span> chip when you want the <strong>full price history</strong>: realtor.com keeps the withdraw-and-relist events that Redfin and Zillow drop, so it shows what a home has really been asking and for how long. A grey <span class="declbadge">↓ total</span> badge in the Price column reports the drop since the current campaign began, which is often far larger than the most recent cut alone.</p>
   <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr))">
     <div class="card"><div class="lbl">Listings shown</div><div class="val" id="cnt_all"></div></div>
     <div class="card"><div class="lbl">Bellevue (BSD)</div><div class="val" id="cnt_bel"></div></div>
@@ -236,7 +261,7 @@ a.zlink:hover{ color:#2c5fd6; }
   <div id="table"></div>
   <p class="legend"><b>Days on market</b> is the MLS <i>cumulative</i> figure: unlike the "days on Redfin / Zillow" counters, it carries across relists, so a home taken down and re-listed still shows its full history. <span style="color:#3a7d44;font-weight:700">green</span> under 45 days, <span style="color:#b26a00;font-weight:700">amber</span> 45–89, <span style="color:#d2451e;font-weight:700">red</span> 90+. A trailing <b>?</b> means the reading is more than 45 days old and is being carried forward. Sort by this column to surface the longest-sitting listings.</p>
 
-  <p class="ref">Data pulled from Redfin / Zillow (NWMLS, MLS Grid); school ratings from GreatSchools; mortgage rate from Freddie Mac PMMS. School-zoned sets (Audubon, Somerset, Woodridge, Newport Heights) come from Redfin school-attendance pages; the Redmond 98052 / Bellevue 98008 sets are ZIP sweeps where the exact elementary varies — verify any specific address with the district boundary tool. Prices and availability change frequently; refreshed weekly. Not financial advice.</p>
+  <p class="ref">Data pulled from Redfin / Zillow (NWMLS, MLS Grid); school ratings from GreatSchools; mortgage rate from Freddie Mac PMMS. Catchments are resolved two ways: the four target sets (Audubon, Somerset, Woodridge, Newport Heights) come from Redfin school-attendance pages, and every Bellevue address is additionally resolved against the Bellevue School District's published 2024-25 elementary attendance areas — the two agree on all 19 homes where both apply. Homes in the Redmond 98052 sweep are shown as <strong>not verified</strong>: Lake Washington School District publishes boundary maps only as PDFs, so there is nothing to resolve against. Verify any specific address with the district boundary tool. Prices and availability change frequently; refreshed weekly. Not financial advice.</p>
 </div>
 
 <script>
@@ -247,16 +272,47 @@ const DATA_BASE = "https://melon-claw.github.io/bellevue-redmond-housing/";
 let DATA = null;      // snapshot: updated, market, refs, refC, listings
 let ARCHIVE = null;   // append-only: {entries:[{date, changes:[...], read?:{...}}]}
 let L = [], MINP = 0, MAXP = 0;
-// school display order, colors
-const SCHOOL_META = [
-  {key:"Audubon",         label:"Audubon",        color:"#1f77b4"},
-  {key:"Somerset",        label:"Somerset",       color:"#2e7d32"},
-  {key:"Woodridge",       label:"Woodridge",      color:"#9c27b0"},
-  {key:"Newport Heights", label:"Newport Hts",    color:"#e8820c"},
-  {key:"Redmond 98052",   label:"Redmond 98052",  color:"#00897b"},
-  {key:"Bellevue 98008",  label:"Bellevue 98008", color:"#757575"}
+// ----- catchment buckets (v7, issue #5) -----
+// The old model coloured pins by x.school, which mixed two different kinds of thing: four
+// verified elementary catchments and two ZIP sweeps. Three quarters of the map was a ZIP
+// bucket wearing a school's clothes. Pins are now bucketed by x.elem — the elementary the
+// home is actually zoned to — and a home whose catchment could not be verified is drawn
+// hollow and says so, instead of borrowing a colour it has not earned.
+const TARGET_KEYS = new Set(["Audubon","Somerset","Woodridge","Newport Heights"]);
+// Ratings here come from the hand-verified school table above and nowhere else. A school is
+// only called "weak" if its rating was checked against its GreatSchools profile by hand.
+const WEAK_RATED = { "Ardmore":"4/10", "Lake Hills":"5/10" };
+const CATCH_META = [
+  {key:"Audubon",         label:"Audubon",         color:"#1f77b4"},
+  {key:"Somerset",        label:"Somerset",        color:"#2e7d32"},
+  {key:"Woodridge",       label:"Woodridge",       color:"#9c27b0"},
+  {key:"Newport Heights", label:"Newport Hts",     color:"#e8820c"},
+  {key:"Other",           label:"Other catchment", color:"#00897b"},
+  {key:"Weak",            label:"Weak school",     color:"#b3261e"},
+  {key:"Unverified",      label:"Not verified",    color:"#9aa4b2"}
 ];
-const SCOLOR = Object.fromEntries(SCHOOL_META.map(s=>[s.key,s.color]));
+const CCOLOR = Object.fromEntries(CATCH_META.map(s=>[s.key,s.color]));
+function bucketOf(x){
+  const e = x && x.elem;
+  if(!e) return "Unverified";
+  if(TARGET_KEYS.has(e)) return e;
+  if(WEAK_RATED[e]) return "Weak";
+  return "Other";
+}
+// Short label for the table cell and the map popup.
+function catchLabel(x){
+  if(!x.elem) return `Not verified · ${x.zip}`;
+  return WEAK_RATED[x.elem] ? `${x.elem} (${WEAK_RATED[x.elem]})` : x.elem;
+}
+function catchTitle(x){
+  if(!x.elem) return `This home came from a ZIP sweep of ${x.zip}. Its elementary catchment has not been verified — check the district boundary tool before relying on it.`;
+  const src = x.elemSrc === "bsd-2024-25" ? "Bellevue School District 2024-25 attendance areas"
+            : x.elemSrc === "redfin-attendance" ? "Redfin school-attendance page"
+            : "unknown source";
+  return `Zoned to ${x.elem} Elementary. Source: ${src}.`
+    + (WEAK_RATED[x.elem] ? ` GreatSchools rating ${WEAK_RATED[x.elem]} — below the four target catchments.` : "")
+    + (x.elemFlag === "district-mismatch" ? ` Note: this address carries a Redmond mailing address but falls inside a Bellevue School District attendance area — confirm the district directly.` : "");
+}
 // ----- price-cut emphasis (v4) -----
 const PRICE_CUT_WINDOW_DAYS = 30;   // a price cut counts as "recent" within this many days
 const CUT_COLOR = "#d2451e";
@@ -264,6 +320,28 @@ function fmtShort(n){ return n>=1000? "$"+Math.round(n/1000)+"K" : "$"+n; }
 function daysSince(d){ if(!d) return Infinity; return Math.floor((Date.now()-new Date(d+"T00:00:00").getTime())/86400000); }
 function isRecentCut(x){ return !!(x && x.cut>0 && x.cutDate && daysSince(x.cutDate) <= PRICE_CUT_WINDOW_DAYS); }
 function cutLabel(x){ const d=daysSince(x.cutDate); return "↓ "+fmtShort(x.cut)+" · "+(d<=0?"new":d+"d ago"); }
+
+// ----- cumulative decline (v6) -----
+// x.cut is only the MOST RECENT cut. x.list0 is the asking price at the start of the current
+// selling campaign, read from realtor.com's price history, which — unlike Redfin/Zillow —
+// preserves events across a withdraw-and-relist. The gap between the two is often large:
+// 3028 173rd Ct NE showed a $100K last cut against a $305K decline since 2026-05-28.
+// Absent for rows whose history has not been read yet, so every use is guarded.
+function totalDecline(x){
+  if(!x || typeof x.list0 !== "number" || x.list0 <= x.price) return null;
+  const amt = x.list0 - x.price;
+  return { amt, pct: amt / x.list0 * 100 };
+}
+function declineLabel(x){
+  const d = totalDecline(x); if(!d) return "";
+  return "↓ "+fmtShort(d.amt)+" total · "+d.pct.toFixed(1)+"%";
+}
+function declineTitle(x){
+  const d = totalDecline(x); if(!d) return "";
+  return `Down ${fmt(d.amt)} (${d.pct.toFixed(1)}%) from the ${fmt(x.list0)} asked at the start of this campaign`
+    + (x.list0Date ? ` on ${x.list0Date}` : "")
+    + `. Source: realtor.com price history, which carries across relists.`;
+}
 
 // ----- cumulative days on market (v5) -----
 // x.cdom is the MLS "Cumulative Days On Market" as it read on x.cdomDate. It is the
@@ -292,7 +370,14 @@ const fmt = n => "$"+Math.round(n).toLocaleString();
 const fmtK = n => "$"+(Math.round(n/1000)).toLocaleString()+"K";
 const slug = a => a.trim().replace(/\s+/g,"-");
 const zillowURL = x => `https://www.zillow.com/homes/${slug(x.addr)}-${slug(x.city)}-WA-${x.zip}_rb/`;
-const redfinURL = x => x.redfin || `https://www.google.com/search?q=${encodeURIComponent(x.addr+", "+x.city+" WA "+x.zip+" redfin")}`;
+// realtor.com property links are keyed on x.mpr, an ADDRESS-level id resolved during the
+// refresh. Unlike a Redfin/Zillow listing URL it survives a relist, so the link keeps working
+// after a home is withdrawn and put back on.
+const realtorURL = x => x.mpr ? `https://www.realtor.com/realestateandhomes-detail/M${x.mpr}` : null;
+// Redfin is only linked when the refresh captured a real URL. There is deliberately no
+// constructed fallback: the old one pointed at a Google search, which looked like a listing
+// link and was not one on 73 of 74 rows (issue #4).
+const redfinURL = x => x.redfin || null;
 const mapsURL = x => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.addr+", "+x.city+", WA "+x.zip)}`;
 
 function cards(el, arr){
@@ -368,6 +453,17 @@ function renderChangelog(){
     </div>`;
   }
 
+  // Summary line for the collapsed state (issue #7). Deliberately reports only what can be
+  // read straight off the archive — latest date and how many entries exist — rather than
+  // parsing counts back out of the rendered change text, which would drift.
+  const meta = document.getElementById("changedMeta");
+  if(meta){
+    if(all.length){
+      const newest = all[0].date, oldest = all[all.length-1].date;
+      meta.textContent = `latest ${newest} · ${all.length} update${all.length===1?"":"s"} on file since ${oldest}`;
+    } else meta.textContent = "no updates recorded yet";
+  }
+
   const host = document.getElementById("changelog");
   host.innerHTML = entries + pager;
   host.querySelectorAll("button.clpg").forEach(b=>{
@@ -382,6 +478,13 @@ function renderChangelog(){
   });
 }
 const fmin=document.getElementById("fmin"), fmax=document.getElementById("fmax");
+// ----- beds + size filters (v7, issue #6) -----
+// Bed counts are read from the data rather than hard-coded, so a 7-bed listing appearing next
+// week gets its own button without a code change. Size steps at 250 sqft.
+const fsmin=document.getElementById("fsmin"), fsmax=document.getElementById("fsmax");
+const SQ_STEP = 250;
+let MINS = 0, MAXS = 0;
+const activeBeds = new Set();
 function initListings(){
   L = DATA.listings;
   const allPrices = L.map(x=>x.price);
@@ -390,26 +493,63 @@ function initListings(){
   fmin.length = 0; fmax.length = 0;
   for(let p=MINP; p<=MAXP; p+=100000){ fmin.add(new Option(fmtK(p), p)); fmax.add(new Option(fmtK(p), p)); }
   fmin.value = MINP; fmax.value = MAXP;
-}
 
-// school filter state + buttons
-const activeSchools = new Set(SCHOOL_META.map(s=>s.key));
+  const allSq = L.map(x=>x.sqft).filter(n=>typeof n === "number" && n>0);
+  MINS = Math.floor(Math.min(...allSq)/SQ_STEP)*SQ_STEP;
+  MAXS = Math.ceil(Math.max(...allSq)/SQ_STEP)*SQ_STEP;
+  fsmin.length = 0; fsmax.length = 0;
+  for(let s=MINS; s<=MAXS; s+=SQ_STEP){ const t=s.toLocaleString()+" sf"; fsmin.add(new Option(t,s)); fsmax.add(new Option(t,s)); }
+  fsmin.value = MINS; fsmax.value = MAXS;
+
+  const beds = [...new Set(L.map(x=>x.beds))].sort((a,b)=>a-b);
+  activeBeds.clear(); beds.forEach(b=>activeBeds.add(b));
+  const host = document.getElementById("bedBtns");
+  host.innerHTML = "";
+  beds.forEach(n=>{
+    const b=document.createElement("button");
+    b.className="sbtn"; b.dataset.beds=String(n); b.textContent=`${n} bd`;
+    b.addEventListener("click",()=>{ activeBeds.has(n)?activeBeds.delete(n):activeBeds.add(n); syncBedBtns(); applyFilter(); });
+    host.appendChild(b);
+  });
+  syncBedBtns();
+}
+function syncBedBtns(){
+  document.querySelectorAll("#bedBtns .sbtn").forEach(b=>
+    b.classList.toggle("off", !activeBeds.has(Number(b.dataset.beds))));
+}
+document.getElementById("sizeAll").addEventListener("click",()=>{ fsmin.value=MINS; fsmax.value=MAXS; applyFilter(); });
+document.getElementById("resetAll").addEventListener("click",()=>{
+  fmin.value=MINP; fmax.value=MAXP; fsmin.value=MINS; fsmax.value=MAXS;
+  CATCH_META.forEach(s=>activeSchools.add(s.key)); syncSchoolBtns();
+  [...new Set(L.map(x=>x.beds))].forEach(n=>activeBeds.add(n)); syncBedBtns();
+  cutsOnly=false; const cc=document.getElementById("cutChip"); if(cc) cc.classList.remove("active");
+  applyFilter();
+});
+
+// catchment filter state + buttons
+const activeSchools = new Set(CATCH_META.map(s=>s.key));
 const schoolBtns = document.getElementById("schoolBtns");
-SCHOOL_META.forEach(s=>{
+CATCH_META.forEach(s=>{
   const b=document.createElement("button");
   b.className="sbtn"; b.dataset.key=s.key;
-  b.innerHTML=`<span class="sw" style="background:${s.color}"></span>${s.label}`;
+  // "Not verified" gets a hollow swatch so the button reads the same way its pins do.
+  const sw = s.key==="Unverified"
+    ? `<span class="sw" style="background:#fff;border:2px solid ${s.color}"></span>`
+    : `<span class="sw" style="background:${s.color}"></span>`;
+  b.innerHTML=sw+s.label;
   b.addEventListener("click",()=>{ if(activeSchools.has(s.key)) activeSchools.delete(s.key); else activeSchools.add(s.key); syncSchoolBtns(); applyFilter(); });
   schoolBtns.appendChild(b);
 });
 function syncSchoolBtns(){ schoolBtns.querySelectorAll(".sbtn").forEach(b=> b.classList.toggle("off", !activeSchools.has(b.dataset.key))); }
-document.getElementById("schAll").addEventListener("click",()=>{ SCHOOL_META.forEach(s=>activeSchools.add(s.key)); syncSchoolBtns(); applyFilter(); });
+document.getElementById("schAll").addEventListener("click",()=>{ CATCH_META.forEach(s=>activeSchools.add(s.key)); syncSchoolBtns(); applyFilter(); });
 document.getElementById("schNone").addEventListener("click",()=>{ activeSchools.clear(); syncSchoolBtns(); applyFilter(); });
 
 // map legend
 document.getElementById("dotlegend").innerHTML =
-  SCHOOL_META.map(s=>`<span><span class="dot" style="background:${s.color}"></span>${s.label}</span>`).join("")+
-  `<span><span style="color:${CUT_COLOR};font-size:14px;line-height:1;vertical-align:middle">▼</span> Recent price cut</span>`+
+  CATCH_META.map(s=> s.key==="Unverified"
+      ? `<span><span class="dot" style="background:#fff;border:2px solid ${s.color}"></span>${s.label}</span>`
+      : `<span><span class="dot" style="background:${s.color}"></span>${s.label}</span>`).join("")+
+  `<span><span style="color:${CUT_COLOR};font-size:14px;line-height:1;vertical-align:middle">▼</span> Recent price cut (keeps its catchment colour)</span>`+
   `<span><span class="dot" style="background:#fff;border:2px solid #c01c54"></span>Reference home (toured)</span>`;
 
 // ---- chart ----
@@ -431,18 +571,26 @@ function addrCell(x){
   return gridjs.html(
     `<a class="zlink" href="${zillowURL(x)}" target="_blank" rel="noopener">${x.addr}</a>`+
     (x.toured?` <span class="tag-toured">REF</span>`:``)+
-    ` <a class="minilink rf" href="${redfinURL(x)}" target="_blank" rel="noopener" title="Redfin">R</a>`+
-    `<a class="minilink zw" href="${zillowURL(x)}" target="_blank" rel="noopener" title="Zillow">Z</a>`+
+    (realtorURL(x)?` <a class="minilink rt" href="${realtorURL(x)}" target="_blank" rel="noopener" title="realtor.com — full price history, including relists">R</a>`:``)+
+    ` <a class="minilink zw" href="${zillowURL(x)}" target="_blank" rel="noopener" title="Zillow">Z</a>`+
+    (redfinURL(x)?`<a class="minilink rf" href="${redfinURL(x)}" target="_blank" rel="noopener" title="Redfin">F</a>`:``)+
     `<a class="minilink mp" href="${mapsURL(x)}" target="_blank" rel="noopener" title="Google Maps">M</a>`
   );
 }
-function schoolCell(k){ return gridjs.html(`<span class="schip"><span class="sw" style="background:${SCOLOR[k]||'#999'}"></span>${k}</span>`); }
+function schoolCell(x){
+  const k = bucketOf(x), c = CCOLOR[k] || "#999";
+  const sw = k==="Unverified"
+    ? `<span class="sw" style="background:#fff;border:2px solid ${c}"></span>`
+    : `<span class="sw" style="background:${c}"></span>`;
+  const cls = k==="Unverified" ? ' style="color:#8a94a3"' : "";
+  return gridjs.html(`<span class="schip" title="${catchTitle(x).replace(/"/g,"&quot;")}"${cls}>${sw}${catchLabel(x)}</span>`);
+}
 // Grid.js renders headers as plain text, so the explanation is attached afterwards. Runs after
 // every render because updateConfig().forceRender() rebuilds the header row from scratch.
 const HEADER_HELP={
   "Days on market":"Cumulative Days On Market, from the MLS listing record.\n\nThis counts across relists — a home taken off the market and re-listed still shows its full history, so it is usually higher than the \"days on Redfin\" or \"days on Zillow\" figure.\n\nGreen under 45 days · amber 45-89 · red 90+.\nA trailing \"?\" means the reading is over 45 days old and is being carried forward.",
   "Price":"Current list price. A ↓ badge marks a cut made in the last 30 days.",
-  "School":"Assigned elementary for the four target catchments; the two ZIP entries are area buckets where the exact school varies — verify before relying on it."
+  "School":"The elementary this address is actually zoned to.\n\nBellevue homes are resolved against the Bellevue School District's published 2024-25 attendance areas; the four target catchments are additionally confirmed by Redfin's school-attendance pages.\n\n\"Not verified\" means the home came from a ZIP sweep and no boundary source covers it — Lake Washington School District does not publish machine-readable boundaries. Check the district's tool before relying on it.\n\nA rating in brackets is shown only for schools whose rating was verified by hand."
 };
 function annotateHeaders(){
   document.querySelectorAll("#table th").forEach(th=>{
@@ -452,7 +600,7 @@ function annotateHeaders(){
   });
 }
 let grid;
-function rowsFor(rows){ return rows.map(x=>[x.addr,x.city,x.price,x.beds,x.baths,x.sqft,(cdomNow(x)??-1),x.school,L.indexOf(x)]); }
+function rowsFor(rows){ return rows.map(x=>[x.addr,x.city,x.price,x.beds,x.baths,x.sqft,(cdomNow(x)??-1),catchLabel(x),L.indexOf(x)]); }
 function renderTable(rows){
   if(cutsFirst){ rows=rows.slice().sort((a,b)=>{ const ra=isRecentCut(a), rb=isRecentCut(b); if(ra!==rb) return ra?-1:1; if(ra&&rb) return daysSince(a.cutDate)-daysSince(b.cutDate); return a.price-b.price; }); }
   const cfg={
@@ -461,7 +609,11 @@ function renderTable(rows){
       // Address/Price and squeezes the four numeric headers down to "B..." / "Ba..." / "S..." / "D...".
       {name:"Address", width:"22%", formatter:(_,r)=>addrCell(L[r.cells[8].data])},
       {name:"City", width:"9%"},
-      {name:"Price", width:"18%", formatter:(c,row)=>{ const x=L[row.cells[8].data]; return gridjs.html(fmt(c)+(isRecentCut(x)?` <span class="cutbadge" title="Recent price cut">${cutLabel(x)}</span>`:``)); }, sort:{compare:(a,b)=>a-b}},
+      {name:"Price", width:"18%", formatter:(c,row)=>{ const x=L[row.cells[8].data]; return gridjs.html(
+        fmt(c)
+        +(isRecentCut(x)?` <span class="cutbadge" title="Recent price cut">${cutLabel(x)}</span>`:``)
+        +(totalDecline(x)?` <span class="declbadge" title="${declineTitle(x)}">${declineLabel(x)}</span>`:``)
+      ); }, sort:{compare:(a,b)=>a-b}},
       {name:"Beds", width:"7%"},
       {name:"Baths", width:"7%"},
       {name:"SqFt", width:"9%", formatter:c=>c.toLocaleString()},
@@ -469,7 +621,7 @@ function renderTable(rows){
       // bottom ascending instead of masquerading as freshly listed.
       // "Days" alone read as ambiguous — it is cumulative days on market, not days on Redfin.
       {name:"Days on market", width:"11%", formatter:(_,row)=>cdomCell(L[row.cells[8].data]), sort:{compare:(a,b)=>a-b}},
-      {name:"School", width:"17%", formatter:c=>schoolCell(c)},
+      {name:"School", width:"17%", formatter:(_,row)=>schoolCell(L[row.cells[8].data])},
       {name:"i", hidden:true}
     ],
     data:rowsFor(rows),
@@ -496,6 +648,13 @@ function renderStats(rows){
 let map, markersLayer, mapReady=false;
 const coords = JSON.parse(localStorage.getItem("geocache")||"{}");
 function keyOf(x){ return `${x.addr}, ${x.city} WA ${x.zip}`; }
+// Coordinates now ship with the snapshot (resolved during the refresh alongside the realtor.com
+// id). The browser-side Nominatim geocode is kept only as a fallback for rows that predate the
+// change or whose lookup failed, so the map still draws if the field is missing.
+function coordsOf(x){
+  if(typeof x.lat === "number" && typeof x.lon === "number") return [x.lat, x.lon];
+  return coords[keyOf(x)] || null;
+}
 try{
   map = window.L.map('map').setView([47.60,-122.13], 11);
   window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19, attribution:'© OpenStreetMap'}).addTo(map);
@@ -508,16 +667,27 @@ function drawMarkers(rows){
   markersLayer.clearLayers();
   const bounds=[];
   rows.forEach(x=>{
-    const c=coords[keyOf(x)]; if(!c) return;
+    const c=coordsOf(x); if(!c) return;
+    const bk=bucketOf(x), col=CCOLOR[bk]||"#999", hollow=(bk==="Unverified");
     let mk;
     if(isRecentCut(x)){
-      mk=window.L.marker(c,{icon:window.L.divIcon({className:'cutdiv',html:'<div class="cuttri"></div>',iconSize:[16,14],iconAnchor:[8,7]})}).addTo(markersLayer);
+      // The cut marker used to be a flat red triangle, which meant a discounted home had to
+      // give up its catchment colour to show the discount (issue #5). It now carries the
+      // catchment as its fill and wears the cut as a red outline, so it says both at once.
+      const svg = `<svg width="18" height="16" viewBox="0 0 18 16">`
+        + `<path d="M9 15 L0.8 1 L17.2 1 Z" fill="${hollow?'#fff':col}" stroke="${CUT_COLOR}" stroke-width="2.4" stroke-linejoin="round"/></svg>`;
+      mk=window.L.marker(c,{icon:window.L.divIcon({className:'cutdiv',html:svg,iconSize:[18,16],iconAnchor:[9,8]})}).addTo(markersLayer);
     } else {
-      mk=window.L.circleMarker(c,{radius:8, color:x.toured?"#c01c54":"#fff", weight:x.toured?3:2, fillColor:(SCOLOR[x.school]||"#999"), fillOpacity:0.95}).addTo(markersLayer);
+      mk=window.L.circleMarker(c,{radius:8, color:x.toured?"#c01c54":(hollow?col:"#fff"), weight:x.toured?3:2, fillColor:(hollow?"#fff":col), fillOpacity:hollow?0.85:0.95}).addTo(markersLayer);
     }
-    mk.bindPopup(`<b>${x.addr}</b><br>${fmt(x.price)} · ${x.beds}bd/${x.baths}ba · ${x.sqft.toLocaleString()} sqft<br><b>${x.school}</b>`+
+    mk.bindPopup(`<b>${x.addr}</b><br>${fmt(x.price)} · ${x.beds}bd/${x.baths}ba · ${x.sqft.toLocaleString()} sqft<br>`+
+      `<b style="color:${hollow?'#6b7280':col}">${catchLabel(x)}</b>${x.elem?` Elementary`:``}`+
+      (x.elemFlag==="district-mismatch"?` <span style="color:#b3261e" title="Redmond mailing address inside a Bellevue School District attendance area">⚑</span>`:``)+
       (cdomNow(x)!=null?` · ${cdomNow(x)} days on market`:``)+`<br>`+
-      `<a href="${zillowURL(x)}" target="_blank">Zillow</a> · <a href="${redfinURL(x)}" target="_blank">Redfin</a> · <a href="${mapsURL(x)}" target="_blank">Maps</a>`);
+      [ realtorURL(x)?`<a href="${realtorURL(x)}" target="_blank">realtor.com</a>`:null,
+        `<a href="${zillowURL(x)}" target="_blank">Zillow</a>`,
+        redfinURL(x)?`<a href="${redfinURL(x)}" target="_blank">Redfin</a>`:null,
+        `<a href="${mapsURL(x)}" target="_blank">Maps</a>` ].filter(Boolean).join(" · "));
     bounds.push(c);
   });
   if(bounds.length>1) map.fitBounds(bounds,{padding:[40,40]});
@@ -527,6 +697,8 @@ function geocodeAll(){
   function next(){
     if(i>=L.length){ localStorage.setItem("geocache", JSON.stringify(coords)); return; }
     const x=L[i++], k=keyOf(x);
+    // Rows that shipped with coordinates never hit Nominatim at all.
+    if(typeof x.lat === "number" && typeof x.lon === "number"){ return next(); }
     if(coords[k]){ return next(); }
     fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(k)}`,{headers:{"Accept":"application/json"}})
       .then(r=>r.json()).then(d=>{ if(d&&d[0]){ coords[k]=[+d[0].lat,+d[0].lon]; localStorage.setItem("geocache", JSON.stringify(coords)); drawMarkers(current()); } })
@@ -537,20 +709,34 @@ function geocodeAll(){
 
 // ---- filter orchestration ----
 let cutsOnly=false, cutsFirst=false;
+// One predicate, used by both the row set and the cut counter, so the chip can never disagree
+// with the table about how many cuts are in view.
+function passes(x, lo, hi, slo, shi){
+  return x.price>=lo && x.price<=hi
+      && activeSchools.has(bucketOf(x))
+      && activeBeds.has(x.beds)
+      && (typeof x.sqft !== "number" || (x.sqft>=slo && x.sqft<=shi));
+}
+function bandsNow(){
+  return { lo:+fmin.value, hi:+fmax.value, slo:+fsmin.value, shi:+fsmax.value };
+}
 function current(){
-  const lo=+fmin.value, hi=+fmax.value;
-  return L.filter(x=> x.price>=lo && x.price<=hi && activeSchools.has(x.school) && (!cutsOnly || isRecentCut(x)));
+  const b=bandsNow();
+  return L.filter(x=> passes(x,b.lo,b.hi,b.slo,b.shi) && (!cutsOnly || isRecentCut(x)));
 }
 function applyFilter(){
   if(+fmin.value > +fmax.value){ fmax.value = fmin.value; }
-  const lo=+fmin.value, hi=+fmax.value;
-  const cutN = L.filter(x=> x.price>=lo && x.price<=hi && activeSchools.has(x.school) && isRecentCut(x)).length;
+  if(+fsmin.value > +fsmax.value){ fsmax.value = fsmin.value; }
+  const b=bandsNow();
+  const cutN = L.filter(x=> passes(x,b.lo,b.hi,b.slo,b.shi) && isRecentCut(x)).length;
   document.getElementById("cutCount").textContent = cutN;
   const rows=current();
   renderStats(rows); renderChart(rows); renderTable(rows); drawMarkers(rows);
 }
 fmin.addEventListener("change", applyFilter);
 fmax.addEventListener("change", applyFilter);
+fsmin.addEventListener("change", applyFilter);
+fsmax.addEventListener("change", applyFilter);
 document.querySelectorAll(".preset[data-min]").forEach(b=>b.addEventListener("click",()=>{
   fmin.value=Math.max(MINP,+b.dataset.min); fmax.value=Math.min(MAXP,+b.dataset.max); applyFilter();
 }));
@@ -654,6 +840,23 @@ async function boot(){
 }
 document.getElementById("summary").innerHTML = '<p class="loading">Loading the read\u2026</p>';
 document.getElementById("changelog").innerHTML = '<p class="loading">Loading history\u2026</p>';
+
+// "What changed" is collapsed by default, so the in-page links that point at it have to open it
+// or they would scroll to a closed strip and look broken. Covers a direct #changed URL too.
+(function(){
+  const box = document.getElementById("changed");
+  if(!box) return;
+  const open = () => { box.open = true; };
+  if(location.hash === "#changed") open();
+  window.addEventListener("hashchange", ()=>{ if(location.hash === "#changed"){ open(); box.scrollIntoView({block:"start"}); } });
+  document.querySelectorAll('a[href="#changed"]').forEach(a=> a.addEventListener("click", open));
+  // The read's links are rendered after boot(), so catch those by delegation as well.
+  document.addEventListener("click", e=>{
+    const a = e.target.closest && e.target.closest('a[href="#changed"]');
+    if(a) open();
+  });
+})();
+
 boot();
 </script>
 </body>
