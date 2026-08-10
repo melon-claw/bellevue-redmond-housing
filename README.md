@@ -24,6 +24,7 @@ It answers three questions at a glance:
 - **School comparison** — the four target elementaries side by side (rating, math/reading scores, boundary, commute).
 - **Filters** — budget range (min/max + presets), catchment toggles, **city toggles**, **bed-count toggles**, **bath-count toggles**, a **square-footage range**, a recent-price-cut chip and a reset. All of them apply together (AND) and drive the map and table as one. The four categorical rows (school, city, beds, baths) build their buttons from the values present in the data, so a new city or an unusual bath count appears on its own at the next refresh without a code change.
 - **Feedback** — the page links to this repo and to [the issue tracker](https://github.com/melon-claw/bellevue-redmond-housing/issues) from the header and from a call-to-action above the footnote, so a visitor who spots a stale price or a wrong catchment has somewhere to put it.
+- **Email digest** — a subscribe box above the footnote. One issue on Saturday, and only when something actually changed; see [The email digest](#the-email-digest). It is a plain HTML form posting to Buttondown — no script, no CDN, nothing that can fail to load.
 - **Map** — every listing placed from stored coordinates and coloured by its **verified elementary catchment**; a **▼ triangle outlined in red** marks a recent price cut *while keeping its catchment colour*, and a **red ring** marks a toured reference home. Homes whose catchment could not be verified are drawn **hollow**.
 - **Buy-vs-rent calculator** — interactive sliders for price, down payment, rate, rent, appreciation, and horizon; shows monthly cost, equity build-up, net cost to buy vs rent, and the breakeven year.
 - **Listings table** — sortable/searchable, with one-click realtor.com / Zillow / Google Maps links (plus Redfin where a direct link is on file), recent-cut and cumulative-decline badges, and a **Days** column carrying true cumulative days on market (see below).
@@ -176,6 +177,7 @@ A scheduled task runs **Tuesday &amp; Saturday at 9 PM PT** and:
 8. **Appends** one entry to `archive.json` containing that run's changes and a freshly written read. Existing entries are never edited or pruned.
 9. Runs `tools/validate_snapshot.py`. A non-zero exit **stops the run before the push** — see below.
 10. Commits and pushes from a fresh clone; Pages rebuilds within ~a minute.
+11. Runs `tools/send_newsletter.py --send`, which decides for itself whether this run warrants an email — see below.
 
 ### Pre-push validation
 
@@ -192,6 +194,22 @@ The refresh **never authors or edits `index.html`** — the school comparison ta
 It does, however, **carry** presentation changes that are already present in the working folder into its commit. Otherwise hand-authored edits would never reach GitHub. Write, no. Carry, yes.
 
 The automation touches **only the two JSON files**. `index.html` — and with it the school comparison table, ratings, test scores, layout, filters, map logic and calculator — is outside its reach entirely. School stats can only be changed by a deliberate, primary-source-verified manual edit.
+
+### The email digest
+
+There is a **weekly email** carrying the same "what changed" list and the same read that appear on this page, with a link to each home. Subscribe from the box above the footnote, or read past issues in the [public archive](https://buttondown.com/bellevue-redmond-housing/archive/). It runs on [Buttondown](https://buttondown.com/), which was chosen over the obvious alternative because Substack has no write API — its developer API is read-only public metadata, so every issue would have to be pasted by hand, which is exactly the kind of step that stops happening after a month.
+
+`tools/send_newsletter.py` renders the digest and posts it. Three things about it are deliberate:
+
+- **One email a week, on Saturday.** The site refreshes twice a week; the list hears from it once. Tuesday's run still calls the script, and the script declines. At two sends a week this would be ~104 emails a year about the same 74 houses, which is how you earn unsubscribes rather than readers.
+- **Only when something happened** — a new listing, a price cut, a home going pending or leaving the market, or a rate move of at least 0.10 points. A quiet Saturday sends **nothing at all**. Not a "no news this week" email: that is still an email.
+- **Last in the run, after the push.** A bad commit can be reverted. A bad email cannot — it is in inboxes within seconds and there is no undo. So the email only happens on a run that already cleared the validator and reached GitHub. Validator red means no push, and no push means no send.
+
+The gates read the **snapshot's own date** rather than the clock, so a run that starts at 9 PM Saturday and finishes after midnight still reports Saturday's run as Saturday's. The script also refuses outright when `data.json` and the newest `archive.json` entry are stamped with different dates, since the two files would then be describing different runs.
+
+Property links in the email come from the stored realtor.com `mpr` id and from nothing else, on the same rule the page follows: a listing without one is rendered without a link rather than with a constructed one.
+
+`--dry-run` prints the rendered Markdown and touches no network; without `--send` it creates a draft rather than sending. The API key lives in `.buttondown-credentials` at the repo root — mode 600, gitignored, never in the repo.
 
 ### Writing the read
 
@@ -216,6 +234,7 @@ The data layer is deliberately kept out of the presentation layer, split by **li
 | `bsd-elementary-2024-25.geojson` | refreshed once a school year | Bellevue School District elementary attendance areas, 14 polygons |
 | `tools/enrich_catchments.py` | changes rarely, by hand | Point-in-polygon catchment resolution. Standard library only |
 | `tools/validate_snapshot.py` | changes rarely, by hand | Pre-push invariants. Exit 1 blocks the push |
+| `tools/send_newsletter.py` | changes rarely, by hand | Renders the run as a Markdown digest and posts it to Buttondown. Standard library only. Runs last, after the push |
 
 Two reasons for the split:
 

@@ -55,6 +55,17 @@ table.school th{ color:#6b7280; font-weight:600; }
 .cta p{ margin:0 0 10px; font-size:13px; color:#4a5462; }
 .cta .ctarow{ display:flex; gap:10px; flex-wrap:wrap; margin:12px 0 8px; }
 .cta .fine{ font-size:12px; color:#8a94a3; margin:0; }
+.cta .fine a{ color:#5b6675; }
+/* Buttondown subscribe form. Deliberately a plain HTML form posting cross-origin: no script,
+   no CDN, nothing to fail. Styled to match .btn so it does not look bolted on. */
+.embeddable-buttondown-form{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:12px 0 8px; }
+.embeddable-buttondown-form label{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.embeddable-buttondown-form input[type=email]{ flex:1 1 260px; min-width:0; font-size:13px; padding:8px 10px;
+      border:1px solid #cdd4dd; border-radius:8px; background:#fff; color:#1d2530; font-family:inherit; }
+.embeddable-buttondown-form input[type=email]:focus{ outline:2px solid #2c5fd6; outline-offset:1px; border-color:#2c5fd6; }
+.embeddable-buttondown-form input[type=submit]{ font-size:13px; font-weight:700; padding:8px 14px; border-radius:8px;
+      border:1px solid #2c5fd6; background:#2c5fd6; color:#fff; cursor:pointer; font-family:inherit; }
+.embeddable-buttondown-form input[type=submit]:hover{ background:#2450b8; }
 .btn{ display:inline-block; font-size:13px; font-weight:700; padding:8px 14px; border-radius:8px;
       border:1px solid #cdd4dd; background:#fff; color:#2c5fd6; text-decoration:none; }
 .btn:hover{ background:#eef3ff; }
@@ -283,6 +294,21 @@ a.zlink:hover{ color:#2c5fd6; }
   <div class="chartbox" style="margin:16px 0 8px"><canvas id="priceChart"></canvas></div>
   <div id="table"></div>
   <p class="legend"><b>Days on market</b> is the MLS <i>cumulative</i> figure: unlike the "days on Redfin / Zillow" counters, it carries across relists, so a home taken down and re-listed still shows its full history. <span style="color:#3a7d44;font-weight:700">green</span> under 45 days, <span style="color:#b26a00;font-weight:700">amber</span> 45–89, <span style="color:#d2451e;font-weight:700">red</span> 90+. A trailing <b>?</b> means the reading is more than 45 days old and is being carried forward. Sort by this column to surface the longest-sitting listings.</p>
+
+  <div class="panel cta">
+    <h3>Get the weekly digest by email</h3>
+    <p>One email on Saturday, and only when something actually happened &mdash; a new listing, a price cut, a home going pending or leaving the market, or a real move in the mortgage rate. A quiet week sends nothing. It carries the same &ldquo;what changed&rdquo; list and the same read you see on this page, with links straight to each home.</p>
+    <form
+      action="https://buttondown.com/api/emails/embed-subscribe/bellevue-redmond-housing"
+      method="post"
+      class="embeddable-buttondown-form"
+    >
+      <label for="bd-email">Enter your email</label>
+      <input type="email" name="email" id="bd-email" placeholder="you@example.com" required />
+      <input type="submit" value="Subscribe" />
+    </form>
+    <p class="fine">Free, no tracking, unsubscribe from any issue. Past issues are public at <a href="https://buttondown.com/bellevue-redmond-housing/archive/" target="_blank" rel="noopener">buttondown.com/bellevue-redmond-housing</a>. The site itself keeps refreshing twice a week either way.</p>
+  </div>
 
   <div class="panel cta">
     <h3>Found something wrong? Tell me.</h3>
