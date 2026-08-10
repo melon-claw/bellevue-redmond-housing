@@ -49,6 +49,19 @@ table.school th,table.school td{ text-align:left; padding:7px 8px; border-bottom
 table.school th{ color:#6b7280; font-weight:600; }
 .tag-toured{ background:#fef3c7; color:#92600a; font-size:10px; font-weight:700; padding:1px 6px; border-radius:5px; }
 .ref{ font-size:12px; color:#8a94a3; margin-top:30px; border-top:1px solid #e6e9ee; padding-top:12px; }
+.ref a{ color:#5b6675; }
+.cta{ margin-top:28px; border-color:#d7e0f5; background:linear-gradient(180deg,#f7f9ff,#fff); }
+.cta h3{ margin:0 0 6px; font-size:16px; }
+.cta p{ margin:0 0 10px; font-size:13px; color:#4a5462; }
+.cta .ctarow{ display:flex; gap:10px; flex-wrap:wrap; margin:12px 0 8px; }
+.cta .fine{ font-size:12px; color:#8a94a3; margin:0; }
+.btn{ display:inline-block; font-size:13px; font-weight:700; padding:8px 14px; border-radius:8px;
+      border:1px solid #cdd4dd; background:#fff; color:#2c5fd6; text-decoration:none; }
+.btn:hover{ background:#eef3ff; }
+.btn.primary{ background:#2c5fd6; border-color:#2c5fd6; color:#fff; }
+.btn.primary:hover{ background:#2450b8; }
+.ghlink{ font-size:13px; color:#2c5fd6; text-decoration:none; font-weight:600; }
+.ghlink:hover{ text-decoration:underline; }
 .chartbox{ position:relative; height:240px; }
 a.zlink{ color:#1d2530; font-weight:600; text-decoration:none; border-bottom:1px dotted #9aa4b2; }
 a.zlink:hover{ color:#2c5fd6; }
@@ -140,6 +153,7 @@ a.zlink:hover{ color:#2c5fd6; }
   <h1>Bellevue &amp; Redmond · 4-Bed Single Family · Buy vs Rent</h1>
   <p class="sub">Tracking 4BD houses up to $2M across four strong-school catchments — Audubon (Redmond) plus Somerset, Woodridge &amp; Newport Heights (Bellevue) — and the broader Redmond 98052 / Bellevue 98008 markets. Sources: Redfin + Zillow MLS, GreatSchools, Freddie Mac. Refreshed weekly.</p>
   <span class="updated" id="updated">Updated —</span>
+  <p class="sub" style="margin-top:6px">Open source · <a class="ghlink" href="https://github.com/melon-claw/bellevue-redmond-housing" target="_blank" rel="noopener">code &amp; data on GitHub</a> · <a class="ghlink" href="https://github.com/melon-claw/bellevue-redmond-housing/issues/new" target="_blank" rel="noopener">report a problem or request a feature</a></p>
 
   <h2>Market snapshot</h2>
   <div class="cards" id="snapshot"></div>
@@ -270,7 +284,18 @@ a.zlink:hover{ color:#2c5fd6; }
   <div id="table"></div>
   <p class="legend"><b>Days on market</b> is the MLS <i>cumulative</i> figure: unlike the "days on Redfin / Zillow" counters, it carries across relists, so a home taken down and re-listed still shows its full history. <span style="color:#3a7d44;font-weight:700">green</span> under 45 days, <span style="color:#b26a00;font-weight:700">amber</span> 45–89, <span style="color:#d2451e;font-weight:700">red</span> 90+. A trailing <b>?</b> means the reading is more than 45 days old and is being carried forward. Sort by this column to surface the longest-sitting listings.</p>
 
-  <p class="ref">Data pulled from Redfin / Zillow (NWMLS, MLS Grid); school ratings from GreatSchools; mortgage rate from Freddie Mac PMMS. Catchments are resolved two ways: the four target sets (Audubon, Somerset, Woodridge, Newport Heights) come from Redfin school-attendance pages, and every Bellevue address is additionally resolved against the Bellevue School District's published 2024-25 elementary attendance areas — the two agree on all 19 homes where both apply. Homes in the Redmond 98052 sweep are shown as <strong>not verified</strong>: Lake Washington School District publishes boundary maps only as PDFs, so there is nothing to resolve against. Verify any specific address with the district boundary tool. Prices and availability change frequently; refreshed weekly. Not financial advice.</p>
+  <div class="panel cta">
+    <h3>Found something wrong? Tell me.</h3>
+    <p>This tracker is built in the open and the data is scraped, so mistakes get through — a stale price, a home that sold weeks ago, a school catchment that doesn't match what the district says for your street. Corrections are the most useful thing you can send.</p>
+    <p class="ctarow">
+      <a class="btn primary" href="https://github.com/melon-claw/bellevue-redmond-housing/issues/new" target="_blank" rel="noopener">Report a problem or suggest a feature</a>
+      <a class="btn" href="https://github.com/melon-claw/bellevue-redmond-housing/issues" target="_blank" rel="noopener">Browse open issues</a>
+      <a class="btn" href="https://github.com/melon-claw/bellevue-redmond-housing" target="_blank" rel="noopener">View the source</a>
+    </p>
+    <p class="fine">A GitHub account is needed to post. Every filter, column and caveat on this page started as an issue in that tracker.</p>
+  </div>
+
+  <p class="ref">Data pulled from Redfin / Zillow (NWMLS, MLS Grid); school ratings from GreatSchools; mortgage rate from Freddie Mac PMMS. Catchments are resolved two ways. Every Bellevue address is resolved against the Bellevue School District's published 2024-25 elementary attendance areas; the Audubon home, being in Lake Washington School District, comes from a Redfin school-attendance page. Where both a sweep label and a BSD polygon apply — <span id="fnBoth">—</span> homes in Somerset and Newport Heights — <span id="fnCross">—</span>. <span id="fnResolved">—</span> of <span id="fnTotal">—</span> homes carry a resolved catchment across <span id="fnAreas">—</span> elementary areas; the remaining <span id="fnUnverified">—</span> are shown as <strong>not verified</strong>, because Lake Washington School District publishes boundary maps only as PDFs and one Bellevue waterfront address falls outside the BSD polygon set. <span id="fnMismatch"></span>Verify any specific address with the district boundary tool. Prices and availability change frequently; refreshed weekly. Not financial advice. <a href="https://github.com/melon-claw/bellevue-redmond-housing">Source and issue tracker on GitHub</a>.</p>
 </div>
 
 <script>
@@ -301,19 +326,26 @@ const CATCH_META = [
   {key:"Unverified",      label:"Not verified",    color:"#9aa4b2"}
 ];
 const CCOLOR = Object.fromEntries(CATCH_META.map(s=>[s.key,s.color]));
+// A BSD attendance polygon that swallows a Redmond address is a boundary-file artifact, not a
+// school assignment: those homes are in Lake Washington SD, which publishes no machine-readable
+// boundary, so nothing here can place them. The resolver already flags them; we decline to
+// assert the result anywhere a reader could mistake it for a verified catchment. The flag and
+// the polygon hit stay in data.json — suppressed for display, not discarded.
+const isVerified = x => !!(x && x.elem) && x.elemFlag !== "district-mismatch";
 function bucketOf(x){
-  const e = x && x.elem;
-  if(!e) return "Unverified";
+  if(!isVerified(x)) return "Unverified";
+  const e = x.elem;
   if(TARGET_KEYS.has(e)) return e;
   if(WEAK_RATED[e]) return "Weak";
   return "Other";
 }
 // Short label for the table cell and the map popup.
 function catchLabel(x){
-  if(!x.elem) return `Not verified · ${x.zip}`;
+  if(!isVerified(x)) return `Not verified · ${x.zip}`;
   return WEAK_RATED[x.elem] ? `${x.elem} (${WEAK_RATED[x.elem]})` : x.elem;
 }
 function catchTitle(x){
+  if(x.elemFlag === "district-mismatch") return `This ${x.zip} address is in Lake Washington School District, but falls inside the Bellevue School District polygon for ${x.elem} Elementary — a boundary-file artifact, not an assignment. Treated as not verified; check the district boundary tool.`;
   if(!x.elem) return `This home came from a ZIP sweep of ${x.zip}. Its elementary catchment has not been verified — check the district boundary tool before relying on it.`;
   const src = x.elemSrc === "bsd-2024-25" ? "Bellevue School District 2024-25 attendance areas"
             : x.elemSrc === "redfin-attendance" ? "Redfin school-attendance page"
@@ -539,6 +571,31 @@ function initListings(){
   buildToggles("bedBtns",  bedValues(),  n=>`${n} bd`, activeBeds,   asNum);
   buildToggles("bathBtns", bathValues(), n=>`${n} ba`, activeBaths,  asNum);
   buildToggles("cityBtns", cityValues(), c=>c,         activeCities, asStr);
+  renderCatchFootnote();
+}
+// The catchment footnote used to hand-write its own counts, and drifted badly: it still claimed
+// the four target sets came from Redfin and that "every" Bellevue address resolved, long after
+// neither was true. Render the numbers and the cross-check verdict from the data, so the prose
+// cannot disagree with the map. Counts describe the whole dataset, not the current filter.
+function renderCatchFootnote(){
+  const set = (id,v)=>{ const el=document.getElementById(id); if(el) el.textContent = v; };
+  const verified = L.filter(isVerified);
+  const both  = L.filter(x=> isVerified(x) && TARGET_KEYS.has(x.school) && x.elemSrc === "bsd-2024-25");
+  const agree = both.filter(x=> x.elem === x.school);
+  set("fnTotal", L.length);
+  set("fnResolved", verified.length);
+  set("fnAreas", new Set(verified.map(x=>x.elem)).size);
+  set("fnUnverified", L.length - verified.length);
+  set("fnBoth", both.length);
+  // Never claim agreement we did not measure — if a future boundary file disagrees with a sweep
+  // label, the footnote says so on its own.
+  set("fnCross", agree.length === both.length
+      ? `the two agree on all ${both.length}`
+      : `the two disagree on ${both.length - agree.length} of ${both.length}`);
+  const m = L.filter(x=>x.elemFlag === "district-mismatch").length;
+  set("fnMismatch", m
+    ? `${m} Redmond ${m===1?"address falls":"addresses fall"} inside a Bellevue polygon despite being in Lake Washington district; ${m===1?"it is":"they are"} shown as not verified rather than assigned. `
+    : "");
 }
 // Distinct values present in the data, in display order. Beds/baths numeric ascending (baths
 // carry halves, so 2.5 sorts between 2 and 3); cities alphabetical. Listings missing a value
@@ -715,7 +772,7 @@ function drawMarkers(rows){
       mk=window.L.circleMarker(c,{radius:8, color:x.toured?"#c01c54":(hollow?col:"#fff"), weight:x.toured?3:2, fillColor:(hollow?"#fff":col), fillOpacity:hollow?0.85:0.95}).addTo(markersLayer);
     }
     mk.bindPopup(`<b>${x.addr}</b><br>${fmt(x.price)} · ${x.beds}bd/${x.baths}ba · ${x.sqft.toLocaleString()} sqft<br>`+
-      `<b style="color:${hollow?'#6b7280':col}">${catchLabel(x)}</b>${x.elem?` Elementary`:``}`+
+      `<b style="color:${hollow?'#6b7280':col}">${catchLabel(x)}</b>${isVerified(x)?` Elementary`:``}`+
       (x.elemFlag==="district-mismatch"?` <span style="color:#b3261e" title="Redmond mailing address inside a Bellevue School District attendance area">⚑</span>`:``)+
       (cdomNow(x)!=null?` · ${cdomNow(x)} days on market`:``)+`<br>`+
       [ realtorURL(x)?`<a href="${realtorURL(x)}" target="_blank">realtor.com</a>`:null,

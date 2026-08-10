@@ -23,6 +23,7 @@ It answers three questions at a glance:
 - **"The read"** — a short written interpretation of the current data (inventory, momentum, time on market, financing, entry price, implication), rewritten from scratch every refresh and grounded in that run's numbers. Past reads are never overwritten — they are archived alongside the changelog entry that produced them, so you can page back and see what the data looked like *and* what it was taken to mean.
 - **School comparison** — the four target elementaries side by side (rating, math/reading scores, boundary, commute).
 - **Filters** — budget range (min/max + presets), catchment toggles, **city toggles**, **bed-count toggles**, **bath-count toggles**, a **square-footage range**, a recent-price-cut chip and a reset. All of them apply together (AND) and drive the map and table as one. The four categorical rows (school, city, beds, baths) build their buttons from the values present in the data, so a new city or an unusual bath count appears on its own at the next refresh without a code change.
+- **Feedback** — the page links to this repo and to [the issue tracker](https://github.com/melon-claw/bellevue-redmond-housing/issues) from the header and from a call-to-action above the footnote, so a visitor who spots a stale price or a wrong catchment has somewhere to put it.
 - **Map** — every listing placed from stored coordinates and coloured by its **verified elementary catchment**; a **▼ triangle outlined in red** marks a recent price cut *while keeping its catchment colour*, and a **red ring** marks a toured reference home. Homes whose catchment could not be verified are drawn **hollow**.
 - **Buy-vs-rent calculator** — interactive sliders for price, down payment, rate, rent, appreciation, and horizon; shows monthly cost, equity build-up, net cost to buy vs rent, and the breakeven year.
 - **Listings table** — sortable/searchable, with one-click realtor.com / Zillow / Google Maps links (plus Redfin where a direct link is on file), recent-cut and cumulative-decline badges, and a **Days** column carrying true cumulative days on market (see below).
@@ -68,7 +69,7 @@ With CDOM available, the conventional "N homes went pending, so buyers are absor
 
 ### Listing selection
 - **Scope:** 4-bedroom-or-more single-family houses, priced up to **$2M**, in two core ZIPs (**Redmond 98052**, **Bellevue 98008**) plus four target school catchments (**98006 / 98005** for the Bellevue schools).
-- **School-zoned sets** (Audubon, Somerset, Woodridge, Newport Heights) come from **Redfin's school-attendance pages**, which list homes actually *served by* that school — so each is tagged with a verified catchment.
+- **School-zoned sets** (Audubon, Somerset, Woodridge, Newport Heights) are *searched* via **Redfin's school-attendance pages**, which list homes actually *served by* that school. Since the BSD boundary file landed, the Bellevue members of those sets are *resolved* by point-in-polygon and the attendance page serves as the cross-check; only the Audubon home, being in Lake Washington district, still takes Redfin as its source. Woodridge currently matches no listings.
 - **ZIP sweeps** (98052, 98008) are broader and are labeled as area buckets where the exact elementary varies; confirm the specific zone before relying on it.
 - **De-duplication:** if a home appears in both a ZIP sweep and a school-zoned set, the more specific school tag wins.
 
@@ -121,10 +122,10 @@ The map used to colour pins by `school`, which mixed two different kinds of thin
 
 Now that every listing carries coordinates, each one is tested against the **Bellevue School District's published 2024-25 elementary attendance areas** (an open ArcGIS feature service behind the district's own school locator). Results:
 
-- **43 of 74** listings have a verified elementary, up from 20.
+- **40 of 74** listings are displayed with a verified elementary, up from 20. The resolver places 43, but 3 are suppressed as district mismatches (below).
 - **All 19** homes that already carried a Redfin-derived target tag were confirmed exactly by the district's own polygons — zero disagreements. That is a genuine cross-validation of the attendance-page method, not just extra coverage.
 - **4 homes previously shown as a generic "Bellevue 98008" pin are zoned to Ardmore** — the 4/10 school this entire search exists to avoid. They were invisible as such before.
-- **3 homes with Redmond mailing addresses fall inside Bellevue School District attendance areas.** These carry an `elemFlag` and a ⚑ in the map popup rather than a silent correction, because the district assignment and the mailing address genuinely disagree and only the district can settle it.
+- **3 homes with Redmond mailing addresses fall inside Bellevue School District attendance areas.** These carry an `elemFlag` in `data.json` and a ⚑ in the map popup. **Revised 2026-08-08:** they are no longer *displayed* with the BSD school name. Those addresses are in Lake Washington district, so a BSD polygon covering them is a boundary-file artefact, not an assignment — the site was asserting "Bennett" and "Sherwood Forest" for three homes that almost certainly attend neither. They now fall into **Not verified**, with the popup explaining the polygon hit. The flag and the resolved name stay in the data: suppressed for display, not discarded. `isVerified()` in `index.html` is the single predicate that enforces this.
 - **1 Bellevue 98008 home** (4200 W Lake Sammamish Pkwy SE) falls outside every BSD attendance area, ~850 m from the nearest — too far to be an edge artefact. It is left unverified.
 
 Pins are bucketed for display rather than given one colour per school, which would need 14 colours and imply ratings the project has not verified:
@@ -134,9 +135,11 @@ Pins are bucketed for display rather than given one colour per school, which wou
 | Audubon / Somerset / Woodridge / Newport Heights | The four target catchments, each its own colour |
 | Other catchment | Verified Bellevue elementary whose rating is **not** hand-verified here — treat as unrated |
 | Weak school | Ardmore or Lake Hills only — the two low ratings checked against the primary source |
-| Not verified | Drawn hollow. No boundary source covers it; the popup says so |
+| Not verified | Drawn hollow. No boundary source covers it, or the only one that does belongs to the wrong district; the popup says which |
 
-**Why Redmond is still unverified:** Lake Washington School District publishes attendance boundaries only as PDFs and routes address lookups through a third-party tool, so there is nothing to resolve against offline. Those 31 listings are shown as *not verified* rather than being given a ZIP-derived colour that would imply more than is known. Expanding the refresh's Redfin school-attendance sweep to more LWSD schools is the path to closing the gap.
+**Why Redmond is still unverified:** Lake Washington School District publishes attendance boundaries only as PDFs and routes address lookups through a third-party tool, so there is nothing to resolve against offline. Those 34 listings — 30 Redmond, 3 district mismatches, and one Bellevue waterfront address outside every BSD polygon — are shown as *not verified* rather than being given a colour that would imply more than is known. Expanding the refresh's Redfin school-attendance sweep to more LWSD schools is the path to closing the gap.
+
+**The footnote renders its own numbers.** Every count in the catchment footnote — homes resolved, distinct areas, homes unverified, mismatches, and the sweep-vs-polygon cross-check verdict — is computed from `data.json` at page load by `renderCatchFootnote()`. The previous hand-written version drifted badly, still claiming the four target sets came from Redfin and that *every* Bellevue address resolved, long after neither was true. The cross-check line will state disagreement on its own if a future boundary file ever contradicts a sweep label; it never hard-codes "they agree".
 
 ### Property links and cumulative decline (added 2026-08-10)
 
