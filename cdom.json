@@ -1,18 +1,18 @@
 {
- "updated": "2026-08-08",
+ "updated": "2026-08-11",
  "note": "Cumulative Days On Market as read from the Redfin MLS detail block. CDOM survives relists, unlike days-on-site counters. It is only published while a home is Active or Pending; once it closes, Redfin reverts the MLS block to the prior sold record and the field is gone, so departed homes show null.",
  "homes": {
   "3028 173rd Ct NE": {
-   "cdom": 73,
-   "asOf": "2026-08-08",
+   "cdom": 75,
+   "asOf": "2026-08-11",
    "status": "Active",
    "group": "Audubon"
   },
   "5204 137th Pl SE": {
-   "cdom": 2,
-   "asOf": "2026-08-08",
-   "status": "Active",
-   "group": "Somerset"
+   "cdom": 4,
+   "asOf": "2026-08-11",
+   "status": "Pending",
+   "group": "departed"
   },
   "14130 SE 49th Pl": {
    "cdom": 38,
@@ -47,8 +47,8 @@
   "5011 134th Pl SE": {
    "cdom": 86,
    "asOf": "2026-08-08",
-   "status": "Active",
-   "group": "Somerset"
+   "status": "Sold",
+   "group": "departed"
   },
   "4259 133rd Ave SE": {
    "cdom": 5,
@@ -87,8 +87,8 @@
    "group": "Newport Heights"
   },
   "4705 119th Ave SE": {
-   "cdom": 93,
-   "asOf": "2026-08-08",
+   "cdom": 95,
+   "asOf": "2026-08-11",
    "status": "Active",
    "group": "Newport Heights"
   },
@@ -105,8 +105,8 @@
    "group": "Newport Heights"
   },
   "4935 116th Pl SE": {
-   "cdom": 52,
-   "asOf": "2026-08-08",
+   "cdom": 54,
+   "asOf": "2026-08-11",
    "status": "Active",
    "group": "Newport Heights"
   },
@@ -123,10 +123,10 @@
    "group": "Newport Heights"
   },
   "11139 156th Ave NE": {
-   "cdom": 3,
-   "asOf": "2026-08-08",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "cdom": 4,
+   "asOf": "2026-08-11",
+   "status": "Pending",
+   "group": "departed"
   },
   "13708 175th Ct NE": {
    "cdom": 4,
@@ -209,8 +209,8 @@
   "5733 155th Ave NE": {
    "cdom": 235,
    "asOf": "2026-08-08",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "8290 NE 165 Ave": {
    "cdom": 73,
@@ -327,10 +327,10 @@
    "group": "Bellevue 98008"
   },
   "15619 NE 1st Pl": {
-   "cdom": 1,
-   "asOf": "2026-08-08",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "cdom": 2,
+   "asOf": "2026-08-11",
+   "status": "Pending Inspection",
+   "group": "departed"
   },
   "15805 SE 12th Pl": {
    "cdom": 23,
@@ -345,10 +345,10 @@
    "group": "Bellevue 98008"
   },
   "3068 169th Ave NE": {
-   "cdom": 86,
-   "asOf": "2026-08-08",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "cdom": 88,
+   "asOf": "2026-08-11",
+   "status": "Pending Inspection",
+   "group": "departed"
   },
   "16570 SE 19th St": {
    "cdom": 1,
@@ -363,8 +363,8 @@
    "group": "Bellevue 98008"
   },
   "16119 SE 31st St": {
-   "cdom": 44,
-   "asOf": "2026-08-08",
+   "cdom": 46,
+   "asOf": "2026-08-11",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -375,10 +375,10 @@
    "group": "Bellevue 98008"
   },
   "3027 167th Ave NE": {
-   "cdom": 73,
-   "asOf": "2026-08-08",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "cdom": 75,
+   "asOf": "2026-08-11",
+   "status": "Pending Inspection",
+   "group": "departed"
   },
   "1007 174th Ave NE": {
    "cdom": 10,
@@ -389,8 +389,8 @@
   "1120 156th Ave SE": {
    "cdom": 115,
    "asOf": "2026-08-08",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "status": "Sold",
+   "group": "departed"
   },
   "16436 SE 8th St": {
    "cdom": 16,
@@ -399,8 +399,8 @@
    "group": "Bellevue 98008"
   },
   "3020 169th Ave NE": {
-   "cdom": 24,
-   "asOf": "2026-08-08",
+   "cdom": 26,
+   "asOf": "2026-08-11",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -557,7 +557,7 @@
   "15611 SE 24th St": {
    "cdom": 18,
    "asOf": "2026-08-08",
-   "status": "Pending",
+   "status": "Sold",
    "group": "departed"
   },
   "15812 NE 106th St": {
@@ -669,9 +669,9 @@
    "group": "departed"
   },
   "512 167th Ave NE": {
-   "cdom": null,
-   "asOf": "2026-08-08",
-   "status": "Unresolved",
+   "cdom": 30,
+   "asOf": "2026-08-11",
+   "status": "Pending",
    "group": "departed"
   },
   "5617 134th Ave SE": {
