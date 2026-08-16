@@ -23,7 +23,12 @@ h2{ font-size:18px; margin:34px 0 12px; border-bottom:2px solid #e6e9ee; padding
 .card .lbl{ font-size:12px; color:#6b7280; }
 .card .val{ font-size:21px; font-weight:700; margin-top:3px; }
 .card .delta{ font-size:12px; margin-top:2px; }
+/* Provenance line (issue #8): every tile states its own series and vintage. Deliberately small
+   and grey -- it is not the headline, but it must never be absent. */
+.card .prov{ font-size:10.5px; color:#9aa1ab; margin-top:6px; line-height:1.35; }
 .down{ color:#c0392b; } .up{ color:#1e8e4e; }
+tr.corezip td{ background:#f7f9fd; font-weight:600; }
+.coretag{ font-size:10px; font-weight:600; color:#2c5fd6; background:#e8effc; border-radius:4px; padding:1px 5px; margin-left:4px; vertical-align:1px; }
 .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
 @media(max-width:820px){ .grid2{ grid-template-columns:1fr; } }
 .panel{ background:#fff; border:1px solid #e6e9ee; border-radius:12px; padding:18px; }
@@ -162,13 +167,24 @@ a.zlink:hover{ color:#2c5fd6; }
 <body>
 <div class="wrap">
   <h1>Bellevue &amp; Redmond · 4-Bed Single Family · Buy vs Rent</h1>
-  <p class="sub">Tracking 4BD houses up to $2M across four strong-school catchments — Audubon (Redmond) plus Somerset, Woodridge &amp; Newport Heights (Bellevue) — and the broader Redmond 98052 / Bellevue 98008 markets. Sources: Redfin + Zillow MLS, GreatSchools, Freddie Mac. Refreshed weekly.</p>
+  <p class="sub">Tracking 4BD houses up to $2M across four strong-school catchments — Audubon (Redmond) plus Somerset, Woodridge &amp; Newport Heights (Bellevue) — and the broader Redmond 98052 / Bellevue 98008 markets. Sources: listings from Redfin/NWMLS, ZIP-level values from Zillow ZHVI, schools from GreatSchools, rates from Freddie Mac. Every market tile states its own source and as-of date. Refreshed weekly.</p>
   <span class="updated" id="updated">Updated —</span>
   <p class="sub" style="margin-top:6px">Open source · <a class="ghlink" href="https://github.com/melon-claw/bellevue-redmond-housing" target="_blank" rel="noopener">code &amp; data on GitHub</a> · <a class="ghlink" href="https://github.com/melon-claw/bellevue-redmond-housing/issues/new" target="_blank" rel="noopener">report a problem or request a feature</a></p>
 
   <h2>Market snapshot</h2>
   <div class="cards" id="snapshot"></div>
-  <p class="note">Median sale price is for all home types (King County MLS, May 2026). Both core ZIPs are down year-over-year — a softening market that favors buyers and renters who can wait.</p>
+  <!-- Issue #8: this caption used to say "median sale price ... King County MLS, May 2026", which was
+       wrong on the metric, wrong on the source, and wrong to put one date on two tiles that are not on
+       the same vintage. Each tile now states its own series and as-of date; this note explains what the
+       series is rather than asserting a provenance the numbers do not have. -->
+  <p class="note"><b>Typical value</b> is the Zillow Home Value Index (ZHVI) &mdash; a smoothed, mix-adjusted estimate of the value of the <i>whole</i> housing stock in the ZIP, not the price of the homes that actually sold. It is not a median sale price and does not come from the MLS. Level and year-over-year change are read from the same series at the same vintage, and each tile carries its own as-of date because Zillow&rsquo;s ZIP vintages are not aligned. Both core ZIPs are down mid-single-digits year-over-year, in line with the whole Eastside &mdash; a broad softening that favors buyers and renters who can wait.</p>
+
+  <!-- Fix E: one ZIP's move is uninterpretable alone. The band is the context that makes it readable,
+       and it is what shows the "-10.1% for 98008" this page used to print was never plausible. -->
+  <details id="zhvicontext">
+    <summary><span class="clsum-t">Eastside context</span> <span class="clsum-d">all eight nearby ZIPs, same series</span></summary>
+    <div id="zhviband"></div>
+  </details>
 
   <!-- Collapsed by default (issue #7): a first-time visitor was meeting five full changelog
        entries before reaching a single listing. The summary line keeps the signal a returning
@@ -259,6 +275,9 @@ a.zlink:hover{ color:#2c5fd6; }
       <input type="range" id="rent" min="3800" max="6500" step="25" value="4772">
       <label>Expected home appreciation / yr <span class="rowval" id="apprV"></span></label>
       <input type="range" id="appr" min="-3" max="7" step="0.5" value="3">
+      <!-- Issue #8 fix F: this caveat used to be hand-typed in README.md and drifted out of step with
+           the tiles. It is now written from DATA.market at render time, so it cannot disagree with them. -->
+      <p class="note" id="apprNote" style="margin-top:4px"></p>
       <label>Years you'll stay <span class="rowval" id="yearsV"></span></label>
       <input type="range" id="years" min="3" max="15" step="1" value="7">
       <p class="legend">Assumes property tax 0.85%/yr, insurance $1,800/yr, maintenance 1%/yr, 6% sale cost, 4.5% return on cash if invested instead. Rent grows 4%/yr.</p>
@@ -447,10 +466,48 @@ const realtorURL = x => x.mpr ? `https://www.realtor.com/realestateandhomes-deta
 const redfinURL = x => x.redfin || null;
 const mapsURL = x => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.addr+", "+x.city+", WA "+x.zip)}`;
 
+// Issue #8: a tile used to render a level and a percentage with no statement of what series
+// either came from, and the two ZIP tiles turned out not to be on the same series or the same
+// vintage as each other. Every tile now carries its own `src` and `asof` and prints them, so a
+// cross-tile comparison is only ever made by a reader who can see the dates are different.
+// `n` is the sale count: a median over few sales is noise, so an MLS-median tile must show it.
 function cards(el, arr){
-  document.getElementById(el).innerHTML = arr.map(c=>`<div class="card">
+  document.getElementById(el).innerHTML = arr.map(c=>{
+    const prov = [c.src, c.asof ? `as of ${c.asof}` : null, (c.n!=null ? `n = ${c.n} closings` : null)]
+                   .filter(Boolean).join(" · ");
+    return `<div class="card">
     <div class="lbl">${c.lbl}</div><div class="val">${c.val}</div>
-    <div class="delta ${c.dir==='down'?'down':c.dir==='up'?'up':''}">${c.delta}</div></div>`).join("");
+    <div class="delta ${c.dir==='down'?'down':c.dir==='up'?'up':''}">${c.delta}</div>` +
+    (prov ? `<div class="prov">${prov}</div>` : ``) + `</div>`;
+  }).join("");
+}
+
+// The Eastside ZHVI band (issue #8, fix E). One ZIP's move means nothing on its own; the band is
+// what makes it interpretable. Each row prints its OWN as-of date because Zillow's ZIP vintages
+// are not aligned -- 98004 can be two months behind 98008, which in a falling market is not a
+// rounding detail.
+function renderZhviBand(){
+  const host = document.getElementById("zhviband");
+  if(!host) return;
+  const z = DATA && DATA.zhvi;
+  if(!z || !(z.rows||[]).length){ host.innerHTML = ""; return; }
+  const rows = z.rows.slice().sort((a,b)=>a.zip.localeCompare(b.zip));
+  const yoys = rows.map(r=>r.yoy).filter(v=>typeof v==="number");
+  const lo = Math.min(...yoys), hi = Math.max(...yoys);
+  host.innerHTML =
+    `<table class="school"><thead><tr><th>ZIP</th><th>Area</th><th>Typical value</th>` +
+    `<th>1-yr</th><th>Data through</th></tr></thead><tbody>` +
+    rows.map(r=>`<tr${r.core?' class="corezip"':''}>` +
+      `<td>${r.zip}${r.core?' <span class="coretag">tracked</span>':''}</td>` +
+      `<td>${r.area}</td>` +
+      `<td>$${Number(r.val).toLocaleString()}</td>` +
+      `<td class="${r.yoy<0?'down':r.yoy>0?'up':''}">${r.yoy>0?'+':''}${r.yoy.toFixed(1)}%</td>` +
+      `<td>${r.asof}</td></tr>`).join("") +
+    `</tbody></table>` +
+    `<p class="note">Every Eastside ZIP sits in a ${Math.abs(hi).toFixed(1)}%–${Math.abs(lo).toFixed(1)}% ` +
+    `year-over-year decline — a broad, uniform softening, not one neighbourhood falling out of bed. ` +
+    `${z.src}, fetched ${z.fetched}. Vintages differ by ZIP; each row shows its own, and a ` +
+    `cross-ZIP comparison across different dates in a moving market is not like-for-like.</p>`;
 }
 
 function renderSummary(){
@@ -927,6 +984,28 @@ function seedRent(){
   rent_.value=Math.min(hi, Math.max(lo, Math.round(v/step)*step));
 }
 
+// Issue #8 fix F. The appreciation caveat is COMPUTED from the same tiles the page renders, so it
+// can never quote a YoY the snapshot does not contain -- the exact way README.md drifted to a
+// different pair of numbers than data.json held. Reads "typical value" tiles only; the metric name
+// in the sentence is taken from the tile label rather than assumed to be a median.
+function renderApprNote(){
+  const host=document.getElementById("apprNote");
+  if(!host) return;
+  const zips=(DATA.market||[]).filter(x=>/^\s*(Redmond|Bellevue)\s+9\d{4}\b/.test(x.lbl||""));
+  if(!zips.length){ host.textContent=""; return; }
+  const parts=zips.map(x=>{
+    const m=/^\s*((?:Redmond|Bellevue)\s+9\d{4})/.exec(x.lbl);
+    const pct=String(x.delta||"").replace(/\s*YoY\s*$/,"").trim();
+    return `${m[1]} ${pct}`;
+  });
+  const dflt=+document.getElementById("appr").defaultValue || 3;
+  const allDown=zips.every(x=>x.dir==="down");
+  host.innerHTML = `The default ${dflt}% is a long-run convention, not a forecast. ` +
+    (allDown ? `Both tracked ZIPs are currently <b>negative</b> year-over-year ` : `Tracked ZIPs currently run `) +
+    `(${parts.join(", ")}), so recent data does not support ${dflt}% &mdash; move the slider before ` +
+    `drawing conclusions. Breakeven is highly sensitive to this input.`;
+}
+
 // ---- boot: fetch the data layer, then render everything ----
 async function loadJSON(name){
   const res = await fetch(DATA_BASE+name, {cache:"no-cache"});
@@ -947,6 +1026,8 @@ async function boot(){
   }catch(err){ dataError(err); return; }
   document.getElementById("updated").textContent = "Updated "+DATA.updated;
   cards("snapshot", DATA.market);
+  renderZhviBand();
+  renderApprNote();
   cards("refs", DATA.refs);
   renderSummary();
   renderChangelog();

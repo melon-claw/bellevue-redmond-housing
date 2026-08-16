@@ -2,28 +2,36 @@
  "updated": "2026-08-15",
  "market": [
   {
-   "lbl": "Redmond 98052 median",
-   "val": "$1,324,701",
-   "delta": "-3.3% YoY",
-   "dir": "down"
+   "lbl": "Redmond 98052 typical value",
+   "val": "$1,348,109",
+   "delta": "-3.8% YoY",
+   "dir": "down",
+   "src": "Zillow ZHVI · all homes, smoothed & seasonally adjusted",
+   "asof": "2026-05-31"
   },
   {
-   "lbl": "Bellevue 98008 median",
-   "val": "$1,379,688",
-   "delta": "-10.1% YoY",
-   "dir": "down"
+   "lbl": "Bellevue 98008 typical value",
+   "val": "$1,383,568",
+   "delta": "-4.6% YoY",
+   "dir": "down",
+   "src": "Zillow ZHVI · all homes, smoothed & seasonally adjusted",
+   "asof": "2026-06-30"
   },
   {
    "lbl": "30-yr fixed rate",
    "val": "6.67%",
    "delta": "Freddie Mac Aug 13, 2026",
-   "dir": "down"
+   "dir": "down",
+   "src": "Freddie Mac PMMS",
+   "asof": "2026-08-13"
   },
   {
    "lbl": "Avg 4BD rent",
    "val": "$4,893/mo",
-   "delta": "local 4BD comps · as of 2026-08",
-   "dir": "up"
+   "delta": "local 4BD comps",
+   "dir": "up",
+   "src": "Zillow Rentals · active 4BD houses, 98008 / 98052 / 98006",
+   "asof": "2026-08"
   }
  ],
  "refs": [
@@ -1447,5 +1455,69 @@
    "lon": -122.100863,
    "redfin": "https://www.redfin.com/WA/Bellevue/4200-W-Lake-Sammamish-Pkwy-SE-98008/home/326383"
   }
- ]
+ ],
+ "zhvi": {
+  "src": "Zillow ZHVI · all homes, smoothed & seasonally adjusted",
+  "fetched": "2026-08-16",
+  "rows": [
+   {
+    "zip": "98004",
+    "area": "Bellevue · downtown / Clyde Hill",
+    "val": 1995242,
+    "yoy": -2.2,
+    "asof": "2026-04-30"
+   },
+   {
+    "zip": "98005",
+    "area": "Bellevue · Bridle Trails",
+    "val": 1609173,
+    "yoy": -2.5,
+    "asof": "2026-05-31"
+   },
+   {
+    "zip": "98006",
+    "area": "Bellevue · Somerset / Newport",
+    "val": 1672075,
+    "yoy": -3.5,
+    "asof": "2026-05-31"
+   },
+   {
+    "zip": "98007",
+    "area": "Bellevue · Crossroads",
+    "val": 1034704,
+    "yoy": -4.8,
+    "asof": "2026-05-31"
+   },
+   {
+    "zip": "98008",
+    "area": "Bellevue · Lake Hills",
+    "val": 1383568,
+    "yoy": -4.6,
+    "asof": "2026-06-30",
+    "core": true
+   },
+   {
+    "zip": "98033",
+    "area": "Kirkland · Moss Bay / Juanita",
+    "val": 1608253,
+    "yoy": -5.2,
+    "asof": "2026-06-30"
+   },
+   {
+    "zip": "98034",
+    "area": "Kirkland · Totem Lake",
+    "val": 1052346,
+    "yoy": -4.8,
+    "asof": "2026-06-30"
+   },
+   {
+    "zip": "98052",
+    "area": "Redmond",
+    "val": 1348109,
+    "yoy": -3.8,
+    "asof": "2026-05-31",
+    "core": true
+   }
+  ]
+ }
 }

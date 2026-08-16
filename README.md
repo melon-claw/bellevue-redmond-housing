@@ -18,7 +18,8 @@ It answers three questions at a glance:
 
 ## What's on the page
 
-- **Market snapshot** — median sale price + YoY for each core ZIP, current 30-yr mortgage rate, average local 4BD rent.
+- **Market snapshot** — typical home value (Zillow ZHVI) + YoY for each core ZIP, current 30-yr mortgage rate, average local 4BD rent. Every tile prints its own **source and as-of date**, because the two ZIP series are not on the same vintage as each other and a reader comparing them needs to see that. ZHVI is a smoothed, mix-adjusted estimate of the whole housing stock — **not** a median sale price and not an MLS figure; the page said otherwise until issue #8.
+- **Eastside context** — a collapsed table of all eight nearby ZIPs (98004/05/06/07/08/33/34/52) on that same single series, each with its own vintage. One ZIP's year-over-year move is uninterpretable alone; the band is what shows whether it is a real divergence or noise.
 - **"What changed"** — a paginated, append-only changelog of new listings, price drops, and homes that went off-market. Every entry back to the first run is kept; each one also carries **that run's read**, expandable inline. **Collapsed by default** (issue #7): a first-time visitor was meeting five full changelog entries before reaching a single listing, so it now shows one summary row — latest refresh date and how many updates are on file — and opens on click. Any in-page link to it, and a direct `#changed` URL, expand it automatically.
 - **"The read"** — a short written interpretation of the current data (inventory, momentum, time on market, financing, entry price, implication), rewritten from scratch every refresh and grounded in that run's numbers. Past reads are never overwritten — they are archived alongside the changelog entry that produced them, so you can page back and see what the data looked like *and* what it was taken to mean.
 - **School comparison** — the four target elementaries side by side (rating, math/reading scores, boundary, commute).
@@ -62,6 +63,7 @@ With CDOM available, the conventional "N homes went pending, so buyers are absor
 | Full price history | **realtor.com** property history — preserves withdraw-and-relist events that Redfin and Zillow drop |
 | Listing cross-reference | **Zillow** (per-address links) |
 | 4BD rent comps | **Zillow Rentals** — active 4BD single-family listings in 98008 / 98052 / 98006 |
+| ZIP-level home values | **Zillow ZHVI** (all homes, smoothed &amp; seasonally adjusted) — per-ZIP pages, level and 1-yr change read off the *same* series at the *same* vintage. Vintages differ between ZIPs and each is stamped on its own tile. Not an MLS median. |
 | School ratings &amp; test scores | **GreatSchools** profiles (Washington OSPI assessment data) |
 | Mortgage rate | **Freddie Mac** PMMS (30-yr fixed) |
 | Map geocoding | Coordinates ship with the snapshot (from the realtor.com lookup). **OpenStreetMap** Nominatim remains a client-side fallback for any listing without them. |
@@ -110,7 +112,9 @@ The model is deliberately simple, and simple in two directions that both flatter
 | 1%/yr | ~year 28 |
 | 0%/yr | never within 30 years |
 
-The default 3% is a long-run convention. Both tracked ZIP medians are currently **negative** year-over-year (Redmond 98052 −3.9%, Bellevue 98008 −5.2%), so the near-term data does not support 3% — move the slider before drawing conclusions.
+The default 3% is a long-run convention, not a forecast. Both tracked ZIPs are currently negative year-over-year, so the near-term data does not support 3% — move the slider before drawing conclusions.
+
+**The specific YoY figures are deliberately not repeated here.** They used to be, and they drifted: this paragraph once said −3.9% / −5.2% while `data.json` held −3.3% / −10.1%, four different numbers for two ZIPs in one repo (issue #8). The caveat is now rendered under the appreciation slider by `renderApprNote()`, computed from the same `market[]` entries the tiles render, so it cannot disagree with them. Read the live figures off the page, not off this file.
 
 Neither adjustment changes the qualitative conclusion at present rates: buying is justified by school access and stability over a long horizon, not by cost.
 
