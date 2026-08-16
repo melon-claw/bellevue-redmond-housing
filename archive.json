@@ -1,6 +1,55 @@
 {
  "entries": [
   {
+   "date": "2026-08-15",
+   "changes": [
+    "<span class=\"cl-new\">New</span> 8 homes joined the tracker: 17805 NE 9th St ($1,100,000), 13815 176th Pl NE ($1,395,000), 2035 West Lake Sammamish Pkwy SE ($1,600,000), 17044 NE 114th Ct ($1,795,000), 9210 171st Ave NE ($1,799,950), 4448 144th Ave SE ($1,850,000), 14115 SE 45th St ($1,860,000), 14805 Old Redmond Rd ($1,930,000).",
+    "<span class=\"cl-drop\">Price drop</span> five cuts since the last refresh &mdash; 15805 SE 12th Pl $1,200,000 -&gt; $1,140,000; 9210 166th Pl NE $1,350,000 -&gt; $1,282,500; 5221 120th Ave SE $1,400,000 -&gt; $1,325,000; 10816 183rd Ave NE $1,450,000 -&gt; $1,395,000; 6149 115th Pl SE $1,590,000 -&gt; $1,539,000.",
+    "<span class=\"cl-off\">Pending</span> 2 went under contract: 10632 157th Ave NE ($1,425,000), 14317 SE 49th St ($1,850,000).",
+    "<span class=\"cl-off\">Closed</span> 2 sales closed and left the market: 16404 SE 12th St ($1,249,900), 13702 173rd Pl NE ($1,374,500). Both were still showing active on Aug 11, so the transition looks like a reporting lag on the for-sale feed rather than a four-day escrow; Redfin and realtor.com agree they are sold.",
+    "<span class=\"cl-off\">Delisted</span> 1 was withdrawn: 11108 180th Pl NE ($1,499,950). Realtor.com reports it off-market with no sale recorded, so this reads as a withdrawal, not a closing.",
+    "Rate: the Freddie Mac 30-yr fixed eased to 6.67% on Aug 13, down from 6.69% a week earlier.",
+    "Reference homes: C at 2130 140th Pl SE holds at $1,498,000 and is still active. A and B remain pending and off the active list; their cards are unchanged.",
+    "Data note: realtor.com’s property-history endpoint returned its no-data sentinel on every attempt this refresh, so campaign-start prices were not recorded for the 8 new homes. Nothing was overwritten &mdash; those rows simply carry no total-decline badge.",
+    "Rent comp carried forward unchanged at $4,893/mo (as of 2026-08); it is re-derived on the first run of each calendar month.",
+    "Tracking 69 active listings across four school catchments + two ZIP sweeps."
+   ],
+   "read": {
+    "lean": "rent",
+    "headline": "Inventory keeps building and asking prices keep slipping, but at a 6.67% rate the seven-year math still favours renting by a wide margin.",
+    "points": [
+     "<strong>Inventory.</strong> 69 active homes, up from 66 &mdash; eight arrivals against five departures. 19 of them sit in one of the four strong-elementary catchments, and only 5 of those 19 are under $1.5M, with the cheapest at $1,280,000. Across the whole board 22 of 69 clear the $1.5M line, so the budget still buys plenty of house, just rarely the house plus the school.",
+     "<strong>Momentum.</strong> Five more price cuts landed since Tuesday, and 31 of the 69 active listings now carry a cut flag &mdash; nearly half the board has already come down at least once. The cuts were spread across both ZIPs and both price tiers, from 15805 SE 12th Pl at $1,140,000 to 6149 115th Pl SE at $1,539,000. Neither ZIP median moved: Redmond 98052 is still $1,324,701 (-3.3% YoY) and Bellevue 98008 still $1,379,688 (-10.1% YoY), both June figures that lag by roughly two months.",
+     "<strong>What pending actually says.</strong> 28 homes now sit in the pending pool, and their median cumulative days on market at the moment they went under contract was 42, with quartiles at 17 / 42 / 86. Nine of the 28 found a buyer inside a month; eight had cut price first. Read that number with care in both directions: it is computed only from homes that found buyers, so it is biased low &mdash; every listing still sitting will contribute a larger number when it eventually contracts, and homes that never sell contribute nothing at all. And 26 of the 28 have been in escrow only four to seven days by our records, which is an ordinary closing timeline, not evidence of deals falling apart.",
+     "<strong>Time on market.</strong> The median active listing has been out for 45 days and the oldest, 16707 NE 124th St at $1,790,000, is at 313. Thirteen of the 69 are past 90 days. Set against the pending pool, only 5 of the 28 that went under contract had crossed 90 days first &mdash; so of the homes that reach the three-month mark, far more are still sitting than have found buyers. That ratio is a lower bound, since a home that closes loses its published CDOM and drops out of the count.",
+     "<strong>Financing.</strong> The 30-yr fixed is 6.67% as of Aug 13, two basis points lower than a week ago and effectively flat. At $1.5M with 20% down that is $7,719 of principal and interest, plus $1,063 of property tax and $1,400 of insurance, for $10,182 a month before any maintenance. The rent side is a $4,893 average across local 4BD comps, stamped 2026-08 and carried forward unchanged this run.",
+     "<strong>Entry price.</strong> The cheapest home on the board is $1,099,888 in the 98008 sweep; the cheapest in a strong catchment is $1,280,000 in Newport Heights. The gap between those two numbers &mdash; roughly $180K &mdash; is the standing price of the school assignment, and it has not narrowed even as the broader board has softened.",
+     "<strong>Implication.</strong> At the default case &mdash; $1.5M, 20% down, 6.67%, seven years &mdash; the model still puts renting ahead by about $168K, and buying does not pull level until roughly year 14. That breakeven is highly sensitive to the appreciation assumption: at 3%/yr it is around year 14 at $1.5M, at 1%/yr it slips to about year 27, and at 0% renting stays cheaper for the full 30 years. Both ZIP medians are currently negative year-over-year, so the default 3% is an assumption, not an observation."
+    ]
+   },
+   "metrics": {
+    "active": 69,
+    "strong": 19,
+    "under15": 22,
+    "rate": 6.67,
+    "medianRedmond": 1324701,
+    "medianBellevue": 1379688,
+    "rent": 4893,
+    "cutsTotal": 31,
+    "new": 8,
+    "pending": 2,
+    "delisted": 1,
+    "cdomMedian": 45,
+    "cdomOver90": 13,
+    "cdomMax": 313,
+    "cdomAtContractMedian": 42,
+    "pendingStock": 28,
+    "reached90Active": 13,
+    "reached90Pending": 5,
+    "pendingCutFirst": 8
+   }
+  },
+  {
    "date": "2026-08-11",
    "changes": [
     "No new listings came on since the last refresh &mdash; the first refresh of this tracker with zero additions. All four school catchments and both ZIP sweeps returned fewer homes than on Saturday.",
