@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-23",
+ "updated": "2026-08-25",
  "note": "Cumulative Days On Market as read from the Redfin MLS detail block. CDOM survives relists, unlike days-on-site counters. It is only published while a home is Active or Pending; once it closes, Redfin reverts the MLS block to the prior sold record and the field is gone, so departed homes show null.",
  "homes": {
   "3028 173rd Ct NE": {
@@ -113,8 +113,8 @@
   "13400 SE 56th Pl": {
    "cdom": 71,
    "asOf": "2026-08-08",
-   "status": "Active",
-   "group": "Newport Heights"
+   "status": "Delisted",
+   "group": "departed"
   },
   "4012 122nd Ave SE": {
    "cdom": 2,
@@ -195,8 +195,8 @@
    "group": "departed"
   },
   "17615 NE 130th Ct W": {
-   "cdom": 5,
-   "asOf": "2026-08-08",
+   "cdom": 21,
+   "asOf": "2026-08-25",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -287,7 +287,7 @@
   "11727 165th Pl NE": {
    "cdom": 156,
    "asOf": "2026-08-23",
-   "status": "Contingent",
+   "status": "Pending",
    "group": "Redmond 98052"
   },
   "6220 145th Ave NE": {
@@ -755,14 +755,14 @@
   "13815 176th Pl NE": {
    "cdom": 3,
    "asOf": "2026-08-15",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "17044 NE 114th Ct": {
-   "cdom": 1,
-   "asOf": "2026-08-15",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "cdom": 11,
+   "asOf": "2026-08-25",
+   "status": "Pending",
+   "group": "departed"
   },
   "9210 171st Ave NE": {
    "cdom": 11,
@@ -807,10 +807,10 @@
    "group": "Redmond 98052"
   },
   "14327 NE 84th Ct": {
-   "cdom": 3,
-   "asOf": "2026-08-23",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "cdom": 5,
+   "asOf": "2026-08-25",
+   "status": "Pending - Backup Offer Requested",
+   "group": "departed"
   },
   "17211 NE 117th Way": {
    "cdom": 2,
@@ -835,6 +835,18 @@
    "asOf": "2026-08-23",
    "status": "Active",
    "group": "Bellevue 98008"
+  },
+  "17921 NE 27th St": {
+   "cdom": 1,
+   "asOf": "2026-08-25",
+   "status": "Active",
+   "group": "Audubon"
+  },
+  "17468 NE 123rd Way": {
+   "cdom": 12,
+   "asOf": "2026-08-25",
+   "status": "Active",
+   "group": "Redmond 98052"
   }
  }
 }

@@ -1,6 +1,52 @@
 {
  "entries": [
   {
+   "date": "2026-08-25",
+   "changes": [
+    "<span class=\"cl-new\">New</span> 2 listings joined the tracker: 17921 NE 27th St ($1,438,500), a 4/2.5 in the Audubon attendance zone, and 17468 NE 123rd Way ($1,980,000) in the 98052 sweep. Audubon now shows two homes for the first time since the tracker started &mdash; still the thinnest of the four strong catchments.",
+    "<span class=\"cl-drop\">Price drop</span> 17615 NE 130th Ct W cut $1,540,000 to $1,480,000, a $60,000 reduction and its first cut since listing.",
+    "<span class=\"cl-off\">Pending</span> 2 went under contract: 14327 NE 84th Ct ($1,350,000), which took 5 days, and 17044 NE 114th Ct ($1,795,000), which took 11.",
+    "<span class=\"cl-off\">Delisted</span> 2 left the market without selling: 13400 SE 56th Pl ($1,988,000) after 71 days, and 13815 176th Pl NE ($1,395,000) after only a few days on market.",
+    "The seller of 13815 176th Pl NE pulled it from sale and relisted it as a rental at $4,250/mo, available October 1 &mdash; below the $4,893 average 4BD comp this tracker uses. Realtor.com reports that address as recently sold while Redfin shows an active rental listing and no closed sale; the withdrawal is what both sources agree on.",
+    "Woodridge remains at zero active 4BD listings in the $1.2M&ndash;$2M band, unchanged for several refreshes.",
+    "Covers 2 days since the last refresh on 2026-08-23. Tracking 65 active listings across four school catchments + two ZIP sweeps."
+   ],
+   "read": {
+    "lean": "rent",
+    "headline": "Inventory thinned to 65 as four homes left and only two arrived, and at 6.65% the seven-year math still favours renting by roughly $166K at the default $1.5M case.",
+    "points": [
+     "<strong>Inventory tightened slightly.</strong> 65 active listings, down from 67, after two arrivals and four departures. Only 17 of those sit inside the four strong elementary catchments, and just 4 of the 17 are priced under $1.5M &mdash; $1,299,000 and $1,325,000 and $1,399,000 in Newport Heights, plus the new $1,438,500 Audubon home. Across the whole tracker 22 of 65 clear the $1.5M line, so the constraint has never been supply in general; it is supply inside a catchment worth paying for. Woodridge again shows nothing at all in the band.",
+     "<strong>Momentum was quiet in both directions.</strong> Two homes in, four out, and a single price cut &mdash; $60,000 off 17615 NE 130th Ct W, its first since listing. That said, 36 of the 65 active homes now carry a price cut at some point in their campaign, a shade over half the board. The cutting is not new activity this refresh so much as an accumulated condition of the inventory.",
+     "<strong>What the pending numbers actually say.</strong> 39 homes sit in the pending pool, and among those with a readable cumulative-days figure the median time to contract is 34 days, with quartiles at 11, 34 and 75. Sixteen of the 39 found a buyer inside a month, and 9 had cut their price before they did. Read that median with care: it is computed only from homes that found buyers, so it is biased low by construction &mdash; the listings still sitting at 100-plus days have not yet contributed their larger numbers to it. The two new pendings this refresh went at 5 and 11 days, which pulls the figure down further and says more about those two homes than about the market. Most carried-over pendings are 14 to 27 days into escrow, which is an ordinary closing timeline and not evidence of deals falling apart.",
+     "<strong>Time on market is the more honest gauge, and it is long.</strong> The median active listing has been on the market 46 days on a cumulative basis, 14 of the 65 are at or past 90 days, and the oldest has been listed 313 days. That distribution is what a market with negotiating room looks like from the buyer's side: a home that has been sitting three months is a home whose seller has already had time to reconsider the asking price.",
+     "<strong>Financing is flat and mildly improving.</strong> The 30-year fixed averaged 6.65% in the August 20 PMMS, unchanged from the last refresh and down for a second straight week from 6.67%. The 4BD rent comp holds at $4,893/mo as of August 2026. One data point worth noting on the rent side: the seller who withdrew 13815 176th Pl NE from a $1,395,000 ask relisted it as a $4,250/mo rental, below the comp average &mdash; a reminder that when sale prices stall, some of that stock reappears on the rental side rather than clearing.",
+     "<strong>Entry prices barely moved.</strong> The cheapest active home is $1,099,888 in the 98008 sweep, which has now been listed 122 days; the median active list price is $1,600,000. Inside a strong catchment the entry is $1,299,000. Both ZIP typical values remain negative year over year &mdash; Redmond 98052 at &minus;3.8% through May 31 and Bellevue 98008 at &minus;4.6% through June 30 &mdash; but those two figures carry different as-of dates a month apart, so they should not be ranked against each other.",
+     "<strong>The implication is unchanged.</strong> At the default $1.5M purchase, 20% down, 6.65% and a seven-year horizon, all-in ownership runs about $10,166/mo against $4,900 in rent, and over seven years the net cost of buying comes to roughly $522,500 versus about $356,200 for renting &mdash; renting ahead by around $166,400. That gap is highly sensitive to the appreciation assumption: at 3%/yr buying pulls ahead around year 14, at 1% not until roughly year 27, and at 0% renting stays cheaper for the full 30 years. Given that both tracked ZIP typical values are currently negative year over year, the default 3% is an assumption about the future rather than an observation of the present."
+    ]
+   },
+   "metrics": {
+    "active": 65,
+    "strong": 17,
+    "under15": 22,
+    "rate": 6.65,
+    "zhviRedmond": 1348109,
+    "zhviBellevue": 1383568,
+    "rent": 4893,
+    "cutsTotal": 36,
+    "new": 2,
+    "pending": 2,
+    "delisted": 2,
+    "cdomMedian": 46,
+    "cdomOver90": 14,
+    "cdomMax": 313,
+    "cdomAtContractMedian": 34,
+    "pendingStock": 39,
+    "reached90Active": 14,
+    "reached90Pending": 6,
+    "pendingCutFirst": 9
+   }
+  },
+  {
    "date": "2026-08-23",
    "changes": [
     "<span class=\"cl-new\">New</span> 9 new listings: 18228 NE 109th St ($1,289,000), 13702 173rd Pl NE ($1,299,950), 14327 NE 84th Ct ($1,350,000), 16242 NE 30th St ($1,492,000), 17409 NE 136th St ($1,575,000), 3040 164th Pl NE ($1,599,990), 1512 167th Ave SE ($1,650,000), 17211 NE 117th Way ($1,849,500), 11758 168th Pl NE ($1,920,000). Six landed in the Redmond 98052 sweep, three in Bellevue 98008; none in a target catchment.",
