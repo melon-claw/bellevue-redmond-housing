@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-05",
+ "updated": "2026-09-08",
  "note": "Cumulative Days On Market as read from the Redfin MLS detail block. CDOM survives relists, unlike days-on-site counters. It is only published while a home is Active or Pending; once it closes, Redfin reverts the MLS block to the prior sold record and the field is gone, so departed homes show null.",
  "homes": {
   "3028 173rd Ct NE": {
@@ -273,10 +273,10 @@
    "group": "departed"
   },
   "7337 151st Ave NE": {
-   "cdom": 164,
-   "asOf": "2026-08-08",
-   "status": "Sold",
-   "group": "departed"
+   "cdom": 182,
+   "asOf": "2026-09-08",
+   "status": "Active",
+   "group": "Redmond 98052"
   },
   "12903 176th Pl NE": {
    "cdom": 69,
@@ -305,8 +305,8 @@
   "11572 174th Ct NE": {
    "cdom": 110,
    "asOf": "2026-09-01",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "16563 NE 119th Way": {
    "cdom": 74,
@@ -333,8 +333,8 @@
    "group": "departed"
   },
   "15805 SE 12th Pl": {
-   "cdom": 46,
-   "asOf": "2026-09-01",
+   "cdom": 53,
+   "asOf": "2026-09-08",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -405,10 +405,10 @@
    "group": "Bellevue 98008"
   },
   "16719 SE 4th Pl": {
-   "cdom": 37,
-   "asOf": "2026-08-23",
-   "status": "Pending Inspection",
-   "group": "departed"
+   "cdom": 35,
+   "asOf": "2026-09-08",
+   "status": "Active",
+   "group": "Bellevue 98008"
   },
   "17816 NE 12th St": {
    "cdom": 89,
@@ -429,8 +429,8 @@
    "group": "departed"
   },
   "17102 NE 37th Pl": {
-   "cdom": 26,
-   "asOf": "2026-09-01",
+   "cdom": 33,
+   "asOf": "2026-09-08",
    "status": "Active",
    "group": "Bellevue 98008"
   },

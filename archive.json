@@ -1,6 +1,54 @@
 {
  "entries": [
   {
+   "date": "2026-09-08",
+   "changes": [
+    "<span class=\"cl-new\">New</span> 2 listings joined the tracker: 7337 151st Ave NE ($1,749,000), 16719 SE 4th Pl ($1,649,950).",
+    "Both &ldquo;new&rdquo; entries are returns, not fresh inventory. 7337 151st Ave NE (Redmond 98052, 6BD/5.5BA) was recorded here as closed on Aug 29 at $1,825,000; it is now back on Redfin as Active under a new MLS number at $1,749,000 with 182 cumulative days on market, and realtor.com reports it for sale again &mdash; so that Aug 29 &ldquo;closed&rdquo; call looks to have been a sale that did not complete. 16719 SE 4th Pl (Bellevue 98008, Lake Hills) went pending-inspection on Aug 23 and is back on the active list at its unchanged $1,649,950 ask, 35 cumulative days.",
+    "<span class=\"cl-drop\">Price drop</span> 2 cuts worth $165,000 &mdash; 17102 NE 37th Pl $1,850,000 -&gt; $1,750,000 (first cut, at 33 cumulative days; Ardmore catchment); 15805 SE 12th Pl $1,140,000 -&gt; $1,075,000 (its second cut, $125,000 off the original $1,200,000 ask, at 53 days).",
+    "<span class=\"cl-off\">Delisted</span> 1 left the market: 11572 174th Ct NE ($1,910,000), withdrawn at 110 cumulative days after a $40,000 cut. Its Redfin page now reads OFF MARKET with no live MLS# in the title, and realtor.com shows it off-market with the last sale in 2013. It did not close, and nothing went pending since the last refresh.",
+    "The strong-catchment pool is unchanged at 15: Audubon 2, Somerset 6, Newport Heights 7, Woodridge still at zero in the $1.2M&ndash;$2M band. The cheapest strong-catchment entry remains 5761 110th Ave SE at $1,299,000 (Newport Heights); the tracker&rsquo;s price floor is 8109 Avondale Way NE at $1,000,000.",
+    "The 30-year fixed rate is unchanged at 6.71% (Freddie Mac PMMS, Sep 3 &mdash; the most recent Thursday print). The ZHVI tiles, the Eastside band and the September rent comp were refreshed on the Sep 1 run and carry forward unchanged.",
+    "11727 165th Pl NE ($1,888,000) remains Active Under Contract on Redfin at 165+ cumulative days and still absent from the pending board, so it stays in the active count.",
+    "Price histories for the two returning listings could not be read from realtor.com this run (the endpoint returned its throttled &ldquo;no price history&rdquo; response), so neither carries an original-ask badge yet.",
+    "Covers 3 days since the last refresh on 2026-09-05. Tracking 66 active listings across four school catchments + two ZIP sweeps."
+   ],
+   "read": {
+    "lean": "rent",
+    "headline": "Renting still wins at the default case; a quiet three days brought two homes back onto the market, two more price cuts and no new contracts, so the gap is unchanged.",
+    "points": [
+     "<strong>Inventory edged up on returns, not new supply.</strong> 66 active listings, up from 65 three days ago. The two additions are both homes the tracker had already seen leave &mdash; one recorded as closed on Aug 29 and one that went pending Aug 23 &mdash; against a single withdrawal. The strong-catchment count is unchanged at 15 (Audubon 2, Somerset 6, Newport Heights 7, Woodridge 0), and 25 of the 66 actives are priced under $1.5M.",
+     "<strong>Momentum went flat.</strong> Nothing went under contract since the last refresh, one home was withdrawn, and two price cuts landed totalling $165,000: a $100,000 first cut at 17102 NE 37th Pl after 33 days, and a $65,000 second cut at 15805 SE 12th Pl that now sits $125,000 below its original ask. Three days is a short window and the last refresh absorbed five contracts, so this reads as a lull rather than a turn &mdash; but two failed or reversed deals coming back onto the list in one refresh is worth noting.",
+     "<strong>What pending actually says.</strong> The pending cohort recorded since tracking began now holds 49 homes (one fewer, since 16719 SE 4th Pl returned to active). Their cumulative days on market at contract have a median of 35 (quartiles 14 / 35 / 84); 19 of the 49 reached contract inside a month and 10 had already passed 90 days first. That median is a lower bound on true time-to-contract: homes that close lose their CDOM field and drop out of the visible cohort, so the slowest sellers are under-counted. 15 of the 49 had cut price at least once before going under contract. The Sep 5 contracts are three days into escrow and the Sep 1 group a week; a 14&ndash;27 day escrow is a normal closing timeline, not a sign of deals wobbling.",
+     "<strong>Time on market is still wide.</strong> The active-listing median is 39 cumulative days, and 13 of the 66 actives have passed 90 days and are still being marketed. The maximum is now 182 days at 7337 151st Ave NE, the returning Redmond home, ahead of 4478 142nd Ave SE in Somerset at 173. The two cuts this run came at 33 and 53 days, consistent with the pattern of prior runs: homes that do not draw a buyer inside a month get repriced.",
+     "<strong>Financing is unchanged.</strong> The 30-year fixed rate is 6.71% (Freddie Mac PMMS, Sep 3), the same weekly print the last refresh used. The rent comp is $4,839/mo, refreshed for September from 69 active 4BD-house comps in 98008/98052/98006 and carried forward this run.",
+     "<strong>Entry price is unchanged on paper.</strong> Both ZIP typical-value tiles carry forward at their July 31 vintage: Redmond 98052 at $1,315,432 (-4.1% YoY) and Bellevue 98008 at $1,352,693 (-4.6% YoY), both Zillow ZHVI estimates for the whole housing stock rather than sale prices. All eight tracked Eastside ZIPs sit in the same 2%&ndash;5% annual decline band, so the half-point gap between the two core ZIPs is noise, not divergence.",
+     "<strong>The bottom line</strong> is unchanged: at the default $1,500,000 / 20% down / 7-year case, renting is cheaper by $176,161 over the horizon, with buying only pulling ahead around year 15 under a 3%/yr appreciation assumption (roughly year 27 at 1%/yr, and renting stays ahead the full 30 years at 0%). Both ZIP typical values are currently negative year-over-year, so that 3% default is an assumption, not an observation drawn from this market."
+    ]
+   },
+   "metrics": {
+    "active": 66,
+    "strong": 15,
+    "under15": 25,
+    "rate": 6.71,
+    "zhviRedmond": 1315432,
+    "zhviBellevue": 1352693,
+    "rent": 4839,
+    "cutsTotal": 34,
+    "new": 2,
+    "pending": 0,
+    "delisted": 1,
+    "cdomMedian": 39,
+    "cdomOver90": 13,
+    "cdomMax": 182,
+    "cdomAtContractMedian": 35,
+    "pendingStock": 49,
+    "reached90Active": 13,
+    "reached90Pending": 10,
+    "pendingCutFirst": 15
+   }
+  },
+  {
    "date": "2026-09-05",
    "changes": [
     "<span class=\"cl-new\">New</span> 4 listings joined the tracker: 4617 162nd Ave NE ($1,875,000), 18947 NE 68th St ($1,975,000), 18115 NE 113th St ($1,950,000), 16626 SE 9th St ($1,350,000).",
