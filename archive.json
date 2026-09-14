@@ -1,6 +1,54 @@
 {
  "entries": [
   {
+   "date": "2026-09-14",
+   "changes": [
+    "<span class=\"cl-new\">New</span> 23 listings joined the tracker: 17210 NE 26th Ct ($1,999,000), 14512 SE 45th Pl ($1,595,000), 13945 SE 60th St ($1,769,000), 4600 132nd Ave SE ($1,770,000), 4909 122nd Ave SE ($1,258,000), 4941 125 Ave SE ($1,599,950), 14009 NE 74th St ($1,215,000), 17911 NE 101st Ct ($1,379,000), 14203 NE 63rd Ct ($1,399,000), 16235 NE 51st St ($1,445,000), 5733 155th Ave NE ($1,472,500), 17024 NE 131st Pl ($1,575,000), 10332 186th Ct NE ($1,784,000), 11664 168th Ct NE ($1,795,000), 11730 134th Pl NE ($1,875,000), 11738 167th Ct NE ($1,895,000), 11572 174th Ct NE ($1,910,000), 2311 185th Pl NE ($1,985,000), 17033 NE 108th Way ($1,998,000), 16042 SE 10th St ($1,000,000), 1012 179th Pl NE ($1,220,000), 15656 Main St ($1,550,000), 2536 171st Ave SE ($1,675,000).",
+    "Most of that is genuinely fresh supply: 20 of the 23 carry single-digit cumulative days on market, and 17911 NE 101st Ct went live the morning of this refresh. Three are returns rather than new inventory &mdash; 11572 174th Ct NE, recorded here as withdrawn on Sep 8, is back at the identical $1,910,000 ask with 121 cumulative days; 5733 155th Ave NE, withdrawn in early August, is back at $1,472,500 with 242 cumulative days, the longest campaign in the tracker; and 16235 NE 51st St, last seen pending-feasibility, is active again at $1,445,000 with 40 days.",
+    "<span class=\"cl-drop\">Price drop</span> 8 cuts worth $453,963 &mdash; 12903 176th Pl NE $1,838,888 -&gt; $1,746,000 (&minus;$92,888, at 81 cumulative days); 17468 NE 123rd Way $1,980,000 -&gt; $1,900,000 (&minus;$80,000, 32 days); 17023 NE 120th St $1,759,950 -&gt; $1,695,000 (&minus;$64,950, 47 days); 9210 166th Pl NE $1,282,500 -&gt; $1,218,375 (&minus;$64,125, 46 days); 11758 168th Pl NE $1,920,000 -&gt; $1,865,000 (&minus;$55,000, 25 days); 8210 171st Ave NE $1,930,000 -&gt; $1,890,000 (&minus;$40,000, 81 days); 4705 119th Ave SE $1,499,000 -&gt; $1,465,000 (&minus;$34,000, 129 days, Newport Heights); 4935 116th Pl SE $1,798,000 -&gt; $1,775,000 (&minus;$23,000, 88 days, Newport Heights). 35 of the 86 actives now carry a cut.",
+    "<span class=\"cl-off\">Pending</span> 3 homes went under contract: 3028 173rd Ct NE ($1,795,000), 4478 142nd Ave SE ($1,700,000), 6659 191st Pl NE ($1,498,000). All three read Pending or Pending-Inspection on their MLS detail block, and realtor.com no longer reports any of them for sale. 3028 173rd Ct NE was the tracker&rsquo;s only Audubon-zoned holding besides the two that remain, and it contracted at 109 cumulative days; 4478 142nd Ave SE (Somerset) took 186 days; 6659 191st Pl NE contracted at 16 days, the fastest of the three. Nothing was withdrawn or closed since the last refresh.",
+    "The strong-catchment pool rose from 15 to 19: Audubon 2 (unchanged), Somerset 8 (+2), Newport Heights 9 (+2), Woodridge still zero in the $1.2M&ndash;$2M band. Six of the 19 are priced under $1.5M, all but one of them in Newport Heights.",
+    "Reference homes: A (16813 NE 33rd St) and B (3068 169th Ave NE) remain off the active list, pending since August. Reference home C (2130 140th Pl SE, 98007) was re-read on Zillow this refresh &mdash; still Pending at $1,498,000, unchanged since the Aug 5 cut.",
+    "30-yr fixed rate moved to 6.76% (Freddie Mac PMMS, Sep 10), up 5bp from 6.71%. The Zillow ZHVI band and the 4BD rent comp were both carried forward unchanged &mdash; ZHVI last fetched Sep 1 on the Jul 31 vintage, rent comp stamped 2026-09.",
+    "Price history could not be read for any of the 23 new listings this refresh: realtor.com&rsquo;s property-history accordion would not expand after the coordinate sweep, the documented throttle behaviour. No list0 values were written, so no total-decline badges render for those rows &mdash; an absent field rather than a guessed one.",
+    "This entry covers 6 days since the last refresh on 2026-09-08; the scheduled Saturday run on Sep 12 did not fire, so the churn below spans two refresh intervals rather than one. Tracking 86 active listings across four school catchments + two ZIP sweeps."
+   ],
+   "read": {
+    "lean": "rent",
+    "headline": "Inventory jumped by a third on a post-Labor-Day listing wave &mdash; 23 new against 3 under contract &mdash; while the rate ticked up to 6.76%, and renting still wins the default case by roughly $180K over seven years.",
+    "points": [
+     "<strong>Inventory broke out of its range.</strong> 86 active listings, up from 66 six days ago and well clear of the 65&ndash;68 band the tracker has held since late August. 23 homes joined and 3 left. The strong-catchment pool went from 15 to 19 &mdash; Audubon 2, Somerset 8, Newport Heights 9, Woodridge still zero &mdash; and 32 of the 86 are priced under $1.5M. The median ask across the tracker is about $1.60M.",
+     "<strong>Momentum is all on the supply side.</strong> 23 new listings against 3 contracts is the widest gap the tracker has recorded, and 20 of the 23 are days old rather than relists. Sellers already on the market kept cutting: 8 price reductions worth $453,963 landed since the last refresh, the largest a $92,888 cut at 12903 176th Pl NE after 81 days. 35 of the 86 actives now carry a cut, up from 34 of 66 &mdash; the count barely moved while the denominator grew by a third.",
+     "<strong>What the pending column actually says.</strong> 51 homes sit in the pending stock, up 2 net. Pending is a stock draining on an escrow clock, not a weekly flow, so the level says less than the timing does. For the pending cohort, cumulative days on market at the moment of contract runs to a median of 35 days, quartiles 16 / 35 / 89, with 20 of 51 (39%) contracting inside a month. That median is biased low by right-censoring: it is computed only from homes that found a buyer, while the listings still sitting have not yet contributed their larger numbers. 12 of the 51 had already passed 90 days before contracting, a lower bound, since homes that closed lose their published CDOM. 17 of the 51 cut price before going under contract. The carried-over pendings are all 37 days or less past the date they were first seen pending, median 30 &mdash; a 14-to-37-day escrow is a normal closing timeline, not evidence of deals collapsing.",
+     "<strong>Time on market fell, but on arithmetic rather than absorption.</strong> Median cumulative days on market across the active set is 33, down from 39, because 29 of the 86 have been listed a week or less. The tail is unchanged in kind and larger in number: 15 listings are at or past 90 cumulative days, against 13 last refresh, and the longest campaign is now 242 days at 5733 155th Ave NE, a home that was withdrawn in August and relisted this week at a lower ask.",
+     "<strong>Financing got marginally worse.</strong> The 30-yr fixed averaged 6.76% in the Sep 10 PMMS, up from 6.71%. On the default $1.5M purchase with 20% down, that is $7,791 in principal and interest and about $10,254 a month all-in with taxes and insurance, against a $4,850 rent comp on the slider &mdash; roughly $5,400 a month of carry difference before any equity credit. The rent comp itself is current, re-derived at the start of September from local 4BD house listings.",
+     "<strong>Entry price into a strong catchment did not improve.</strong> The cheapest of the 19 strong-catchment homes is $1,258,000 (4909 122nd Ave SE, Newport Heights) and the median is $1,658,000; only six sit under $1.5M and five of those six are Newport Heights. The wave of new supply landed mostly in the broad ZIP sweeps, not in the four target zones. For context on values rather than asks, Zillow&rsquo;s ZHVI typical value is $1,315,432 in Redmond 98052 (&minus;4.1% over the year) and $1,352,693 in Bellevue 98008 (&minus;4.6%), both on the same Jul 31 vintage, inside an Eastside band running from &minus;2.0% in 98004 to &minus;5.1% in Kirkland 98033.",
+     "<strong>Implication: the model still leans rent.</strong> At the default case &mdash; $1.5M, 20% down, 6.76%, seven years, 3%/yr appreciation &mdash; renting comes out about $180,000 cheaper, and buying does not pull ahead until roughly year 15. That breakeven is highly sensitive to the appreciation assumption: at 3%/yr it is about year 15 at $1.5M, at 1%/yr about year 27, and at 0% renting stays cheaper for the full 30 years. Both ZIP typical values are currently negative year over year, so the default 3% is an assumption, not an observation. More choice and more cuts improve the entry price a buyer can negotiate; they do not change that arithmetic."
+    ]
+   },
+   "metrics": {
+    "active": 86,
+    "strong": 19,
+    "under15": 32,
+    "rate": 6.76,
+    "zhviRedmond": 1315432,
+    "zhviBellevue": 1352693,
+    "rent": 4839,
+    "cutsTotal": 35,
+    "new": 23,
+    "pending": 3,
+    "delisted": 0,
+    "cdomMedian": 33,
+    "cdomOver90": 15,
+    "cdomMax": 242,
+    "cdomAtContractMedian": 35,
+    "pendingStock": 51,
+    "reached90Active": 15,
+    "reached90Pending": 12,
+    "pendingCutFirst": 17
+   }
+  },
+  {
    "date": "2026-09-08",
    "changes": [
     "<span class=\"cl-new\">New</span> 2 listings joined the tracker: 7337 151st Ave NE ($1,749,000), 16719 SE 4th Pl ($1,649,950).",
