@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-23",
+ "updated": "2026-09-26",
  "note": "Cumulative Days On Market as read from the Redfin MLS detail block. CDOM survives relists, unlike days-on-site counters. It is only published while a home is Active or Pending; once it closes, Redfin reverts the MLS block to the prior sold record and the field is gone, so departed homes show null.",
  "homes": {
   "3028 173rd Ct NE": {
@@ -15,8 +15,8 @@
    "group": "departed"
   },
   "14130 SE 49th Pl": {
-   "cdom": 61,
-   "asOf": "2026-09-01",
+   "cdom": 86,
+   "asOf": "2026-09-26",
    "status": "Active",
    "group": "Somerset"
   },
@@ -39,8 +39,8 @@
    "group": "departed"
   },
   "14023 SE 60th St": {
-   "cdom": 75,
-   "asOf": "2026-09-01",
+   "cdom": 100,
+   "asOf": "2026-09-26",
    "status": "Active",
    "group": "Somerset"
   },
@@ -87,16 +87,16 @@
    "group": "Newport Heights"
   },
   "4705 119th Ave SE": {
-   "cdom": 129,
-   "asOf": "2026-09-14",
-   "status": "Active",
-   "group": "Newport Heights"
+   "cdom": 130,
+   "asOf": "2026-09-26",
+   "status": "Pending",
+   "group": "departed"
   },
   "6149 115th Pl SE": {
    "cdom": 46,
    "asOf": "2026-09-01",
-   "status": "Active",
-   "group": "Newport Heights"
+   "status": "Sold",
+   "group": "departed"
   },
   "13412 SE 59th St": {
    "cdom": 84,
@@ -111,10 +111,10 @@
    "group": "Newport Heights"
   },
   "13400 SE 56th Pl": {
-   "cdom": 71,
-   "asOf": "2026-08-08",
-   "status": "Delisted",
-   "group": "departed"
+   "cdom": 89,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Newport Heights"
   },
   "4012 122nd Ave SE": {
    "cdom": 25,
@@ -309,8 +309,8 @@
    "group": "departed"
   },
   "16563 NE 119th Way": {
-   "cdom": 74,
-   "asOf": "2026-09-01",
+   "cdom": 99,
+   "asOf": "2026-09-26",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -369,10 +369,10 @@
    "group": "departed"
   },
   "627 166th Ave NE": {
-   "cdom": 105,
-   "asOf": "2026-09-01",
-   "status": "Delisted",
-   "group": "departed"
+   "cdom": 127,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Bellevue 98008"
   },
   "3027 167th Ave NE": {
    "cdom": 75,
@@ -405,8 +405,8 @@
    "group": "Bellevue 98008"
   },
   "16719 SE 4th Pl": {
-   "cdom": 46,
-   "asOf": "2026-09-19",
+   "cdom": 53,
+   "asOf": "2026-09-26",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -435,14 +435,14 @@
    "group": "Bellevue 98008"
   },
   "242 W Lake Sammamish Pkwy SE": {
-   "cdom": 44,
-   "asOf": "2026-09-19",
+   "cdom": 51,
+   "asOf": "2026-09-26",
    "status": "Active",
    "group": "Bellevue 98008"
   },
   "4200 W Lake Sammamish Pkwy SE": {
-   "cdom": 68,
-   "asOf": "2026-09-01",
+   "cdom": 93,
+   "asOf": "2026-09-26",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -657,10 +657,10 @@
    "group": "departed"
   },
   "4548 144th Ave SE": {
-   "cdom": null,
-   "asOf": "2026-08-08",
-   "status": "Sold",
-   "group": "departed"
+   "cdom": 1,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Somerset"
   },
   "4713 125th Ave SE": {
    "cdom": 39,
@@ -833,8 +833,8 @@
   "1512 167th Ave SE": {
    "cdom": 12,
    "asOf": "2026-09-01",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "status": "Sold",
+   "group": "departed"
   },
   "17921 NE 27th St": {
    "cdom": 7,
@@ -879,10 +879,10 @@
    "group": "Redmond 98052"
   },
   "16639 SE 8th St": {
-   "cdom": 9,
-   "asOf": "2026-09-05",
-   "status": "Pending",
-   "group": "departed"
+   "cdom": 8,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Bellevue 98008"
   },
   "17227 SE 40th Pl": {
    "cdom": 19,
@@ -969,8 +969,8 @@
    "group": "departed"
   },
   "4941 125 Ave SE": {
-   "cdom": 4,
-   "asOf": "2026-09-14",
+   "cdom": 16,
+   "asOf": "2026-09-26",
    "status": "Active",
    "group": "Newport Heights"
   },
@@ -1029,8 +1029,8 @@
    "group": "Redmond 98052"
   },
   "16042 SE 10th St": {
-   "cdom": 4,
-   "asOf": "2026-09-14",
+   "cdom": 16,
+   "asOf": "2026-09-26",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -1097,8 +1097,8 @@
   "17409 NE 136th St Unit B": {
    "cdom": 2,
    "asOf": "2026-09-23",
-   "status": "First Look",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "10503 158th Ave NE": {
    "cdom": 2,
@@ -1120,7 +1120,7 @@
   },
   "15627 SE 11th St": {
    "cdom": 1,
-   "asOf": "2026-09-19",
+   "asOf": "2026-09-26",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -1157,14 +1157,62 @@
   "2925 W Lake Sammamish Pkwy NE": {
    "cdom": 1,
    "asOf": "2026-09-23",
-   "status": "First Look",
+   "status": "Active",
    "group": "Audubon"
   },
   "16613 NE 18th St": {
    "cdom": 3,
    "asOf": "2026-09-23",
-   "status": "First Look",
+   "status": "Active",
    "group": "Bellevue 98008"
+  },
+  "1703 128th Ave SE": {
+   "cdom": 37,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Woodridge"
+  },
+  "12536 SE 15th St": {
+   "cdom": 66,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Woodridge"
+  },
+  "12037 SE 51st St": {
+   "cdom": 0,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "12406 SE 47th St": {
+   "cdom": 16,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "16036 NE 106th St": {
+   "cdom": 24,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "10806 183rd Ave NE": {
+   "cdom": 3,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "2225 185th Pl NE": {
+   "cdom": 0,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "10108 186th Ct NE": {
+   "cdom": 36,
+   "asOf": "2026-09-26",
+   "status": "Active",
+   "group": "Redmond 98052"
   }
  }
 }
