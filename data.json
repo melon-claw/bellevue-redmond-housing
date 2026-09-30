@@ -1,12 +1,12 @@
 {
- "updated": "2026-09-26",
+ "updated": "2026-09-29",
  "market": [
   {
    "lbl": "Redmond 98052 typical value",
    "val": "$1,315,432",
    "delta": "-4.1% YoY",
    "dir": "down",
-   "src": "Zillow ZHVI \u00b7 all homes, smoothed & seasonally adjusted",
+   "src": "Zillow ZHVI · all homes, smoothed & seasonally adjusted",
    "asof": "2026-07-31"
   },
   {
@@ -14,7 +14,7 @@
    "val": "$1,352,693",
    "delta": "-4.6% YoY",
    "dir": "down",
-   "src": "Zillow ZHVI \u00b7 all homes, smoothed & seasonally adjusted",
+   "src": "Zillow ZHVI · all homes, smoothed & seasonally adjusted",
    "asof": "2026-07-31"
   },
   {
@@ -30,45 +30,45 @@
    "val": "$4,839/mo",
    "delta": "local 4BD comps",
    "dir": "down",
-   "src": "Zillow Rentals \u00b7 active 4BD houses, 98008 / 98052 / 98006",
+   "src": "Zillow Rentals · active 4BD houses, 98008 / 98052 / 98006",
    "asof": "2026-09"
   }
  ],
  "zhvi": {
-  "src": "Zillow ZHVI \u00b7 all homes, smoothed & seasonally adjusted",
+  "src": "Zillow ZHVI · all homes, smoothed & seasonally adjusted",
   "fetched": "2026-09-01",
   "rows": [
    {
     "zip": "98004",
-    "area": "Bellevue \u00b7 downtown / Clyde Hill",
+    "area": "Bellevue · downtown / Clyde Hill",
     "val": 1989210,
     "yoy": -2.0,
     "asof": "2026-07-31"
    },
    {
     "zip": "98005",
-    "area": "Bellevue \u00b7 Bridle Trails",
+    "area": "Bellevue · Bridle Trails",
     "val": 1567471,
     "yoy": -2.6,
     "asof": "2026-07-31"
    },
    {
     "zip": "98006",
-    "area": "Bellevue \u00b7 Somerset / Newport",
+    "area": "Bellevue · Somerset / Newport",
     "val": 1611238,
     "yoy": -4.0,
     "asof": "2026-07-31"
    },
    {
     "zip": "98007",
-    "area": "Bellevue \u00b7 Crossroads",
+    "area": "Bellevue · Crossroads",
     "val": 1020072,
     "yoy": -4.4,
     "asof": "2026-07-31"
    },
    {
     "zip": "98008",
-    "area": "Bellevue \u00b7 Lake Hills",
+    "area": "Bellevue · Lake Hills",
     "val": 1352693,
     "yoy": -4.6,
     "asof": "2026-07-31",
@@ -76,14 +76,14 @@
    },
    {
     "zip": "98033",
-    "area": "Kirkland \u00b7 Moss Bay / Juanita",
+    "area": "Kirkland · Moss Bay / Juanita",
     "val": 1590957,
     "yoy": -5.1,
     "asof": "2026-07-31"
    },
    {
     "zip": "98034",
-    "area": "Kirkland \u00b7 Totem Lake",
+    "area": "Kirkland · Totem Lake",
     "val": 1040092,
     "yoy": -4.6,
     "asof": "2026-07-31"
@@ -102,31 +102,31 @@
   {
    "lbl": "Reference home A",
    "val": "$1,470,000",
-   "delta": "16813 NE 33rd St \u00b7 4/3 \u00b7 Ardmore 4/10 \u00b7 went pending, off the active list Aug 8",
+   "delta": "16813 NE 33rd St · 4/3 · Ardmore 4/10 · went pending, off the active list Aug 8",
    "dir": "flat"
   },
   {
    "lbl": "Reference home B",
    "val": "$1,299,000",
-   "delta": "3068 169th Ave NE \u00b7 5/3.5 \u00b7 BSD verify \u00b7 \u2193$101K Aug 1 \u00b7 went pending at 88 days, off the active list Aug 11",
+   "delta": "3068 169th Ave NE · 5/3.5 · BSD verify · ↓$101K Aug 1 · went pending at 88 days, off the active list Aug 11",
    "dir": "flat"
   },
   {
    "lbl": "Reference home C",
    "val": "$1,435,000",
-   "delta": "2130 140th Pl SE (98007) \u00b7 5/4 \u00b7 3,120 sqft \u00b7 Lake Hills 5/10 \u00b7 SOLD $1,435,000 (list was $1,498,000), closed",
+   "delta": "2130 140th Pl SE (98007) · 5/4 · 3,120 sqft · Lake Hills 5/10 · SOLD $1,435,000 (list was $1,498,000), closed",
    "dir": "flat"
   },
   {
    "lbl": "Strong-school reference",
    "val": "Audubon 9/10",
-   "delta": "2462 172nd Ave NE \u00b7 LWSD",
+   "delta": "2462 172nd Ave NE · LWSD",
    "dir": "up"
   },
   {
    "lbl": "Rent comps (avg)",
    "val": "$4,839/mo",
-   "delta": "local 4BD comps \u00b7 as of 2026-09",
+   "delta": "local 4BD comps · as of 2026-09",
    "dir": "down"
   }
  ],
@@ -141,9 +141,9 @@
   "lot": "~0.9 acre",
   "school": "Lake Hills",
   "gs": "5 / 10",
-  "zoning": "SR4 (DADU / subdivision potential \u2014 buyer to verify)",
+  "zoning": "SR4 (DADU / subdivision potential — buyer to verify)",
   "zillow": "https://www.zillow.com/homedetails/2130-140th-Pl-SE-Bellevue-WA-98007/49105457_zpid/",
-  "note": "Remodeled mid-century; daylight basement w/ private entrance, 2BD + full bath; 800+ sqft detached garage with studio above \u2014 SOLD 2026-09 for $1,435,000 (list was $1,498,000)"
+  "note": "Remodeled mid-century; daylight basement w/ private entrance, 2BD + full bath; 800+ sqft detached garage with studio above — SOLD 2026-09 for $1,435,000 (list was $1,498,000)"
  },
  "listings": [
   {
@@ -432,25 +432,6 @@
    "cdomDate": "2026-09-01"
   },
   {
-   "addr": "12037 SE 51st St",
-   "city": "Bellevue",
-   "zip": "98006",
-   "price": 1299888,
-   "beds": 4,
-   "baths": 2,
-   "sqft": 1560,
-   "sd": "BSD",
-   "school": "Newport Heights",
-   "redfin": "https://www.redfin.com/WA/Bellevue/12037-SE-51st-St-98006/home/417275",
-   "mpr": "2288808479",
-   "lat": 47.556815,
-   "lon": -122.176861,
-   "cdom": 0,
-   "cdomDate": "2026-09-26",
-   "elem": "Newport Heights",
-   "elemSrc": "bsd-2024-25"
-  },
-  {
    "addr": "12218 SE 47th Pl",
    "city": "Bellevue",
    "zip": "98006",
@@ -537,26 +518,24 @@
    "cdomDate": "2026-09-26"
   },
   {
-   "addr": "13412 SE 59th St",
+   "addr": "5802 111th Ave SE",
    "city": "Bellevue",
    "zip": "98006",
-   "price": 1658000,
+   "price": 1690000,
    "beds": 4,
-   "baths": 3,
-   "sqft": 3090,
+   "baths": 3.0,
+   "sqft": 3760,
    "sd": "BSD",
    "school": "Newport Heights",
-   "redfin": "https://www.redfin.com/WA/Bellevue/13412-SE-59th-St-98006/home/238105",
-   "mpr": "1574443992",
-   "lat": 47.550214,
-   "lon": -122.160151,
+   "redfin": "https://www.redfin.com/WA/Bellevue/5802-111th-Ave-SE-98006/home/415766",
+   "mpr": "2723838496",
+   "lat": 47.551206,
+   "lon": -122.191549,
+   "note": "New listing; Redfin First Look, 4BD/3BA, 3,760 sqft",
+   "cdom": 1,
+   "cdomDate": "2026-09-29",
    "elem": "Newport Heights",
-   "elemSrc": "bsd-2024-25",
-   "note": "Greenbelt",
-   "cut": 42000,
-   "cutDate": "2026-08-01",
-   "cdom": 84,
-   "cdomDate": "2026-09-01"
+   "elemSrc": "bsd-2024-25"
   },
   {
    "addr": "4935 116th Pl SE",
@@ -787,6 +766,26 @@
    "cdomDate": "2026-09-01"
   },
   {
+   "addr": "16235 NE 51st St",
+   "city": "Redmond",
+   "zip": "98052",
+   "price": 1365000,
+   "beds": 4,
+   "baths": 2,
+   "sqft": 2520,
+   "sd": "LWSD",
+   "school": "Redmond 98052",
+   "redfin": "https://www.redfin.com/WA/Redmond/16235-NE-51st-St-98052/home/503987",
+   "mpr": "2754052616",
+   "lat": 47.656709,
+   "lon": -122.123234,
+   "note": "Back on market after an earlier listing campaign",
+   "cdom": 55,
+   "cdomDate": "2026-09-29",
+   "cut": 80000,
+   "cutDate": "2026-09-29"
+  },
+  {
    "addr": "17911 NE 101st Ct",
    "city": "Redmond",
    "zip": "98052",
@@ -879,24 +878,6 @@
    "cdomDate": "2026-09-23"
   },
   {
-   "addr": "16235 NE 51st St",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1445000,
-   "beds": 4,
-   "baths": 2,
-   "sqft": 2520,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/16235-NE-51st-St-98052/home/503987",
-   "mpr": "2754052616",
-   "lat": 47.656709,
-   "lon": -122.123234,
-   "note": "Back on market after an earlier listing campaign",
-   "cdom": 40,
-   "cdomDate": "2026-09-14"
-  },
-  {
    "addr": "10806 183rd Ave NE",
    "city": "Redmond",
    "zip": "98052",
@@ -971,26 +952,6 @@
    "cutDate": "2026-09-05",
    "cdom": 50,
    "cdomDate": "2026-09-05"
-  },
-  {
-   "addr": "9550 172nd Ave NE",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1545000,
-   "beds": 4,
-   "baths": 3,
-   "sqft": 2430,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/9550-172nd-Ave-NE-98052/home/323721",
-   "mpr": "2098721204",
-   "lat": 47.686895,
-   "lon": -122.110332,
-   "note": "Education Hill, remodeled kitchen",
-   "cut": 30000,
-   "cutDate": "2026-08-23",
-   "cdom": 40,
-   "cdomDate": "2026-09-01"
   },
   {
    "addr": "17409 NE 136th St",
@@ -1241,6 +1202,26 @@
    "cdomDate": "2026-09-23"
   },
   {
+   "addr": "17019 NE 118th Way",
+   "city": "Redmond",
+   "zip": "98052",
+   "price": 1852500,
+   "beds": 4,
+   "baths": 3.5,
+   "sqft": 3041,
+   "sd": "LWSD",
+   "school": "Redmond 98052",
+   "redfin": "https://www.redfin.com/WA/Redmond/17019-NE-118th-Way-98052/home/12318957",
+   "mpr": "1985770913",
+   "lat": 47.705837,
+   "lon": -122.113183,
+   "note": "New listing",
+   "cdom": 29,
+   "cdomDate": "2026-09-29",
+   "cut": 97500,
+   "cutDate": "2026-09-29"
+  },
+  {
    "addr": "11758 168th Pl NE",
    "city": "Redmond",
    "zip": "98052",
@@ -1349,7 +1330,7 @@
    "mpr": "2643707457",
    "lat": 47.700385,
    "lon": -122.098135,
-   "note": "Redmond 98052 sweep \u00b7 First Look (pre-market) listing; MLS block carries no CDOM yet, on-market date Sep 4",
+   "note": "Redmond 98052 sweep · First Look (pre-market) listing; MLS block carries no CDOM yet, on-market date Sep 4",
    "cdom": 1,
    "cdomDate": "2026-09-05"
   },
@@ -1372,24 +1353,6 @@
    "cdomDate": "2026-09-19"
   },
   {
-   "addr": "17019 NE 118th Way",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1950000,
-   "beds": 4,
-   "baths": 3.5,
-   "sqft": 3041,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/17019-NE-118th-Way-98052/home/12318957",
-   "mpr": "1985770913",
-   "lat": 47.705837,
-   "lon": -122.113183,
-   "note": "New listing",
-   "cdom": 1,
-   "cdomDate": "2026-09-01"
-  },
-  {
    "addr": "18947 NE 68th St",
    "city": "Redmond",
    "zip": "98052",
@@ -1403,7 +1366,7 @@
    "mpr": "2114875027",
    "lat": 47.665761,
    "lon": -122.085215,
-   "note": "Redmond 98052 sweep \u00b7 east Redmond near Bear Creek",
+   "note": "Redmond 98052 sweep · east Redmond near Bear Creek",
    "cdom": 1,
    "cdomDate": "2026-09-05"
   },
@@ -1849,11 +1812,33 @@
    "lon": -122.113805,
    "elem": "Ardmore",
    "elemSrc": "bsd-2024-25",
-   "note": "Renovated \u2014 new roof, refinished hardwoods",
+   "note": "Renovated — new roof, refinished hardwoods",
    "cut": 125000,
    "cutDate": "2026-08-11",
    "cdom": 47,
    "cdomDate": "2026-09-01"
+  },
+  {
+   "addr": "3040 164th Pl NE",
+   "city": "Bellevue",
+   "zip": "98008",
+   "price": 1475000,
+   "beds": 4,
+   "baths": 3,
+   "sqft": 2290,
+   "sd": "BSD",
+   "school": "Bellevue 98008",
+   "redfin": "https://www.redfin.com/WA/Bellevue/3040-164th-Pl-NE-98008/home/431786",
+   "mpr": "1223837598",
+   "lat": 47.637974,
+   "lon": -122.120623,
+   "elem": "Ardmore",
+   "elemSrc": "bsd-2024-25",
+   "note": "New listing; Bellevue 98008",
+   "cut": 74990,
+   "cutDate": "2026-09-29",
+   "cdom": 60,
+   "cdomDate": "2026-09-29"
   },
   {
    "addr": "16242 NE 30th St",
@@ -1916,28 +1901,6 @@
    "cutDate": "2026-09-26",
    "cdom": 53,
    "cdomDate": "2026-09-26"
-  },
-  {
-   "addr": "3040 164th Pl NE",
-   "city": "Bellevue",
-   "zip": "98008",
-   "price": 1549990,
-   "beds": 4,
-   "baths": 3,
-   "sqft": 2290,
-   "sd": "BSD",
-   "school": "Bellevue 98008",
-   "redfin": "https://www.redfin.com/WA/Bellevue/3040-164th-Pl-NE-98008/home/431786",
-   "mpr": "1223837598",
-   "lat": 47.637974,
-   "lon": -122.120623,
-   "elem": "Ardmore",
-   "elemSrc": "bsd-2024-25",
-   "note": "New listing; Bellevue 98008",
-   "cut": 50000,
-   "cutDate": "2026-09-15",
-   "cdom": 46,
-   "cdomDate": "2026-09-15"
   },
   {
    "addr": "15656 Main St",

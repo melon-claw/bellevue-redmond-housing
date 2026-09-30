@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-26",
+ "updated": "2026-09-29",
  "note": "Cumulative Days On Market as read from the Redfin MLS detail block. CDOM survives relists, unlike days-on-site counters. It is only published while a home is Active or Pending; once it closes, Redfin reverts the MLS block to the prior sold record and the field is gone, so departed homes show null.",
  "homes": {
   "3028 173rd Ct NE": {
@@ -101,8 +101,8 @@
   "13412 SE 59th St": {
    "cdom": 84,
    "asOf": "2026-09-01",
-   "status": "Active",
-   "group": "Newport Heights"
+   "status": "Delisted",
+   "group": "departed"
   },
   "4935 116th Pl SE": {
    "cdom": 88,
@@ -221,8 +221,8 @@
   "9550 172nd Ave NE": {
    "cdom": 40,
    "asOf": "2026-09-01",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "2212 186th Ave NE": {
    "cdom": 132,
@@ -453,8 +453,8 @@
    "group": "departed"
   },
   "16235 NE 51st St": {
-   "cdom": 40,
-   "asOf": "2026-09-14",
+   "cdom": 55,
+   "asOf": "2026-09-29",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -825,8 +825,8 @@
    "group": "Bellevue 98008"
   },
   "3040 164th Pl NE": {
-   "cdom": 46,
-   "asOf": "2026-09-15",
+   "cdom": 60,
+   "asOf": "2026-09-29",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -891,8 +891,8 @@
    "group": "Bellevue 98008"
   },
   "17019 NE 118th Way": {
-   "cdom": 1,
-   "asOf": "2026-09-01",
+   "cdom": 29,
+   "asOf": "2026-09-29",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -1181,8 +1181,8 @@
   "12037 SE 51st St": {
    "cdom": 0,
    "asOf": "2026-09-26",
-   "status": "Active",
-   "group": "Newport Heights"
+   "status": "Delisted",
+   "group": "departed"
   },
   "12406 SE 47th St": {
    "cdom": 16,
@@ -1213,6 +1213,12 @@
    "asOf": "2026-09-26",
    "status": "Active",
    "group": "Redmond 98052"
+  },
+  "5802 111th Ave SE": {
+   "cdom": 1,
+   "asOf": "2026-09-29",
+   "status": "First Look",
+   "group": "Newport Heights"
   }
  }
 }
