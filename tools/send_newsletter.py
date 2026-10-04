@@ -20,7 +20,11 @@ Why the gates exist
 -------------------
 Two of them, and they are the whole point of this script.
 
-1. SATURDAY ONLY. The site refreshes Tuesday and Saturday; the list gets one email a week.
+1. SATURDAY ONLY (with a Sunday/Monday catch-up). The site refreshes Tuesday and Saturday; the
+   list gets one email a week. If the Saturday run is deferred or stamped past midnight and
+   lands on Sunday or Monday, it still counts as the weekly run -- provided no archive entry
+   dated on that Saturday exists (see is_weekly_run()). Otherwise a late run silently skips
+   the week's email.
    At two sends a week this would be ~104 emails a year about the same 74 houses, which is
    how you earn unsubscribes rather than readers.
 
@@ -62,6 +66,23 @@ RATE_MOVE_PP = 0.10
 
 # Saturday. datetime.date.weekday(): Monday is 0.
 SEND_WEEKDAY = 5
+
+# A run stamped this many days after Saturday (Sunday=1, Monday=2) still counts as the weekly
+# run when no Saturday-dated entry exists in the archive.
+CATCHUP_DAYS = 2
+
+
+def is_weekly_run(date_iso, archive_entries):
+    """True for a Saturday run, or a Sun/Mon catch-up when that Saturday never ran."""
+    d = datetime.date.fromisoformat(date_iso)
+    back = (d.weekday() - SEND_WEEKDAY) % 7
+    if back == 0:
+        return True
+    if back > CATCHUP_DAYS:
+        return False
+    sat = (d - datetime.timedelta(days=back)).isoformat()
+    return not any(e.get("date") == sat for e in archive_entries)
+
 
 # Non-ASCII kept as explicit escapes: some editors write literal \uXXXX into source files,
 # and inside a string literal that stays a valid escape rather than turning into visible junk.
@@ -494,7 +515,7 @@ def main():
     send_ok, reasons, blockers = gate(entry, prev_entry, new_count, len(cuts))
     is_saturday = False
     try:
-        is_saturday = datetime.date.fromisoformat(date).weekday() == SEND_WEEKDAY
+        is_saturday = is_weekly_run(date, archive.get("entries") or [])
     except ValueError:
         blockers.append("the archive date %r is not a real date" % date)
 
@@ -510,7 +531,7 @@ def main():
             print("  problem: %s" % b)
         return 1
     print("  change gate: %s" % ("; ".join(reasons) if reasons else "nothing happened"))
-    print("  weekly gate: %s" % ("Saturday run" if is_saturday else "not a Saturday run"))
+    print("  weekly gate: %s" % ("weekly run (Saturday, or Sun/Mon catch-up)" if is_saturday else "not a weekly run"))
 
     if args.dry_run:
         print("  dry run, nothing sent")
