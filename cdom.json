@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-07",
+ "updated": "2026-10-11",
  "note": "Cumulative Days On Market as read from the Redfin MLS detail block. CDOM survives relists, unlike days-on-site counters. It is only published while a home is Active or Pending; once it closes, Redfin reverts the MLS block to the prior sold record and the field is gone, so departed homes show null.",
  "homes": {
   "3028 173rd Ct NE": {
@@ -245,8 +245,8 @@
   "2209 W Lake Sammamish Pkwy NE": {
    "cdom": 78,
    "asOf": "2026-10-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Unresolved",
+   "group": "departed"
   },
   "8941 170th Ct NE": {
    "cdom": 123,
@@ -381,8 +381,8 @@
    "group": "departed"
   },
   "1007 174th Ave NE": {
-   "cdom": 65,
-   "asOf": "2026-10-04",
+   "cdom": 72,
+   "asOf": "2026-10-11",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -813,10 +813,10 @@
    "group": "Redmond 98052"
   },
   "17211 NE 117th Way": {
-   "cdom": 11,
-   "asOf": "2026-09-01",
-   "status": "Delisted",
-   "group": "departed"
+   "cdom": 32,
+   "asOf": "2026-10-11",
+   "status": "Active",
+   "group": "Redmond 98052"
   },
   "16242 NE 30th St": {
    "cdom": 13,
@@ -921,14 +921,14 @@
    "group": "departed"
   },
   "18115 NE 113th St": {
-   "cdom": 8,
-   "asOf": "2026-10-04",
+   "cdom": 15,
+   "asOf": "2026-10-11",
    "status": "Active",
    "group": "Redmond 98052"
   },
   "18947 NE 68th St": {
-   "cdom": 29,
-   "asOf": "2026-10-04",
+   "cdom": 36,
+   "asOf": "2026-10-11",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -953,8 +953,8 @@
   "13945 SE 60th St": {
    "cdom": 24,
    "asOf": "2026-10-04",
-   "status": "Active",
-   "group": "Somerset"
+   "status": "Delisted",
+   "group": "departed"
   },
   "4600 132nd Ave SE": {
    "cdom": 4,
@@ -993,14 +993,14 @@
    "group": "departed"
   },
   "10332 186th Ct NE": {
-   "cdom": 23,
-   "asOf": "2026-10-04",
+   "cdom": 30,
+   "asOf": "2026-10-11",
    "status": "Active",
    "group": "Redmond 98052"
   },
   "11664 168th Ct NE": {
-   "cdom": 23,
-   "asOf": "2026-10-04",
+   "cdom": 30,
+   "asOf": "2026-10-11",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -1011,8 +1011,8 @@
    "group": "Redmond 98052"
   },
   "11738 167th Ct NE": {
-   "cdom": 22,
-   "asOf": "2026-10-04",
+   "cdom": 29,
+   "asOf": "2026-10-11",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -1059,8 +1059,8 @@
    "group": "Redmond 98052"
   },
   "13233 SE 51st Pl": {
-   "cdom": 16,
-   "asOf": "2026-10-04",
+   "cdom": 23,
+   "asOf": "2026-10-11",
    "status": "Active",
    "group": "Somerset"
   },
@@ -1119,14 +1119,14 @@
    "group": "Redmond 98052"
   },
   "15627 SE 11th St": {
-   "cdom": 6,
-   "asOf": "2026-10-04",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "cdom": 13,
+   "asOf": "2026-10-11",
+   "status": "Pending",
+   "group": "departed"
   },
   "17219 NE 16th Pl": {
-   "cdom": 17,
-   "asOf": "2026-10-04",
+   "cdom": 24,
+   "asOf": "2026-10-11",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -1191,8 +1191,8 @@
    "group": "Newport Heights"
   },
   "16036 NE 106th St": {
-   "cdom": 31,
-   "asOf": "2026-10-04",
+   "cdom": 38,
+   "asOf": "2026-10-11",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -1273,6 +1273,42 @@
    "asOf": "2026-10-07",
    "status": "Active",
    "group": "Redmond 98052"
+  },
+  "11030 SE 60th Ln": {
+   "cdom": 3,
+   "asOf": "2026-10-11",
+   "status": "Active",
+   "group": "Newport Heights"
+  },
+  "7003 134th Ave NE": {
+   "cdom": 1,
+   "asOf": "2026-10-11",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "5928 160th Ct NE": {
+   "cdom": 1,
+   "asOf": "2026-10-11",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "2322 179th Ct NE": {
+   "cdom": 2,
+   "asOf": "2026-10-11",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "4038 169th Ave SE": {
+   "cdom": 2,
+   "asOf": "2026-10-11",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "940 178th Pl NE": {
+   "cdom": 1,
+   "asOf": "2026-10-11",
+   "status": "Active",
+   "group": "Bellevue 98008"
   }
  }
 }
