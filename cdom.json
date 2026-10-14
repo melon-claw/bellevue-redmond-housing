@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-11",
+ "updated": "2026-10-14",
  "note": "Cumulative Days On Market as read from the Redfin MLS detail block. CDOM survives relists, unlike days-on-site counters. It is only published while a home is Active or Pending; once it closes, Redfin reverts the MLS block to the prior sold record and the field is gone, so departed homes show null.",
  "homes": {
   "3028 173rd Ct NE": {
@@ -65,8 +65,8 @@
   "5761 110th Ave SE": {
    "cdom": 71,
    "asOf": "2026-10-04",
-   "status": "Active",
-   "group": "Newport Heights"
+   "status": "Delisted",
+   "group": "departed"
   },
   "12218 SE 47th Pl": {
    "cdom": 74,
@@ -453,8 +453,8 @@
    "group": "departed"
   },
   "16235 NE 51st St": {
-   "cdom": 59,
-   "asOf": "2026-10-04",
+   "cdom": 69,
+   "asOf": "2026-10-14",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -1131,10 +1131,10 @@
    "group": "Bellevue 98008"
   },
   "18001 NE 10th St": {
-   "cdom": 15,
-   "asOf": "2026-10-04",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "cdom": 25,
+   "asOf": "2026-10-14",
+   "status": "Pending Inspection",
+   "group": "departed"
   },
   "17101 NE 28th Pl": {
    "cdom": 17,
@@ -1185,8 +1185,8 @@
    "group": "departed"
   },
   "12406 SE 47th St": {
-   "cdom": 23,
-   "asOf": "2026-10-04",
+   "cdom": 33,
+   "asOf": "2026-10-14",
    "status": "Active",
    "group": "Newport Heights"
   },
@@ -1228,9 +1228,9 @@
   },
   "5508 155th Ave NE": {
    "cdom": 5,
-   "asOf": "2026-10-07",
-   "status": "Pending",
-   "group": "departed"
+   "asOf": "2026-10-14",
+   "status": "Active",
+   "group": "Redmond 98052"
   },
   "11815 157th Ave NE": {
    "cdom": 132,
@@ -1309,6 +1309,24 @@
    "asOf": "2026-10-11",
    "status": "Active",
    "group": "Bellevue 98008"
+  },
+  "16321 NE 98th St": {
+   "cdom": 0,
+   "asOf": "2026-10-14",
+   "status": "Coming Soon",
+   "group": "Redmond 98052"
+  },
+  "13771 NE 76th Pl": {
+   "cdom": 2,
+   "asOf": "2026-10-14",
+   "status": "First Look",
+   "group": "Redmond 98052"
+  },
+  "12099 164th Ct NE": {
+   "cdom": 40,
+   "asOf": "2026-10-14",
+   "status": "Active",
+   "group": "Redmond 98052"
   }
  }
 }
