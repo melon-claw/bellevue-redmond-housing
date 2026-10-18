@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14",
+ "updated": "2026-10-18",
  "note": "Cumulative Days On Market as read from the Redfin MLS detail block. CDOM survives relists, unlike days-on-site counters. It is only published while a home is Active or Pending; once it closes, Redfin reverts the MLS block to the prior sold record and the field is gone, so departed homes show null.",
  "homes": {
   "3028 173rd Ct NE": {
@@ -743,8 +743,8 @@
   "4448 144th Ave SE": {
    "cdom": 96,
    "asOf": "2026-10-04",
-   "status": "Active",
-   "group": "Somerset"
+   "status": "Delisted",
+   "group": "departed"
   },
   "14115 SE 45th St": {
    "cdom": 51,
@@ -789,8 +789,8 @@
    "group": "departed"
   },
   "17409 NE 136th St": {
-   "cdom": 63,
-   "asOf": "2026-10-07",
+   "cdom": 74,
+   "asOf": "2026-10-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -825,8 +825,8 @@
    "group": "departed"
   },
   "3040 164th Pl NE": {
-   "cdom": 64,
-   "asOf": "2026-10-04",
+   "cdom": 78,
+   "asOf": "2026-10-18",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -891,8 +891,8 @@
    "group": "departed"
   },
   "17019 NE 118th Way": {
-   "cdom": 33,
-   "asOf": "2026-10-04",
+   "cdom": 47,
+   "asOf": "2026-10-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -939,8 +939,8 @@
    "group": "departed"
   },
   "17210 NE 26th Ct": {
-   "cdom": 24,
-   "asOf": "2026-10-04",
+   "cdom": 38,
+   "asOf": "2026-10-18",
    "status": "Active",
    "group": "Audubon"
   },
@@ -975,14 +975,14 @@
    "group": "departed"
   },
   "14009 NE 74th St": {
-   "cdom": 23,
-   "asOf": "2026-10-04",
+   "cdom": 37,
+   "asOf": "2026-10-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
   "17911 NE 101st Ct": {
-   "cdom": 19,
-   "asOf": "2026-10-04",
+   "cdom": 33,
+   "asOf": "2026-10-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -1065,8 +1065,8 @@
    "group": "Somerset"
   },
   "5619 125th Ave SE": {
-   "cdom": 17,
-   "asOf": "2026-10-04",
+   "cdom": 31,
+   "asOf": "2026-10-18",
    "status": "Active",
    "group": "Newport Heights"
   },
@@ -1107,8 +1107,8 @@
    "group": "Redmond 98052"
   },
   "18316 NE 111th St": {
-   "cdom": 15,
-   "asOf": "2026-10-04",
+   "cdom": 29,
+   "asOf": "2026-10-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -1197,16 +1197,16 @@
    "group": "Redmond 98052"
   },
   "10806 183rd Ave NE": {
-   "cdom": 10,
-   "asOf": "2026-10-04",
+   "cdom": 24,
+   "asOf": "2026-10-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
   "2225 185th Pl NE": {
    "cdom": 5,
    "asOf": "2026-10-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "10108 186th Ct NE": {
    "cdom": 43,
@@ -1313,18 +1313,30 @@
   "16321 NE 98th St": {
    "cdom": 0,
    "asOf": "2026-10-14",
-   "status": "Coming Soon",
+   "status": "Active",
    "group": "Redmond 98052"
   },
   "13771 NE 76th Pl": {
    "cdom": 2,
    "asOf": "2026-10-14",
-   "status": "First Look",
+   "status": "Active",
    "group": "Redmond 98052"
   },
   "12099 164th Ct NE": {
    "cdom": 40,
    "asOf": "2026-10-14",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "15317 NE 108th Pl": {
+   "cdom": 1,
+   "asOf": "2026-10-18",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "11929 179th Pl NE": {
+   "cdom": 1,
+   "asOf": "2026-10-18",
    "status": "Active",
    "group": "Redmond 98052"
   }
