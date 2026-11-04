@@ -1,99 +1,99 @@
 {
- "updated": "2026-10-28",
+ "updated": "2026-11-04",
  "market": [
   {
    "lbl": "Redmond 98052 typical value",
-   "val": "$1,278,951",
-   "delta": "-4.0% YoY",
+   "val": "$1,255,271",
+   "delta": "-4.3% YoY",
    "dir": "down",
    "src": "Zillow ZHVI · all homes, smoothed & seasonally adjusted",
-   "asof": "2026-08-31"
+   "asof": "2026-09-30"
   },
   {
    "lbl": "Bellevue 98008 typical value",
-   "val": "$1,317,444",
-   "delta": "-4.8% YoY",
+   "val": "$1,291,296",
+   "delta": "-5.3% YoY",
    "dir": "down",
    "src": "Zillow ZHVI · all homes, smoothed & seasonally adjusted",
-   "asof": "2026-08-31"
+   "asof": "2026-09-30"
   },
   {
    "lbl": "30-yr fixed rate",
-   "val": "7.32%",
-   "delta": "Freddie Mac Oct 22, 2026",
+   "val": "7.24%",
+   "delta": "Freddie Mac Oct 29, 2026",
    "dir": "down",
    "src": "Freddie Mac PMMS",
-   "asof": "2026-10-22"
+   "asof": "2026-10-29"
   },
   {
    "lbl": "Avg 4BD rent",
-   "val": "$4,855/mo",
+   "val": "$4,768/mo",
    "delta": "local 4BD comps",
-   "dir": "up",
+   "dir": "down",
    "src": "Zillow Rentals · active 4BD houses, 98008 / 98052 / 98006",
-   "asof": "2026-10"
+   "asof": "2026-11"
   }
  ],
  "zhvi": {
   "src": "Zillow ZHVI · all homes, smoothed & seasonally adjusted",
-  "fetched": "2026-10-04",
+  "fetched": "2026-11-04",
   "rows": [
    {
     "zip": "98004",
     "area": "Bellevue · downtown / Clyde Hill",
-    "val": 1989210,
-    "yoy": -2.0,
-    "asof": "2026-07-31"
+    "val": 1913485,
+    "yoy": -2.4,
+    "asof": "2026-09-30"
    },
    {
     "zip": "98005",
     "area": "Bellevue · Bridle Trails",
-    "val": 1535675,
-    "yoy": -2.7,
-    "asof": "2026-08-31"
+    "val": 1501554,
+    "yoy": -3.3,
+    "asof": "2026-09-30"
    },
    {
     "zip": "98006",
     "area": "Bellevue · Somerset / Newport",
-    "val": 1571544,
-    "yoy": -3.9,
-    "asof": "2026-08-31"
+    "val": 1532900,
+    "yoy": -4.3,
+    "asof": "2026-09-30"
    },
    {
     "zip": "98007",
     "area": "Bellevue · Crossroads",
-    "val": 995621,
-    "yoy": -4.5,
-    "asof": "2026-08-31"
+    "val": 969833,
+    "yoy": -5.0,
+    "asof": "2026-09-30"
    },
    {
     "zip": "98008",
     "area": "Bellevue · Lake Hills",
-    "val": 1317444,
-    "yoy": -4.8,
-    "asof": "2026-08-31",
+    "val": 1291296,
+    "yoy": -5.3,
+    "asof": "2026-09-30",
     "core": true
    },
    {
     "zip": "98033",
     "area": "Kirkland · Moss Bay / Juanita",
-    "val": 1548703,
-    "yoy": -5.2,
-    "asof": "2026-08-31"
+    "val": 1517845,
+    "yoy": -5.7,
+    "asof": "2026-09-30"
    },
    {
     "zip": "98034",
     "area": "Kirkland · Totem Lake",
-    "val": 1040092,
-    "yoy": -4.6,
-    "asof": "2026-07-31"
+    "val": 987904,
+    "yoy": -4.9,
+    "asof": "2026-09-30"
    },
    {
     "zip": "98052",
     "area": "Redmond",
-    "val": 1278951,
-    "yoy": -4.0,
-    "asof": "2026-08-31",
+    "val": 1255271,
+    "yoy": -4.3,
+    "asof": "2026-09-30",
     "core": true
    }
   ]
@@ -125,9 +125,9 @@
   },
   {
    "lbl": "Rent comps (avg)",
-   "val": "$4,855/mo",
-   "delta": "local 4BD comps · as of 2026-10",
-   "dir": "up"
+   "val": "$4,768/mo",
+   "delta": "local 4BD comps · as of 2026-11",
+   "dir": "down"
   }
  ],
  "refC": {
@@ -163,8 +163,8 @@
    "elem": "Audubon",
    "elemSrc": "redfin-attendance",
    "note": "New listing; Idylwood, remodeled kitchen and new roof, large lot",
-   "cdom": 60,
-   "cdomDate": "2026-10-25",
+   "cdom": 70,
+   "cdomDate": "2026-11-04",
    "cut": 50000,
    "cutDate": "2026-10-25"
   },
@@ -185,8 +185,8 @@
    "elem": "Audubon",
    "elemSrc": "redfin-attendance",
    "note": "New listing; First Look pre-broadcast, West Lake Sammamish corridor",
-   "cdom": 1,
-   "cdomDate": "2026-10-04"
+   "cdom": 27,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "13233 SE 51st Pl",
@@ -205,10 +205,30 @@
    "elem": "Somerset",
    "elemSrc": "bsd-2024-25",
    "note": "",
-   "cdom": 23,
-   "cdomDate": "2026-10-11",
+   "cdom": 47,
+   "cdomDate": "2026-11-04",
    "cut": 80000,
    "cutDate": "2026-10-11"
+  },
+  {
+   "addr": "5807 142nd Pl SE",
+   "city": "Bellevue",
+   "zip": "98006",
+   "price": 1570000,
+   "beds": 5,
+   "baths": 3,
+   "sqft": 2325,
+   "sd": "BSD",
+   "school": "Somerset",
+   "redfin": "https://www.redfin.com/WA/Bellevue/5807-142nd-Pl-SE-98006/home/240177",
+   "note": "Back on market",
+   "mpr": "2732549280",
+   "lat": 47.550275,
+   "lon": -122.151877,
+   "cdom": 21,
+   "cdomDate": "2026-11-04",
+   "elem": "Somerset",
+   "elemSrc": "bsd-2024-25"
   },
   {
    "addr": "14130 SE 49th Pl",
@@ -229,8 +249,8 @@
    "note": "Main-level primary suite",
    "cut": 67000,
    "cutDate": "2026-09-26",
-   "cdom": 92,
-   "cdomDate": "2026-10-04"
+   "cdom": 123,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "14023 SE 60th St",
@@ -251,8 +271,8 @@
    "note": "$200k+ upgrades",
    "cut": 119050,
    "cutDate": "2026-09-26",
-   "cdom": 107,
-   "cdomDate": "2026-10-04"
+   "cdom": 138,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "14115 SE 45th St",
@@ -271,8 +291,28 @@
    "elem": "Somerset",
    "elemSrc": "bsd-2024-25",
    "note": "New listing; Somerset",
-   "cdom": 51,
-   "cdomDate": "2026-10-04"
+   "cdom": 82,
+   "cdomDate": "2026-11-04"
+  },
+  {
+   "addr": "12619 SE 26th Pl",
+   "city": "Bellevue",
+   "zip": "98005",
+   "price": 1400000,
+   "beds": 4,
+   "baths": 2.5,
+   "sqft": 2620,
+   "sd": "BSD",
+   "school": "Woodridge",
+   "redfin": "https://www.redfin.com/WA/Bellevue/12619-SE-26th-Pl-98005/home/508984",
+   "note": "New listing",
+   "mpr": "1704433531",
+   "lat": 47.586632,
+   "lon": -122.171053,
+   "cdom": 5,
+   "cdomDate": "2026-11-04",
+   "elem": "Woodridge",
+   "elemSrc": "bsd-2024-25"
   },
   {
    "addr": "12603 SE 26th Pl",
@@ -286,31 +326,13 @@
    "school": "Woodridge",
    "redfin": "https://www.redfin.com/WA/Bellevue/12603-SE-26th-Pl-98005/home/509276",
    "note": "New listing; Woodridge, 1958 build on a 9,853 sqft lot, southwest exposure",
-   "cdom": 3,
-   "cdomDate": "2026-10-25",
-   "lat": 47.586671,
-   "lon": -122.171723,
+   "cdom": 13,
+   "cdomDate": "2026-11-04",
+   "lat": 47.586635,
+   "lon": -122.171722,
    "elem": "Woodridge",
-   "elemSrc": "bsd-2024-25"
-  },
-  {
-   "addr": "1703 128th Ave SE",
-   "city": "Bellevue",
-   "zip": "98005",
-   "price": 1999998,
-   "beds": 4,
-   "baths": 4,
-   "sqft": 2813,
-   "sd": "BSD",
-   "school": "Woodridge",
-   "redfin": "https://www.redfin.com/WA/Bellevue/1703-128th-Ave-SE-98005/home/509008",
-   "mpr": "1427582582",
-   "lat": 47.59578,
-   "lon": -122.170546,
-   "cdom": 44,
-   "cdomDate": "2026-10-04",
-   "elem": "Woodridge",
-   "elemSrc": "bsd-2024-25"
+   "elemSrc": "bsd-2024-25",
+   "mpr": "2571423420"
   },
   {
    "addr": "12334 SE 23rd Pl",
@@ -327,8 +349,8 @@
    "lat": 47.589897,
    "lon": -122.171839,
    "note": "Joined the tracker at $1,999,999 with 137 cumulative days on market",
-   "cdom": 137,
-   "cdomDate": "2026-10-07",
+   "cdom": 165,
+   "cdomDate": "2026-11-04",
    "elem": "Woodridge",
    "elemSrc": "bsd-2024-25"
   },
@@ -351,30 +373,8 @@
    "note": "Newport Hills cul-de-sac, brand-new roof",
    "cut": 100000,
    "cutDate": "2026-10-07",
-   "cdom": 74,
-   "cdomDate": "2026-10-07"
-  },
-  {
-   "addr": "5221 120th Ave SE",
-   "city": "Bellevue",
-   "zip": "98006",
-   "price": 1325000,
-   "beds": 5,
-   "baths": 3,
-   "sqft": 2780,
-   "sd": "BSD",
-   "school": "Newport Heights",
-   "redfin": "https://www.redfin.com/WA/Bellevue/5221-120th-Ave-SE-98006/home/414339",
-   "mpr": "1850067091",
-   "lat": 47.55563,
-   "lon": -122.178115,
-   "elem": "Newport Heights",
-   "elemSrc": "bsd-2024-25",
-   "note": "Workshop",
-   "cut": 75000,
-   "cutDate": "2026-08-15",
-   "cdom": 107,
-   "cdomDate": "2026-10-04"
+   "cdom": 102,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "5802 111th Ave SE",
@@ -391,8 +391,8 @@
    "lat": 47.551206,
    "lon": -122.191549,
    "note": "New listing; Redfin First Look, 4BD/3BA, 3,760 sqft",
-   "cdom": 3,
-   "cdomDate": "2026-10-04",
+   "cdom": 26,
+   "cdomDate": "2026-11-04",
    "elem": "Newport Heights",
    "elemSrc": "bsd-2024-25"
   },
@@ -410,8 +410,8 @@
    "mpr": "2725905090",
    "lat": 47.562146,
    "lon": -122.174291,
-   "cdom": 33,
-   "cdomDate": "2026-10-14",
+   "cdom": 54,
+   "cdomDate": "2026-11-04",
    "elem": "Newport Heights",
    "elemSrc": "bsd-2024-25",
    "cut": 200000,
@@ -436,14 +436,14 @@
    "note": "Lake Washington views",
    "cut": 27000,
    "cutDate": "2026-10-04",
-   "cdom": 107,
-   "cdomDate": "2026-10-04"
+   "cdom": 138,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "11030 SE 60th Ln",
    "city": "Bellevue",
    "zip": "98006",
-   "price": 1850000,
+   "price": 1790000,
    "beds": 4,
    "baths": 3.5,
    "sqft": 3400,
@@ -454,16 +454,18 @@
    "mpr": "9865481066",
    "lat": 47.550135,
    "lon": -122.194192,
-   "cdom": 3,
-   "cdomDate": "2026-10-11",
+   "cdom": 27,
+   "cdomDate": "2026-11-04",
    "elem": "Newport Heights",
-   "elemSrc": "bsd-2024-25"
+   "elemSrc": "bsd-2024-25",
+   "cut": 60000,
+   "cutDate": "2026-11-04"
   },
   {
    "addr": "8109 Avondale Way NE",
    "city": "Redmond",
    "zip": "98052",
-   "price": 1000000,
+   "price": 950000,
    "beds": 4,
    "baths": 1.5,
    "sqft": 1550,
@@ -474,27 +476,30 @@
    "lat": 47.676104,
    "lon": -122.107953,
    "note": "New listing",
-   "cdom": 33,
-   "cdomDate": "2026-10-04"
+   "cdom": 64,
+   "cdomDate": "2026-11-04",
+   "cut": 50000,
+   "cutDate": "2026-11-04"
   },
   {
-   "addr": "16036 NE 106th St",
+   "addr": "13229 174th Ave NE",
    "city": "Redmond",
    "zip": "98052",
-   "price": 1069950,
+   "price": 1150000,
    "beds": 4,
-   "baths": 3,
-   "sqft": 1462,
+   "baths": 2.5,
+   "sqft": 2829,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/16036-NE-106th-St-98052/home/323879",
-   "mpr": "2597751549",
-   "lat": 47.695308,
-   "lon": -122.125189,
-   "cdom": 38,
-   "cdomDate": "2026-10-11",
-   "cut": 30050,
-   "cutDate": "2026-10-11"
+   "redfin": "https://www.redfin.com/WA/Redmond/13229-174th-Ave-NE-98052/home/451255",
+   "note": "New listing; English Hill two-story with bonus room, 1987 build",
+   "cdom": 13,
+   "cdomDate": "2026-11-04",
+   "lat": 47.718975,
+   "lon": -122.108572,
+   "cut": 99000,
+   "cutDate": "2026-11-04",
+   "mpr": "2179307505"
   },
   {
    "addr": "14009 NE 74th St",
@@ -511,10 +516,46 @@
    "lat": 47.670528,
    "lon": -122.152867,
    "note": "New listing",
-   "cdom": 37,
-   "cdomDate": "2026-10-18",
+   "cdom": 54,
+   "cdomDate": "2026-11-04",
    "cut": 20000,
    "cutDate": "2026-10-18"
+  },
+  {
+   "addr": "9901 167th Ave NE",
+   "city": "Redmond",
+   "zip": "98052",
+   "price": 1198000,
+   "beds": 4,
+   "baths": 2,
+   "sqft": 1442,
+   "sd": "LWSD",
+   "school": "Redmond 98052",
+   "redfin": "https://www.redfin.com/WA/Redmond/9901-167th-Ave-NE-98052/home/323011",
+   "note": "New listing",
+   "mpr": "2378138795",
+   "lat": 47.688499,
+   "lon": -122.117048,
+   "cdom": 3,
+   "cdomDate": "2026-11-04"
+  },
+  {
+   "addr": "5415 159th Pl NE",
+   "city": "Redmond",
+   "zip": "98052",
+   "price": 1199000,
+   "beds": 4,
+   "baths": 2.5,
+   "sqft": 1950,
+   "sd": "LWSD",
+   "school": "Redmond 98052",
+   "redfin": "https://www.redfin.com/WA/Redmond/5415-159th-Pl-NE-98052/home/503356",
+   "note": "New listing",
+   "mpr": "1326157281",
+   "lat": 47.656776,
+   "lon": -122.12799,
+   "cdom": 4,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "14327 NE 84th Ct",
@@ -531,8 +572,8 @@
    "lat": 47.677716,
    "lon": -122.148462,
    "note": "New listing",
-   "cdom": 38,
-   "cdomDate": "2026-10-04",
+   "cdom": 69,
+   "cdomDate": "2026-11-04",
    "cut": 150000,
    "cutDate": "2026-10-04"
   },
@@ -548,29 +589,31 @@
    "school": "Redmond 98052",
    "redfin": "https://www.redfin.com/WA/Redmond/7003-134th-Ave-NE-98052/home/514378",
    "note": "Back on market Oct 2026 after a brief pending; Rose Hill, 1966 build",
-   "cdom": 13,
-   "cdomDate": "2026-10-25",
+   "cdom": 23,
+   "cdomDate": "2026-11-04",
    "mpr": "2535650041",
    "lat": 47.668224,
    "lon": -122.161778
   },
   {
-   "addr": "13771 NE 76th Pl",
+   "addr": "16817 NE 91st St",
    "city": "Redmond",
    "zip": "98052",
    "price": 1200000,
-   "beds": 4,
-   "baths": 2,
-   "sqft": 1560,
+   "beds": 5,
+   "baths": 3,
+   "sqft": 2500,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "note": "New, First Look listing; 4 bd / 2 ba, 1,560 sqft",
-   "redfin": "https://www.redfin.com/WA/Redmond/13771-NE-76th-Pl-98052/home/515224",
-   "mpr": "2687795512",
-   "lat": 47.67251,
-   "lon": -122.156114,
-   "cdom": 2,
-   "cdomDate": "2026-10-14"
+   "redfin": "https://www.redfin.com/WA/Redmond/16817-NE-91st-St-98052/home/324873",
+   "mpr": "1398207572",
+   "lat": 47.68225,
+   "lon": -122.114985,
+   "note": "New listing; 5 bd / 3 ba, 2,500 sqft",
+   "cdom": 29,
+   "cdomDate": "2026-11-04",
+   "cut": 75000,
+   "cutDate": "2026-11-04"
   },
   {
    "addr": "9210 166th Pl NE",
@@ -589,25 +632,8 @@
    "note": "Large corner lot, quiet dead-end street",
    "cut": 64125,
    "cutDate": "2026-09-14",
-   "cdom": 65,
-   "cdomDate": "2026-10-04"
-  },
-  {
-   "addr": "13229 174th Ave NE",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1249000,
-   "beds": 4,
-   "baths": 2.5,
-   "sqft": 2829,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/13229-174th-Ave-NE-98052/home/451255",
-   "note": "New listing; English Hill two-story with bonus room, 1987 build",
-   "cdom": 3,
-   "cdomDate": "2026-10-25",
-   "lat": 47.719013,
-   "lon": -122.108593
+   "cdom": 96,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "16235 NE 51st St",
@@ -624,28 +650,10 @@
    "lat": 47.656709,
    "lon": -122.123234,
    "note": "Back on market after an earlier listing campaign",
-   "cdom": 83,
-   "cdomDate": "2026-10-28",
+   "cdom": 90,
+   "cdomDate": "2026-11-04",
    "cut": 60000,
    "cutDate": "2026-10-28"
-  },
-  {
-   "addr": "16817 NE 91st St",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1275000,
-   "beds": 5,
-   "baths": 3,
-   "sqft": 2500,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/16817-NE-91st-St-98052/home/324873",
-   "mpr": "1398207572",
-   "lat": 47.68225,
-   "lon": -122.114985,
-   "note": "New listing; 5 bd / 3 ba, 2,500 sqft",
-   "cdom": 1,
-   "cdomDate": "2026-10-07"
   },
   {
    "addr": "5928 160th Ct NE",
@@ -662,8 +670,8 @@
    "mpr": "1792476689",
    "lat": 47.6612,
    "lon": -122.127277,
-   "cdom": 1,
-   "cdomDate": "2026-10-11"
+   "cdom": 25,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "17518 NE 22nd Ct",
@@ -685,8 +693,8 @@
    "note": "Pitcairn, Microsoft area",
    "cut": 44000,
    "cutDate": "2026-10-04",
-   "cdom": 128,
-   "cdomDate": "2026-10-04"
+   "cdom": 159,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "10717 166th Ct NE",
@@ -703,10 +711,28 @@
    "lat": 47.696435,
    "lon": -122.1184,
    "note": "",
-   "cdom": 35,
-   "cdomDate": "2026-10-25",
+   "cdom": 45,
+   "cdomDate": "2026-11-04",
    "cut": 76000,
    "cutDate": "2026-10-25"
+  },
+  {
+   "addr": "13420 NE 111th Ct",
+   "city": "Redmond",
+   "zip": "98052",
+   "price": 1375000,
+   "beds": 4,
+   "baths": 3,
+   "sqft": 2472,
+   "sd": "LWSD",
+   "school": "Redmond 98052",
+   "redfin": "https://www.redfin.com/WA/Redmond/13420-NE-111th-Ct-98052/home/11903237",
+   "note": "New listing",
+   "mpr": "2723270029",
+   "lat": 47.700102,
+   "lon": -122.160883,
+   "cdom": 5,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "7430 143rd Ave NE",
@@ -723,8 +749,8 @@
    "lat": 47.671656,
    "lon": -122.14838,
    "note": "",
-   "cdom": 16,
-   "cdomDate": "2026-10-04",
+   "cdom": 47,
+   "cdomDate": "2026-11-04",
    "cut": 31800,
    "cutDate": "2026-10-04"
   },
@@ -743,8 +769,8 @@
    "lat": 47.662945,
    "lon": -122.150839,
    "note": "New listing",
-   "cdom": 155,
-   "cdomDate": "2026-10-04"
+   "cdom": 186,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "13503 NE 78th Pl",
@@ -758,10 +784,11 @@
    "school": "Redmond 98052",
    "redfin": "https://www.redfin.com/WA/Redmond/13503-NE-78th-Pl-98052/home/515800",
    "note": "New listing; remodeled, cul-de-sac lot, 1971 build",
-   "cdom": 1,
-   "cdomDate": "2026-10-25",
-   "lat": 47.673864,
-   "lon": -122.160084
+   "cdom": 11,
+   "cdomDate": "2026-11-04",
+   "lat": 47.673902,
+   "lon": -122.160048,
+   "mpr": "2961073669"
   },
   {
    "addr": "11321 178th Pl NE",
@@ -778,8 +805,8 @@
    "lat": 47.700846,
    "lon": -122.102823,
    "note": "",
-   "cdom": 37,
-   "cdomDate": "2026-10-25",
+   "cdom": 47,
+   "cdomDate": "2026-11-04",
    "cut": 75050,
    "cutDate": "2026-10-25"
   },
@@ -800,8 +827,8 @@
    "note": "New listing; English Hills cul-de-sac, remodeled kitchen",
    "cut": 50000,
    "cutDate": "2026-09-23",
-   "cdom": 60,
-   "cdomDate": "2026-10-04"
+   "cdom": 91,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "5733 155th Ave NE",
@@ -818,8 +845,8 @@
    "lat": 47.658754,
    "lon": -122.134288,
    "note": "Back on market after an earlier listing campaign",
-   "cdom": 261,
-   "cdomDate": "2026-10-04"
+   "cdom": 292,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "17409 NE 136th St",
@@ -838,8 +865,8 @@
    "note": "New listing; English Hill area",
    "cut": 26000,
    "cutDate": "2026-10-18",
-   "cdom": 74,
-   "cdomDate": "2026-10-18"
+   "cdom": 91,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "8290 NE 165 Ave",
@@ -856,8 +883,31 @@
    "lat": 47.676507,
    "lon": -122.120025,
    "note": "Land/development value",
-   "cdom": 128,
-   "cdomDate": "2026-10-04"
+   "cdom": 159,
+   "cdomDate": "2026-11-04"
+  },
+  {
+   "addr": "2322 179th Ct NE",
+   "city": "Redmond",
+   "zip": "98052",
+   "price": 1598000,
+   "beds": 4,
+   "baths": 2.5,
+   "sqft": 2710,
+   "sd": "LWSD",
+   "school": "Redmond 98052",
+   "note": "New listing; 4 bd / 2.5 ba, 2,710 sqft",
+   "redfin": "https://www.redfin.com/WA/Redmond/2322-179th-Ct-NE-98052/home/505077",
+   "mpr": "2512997943",
+   "lat": 47.630967,
+   "lon": -122.100593,
+   "cdom": 26,
+   "cdomDate": "2026-11-04",
+   "elem": "Bennett",
+   "elemSrc": "bsd-2024-25",
+   "elemFlag": "district-mismatch",
+   "cut": 42000,
+   "cutDate": "2026-11-04"
   },
   {
    "addr": "10503 158th Ave NE",
@@ -874,51 +924,10 @@
    "lat": 47.693439,
    "lon": -122.128026,
    "note": "",
-   "cdom": 16,
-   "cdomDate": "2026-10-04",
+   "cdom": 47,
+   "cdomDate": "2026-11-04",
    "cut": 75000,
    "cutDate": "2026-10-04"
-  },
-  {
-   "addr": "2322 179th Ct NE",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1640000,
-   "beds": 4,
-   "baths": 2.5,
-   "sqft": 2710,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "note": "New listing; 4 bd / 2.5 ba, 2,710 sqft",
-   "redfin": "https://www.redfin.com/WA/Redmond/2322-179th-Ct-NE-98052/home/505077",
-   "mpr": "2512997943",
-   "lat": 47.630967,
-   "lon": -122.100593,
-   "cdom": 2,
-   "cdomDate": "2026-10-11",
-   "elem": "Bennett",
-   "elemSrc": "bsd-2024-25",
-   "elemFlag": "district-mismatch"
-  },
-  {
-   "addr": "17023 NE 120th St",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1695000,
-   "beds": 4,
-   "baths": 2.5,
-   "sqft": 2536,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/17023-NE-120th-St-98052/home/12318861",
-   "mpr": "2166807609",
-   "lat": 47.706678,
-   "lon": -122.113214,
-   "note": "Woodlands West, CamWest-built",
-   "cut": 64950,
-   "cutDate": "2026-09-14",
-   "cdom": 66,
-   "cdomDate": "2026-10-04"
   },
   {
    "addr": "17626 NE 136th St",
@@ -932,10 +941,31 @@
    "school": "Redmond 98052",
    "redfin": "https://www.redfin.com/WA/Redmond/17626-NE-136th-St-98052/home/451224",
    "note": "New listing; English Hill, second primary suite on the main floor, 15,010 sqft lot",
-   "cdom": 2,
-   "cdomDate": "2026-10-25",
-   "lat": 47.721983,
-   "lon": -122.10383
+   "cdom": 12,
+   "cdomDate": "2026-11-04",
+   "lat": 47.722018,
+   "lon": -122.103871,
+   "mpr": "2853422328"
+  },
+  {
+   "addr": "18316 NE 111th St",
+   "city": "Redmond",
+   "zip": "98052",
+   "price": 1699500,
+   "beds": 4,
+   "baths": 2.5,
+   "sqft": 3230,
+   "sd": "LWSD",
+   "school": "Redmond 98052",
+   "redfin": "https://www.redfin.com/WA/Redmond/18316-NE-111th-St-98052/home/18660177",
+   "mpr": "1290387204",
+   "lat": 47.699017,
+   "lon": -122.095552,
+   "note": "",
+   "cdom": 46,
+   "cdomDate": "2026-11-04",
+   "cut": 35500,
+   "cutDate": "2026-11-04"
   },
   {
    "addr": "16563 NE 119th Way",
@@ -954,28 +984,28 @@
    "note": "New listing",
    "cut": 200049,
    "cutDate": "2026-09-26",
-   "cdom": 106,
-   "cdomDate": "2026-10-04"
+   "cdom": 137,
+   "cdomDate": "2026-11-04"
   },
   {
-   "addr": "18316 NE 111th St",
+   "addr": "17019 NE 118th Way",
    "city": "Redmond",
    "zip": "98052",
-   "price": 1735000,
+   "price": 1700000,
    "beds": 4,
-   "baths": 2.5,
-   "sqft": 3230,
+   "baths": 3.5,
+   "sqft": 3041,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/18316-NE-111th-St-98052/home/18660177",
-   "mpr": "1290387204",
-   "lat": 47.699017,
-   "lon": -122.095552,
-   "note": "",
-   "cdom": 29,
-   "cdomDate": "2026-10-18",
-   "cut": 40000,
-   "cutDate": "2026-10-18"
+   "redfin": "https://www.redfin.com/WA/Redmond/17019-NE-118th-Way-98052/home/12318957",
+   "mpr": "1985770913",
+   "lat": 47.705837,
+   "lon": -122.113183,
+   "note": "New listing",
+   "cdom": 64,
+   "cdomDate": "2026-11-04",
+   "cut": 95000,
+   "cutDate": "2026-11-04"
   },
   {
    "addr": "12903 176th Pl NE",
@@ -994,8 +1024,8 @@
    "note": "Dual primary suites",
    "cut": 92888,
    "cutDate": "2026-09-14",
-   "cdom": 100,
-   "cdomDate": "2026-10-04"
+   "cdom": 131,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "10332 186th Ct NE",
@@ -1012,8 +1042,8 @@
    "lat": 47.693327,
    "lon": -122.09465,
    "note": "New listing",
-   "cdom": 30,
-   "cdomDate": "2026-10-11",
+   "cdom": 54,
+   "cdomDate": "2026-11-04",
    "cut": 35000,
    "cutDate": "2026-10-11"
   },
@@ -1032,8 +1062,8 @@
    "lat": 47.670758,
    "lon": -122.139931,
    "note": "Back on the market Sep 2026 at $1,749,000 after being recorded as closed Aug 29 at $1,825,000; 6BD/5.5BA, 3,770 sqft; 182 cumulative days",
-   "cdom": 207,
-   "cdomDate": "2026-10-04"
+   "cdom": 238,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "11664 168th Ct NE",
@@ -1050,8 +1080,8 @@
    "lat": 47.704335,
    "lon": -122.115493,
    "note": "New listing",
-   "cdom": 30,
-   "cdomDate": "2026-10-11",
+   "cdom": 54,
+   "cdomDate": "2026-11-04",
    "cut": 25000,
    "cutDate": "2026-10-11"
   },
@@ -1072,8 +1102,28 @@
    "note": "New listing; Redmond, Old Redmond Rd corridor",
    "cut": 50000,
    "cutDate": "2026-10-04",
-   "cdom": 50,
-   "cdomDate": "2026-10-04"
+   "cdom": 81,
+   "cdomDate": "2026-11-04"
+  },
+  {
+   "addr": "17211 NE 117th Way",
+   "city": "Redmond",
+   "zip": "98052",
+   "price": 1775000,
+   "beds": 5,
+   "baths": 3,
+   "sqft": 2940,
+   "sd": "LWSD",
+   "school": "Redmond 98052",
+   "note": "New to the tracker at 32 cumulative days; 5 bd / 3 ba, 2,940 sqft",
+   "redfin": "https://www.redfin.com/WA/Redmond/17211-NE-117th-Way-98052/home/2066192",
+   "mpr": "1393896248",
+   "lat": 47.704815,
+   "lon": -122.109433,
+   "cdom": 56,
+   "cdomDate": "2026-11-04",
+   "cut": 24000,
+   "cutDate": "2026-11-04"
   },
   {
    "addr": "18947 NE 68th St",
@@ -1090,30 +1140,10 @@
    "lat": 47.665761,
    "lon": -122.085215,
    "note": "Redmond 98052 sweep · east Redmond near Bear Creek",
-   "cdom": 50,
-   "cdomDate": "2026-10-25",
+   "cdom": 60,
+   "cdomDate": "2026-11-04",
    "cut": 103000,
    "cutDate": "2026-10-25"
-  },
-  {
-   "addr": "17019 NE 118th Way",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1795000,
-   "beds": 4,
-   "baths": 3.5,
-   "sqft": 3041,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/17019-NE-118th-Way-98052/home/12318957",
-   "mpr": "1985770913",
-   "lat": 47.705837,
-   "lon": -122.113183,
-   "note": "New listing",
-   "cdom": 47,
-   "cdomDate": "2026-10-18",
-   "cut": 57500,
-   "cutDate": "2026-10-18"
   },
   {
    "addr": "15317 NE 108th Pl",
@@ -1127,28 +1157,11 @@
    "school": "Redmond 98052",
    "redfin": "https://www.redfin.com/WA/Redmond/15317-NE-108th-Pl-98052/home/325710",
    "note": "New listing; Valley Estates, updated, private 1.06-acre lot",
-   "lat": 47.697683,
-   "lon": -122.133887,
-   "cdom": 1,
-   "cdomDate": "2026-10-18"
-  },
-  {
-   "addr": "17211 NE 117th Way",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1799000,
-   "beds": 5,
-   "baths": 3,
-   "sqft": 2940,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "note": "New to the tracker at 32 cumulative days; 5 bd / 3 ba, 2,940 sqft",
-   "redfin": "https://www.redfin.com/WA/Redmond/17211-NE-117th-Way-98052/home/2066192",
-   "mpr": "1393896248",
-   "lat": 47.704815,
-   "lon": -122.109433,
-   "cdom": 32,
-   "cdomDate": "2026-10-11"
+   "lat": 47.697274,
+   "lon": -122.133718,
+   "cdom": 18,
+   "cdomDate": "2026-11-04",
+   "mpr": "2296191691"
   },
   {
    "addr": "11929 179th Pl NE",
@@ -1162,10 +1175,11 @@
    "school": "Redmond 98052",
    "redfin": "https://www.redfin.com/WA/Redmond/11929-179th-Pl-NE-98052/home/2116887",
    "note": "New listing; Monticello Estates, quiet cul-de-sac",
-   "lat": 47.707222,
-   "lon": -122.100961,
-   "cdom": 1,
-   "cdomDate": "2026-10-18"
+   "lat": 47.707258,
+   "lon": -122.100973,
+   "cdom": 18,
+   "cdomDate": "2026-11-04",
+   "mpr": "2175568285"
   },
   {
    "addr": "18115 NE 113th St",
@@ -1182,50 +1196,10 @@
    "lat": 47.700385,
    "lon": -122.098135,
    "note": "Redmond 98052 sweep · First Look (pre-market) listing; MLS block carries no CDOM yet, on-market date Sep 4",
-   "cdom": 15,
-   "cdomDate": "2026-10-11",
+   "cdom": 39,
+   "cdomDate": "2026-11-04",
    "cut": 100000,
    "cutDate": "2026-10-11"
-  },
-  {
-   "addr": "11738 167th Ct NE",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1850000,
-   "beds": 5,
-   "baths": 2.5,
-   "sqft": 3168,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/11738-167th-Ct-NE-98052/home/2080465",
-   "mpr": "2955098676",
-   "lat": 47.705504,
-   "lon": -122.116532,
-   "note": "New listing",
-   "cdom": 29,
-   "cdomDate": "2026-10-11",
-   "cut": 45000,
-   "cutDate": "2026-10-11"
-  },
-  {
-   "addr": "17468 NE 123rd Way",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1850000,
-   "beds": 5,
-   "baths": 3,
-   "sqft": 3045,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/17468-NE-123rd-Way-98052/home/59703932",
-   "mpr": "2059289739",
-   "lat": 47.710239,
-   "lon": -122.106101,
-   "note": "New listing; north Redmond, Education Hill area",
-   "cut": 50000,
-   "cutDate": "2026-09-23",
-   "cdom": 51,
-   "cdomDate": "2026-10-04"
   },
   {
    "addr": "11758 168th Pl NE",
@@ -1244,8 +1218,8 @@
    "note": "New listing; Education Hill area",
    "cut": 55000,
    "cutDate": "2026-09-14",
-   "cdom": 44,
-   "cdomDate": "2026-10-04"
+   "cdom": 75,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "11730 134th Pl NE",
@@ -1262,8 +1236,8 @@
    "lat": 47.705905,
    "lon": -122.160146,
    "note": "New listing",
-   "cdom": 23,
-   "cdomDate": "2026-10-04"
+   "cdom": 54,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "12019 178th Pl NE",
@@ -1280,10 +1254,30 @@
    "lat": 47.707791,
    "lon": -122.102017,
    "note": "",
-   "cdom": 37,
-   "cdomDate": "2026-10-25",
+   "cdom": 47,
+   "cdomDate": "2026-11-04",
    "cut": 75000,
    "cutDate": "2026-10-25"
+  },
+  {
+   "addr": "12089 164th Ct NE",
+   "city": "Redmond",
+   "zip": "98052",
+   "price": 1880000,
+   "beds": 5,
+   "baths": 4,
+   "sqft": 3120,
+   "sd": "LWSD",
+   "school": "Redmond 98052",
+   "redfin": "https://www.redfin.com/WA/Redmond/12089-164th-Ct-NE-98052/home/69356785",
+   "mpr": "9375808252",
+   "lat": 47.707654,
+   "lon": -122.1205,
+   "note": "New listing; 5/4 on a cul-de-sac in north Redmond",
+   "cdom": 68,
+   "cdomDate": "2026-11-04",
+   "cut": 70000,
+   "cutDate": "2026-11-04"
   },
   {
    "addr": "11727 165th Pl NE",
@@ -1300,8 +1294,8 @@
    "lat": 47.705155,
    "lon": -122.120634,
    "note": "Northstar / Education Hill Backup offers being accepted (under contract).",
-   "cdom": 197,
-   "cdomDate": "2026-10-04"
+   "cdom": 228,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "17020 NE 129th Cir",
@@ -1314,31 +1308,50 @@
    "sd": "LWSD",
    "school": "Redmond 98052",
    "redfin": "https://www.redfin.com/WA/Redmond/17020-NE-129th-Ct-98052/home/451643",
-   "lat": 47.715156,
-   "lon": -122.111247,
+   "lat": 47.71523,
+   "lon": -122.111074,
    "note": "New listing; English Hill, landscaped lot just under an acre, 4,620 sqft",
-   "cdom": 20,
-   "cdomDate": "2026-10-28"
+   "cdom": 27,
+   "cdomDate": "2026-11-04",
+   "mpr": "1486560567"
   },
   {
-   "addr": "12089 164th Ct NE",
+   "addr": "17025 NE 113th Ct",
+   "city": "Redmond",
+   "zip": "98052",
+   "price": 1899900,
+   "beds": 4,
+   "baths": 2.5,
+   "sqft": 3260,
+   "sd": "LWSD",
+   "school": "Redmond 98052",
+   "redfin": "https://www.redfin.com/WA/Redmond/17025-NE-113th-Ct-98052/home/324766",
+   "note": "New to the tracker this refresh",
+   "lat": 47.701318,
+   "lon": -122.112185,
+   "cdom": 32,
+   "cdomDate": "2026-11-04",
+   "mpr": "1448678590",
+   "cut": 100099,
+   "cutDate": "2026-11-04"
+  },
+  {
+   "addr": "4924 162nd Ct NE",
    "city": "Redmond",
    "zip": "98052",
    "price": 1950000,
-   "beds": 5,
-   "baths": 4,
-   "sqft": 3120,
+   "beds": 4,
+   "baths": 2.5,
+   "sqft": 2900,
    "sd": "LWSD",
    "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/12089-164th-Ct-NE-98052/home/69356785",
-   "mpr": "9375808252",
-   "lat": 47.707654,
-   "lon": -122.1205,
-   "note": "New listing; 5/4 on a cul-de-sac in north Redmond",
-   "cdom": 37,
-   "cdomDate": "2026-10-04",
-   "cut": 49800,
-   "cutDate": "2026-10-04"
+   "redfin": "https://www.redfin.com/WA/Redmond/4924-162nd-Ct-NE-98052/home/505475",
+   "note": "New listing Nov 3",
+   "mpr": "1365425435",
+   "lat": 47.654596,
+   "lon": -122.124593,
+   "cdom": 0,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "2311 185th Pl NE",
@@ -1358,8 +1371,8 @@
    "elemSrc": "bsd-2024-25",
    "elemFlag": "district-mismatch",
    "note": "New listing",
-   "cdom": 143,
-   "cdomDate": "2026-10-04"
+   "cdom": 174,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "14330 172nd Ave NE",
@@ -1376,26 +1389,8 @@
    "lat": 47.730447,
    "lon": -122.10954,
    "note": "New to the tracker; 3,025 sqft, on market 65 days by MLS count",
-   "cdom": 100,
-   "cdomDate": "2026-10-04"
-  },
-  {
-   "addr": "11815 157th Ave NE",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1995000,
-   "beds": 4,
-   "baths": 3.5,
-   "sqft": 4204,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/11815-157th-Ave-NE-98052/home/8186342",
-   "note": "New to the tracker this refresh",
-   "lat": 47.706509,
-   "lon": -122.131201,
-   "cdom": 132,
-   "cdomDate": "2026-10-04",
-   "mpr": "1401184109"
+   "cdom": 131,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "12099 164th Ct NE",
@@ -1412,8 +1407,8 @@
    "mpr": "2006028972",
    "lat": 47.707816,
    "lon": -122.120573,
-   "cdom": 40,
-   "cdomDate": "2026-10-14",
+   "cdom": 61,
+   "cdomDate": "2026-11-04",
    "list0": 2285000,
    "list0Date": "2026-09-09"
   },
@@ -1431,26 +1426,8 @@
    "mpr": "1672135514",
    "lat": 47.691239,
    "lon": -122.092812,
-   "cdom": 43,
-   "cdomDate": "2026-10-04"
-  },
-  {
-   "addr": "17025 NE 113th Ct",
-   "city": "Redmond",
-   "zip": "98052",
-   "price": 1999999,
-   "beds": 4,
-   "baths": 2.5,
-   "sqft": 3260,
-   "sd": "LWSD",
-   "school": "Redmond 98052",
-   "redfin": "https://www.redfin.com/WA/Redmond/17025-NE-113th-Ct-98052/home/324766",
-   "note": "New to the tracker this refresh",
-   "lat": 47.701318,
-   "lon": -122.112185,
-   "cdom": 1,
-   "cdomDate": "2026-10-04",
-   "mpr": "1448678590"
+   "cdom": 74,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "16042 SE 10th St",
@@ -1471,8 +1448,28 @@
    "note": "New listing",
    "cut": 50000,
    "cutDate": "2026-09-26",
-   "cdom": 23,
-   "cdomDate": "2026-10-04"
+   "cdom": 54,
+   "cdomDate": "2026-11-04"
+  },
+  {
+   "addr": "15718 NE 1st Pl",
+   "city": "Bellevue",
+   "zip": "98008",
+   "price": 970000,
+   "beds": 4,
+   "baths": 1.5,
+   "sqft": 1350,
+   "sd": "BSD",
+   "school": "Bellevue 98008",
+   "redfin": "https://www.redfin.com/WA/Bellevue/15718-NE-1st-Pl-98008/home/500677",
+   "note": "New listing",
+   "mpr": "1050161156",
+   "lat": 47.610949,
+   "lon": -122.129578,
+   "cdom": 7,
+   "cdomDate": "2026-11-04",
+   "elem": "Phantom Lake",
+   "elemSrc": "bsd-2024-25"
   },
   {
    "addr": "17421 NE 11th St",
@@ -1491,8 +1488,8 @@
    "elem": "Bennett",
    "elemSrc": "bsd-2024-25",
    "note": "New listing",
-   "cdom": 57,
-   "cdomDate": "2026-10-28",
+   "cdom": 64,
+   "cdomDate": "2026-11-04",
    "cut": 191900,
    "cutDate": "2026-10-28"
   },
@@ -1513,8 +1510,8 @@
    "elem": "Phantom Lake",
    "elemSrc": "bsd-2024-25",
    "note": "",
-   "cdom": 20,
-   "cdomDate": "2026-10-04"
+   "cdom": 51,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "1012 179th Pl NE",
@@ -1533,8 +1530,8 @@
    "elem": "Bennett",
    "elemSrc": "bsd-2024-25",
    "note": "New listing",
-   "cdom": 23,
-   "cdomDate": "2026-10-04"
+   "cdom": 54,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "16237 SE 7th St",
@@ -1548,12 +1545,35 @@
    "school": "Bellevue 98008",
    "redfin": "https://www.redfin.com/WA/Bellevue/16237-SE-7th-St-98008/home/425668",
    "note": "New listing; renovated two-story, 5 bd / 2 ba, 1956 build",
-   "cdom": 3,
-   "cdomDate": "2026-10-25",
-   "lat": 47.603296,
-   "lon": -122.124105,
+   "cdom": 13,
+   "cdomDate": "2026-11-04",
+   "lat": 47.603294,
+   "lon": -122.1241,
    "elem": "Phantom Lake",
-   "elemSrc": "bsd-2024-25"
+   "elemSrc": "bsd-2024-25",
+   "mpr": "2508392893"
+  },
+  {
+   "addr": "16613 NE 18th St",
+   "city": "Bellevue",
+   "zip": "98008",
+   "price": 1250000,
+   "beds": 4,
+   "baths": 3,
+   "sqft": 1950,
+   "sd": "BSD",
+   "school": "Bellevue 98008",
+   "redfin": "https://www.redfin.com/WA/Bellevue/16613-NE-18th-St-98008/home/431949",
+   "mpr": "1575520150",
+   "lat": 47.626067,
+   "lon": -122.118436,
+   "elem": "Sherwood Forest",
+   "elemSrc": "bsd-2024-25",
+   "note": "New listing; First Look pre-broadcast, Sherwood Forest area",
+   "cdom": 28,
+   "cdomDate": "2026-11-04",
+   "cut": 50000,
+   "cutDate": "2026-11-04"
   },
   {
    "addr": "2406 166th Ave NE",
@@ -1569,31 +1589,33 @@
    "note": "New to the tracker this refresh",
    "lat": 47.631581,
    "lon": -122.11911,
-   "cdom": 3,
-   "cdomDate": "2026-10-04",
+   "cdom": 34,
+   "cdomDate": "2026-11-04",
    "elem": "Ardmore",
    "elemSrc": "bsd-2024-25",
    "mpr": "1419129510"
   },
   {
-   "addr": "16613 NE 18th St",
+   "addr": "17219 NE 16th Pl",
    "city": "Bellevue",
    "zip": "98008",
-   "price": 1300000,
+   "price": 1299800,
    "beds": 4,
-   "baths": 3,
-   "sqft": 1950,
+   "baths": 2.5,
+   "sqft": 2250,
    "sd": "BSD",
    "school": "Bellevue 98008",
-   "redfin": "https://www.redfin.com/WA/Bellevue/16613-NE-18th-St-98008/home/431949",
-   "mpr": "1575520150",
-   "lat": 47.626067,
-   "lon": -122.118436,
+   "redfin": "https://www.redfin.com/WA/Bellevue/17219-NE-16th-Pl-98008/home/502788",
+   "mpr": "2970145741",
+   "lat": 47.624415,
+   "lon": -122.109477,
    "elem": "Sherwood Forest",
    "elemSrc": "bsd-2024-25",
-   "note": "New listing; First Look pre-broadcast, Sherwood Forest area",
-   "cdom": 13,
-   "cdomDate": "2026-10-04"
+   "note": "",
+   "cdom": 48,
+   "cdomDate": "2026-11-04",
+   "cut": 50200,
+   "cutDate": "2026-11-04"
   },
   {
    "addr": "4038 169th Ave SE",
@@ -1610,8 +1632,8 @@
    "mpr": "2563894997",
    "lat": 47.573336,
    "lon": -122.114583,
-   "cdom": 2,
-   "cdomDate": "2026-10-11",
+   "cdom": 26,
+   "cdomDate": "2026-11-04",
    "elem": "Spiritridge",
    "elemSrc": "bsd-2024-25"
   },
@@ -1634,30 +1656,8 @@
    "note": "Refreshed; main-level bedroom",
    "cut": 100000,
    "cutDate": "2026-10-11",
-   "cdom": 72,
-   "cdomDate": "2026-10-11"
-  },
-  {
-   "addr": "17219 NE 16th Pl",
-   "city": "Bellevue",
-   "zip": "98008",
-   "price": 1350000,
-   "beds": 4,
-   "baths": 2.5,
-   "sqft": 2250,
-   "sd": "BSD",
-   "school": "Bellevue 98008",
-   "redfin": "https://www.redfin.com/WA/Bellevue/17219-NE-16th-Pl-98008/home/502788",
-   "mpr": "2970145741",
-   "lat": 47.624415,
-   "lon": -122.109477,
-   "elem": "Sherwood Forest",
-   "elemSrc": "bsd-2024-25",
-   "note": "",
-   "cdom": 24,
-   "cdomDate": "2026-10-11",
-   "cut": 40000,
-   "cutDate": "2026-10-11"
+   "cdom": 96,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "16436 SE 8th St",
@@ -1678,8 +1678,8 @@
    "note": "Fully renovated, EV outlet, tankless",
    "cut": 70000,
    "cutDate": "2026-10-21",
-   "cdom": 88,
-   "cdomDate": "2026-10-21"
+   "cdom": 102,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "3040 164th Pl NE",
@@ -1700,30 +1700,8 @@
    "note": "New listing; Bellevue 98008",
    "cut": 75012,
    "cutDate": "2026-10-18",
-   "cdom": 78,
-   "cdomDate": "2026-10-18"
-  },
-  {
-   "addr": "16204 Main St",
-   "city": "Bellevue",
-   "zip": "98008",
-   "price": 1419000,
-   "beds": 4,
-   "baths": 3,
-   "sqft": 2840,
-   "sd": "BSD",
-   "school": "Bellevue 98008",
-   "redfin": "https://www.redfin.com/WA/Bellevue/16204-Main-St-98008/home/501909",
-   "mpr": "2656115089",
-   "lat": 47.609479,
-   "lon": -122.124316,
-   "elem": "Phantom Lake",
-   "elemSrc": "bsd-2024-25",
-   "note": "Relisted lower; daylight basement, new deck",
-   "cut": 79000,
-   "cutDate": "2026-08-08",
-   "cdom": 157,
-   "cdomDate": "2026-10-04"
+   "cdom": 95,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "627 166th Ave NE",
@@ -1739,8 +1717,8 @@
    "mpr": "2814216630",
    "lat": 47.615901,
    "lon": -122.119252,
-   "cdom": 134,
-   "cdomDate": "2026-10-04",
+   "cdom": 165,
+   "cdomDate": "2026-11-04",
    "elem": "Bennett",
    "elemSrc": "bsd-2024-25"
   },
@@ -1763,8 +1741,8 @@
    "note": "Renovated — new roof, refinished hardwoods",
    "cut": 125000,
    "cutDate": "2026-08-11",
-   "cdom": 79,
-   "cdomDate": "2026-10-04"
+   "cdom": 110,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "16717 SE 19th St",
@@ -1777,13 +1755,36 @@
    "sd": "BSD",
    "school": "Bellevue 98008",
    "redfin": "https://www.redfin.com/WA/Bellevue/16717-SE-19th-St-98008/home/429212",
-   "lat": 47.593294,
-   "lon": -122.116053,
+   "lat": 47.593269,
+   "lon": -122.116105,
    "note": "New listing Oct 20; renovated 1988 rambler across from Weowna Park; Opendoor-owned (bought Sep 2026 for $1,645,496)",
-   "cdom": 1,
-   "cdomDate": "2026-10-21",
+   "cdom": 14,
+   "cdomDate": "2026-11-04",
    "elem": "Spiritridge",
-   "elemSrc": "bsd-2024-25"
+   "elemSrc": "bsd-2024-25",
+   "mpr": "1392038912"
+  },
+  {
+   "addr": "17101 NE 28th Pl",
+   "city": "Bellevue",
+   "zip": "98008",
+   "price": 1525000,
+   "beds": 5,
+   "baths": 3,
+   "sqft": 2730,
+   "sd": "BSD",
+   "school": "Bellevue 98008",
+   "redfin": "https://www.redfin.com/WA/Bellevue/17101-NE-28th-Pl-98008/home/432194",
+   "mpr": "1120105142",
+   "lat": 47.635289,
+   "lon": -122.112077,
+   "elem": "Ardmore",
+   "elemSrc": "bsd-2024-25",
+   "note": "",
+   "cdom": 48,
+   "cdomDate": "2026-11-04",
+   "cut": 73000,
+   "cutDate": "2026-11-04"
   },
   {
    "addr": "16719 SE 4th Pl",
@@ -1804,28 +1805,8 @@
    "note": "Back on the market after a pending-inspection that did not close (went pending Aug 23); Lake Hills, 4/3, 2,140 sqft",
    "cut": 50000,
    "cutDate": "2026-09-26",
-   "cdom": 60,
-   "cdomDate": "2026-10-04"
-  },
-  {
-   "addr": "17101 NE 28th Pl",
-   "city": "Bellevue",
-   "zip": "98008",
-   "price": 1598000,
-   "beds": 5,
-   "baths": 3,
-   "sqft": 2730,
-   "sd": "BSD",
-   "school": "Bellevue 98008",
-   "redfin": "https://www.redfin.com/WA/Bellevue/17101-NE-28th-Pl-98008/home/432194",
-   "mpr": "1120105142",
-   "lat": 47.635289,
-   "lon": -122.112077,
-   "elem": "Ardmore",
-   "elemSrc": "bsd-2024-25",
-   "note": "",
-   "cdom": 17,
-   "cdomDate": "2026-10-04"
+   "cdom": 91,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "16839 NE 18th St",
@@ -1844,8 +1825,8 @@
    "elem": "Sherwood Forest",
    "elemSrc": "bsd-2024-25",
    "note": "",
-   "cdom": 20,
-   "cdomDate": "2026-10-28",
+   "cdom": 27,
+   "cdomDate": "2026-11-04",
    "cut": 49000,
    "cutDate": "2026-10-28"
   },
@@ -1864,8 +1845,8 @@
    "mpr": "1695842432",
    "lat": 47.618747,
    "lon": -122.102005,
-   "cdom": 1,
-   "cdomDate": "2026-10-11",
+   "cdom": 25,
+   "cdomDate": "2026-11-04",
    "elem": "Bennett",
    "elemSrc": "bsd-2024-25"
   },
@@ -1873,7 +1854,7 @@
    "addr": "17001 NE 35th St",
    "city": "Bellevue",
    "zip": "98008",
-   "price": 1650000,
+   "price": 1599999,
    "beds": 5,
    "baths": 3,
    "sqft": 2420,
@@ -1883,11 +1864,13 @@
    "note": "New to the tracker this refresh",
    "lat": 47.641321,
    "lon": -122.113012,
-   "cdom": 1,
-   "cdomDate": "2026-10-04",
+   "cdom": 20,
+   "cdomDate": "2026-11-04",
    "elem": "Ardmore",
    "elemSrc": "bsd-2024-25",
-   "mpr": "1193784098"
+   "mpr": "1193784098",
+   "cut": 50001,
+   "cutDate": "2026-11-04"
   },
   {
    "addr": "17102 NE 37th Pl",
@@ -1908,8 +1891,8 @@
    "note": "New listing; Burnstead rambler, main-floor primary suite",
    "cut": 100000,
    "cutDate": "2026-09-08",
-   "cdom": 58,
-   "cdomDate": "2026-10-04"
+   "cdom": 89,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "242 W Lake Sammamish Pkwy SE",
@@ -1930,8 +1913,8 @@
    "note": "New listing",
    "cut": 59000,
    "cutDate": "2026-09-26",
-   "cdom": 58,
-   "cdomDate": "2026-10-04"
+   "cdom": 89,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "4200 W Lake Sammamish Pkwy SE",
@@ -1950,8 +1933,8 @@
    "note": "New listing; 1.52 acres, two tax parcels, SR-4 zoning",
    "cut": 94000,
    "cutDate": "2026-09-26",
-   "cdom": 100,
-   "cdomDate": "2026-10-04"
+   "cdom": 131,
+   "cdomDate": "2026-11-04"
   },
   {
    "addr": "17120 SE 29th Pl",
@@ -1967,8 +1950,8 @@
    "note": "New to the tracker this refresh",
    "lat": 47.583885,
    "lon": -122.111997,
-   "cdom": 81,
-   "cdomDate": "2026-10-04",
+   "cdom": 112,
+   "cdomDate": "2026-11-04",
    "elem": "Spiritridge",
    "elemSrc": "bsd-2024-25",
    "mpr": "1438945545"
