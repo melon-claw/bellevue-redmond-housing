@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08",
+ "updated": "2026-11-18",
  "note": "Cumulative Days On Market as read from the Redfin MLS detail block. CDOM survives relists, unlike days-on-site counters. It is only published while a home is Active or Pending; once it closes, Redfin reverts the MLS block to the prior sold record and the field is gone, so departed homes show null.",
  "homes": {
   "3028 173rd Ct NE": {
@@ -17,8 +17,8 @@
   "14130 SE 49th Pl": {
    "cdom": 123,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Somerset"
+   "status": "Delisted",
+   "group": "departed"
   },
   "5221 Somerset Dr SE": {
    "cdom": 104,
@@ -143,8 +143,8 @@
   "17518 NE 22nd Ct": {
    "cdom": 159,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "13702 173rd Pl NE": {
    "cdom": 38,
@@ -195,8 +195,8 @@
    "group": "departed"
   },
   "17615 NE 130th Ct W": {
-   "cdom": 91,
-   "asOf": "2026-11-04",
+   "cdom": 105,
+   "asOf": "2026-11-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -209,8 +209,8 @@
   "5733 155th Ave NE": {
    "cdom": 292,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "8290 NE 165 Ave": {
    "cdom": 159,
@@ -273,8 +273,8 @@
    "group": "departed"
   },
   "7337 151st Ave NE": {
-   "cdom": 238,
-   "asOf": "2026-11-04",
+   "cdom": 252,
+   "asOf": "2026-11-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -309,8 +309,8 @@
    "group": "departed"
   },
   "16563 NE 119th Way": {
-   "cdom": 137,
-   "asOf": "2026-11-04",
+   "cdom": 151,
+   "asOf": "2026-11-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -437,8 +437,8 @@
   "242 W Lake Sammamish Pkwy SE": {
    "cdom": 89,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "status": "Delisted",
+   "group": "departed"
   },
   "4200 W Lake Sammamish Pkwy SE": {
    "cdom": 131,
@@ -489,8 +489,8 @@
    "group": "departed"
   },
   "14203 NE 63rd Ct": {
-   "cdom": 186,
-   "asOf": "2026-11-04",
+   "cdom": 200,
+   "asOf": "2026-11-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -791,8 +791,8 @@
   "17409 NE 136th St": {
    "cdom": 91,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "11758 168th Pl NE": {
    "cdom": 79,
@@ -897,10 +897,10 @@
    "group": "Redmond 98052"
   },
   "8109 Avondale Way NE": {
-   "cdom": 64,
-   "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "cdom": 75,
+   "asOf": "2026-11-15",
+   "status": "Pending Feasibility",
+   "group": "departed"
   },
   "3849 166th Ave SE": {
    "cdom": 18,
@@ -927,8 +927,8 @@
    "group": "Redmond 98052"
   },
   "18947 NE 68th St": {
-   "cdom": 60,
-   "asOf": "2026-11-04",
+   "cdom": 74,
+   "asOf": "2026-11-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -977,8 +977,8 @@
   "14009 NE 74th St": {
    "cdom": 54,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "17911 NE 101st Ct": {
    "cdom": 35,
@@ -1127,8 +1127,8 @@
   "17219 NE 16th Pl": {
    "cdom": 48,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "status": "Delisted",
+   "group": "departed"
   },
   "18001 NE 10th St": {
    "cdom": 25,
@@ -1139,14 +1139,14 @@
   "17101 NE 28th Pl": {
    "cdom": 48,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "status": "Delisted",
+   "group": "departed"
   },
   "16839 NE 18th St": {
-   "cdom": 27,
-   "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "cdom": 41,
+   "asOf": "2026-11-18",
+   "status": "Pending",
+   "group": "departed"
   },
   "16728 SE 12th St": {
    "cdom": 3,
@@ -1161,8 +1161,8 @@
    "group": "Audubon"
   },
   "16613 NE 18th St": {
-   "cdom": 28,
-   "asOf": "2026-11-04",
+   "cdom": 42,
+   "asOf": "2026-11-18",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -1257,22 +1257,22 @@
    "group": "Bellevue 98008"
   },
   "17120 SE 29th Pl": {
-   "cdom": 112,
-   "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "cdom": 123,
+   "asOf": "2026-11-15",
+   "status": "Pending Inspection",
+   "group": "departed"
   },
   "12334 SE 23rd Pl": {
    "cdom": 165,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Woodridge"
+   "status": "Delisted",
+   "group": "departed"
   },
   "16817 NE 91st St": {
-   "cdom": 29,
-   "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "cdom": 39,
+   "asOf": "2026-11-15",
+   "status": "Pending",
+   "group": "departed"
   },
   "11030 SE 60th Ln": {
    "cdom": 27,
@@ -1281,10 +1281,10 @@
    "group": "Newport Heights"
   },
   "7003 134th Ave NE": {
-   "cdom": 23,
-   "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "cdom": 36,
+   "asOf": "2026-11-18",
+   "status": "Pending",
+   "group": "departed"
   },
   "5928 160th Ct NE": {
    "cdom": 25,
@@ -1293,10 +1293,10 @@
    "group": "Redmond 98052"
   },
   "2322 179th Ct NE": {
-   "cdom": 26,
-   "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "cdom": 37,
+   "asOf": "2026-11-15",
+   "status": "Pending",
+   "group": "departed"
   },
   "4038 169th Ave SE": {
    "cdom": 26,
@@ -1353,26 +1353,26 @@
    "group": "Woodridge"
   },
   "13229 174th Ave NE": {
-   "cdom": 13,
-   "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "cdom": 24,
+   "asOf": "2026-11-15",
+   "status": "Pending",
+   "group": "departed"
   },
   "13503 NE 78th Pl": {
-   "cdom": 11,
-   "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "cdom": 21,
+   "asOf": "2026-11-15",
+   "status": "Pending",
+   "group": "departed"
   },
   "17626 NE 136th St": {
-   "cdom": 12,
-   "asOf": "2026-11-04",
+   "cdom": 26,
+   "asOf": "2026-11-18",
    "status": "Active",
    "group": "Redmond 98052"
   },
   "16237 SE 7th St": {
-   "cdom": 13,
-   "asOf": "2026-11-04",
+   "cdom": 27,
+   "asOf": "2026-11-18",
    "status": "Active",
    "group": "Bellevue 98008"
   },
@@ -1383,15 +1383,15 @@
    "group": "Redmond 98052"
   },
   "12619 SE 26th Pl": {
-   "cdom": 5,
-   "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Woodridge"
+   "cdom": 16,
+   "asOf": "2026-11-15",
+   "status": "Pending",
+   "group": "departed"
   },
   "9901 167th Ave NE": {
    "cdom": 3,
    "asOf": "2026-11-04",
-   "status": "Active",
+   "status": "First Look",
    "group": "Redmond 98052"
   },
   "5415 159th Pl NE": {
@@ -1413,28 +1413,28 @@
    "group": "Redmond 98052"
   },
   "15718 NE 1st Pl": {
-   "cdom": 7,
-   "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Bellevue 98008"
+   "cdom": 18,
+   "asOf": "2026-11-15",
+   "status": "Pending Inspection",
+   "group": "departed"
   },
   "3940 172nd Ave NE": {
-   "cdom": 1,
-   "asOf": "2026-11-08",
-   "status": "Active",
-   "group": "Audubon"
+   "cdom": 3,
+   "asOf": "2026-11-15",
+   "status": "Pending",
+   "group": "departed"
   },
   "3516 120th Ave SE": {
    "cdom": 2,
    "asOf": "2026-11-08",
-   "status": "Active",
+   "status": "First Look",
    "group": "Newport Heights"
   },
   "6133 141st Ct NE": {
-   "cdom": 1,
-   "asOf": "2026-11-08",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "cdom": 8,
+   "asOf": "2026-11-15",
+   "status": "Pending",
+   "group": "departed"
   },
   "11321 165th Ct NE": {
    "cdom": 121,
@@ -1445,7 +1445,7 @@
   "2647 168th Ave NE": {
    "cdom": 1,
    "asOf": "2026-11-08",
-   "status": "Active",
+   "status": "First Look",
    "group": "Bellevue 98008"
   },
   "3843 169th Ave SE": {
@@ -1453,6 +1453,36 @@
    "asOf": "2026-11-08",
    "status": "Active",
    "group": "Bellevue 98008"
+  },
+  "5537 163rd Ct NE": {
+   "cdom": 68,
+   "asOf": "2026-11-18",
+   "status": "Active",
+   "group": "Redmond 98052"
+  },
+  "2225 169th Ave NE": {
+   "cdom": 1,
+   "asOf": "2026-11-15",
+   "status": "First Look",
+   "group": "Bellevue 98008"
+  },
+  "113 174th Pl NE": {
+   "cdom": 4,
+   "asOf": "2026-11-18",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "1106 167th Ave SE": {
+   "cdom": 6,
+   "asOf": "2026-11-18",
+   "status": "Active",
+   "group": "Bellevue 98008"
+  },
+  "17015 NE 112th Way": {
+   "cdom": 1,
+   "asOf": "2026-11-18",
+   "status": "First Look",
+   "group": "Redmond 98052"
   }
  }
 }
