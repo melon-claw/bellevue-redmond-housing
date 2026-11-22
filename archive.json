@@ -1,6 +1,58 @@
 {
  "entries": [
   {
+   "date": "2026-11-21",
+   "changes": [
+    "<span class=\"cl-new\">New</span> 5 new listings: 5503 Highland Dr ($1,800,000), 1865 128th Ave SE ($1,699,000), 16714 NE 107th St ($1,250,000), 2225 185th Pl NE ($1,575,000), 2657 W Lake Sammamish Pkwy SE ($1,895,000).",
+    "Two are target-catchment homes, both confirmed by the BSD boundary file: 5503 Highland Dr in Somerset and 1865 128th Ave SE in Woodridge (a Redfin &ldquo;First Look&rdquo; pre-broadcast). Two are in the Redmond 98052 sweep and one, 2657 W Lake Sammamish Pkwy SE, is in Bellevue 98008 and resolves to Spiritridge. All five read 1&ndash;2 cumulative days, so they are new to the market, and realtor.com does not yet show any of them as for sale. 2225 185th Pl NE carries a Redmond address but sits inside the BSD Bennett attendance area, the same district mismatch already flagged on 2311 185th Pl NE.",
+    "<span class=\"cl-drop\">Price drop</span> 7 cuts worth $503,000: 12406 SE 47th St $1,698,000 -&gt; $1,598,000 (&minus;$100,000); 17020 NE 129th Cir $1,890,000 -&gt; $1,795,000 (&minus;$95,000); 16235 NE 51st St $1,265,000 -&gt; $1,172,000 (&minus;$93,000); 14115 SE 45th St $1,860,000 -&gt; $1,790,000 (&minus;$70,000); 13233 SE 51st Pl $1,495,000 -&gt; $1,425,000 (&minus;$70,000); 12603 SE 26th Pl $1,610,000 -&gt; $1,550,000 (&minus;$60,000); 16717 SE 19th St $1,500,000 -&gt; $1,485,000 (&minus;$15,000).",
+    "Four of the seven are target-catchment homes: 12406 SE 47th St (Newport Heights, 72 cumulative days), 14115 SE 45th St (Somerset, 100), 13233 SE 51st Pl (Somerset, 65) and 12603 SE 26th Pl (Woodridge, 31). 13233 SE 51st Pl and 12406 SE 47th St have now each been cut twice. Cut flags sit on 44 of 75 actives, against 40 of 76 at the last refresh.",
+    "Address note: Redfin now spells 16717 SE 19th St as &ldquo;16717 19th St&rdquo; and lists it at 2,890 sqft (previously 2,290). It is the same Redfin property page, so it stays under its tracked address with the square footage updated.",
+    "<span class=\"cl-off\">Pending</span> 2 went under contract: 5415 159th Pl NE ($1,199,000), 1012 179th Pl NE ($1,220,000).",
+    "Both appear on the Redfin pending pages and neither is in a target catchment. 5415 159th Pl NE (Redmond 98052) went under contract at 19 cumulative days; 1012 179th Pl NE (Bellevue 98008, Pending Inspection) at 72. Neither had a logged price cut. Their cumulative days are frozen in cdom.json.",
+    "<span class=\"cl-off\">Delisted</span> 3 left the market: 11730 134th Pl NE ($1,875,000), 10108 186th Ct NE ($1,999,998), 15619 NE 1st Pl ($1,149,000).",
+    "None of the three is on a pending page and each Redfin page has lost its MLS number; the two Redmond pages fall back to sales from 2018 and 2016, so these read as withdrawals rather than closes. They had last read 54, 74 and 51 cumulative days. Flagged for review: realtor.com still reports all three as for sale.",
+    "<span class=\"cl-off\">Out of filter</span> 1 is still active but no longer matches the 4-bed search: 3843 169th Ave SE ($1,599,998).",
+    "Redfin now lists 3843 169th Ave SE as a 3-bed at $1,589,998 with a seller credit, which drops it out of the 4BD Bellevue 98008 sweep. It reads 16 cumulative days.",
+    "The 30-yr fixed rose to 7.28% (Freddie Mac PMMS, Nov 19) from 7.11%. ZIP typical values and the rent comp are unchanged; both are monthly series and carry forward between monthly refetches.",
+    "This entry covers 3 days since the last refresh on 2026-11-18. Tracking 75 active listings across four school catchments + two ZIP sweeps."
+   ],
+   "read": {
+    "lean": "rent",
+    "headline": "Five arrivals, two of them in target catchments, against six departures leave 75 listings; seven cuts total $503,000, and a rate rise to 7.28% widens the default rent lean to about $232K over seven years.",
+    "points": [
+     "<strong>Inventory held roughly steady.</strong> The tracker holds 75 active homes, down from 76 three days ago: 5 arrivals against 6 departures (2 contracts, 3 withdrawals and 1 home that left the 4-bed filter). Target catchments rose to 14 from 12 (Audubon 2, Somerset 5, Woodridge 2, Newport Heights 5), and 26 of 75 are under $1.5M, down from 27. The two ZIP sweeps hold the rest (Redmond 98052 41, Bellevue 98008 20).",
+     "<strong>Momentum tilts toward sellers giving ground.</strong> Seven prices were cut by $503,000 in total, four of them in target catchments, and 44 of 75 actives now carry a cut flag, up from 40 of 76. Against that, only two homes went under contract in three days while three were withdrawn.",
+     "<strong>What pending actually says.</strong> Pending is a stock that drains on a 30&ndash;45 day escrow clock, not a weekly flow, so two contracts over a three-day gap says little either way. Across all 93 recorded pendings, the median home went under contract at 35 cumulative days (quartiles about 15/35/75), and 40 of 93 (43%) did so inside a month. That median is biased low, because homes still sitting have not yet contributed their larger numbers: 21 actives have passed 90 days against 17 pendings that reached contract after 90, and closed homes lose their count, so the true time-to-contract runs longer. Neither new contract followed a logged cut; 39 of the 93 pendings did. The twelve contracts logged at the last refresh are now at most about two weeks into escrow, which is a normal closing timeline, not a sign of deals at risk.",
+     "<strong>Time on market.</strong> The median active listing reads 47 cumulative days at its last reading, 21 of 75 are past 90, and the longest-sitting is 7337 151st Ave NE at 252 days as of its Nov 18 reading.",
+     "<strong>Financing got more expensive.</strong> The 30-yr fixed is 7.28% (Freddie Mac PMMS, Nov 19), up from 7.11%. At $1.5M with 20% down that is about $8,211 a month in principal and interest, or $10,673 with tax and insurance, against an average 4BD rent comp of $4,768 a month (as of 2026-11).",
+     "<strong>Entry price in a strong catchment.</strong> The cheapest target-catchment home is still 17921 NE 27th St (Audubon) at $1,348,500, 70 cumulative days in as of its Nov 4 reading. Next is 13233 SE 51st Pl (Somerset), cut $70,000 to $1,425,000 at 65 days; those two are the only target homes under $1.5M. The new target listings enter higher: 1865 128th Ave SE (Woodridge) at $1,699,000 and 5503 Highland Dr (Somerset) at $1,800,000.",
+     "<strong>Implication.</strong> On the page&rsquo;s calculator at $1.5M, 20% down, 7.28% and 3%/yr appreciation, renting comes out about $231,548 cheaper over seven years, with breakeven around year 17. That breakeven is highly sensitive to the appreciation assumption: at 1%/yr it moves to about year 29, and at 0% renting stays cheaper for 30 years. Both ZIP typical values (Zillow ZHVI, through Sept 30) are negative year over year, Redmond 98052 &minus;4.3% and Bellevue 98008 &minus;5.3%, so the default 3% is an assumption, not an observation."
+    ]
+   },
+   "metrics": {
+    "active": 75,
+    "strong": 14,
+    "under15": 26,
+    "rate": 7.28,
+    "zhviRedmond": 1255271,
+    "zhviBellevue": 1291296,
+    "rent": 4768,
+    "cutsTotal": 44,
+    "new": 5,
+    "pending": 2,
+    "delisted": 3,
+    "cdomMedian": 47,
+    "cdomOver90": 21,
+    "cdomMax": 252,
+    "cdomAtContractMedian": 35,
+    "pendingStock": 93,
+    "reached90Active": 21,
+    "reached90Pending": 17,
+    "pendingCutFirst": 39
+   }
+  },
+  {
    "date": "2026-11-18",
    "changes": [
     "<span class=\"cl-new\">New</span> 5 new listings: 17015 NE 112th Way ($1,850,000), 5537 163rd Ct NE ($1,999,950), 1106 167th Ave SE ($1,895,000), 2225 169th Ave NE ($1,325,000), 113 174th Pl NE ($1,699,000).",
