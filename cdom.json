@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21",
+ "updated": "2026-11-24",
  "note": "Cumulative Days On Market as read from the Redfin MLS detail block. CDOM survives relists, unlike days-on-site counters. It is only published while a home is Active or Pending; once it closes, Redfin reverts the MLS block to the prior sold record and the field is gone, so departed homes show null.",
  "homes": {
   "3028 173rd Ct NE": {
@@ -281,8 +281,8 @@
   "12903 176th Pl NE": {
    "cdom": 131,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "11727 165th Pl NE": {
    "cdom": 228,
@@ -897,10 +897,10 @@
    "group": "Redmond 98052"
   },
   "8109 Avondale Way NE": {
-   "cdom": 75,
-   "asOf": "2026-11-15",
-   "status": "Pending Feasibility",
-   "group": "departed"
+   "cdom": 73,
+   "asOf": "2026-11-24",
+   "status": "Active",
+   "group": "Redmond 98052"
   },
   "3849 166th Ave SE": {
    "cdom": 18,
@@ -1091,8 +1091,8 @@
   "11321 178th Pl NE": {
    "cdom": 47,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Redmond 98052"
+   "status": "Delisted",
+   "group": "departed"
   },
   "17409 NE 136th St Unit B": {
    "cdom": 2,
@@ -1223,8 +1223,8 @@
   "5807 142nd Pl SE": {
    "cdom": 21,
    "asOf": "2026-11-04",
-   "status": "Active",
-   "group": "Somerset"
+   "status": "Delisted",
+   "group": "departed"
   },
   "5508 155th Ave NE": {
    "cdom": 19,
@@ -1407,8 +1407,8 @@
    "group": "Redmond 98052"
   },
   "4924 162nd Ct NE": {
-   "cdom": 0,
-   "asOf": "2026-11-04",
+   "cdom": 21,
+   "asOf": "2026-11-24",
    "status": "Active",
    "group": "Redmond 98052"
   },
@@ -1485,10 +1485,10 @@
    "group": "Redmond 98052"
   },
   "5503 Highland Dr": {
-   "cdom": 1,
-   "asOf": "2026-11-21",
-   "status": "Active",
-   "group": "Somerset"
+   "cdom": 4,
+   "asOf": "2026-11-24",
+   "status": "Pending",
+   "group": "departed"
   },
   "1865 128th Ave SE": {
    "cdom": 1,
